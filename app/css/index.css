@@ -1,0 +1,30 @@
+/* 
+(bundle from remote urls) 
+@import '//css-from-url';
+
+(bundle from npm)
+@import 'css-from-npm';
+
+(bundle from local)
+@import 'localfile.css' 
+
+(PresetENV)
+CSS powers @ https://preset-env.cssdb.org/features
+
+(Easings)
+only imports what you use 
+https://easings.net
+*/
+
+@import 'vars';
+@import 'hex';
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--text);
+  font-family: system-ui;
+  min-block-size: 100vh;
+  display: grid;
+  place-items: center;
+}
