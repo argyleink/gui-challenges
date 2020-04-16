@@ -1,0 +1,54 @@
+body {
+  min-block-size: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: system-ui;
+}
+
+.stories {
+  display: grid;
+  gap: 1rem;
+  grid-auto-flow: column;
+  grid-auto-columns: 100vw;
+  inline-size: 100vw;
+  block-size: 100vh;
+  overflow-x: auto;
+  background: hsl(0 0% 90%);
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  
+  @media (min-width: 480px) {
+    max-inline-size: 480px;
+    max-block-size: 848px;
+    grid-auto-columns: 480px;
+  }
+}
+
+.user {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  width: 100%;
+  height: 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.story {
+  background-image: var(--bg), linear-gradient(hsl(0 0% 90%), hsl(0 0% 98%));
+  background-size: cover;
+  grid-row: 1;
+  grid-column: 1;
+  padding: 2rem;
+  box-sizing: border-box;
+  color: white;
+  text-shadow: 0 1px 1px hsl(0 0% 0% / 50%);
+  font-size: 3rem;
+  font-weight: 300;
+  user-select: none;
+  touch-action: manipulation;
+
+  &.seen {
+	display: none;
+  }
+}
