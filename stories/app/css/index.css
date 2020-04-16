@@ -3,6 +3,7 @@ body {
   display: grid;
   place-items: center;
   font-family: system-ui;
+  margin: 0;
 }
 
 .stories {
@@ -13,9 +14,9 @@ body {
   inline-size: 100vw;
   block-size: 100vh;
   overflow-x: auto;
-  background: hsl(0 0% 90%);
   scroll-snap-type: x mandatory;
   overscroll-behavior-x: contain;
+  background: hsl(0 0% 90%);
   
   @media (min-width: 480px) {
     max-inline-size: 480px;
@@ -35,10 +36,10 @@ body {
 }
 
 .story {
-  background-image: var(--bg), linear-gradient(hsl(0 0% 90%), hsl(0 0% 98%));
-  background-size: cover;
   grid-row: 1;
   grid-column: 1;
+  background-image: var(--bg), linear-gradient(hsl(0 0% 90%), hsl(0 0% 98%));
+  background-size: cover;
   padding: 2rem;
   box-sizing: border-box;
   color: white;
