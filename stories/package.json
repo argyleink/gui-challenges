@@ -11,7 +11,7 @@
   "scripts": {
     "dev:js": "rollup -c -w",
     "dev:css": "postcss app/css/index.css -o app/bundle.css -w",
-    "dev:server": "browser-sync app --files 'app/**/*, !app/css/**, !app/js/**' --no-open --no-notify",
+    "dev:server": "browser-sync app --files 'app/**/*, !app/css/**, !app/js/**' --no-open --no-notify --no-ghost-mode",
     "prod:server": "browser-sync dist --no-open --no-notify --no-ghost-mode",
     "build:pre:js": "rollup -c --environment NODE_ENV:production",
     "build:pre:css": "postcss app/css/index.css -o dist/bundle.css",
