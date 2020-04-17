@@ -1,5 +1,9 @@
 const stories = document.querySelector('.stories')
-let median = stories.offsetLeft + (stories.clientWidth / 2)
+const median = stories.offsetLeft + (stories.clientWidth / 2)
+
+const state = {
+  current_story: stories.firstElementChild.lastElementChild
+}
 
 const navigateStories = (story, direction) => {
   const lastItemInUserStory = story.parentNode.firstElementChild
@@ -10,22 +14,30 @@ const navigateStories = (story, direction) => {
   if (direction === 'next') {
     if (lastItemInUserStory === story && !hasNextUserStory)
       return
-    else if (lastItemInUserStory === story && hasNextUserStory)
+    else if (lastItemInUserStory === story && hasNextUserStory) {
+      state.current_story = story.parentElement.nextElementSibling.lastElementChild
       story.parentElement.nextElementSibling.scrollIntoView({
         behavior: 'smooth'
       })
-    else
+    }
+    else {
       story.classList.add('seen')
+      state.current_story = story.previousElementSibling
+    }
   }
   else if(direction === 'prev') {
     if (firstItemInUserStory === story && !hasPrevUserStory)
       return
-    else if (firstItemInUserStory === story && hasPrevUserStory)
+    else if (firstItemInUserStory === story && hasPrevUserStory) {
+      state.current_story = story.parentElement.previousElementSibling.firstElementChild
       story.parentElement.previousElementSibling.scrollIntoView({
         behavior: 'smooth'
       })
-    else
+    }
+    else {
       story.nextElementSibling.classList.remove('seen')
+      state.current_story = story.nextElementSibling
+    }
   }
 }
 
@@ -33,8 +45,17 @@ stories.addEventListener('click', e => {
   if (e.target.nodeName !== 'ARTICLE') 
     return
   
-  navigateStories(e.target, 
+  navigateStories(state.current_story, 
     e.clientX > median 
       ? 'next' 
       : 'prev')
+})
+
+// left & right are free with snap points 👍
+document.addEventListener('keydown', ({key}) => {
+  if (key !== 'ArrowDown' || key !== 'ArrowUp')
+    navigateStories(state.current_story, 
+      key === 'ArrowDown'
+        ? 'next'
+        : 'prev')
 })
