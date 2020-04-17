@@ -48,6 +48,7 @@ body {
   font-weight: 300;
   user-select: none;
   touch-action: manipulation;
+  transition: opacity .2s cubic-bezier(0.4, 0.0, 1, 1);
 
   &.seen {
   	opacity: 0;
