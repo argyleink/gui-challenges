@@ -7,47 +7,51 @@ body {
 }
 
 .stories {
+  /* outer */
+  inline-size: 100vw;
+  block-size: 100vh;
+
+  /* inner */
   display: grid;
   gap: 1rem;
   grid-auto-flow: column;
   grid-auto-columns: 100vw;
-  inline-size: 100vw;
-  block-size: 100vh;
+  grid-auto-rows: 100vh;
+
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   overscroll-behavior-x: contain;
-  background: hsl(0 0% 90%);
   
+  /* desktop constraint */
   @media (min-width: 480px) {
     max-inline-size: 480px;
-    max-block-size: 848px;
     grid-auto-columns: 480px;
+    max-block-size: 848px;
+    grid-auto-rows: 848px;
   }
 }
 
 .user {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  width: 100%;
-  height: 100%;
+  /* outer */
   scroll-snap-align: start;
   scroll-snap-stop: always;
+
+  /* inner */
+  display: grid;
+  grid: [story] 1fr / [story] 1fr;
 }
 
 .story {
-  grid-row: 1;
-  grid-column: 1;
-  background-image: var(--bg), linear-gradient(hsl(0 0% 90%), hsl(0 0% 98%));
+  grid-area: story;
+
   background-size: cover;
-  padding: 2rem;
-  box-sizing: border-box;
-  color: white;
-  text-shadow: 0 1px 1px hsl(0 0% 0% / 50%);
-  font-size: 3rem;
-  font-weight: 300;
+  background-image: 
+    var(--bg), 
+    linear-gradient(to top, lch(98 0 0), lch(90 0 0));
+
   user-select: none;
   touch-action: manipulation;
+
   transition: opacity .2s cubic-bezier(0.4, 0.0, 1, 1);
 
   &.seen {
