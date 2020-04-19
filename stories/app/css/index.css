@@ -4,16 +4,44 @@ body {
   place-items: center;
   font-family: system-ui;
   margin: 0;
+  background: hsl(200 15% 93%);
+
+  /* parent owned aspects of the responsive stories */
+  & > .stories {
+    inline-size: 100vw;
+    block-size: 100vh;
+
+    border-radius: 3ch;
+    box-shadow:
+      0 5px 2.5px hsl(200 95% 3% / .037),
+      0 12px 6.5px hsl(200 95% 3% / .053),
+      0 22.5px 13px hsl(200 95% 3% / .065),
+      0 40.2px 24px hsl(200 95% 3% / .077),
+      0 75.2px 44px hsl(200 95% 3% / .093),
+      0 180px 80px hsl(200 95% 3% / .13)
+    ;
+
+    /* desktop constraint */
+    @media (min-width: 480px) {
+      max-inline-size: 480px;
+      grid-auto-columns: 480px;
+      max-block-size: 848px;
+      grid-auto-rows: 848px;
+    }
+
+    /* smaller desktop constraint */
+    @media (max-height: 720px) and (min-width: 720px) {
+      max-inline-size: 320px;
+      grid-auto-columns: 320px;
+      max-block-size: 568px;
+      grid-auto-rows: 568px;
+    }
+  }
 }
 
 .stories {
-  /* outer */
-  inline-size: 100vw;
-  block-size: 100vh;
-
-  /* inner */
   display: grid;
-  gap: 1rem;
+  gap: 1ch;
   grid-auto-flow: column;
   grid-auto-columns: 100vw;
   grid-auto-rows: 100vh;
@@ -21,14 +49,6 @@ body {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   overscroll-behavior-x: contain;
-  
-  /* desktop constraint */
-  @media (min-width: 480px) {
-    max-inline-size: 480px;
-    grid-auto-columns: 480px;
-    max-block-size: 848px;
-    grid-auto-rows: 848px;
-  }
 }
 
 .user {
@@ -52,7 +72,7 @@ body {
   user-select: none;
   touch-action: manipulation;
 
-  transition: opacity .2s cubic-bezier(0.4, 0.0, 1, 1);
+  transition: opacity .3s cubic-bezier(0.4, 0.0, 1, 1);
 
   &.seen {
   	opacity: 0;
