@@ -5,7 +5,8 @@ const state = {
   current_story: stories.firstElementChild.lastElementChild
 }
 
-const navigateStories = (story, direction) => {
+const navigateStories = direction => {
+  const story = state.current_story
   const lastItemInUserStory = story.parentNode.firstElementChild
   const firstItemInUserStory = story.parentNode.lastElementChild
   const hasNextUserStory = story.parentElement.nextElementSibling
@@ -45,7 +46,7 @@ stories.addEventListener('click', e => {
   if (e.target.nodeName !== 'ARTICLE') 
     return
   
-  navigateStories(state.current_story, 
+  navigateStories(
     e.clientX > median 
       ? 'next' 
       : 'prev')
@@ -54,7 +55,7 @@ stories.addEventListener('click', e => {
 // left & right are free with snap points 👍
 document.addEventListener('keydown', ({key}) => {
   if (key !== 'ArrowDown' || key !== 'ArrowUp')
-    navigateStories(state.current_story, 
+    navigateStories(
       key === 'ArrowDown'
         ? 'next'
         : 'prev')
