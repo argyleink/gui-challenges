@@ -20,12 +20,12 @@ body {
       0 180px 80px hsl(200 95% 3% / .13)
     ;
 
-    @media (orientation: landscape) {
+    @media (hover: hover) {
       border-radius: 3ch;
     }
 
     /* desktop constraint */
-    @media (min-width: 480px) {
+    @media (hover: hover) and (min-width: 480px) {
       max-inline-size: 480px;
       grid-auto-columns: 480px;
       max-block-size: 848px;
@@ -33,7 +33,7 @@ body {
     }
 
     /* smaller desktop constraint */
-    @media (max-height: 880px) and (min-width: 720px) {
+    @media (hover: hover) and (max-height: 880px) and (min-width: 720px) {
       max-inline-size: 320px;
       grid-auto-columns: 320px;
       max-block-size: 568px;
