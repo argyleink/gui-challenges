@@ -44,11 +44,8 @@ body {
 
 .stories {
   display: grid;
+  grid: 1fr / auto-flow 100vw;
   gap: 1ch;
-  grid-auto-flow: column;
-  grid-auto-columns: 100vw;
-  grid-auto-rows: 100vh;
-
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   overscroll-behavior-x: contain;
