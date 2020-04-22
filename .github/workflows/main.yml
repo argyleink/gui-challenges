@@ -1,4 +1,4 @@
-name: CI
+name: Deploy
 
 on:
   push:
@@ -13,12 +13,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       
-    - name: Install Dependencies
-      run: cd stories && npm install
+    - name: Build Challenges
+      run: cd stories && npm install && npm run build
       
-    - name: Build Stories
-      run: cd stories && npm run build
-
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
       with:
