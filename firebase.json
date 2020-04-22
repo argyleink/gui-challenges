@@ -1,11 +1,14 @@
 {
   "hosting": {
     "public": "/",
-    "redirects": {
-      "source": "/stories",
-      "destination": "/stories/dist",
-      "type": 301
-    },
+    "cleanUrls": true,
+    "trailingSlash": true,
+    "rewrites": [
+      {
+        "source": "/stories/**",
+        "destination": "/stories/dist/index.html"
+      }
+    ],
     "ignore": [
       "firebase.json",
       "**/.*",
