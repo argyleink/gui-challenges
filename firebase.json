@@ -3,6 +3,21 @@
     "public": "/",
     "cleanUrls": true,
     "trailingSlash": true,
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/stories/dist/"
+      },
+      {
+        "source": "/stories/{,/**}",
+        "destination": "/stories/dist/index.html"
+      },
+      {
+        // Excludes specified pathways from rewrites
+        "source": "!/stories/@(js|css)/**",
+        "destination": "/stories/dist/"
+      }
+    ],
     "ignore": [
       "firebase.json",
       "**/.*",
