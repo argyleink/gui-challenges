@@ -22,4 +22,4 @@ jobs:
         args: deploy --only hosting
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        PROJECT_ID: visbug-1337
+        PROJECT_ID: gui-challenges
