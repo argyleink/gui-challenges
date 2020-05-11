@@ -1,0 +1,26 @@
+body {
+  background: var(--surface1);
+  color: var(--text1);
+  font-family: system-ui;
+  display: grid;
+  place-items: center;
+  padding: 5ch;
+}
+
+h1 {
+  margin: 0;
+  font-weight: lighter;
+  padding: 1ch 2ch;
+  background: var(--surface1);
+  border-radius: 1rem;
+}
+
+article {
+  margin: 5ch;
+  background: var(--surface2);
+  border-radius: 1rem 1rem 0 1rem;
+  color: var(--text1);
+  
+  overflow: auto;
+  resize: both;
+}

@@ -1,0 +1,11 @@
+:root {
+  --surface1: lch(5 0 0);
+  --surface2: lch(25 0 0);
+  --text1: hsl(200 20% 80%);
+
+  @media (prefers-color-scheme: light) {
+    --surface1: lch(100 0 0);
+    --surface2: lch(80 0 0);
+    --text1: hsl(200 20% 20%);
+  }
+}

@@ -1,0 +1,9 @@
+[margin] {
+  /* inner */
+  display: flex;
+  
+  & > * {
+    /* outer */
+    margin: auto;
+  }
+}

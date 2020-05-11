@@ -1,75 +1,16 @@
-:root {
-  --surface1: lch(5 0 0);
-  --surface2: lch(25 0 0);
-  --text1: hsl(200 20% 80%);
+@import 'vars.css';
+@import 'demo.css';
 
-  @media (prefers-color-scheme: light) {
-    --surface1: lch(90 0 0);
-    --surface2: lch(80 0 0);
-    --text1: hsl(200 20% 20%);
-  }
-}
-
-body {
-  background: var(--surface1);
-  color: var(--text1);
-  font-family: system-ui;
-  display: grid;
-  place-items: center;
-  padding: 5ch;
-}
-
-h1 {
-  margin: 0;
-  font-weight: lighter;
-  padding: 1ch 2ch;
-  background: var(--surface1);
-  border-radius: 1rem;
-}
-
-article {
-  margin: 5ch;
-  background: var(--surface2);
-  border-radius: 1rem 1rem 0 1rem;
-  color: var(--text1);
-  
-  overflow: auto;
-  resize: both;
-}
-
-[grid] {
-  /* inner */
-  display: grid;
-  place-content: center;
-}
-
-[flex] {
-  /* inner */
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-  justify-content: center;
-}
-
-[margin] {
-  /* inner */
-  display: flex;
-  
-  & > * {
-    /* outer */
-    margin: auto;
-  }
-}
+@import 'grid.css';
+@import 'flex.css';
+@import 'margin.css';
+@import 'padding.css';
+@import 'absolute.css';
 
 [padding] {
   /* inner */
   display: grid;
   place-content: center;
-  
-  & > * {
-    /* inner */
-    padding: 15vmin;
-  }
 }
 
 [absolute] {
@@ -77,13 +18,4 @@ article {
   position: relative;
   min-block-size: 10ch;
   min-inline-size: 30ch;
-
-  & > h1 {
-    /* outer */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    /* inner */
-    transform: translate(-50%, -50%);
-  }
 }

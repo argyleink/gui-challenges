@@ -1,0 +1,5 @@
+[grid] {
+  /* inner */
+  display: grid;
+  place-content: center;
+}
