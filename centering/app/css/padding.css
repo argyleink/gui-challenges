@@ -2,3 +2,10 @@
   /* inner */
   padding: 15vmin;
 }
+
+/* support styles */
+[padding] {
+  /* inner */
+  display: grid;
+  place-content: center;
+}

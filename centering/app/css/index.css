@@ -7,16 +7,3 @@
 @import 'margin.css';
 @import 'padding.css';
 @import 'absolute.css';
-
-[padding] {
-  /* inner */
-  display: grid;
-  place-content: center;
-}
-
-[absolute] {
-  /* inner */
-  position: relative;
-  min-block-size: 10ch;
-  min-inline-size: 30ch;
-}

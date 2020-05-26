@@ -7,3 +7,11 @@
   /* inner */
   transform: translate(-50%, -50%);
 }
+
+/* support styles */
+[absolute] {
+  /* inner */
+  position: relative;
+  min-block-size: 10ch;
+  min-inline-size: 30ch;
+}
