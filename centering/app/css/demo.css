@@ -1,6 +1,7 @@
 body {
   background: var(--surface1);
   color: var(--text1);
+  font-size: 200%;
   font-family: system-ui;
   display: grid;
   place-content: center;
