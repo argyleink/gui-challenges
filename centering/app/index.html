@@ -9,32 +9,104 @@
     <meta name="theme-color" content="#ff69b4">
     <meta name="description" content="🙂">
 
+    <link rel="preload" href="//unpkg.com/prism-themes@1.1.0/themes/prism-atom-dark.css" as="style" onload="this.rel='stylesheet'">
     <link rel="stylesheet" href="bundle.css">
     <script src="bundle.js" type="module" defer></script>
   </head>
   <body>
 
-    <article grid style="height: 25vh; width: 35vmax;">
-      <h1>grid + place-content</h1>
-      <small>parent owned</small>
-    </article>
+    <section>
+      <details>
+        <summary>CSS</summary>
+        <pre class="language-css show-language">
+          <code>
+.grid-center {
+  display: grid;
+  place-content: center;
+}
+          </code>
+        </pre>
+      </details>
+      <article grid style="height: 25vh; width: 35vmax;">
+        <h1>grid + place-content</h1>
+        <small>parent owned</small>
+      </article>
+    </section>
 
-    <article flex style="height: 25vh; width: 40vmax;">
-      <h1>flex + direction & alignment</h1>
-      <small>parent owned</small>
-    </article>
+    <section>
+      <details>
+        <summary>CSS</summary>
+        <pre class="language-css show-language">
+          <code>
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+          </code>
+        </pre>
+      </details>
+      <article flex style="height: 25vh; width: 40vmax;">
+        <h1>flex + direction & alignment</h1>
+        <small>parent owned</small>
+      </article>
+    </section>
 
-    <article margin style="height: 25vh; width: 30vmax;">
-      <h1>flex > margin auto</h1>
-    </article>
+    <section>
+      <details>
+        <summary>CSS</summary>
+        <pre class="language-css show-language">
+          <code>
+.flex-margin-center {
+  display: flex;
+  
+  & > * {
+    margin: auto;
+  }
+}
+          </code>
+        </pre>
+      </details>
+      <article margin style="height: 25vh; width: 30vmax;">
+        <h1>flex > margin auto</h1>
+      </article>
+    </section>
 
-    <article padding style="height: 50vh; width: 50vmax;">
-      <h1>> padding</h1>
-    </article>
+    <section>
+      <details>
+        <summary>CSS</summary>
+        <pre class="language-css show-language">
+          <code>
+.padding-center {
+  padding: 15vmin;
+}
+          </code>
+        </pre>
+      </details>
+      <article padding style="height: 50vh; width: 50vmax;">
+        <h1>> padding</h1>
+      </article>
+    </section>
 
-    <article absolute style="height: 40vh; width: 40vmax;">
-      <h1>> absolute & transform</h1>
-    </article>
+    <section>
+      <details>
+        <summary>CSS</summary>
+        <pre class="language-css show-language">
+          <code>
+.absolutely-transformed-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+          </code>
+        </pre>
+      </details>
+      <article absolute style="height: 40vh; width: 40vmax;">
+        <h1>> absolute & transform</h1>
+      </article>
+    </section>
     
   </body>
 </html>

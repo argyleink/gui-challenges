@@ -3,7 +3,7 @@ body {
   color: var(--text1);
   font-family: system-ui;
   display: grid;
-  place-items: center;
+  place-content: center;
   padding-block: 5ch;
 }
 
@@ -13,6 +13,17 @@ h1 {
   padding: 1ch 2ch;
   background: var(--surface1);
   border-radius: 1rem;
+}
+
+section {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 30vw 1fr;
+  gap: 5ch;
+
+  & > details {
+    justify-self: flex-start;
+  }
 }
 
 article {
