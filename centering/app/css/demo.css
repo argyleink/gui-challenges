@@ -4,6 +4,7 @@ body {
   font-size: 200%;
   font-family: system-ui;
   display: grid;
+  grid-auto-rows: 60vh;
   place-content: center;
   padding-block: 5ch;
 }
@@ -35,11 +36,6 @@ article {
   
   overflow: auto;
   resize: both;
-
-  @media (max-width: 500px) {
-    width: 100%;
-    height: 30vh;
-  }
 }
 
 summary, label {
