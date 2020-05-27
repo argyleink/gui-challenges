@@ -41,3 +41,12 @@ article {
     height: 30vh;
   }
 }
+
+summary, label {
+  cursor: pointer;
+}
+
+.option {
+  font-size: 75%;
+  user-select: none;
+}
