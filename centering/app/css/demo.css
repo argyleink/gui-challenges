@@ -40,6 +40,7 @@ article {
 
 summary, label {
   cursor: pointer;
+  font-weight: lighter;
 }
 
 .option {
