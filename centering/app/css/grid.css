@@ -4,3 +4,8 @@
   place-content: center;
   gap: 1ch;
 }
+
+/* support styles */
+[grid] {
+  border: 2px solid hotpink;
+}

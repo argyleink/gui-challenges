@@ -6,3 +6,8 @@
   justify-content: center;
   gap: 1ch;
 }
+
+/* support styles */
+[flex] {
+  border: 2px solid hotpink;
+}

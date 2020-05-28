@@ -8,4 +8,8 @@
   /* inner */
   display: grid;
   place-content: center;
+
+  & > * {
+    border: 2px solid hotpink;
+  }
 }

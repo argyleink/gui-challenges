@@ -7,3 +7,8 @@
     margin: auto;
   }
 }
+
+/* support styles */
+[margin], [margin] > * {
+  border: 2px solid hotpink;
+}
