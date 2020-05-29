@@ -16,6 +16,15 @@
         // Excludes specified pathways from rewrites
         "source": "!/stories/@(js|css)/**",
         "destination": "/stories/dist/"
+      },
+      {
+        "source": "/sidenav/{,/**}",
+        "destination": "/sidenav/dist/index.html"
+      },
+      {
+        // Excludes specified pathways from rewrites
+        "source": "!/sidenav/@(js|css)/**",
+        "destination": "/sidenav/dist/"
       }
     ],
     "ignore": [
