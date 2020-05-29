@@ -1,0 +1,49 @@
+body {
+  background: var(--surface1);
+  color: var(--text1);
+  font-size: 200%;
+  font-family: system-ui;
+  display: grid;
+  grid-auto-rows: 60vh;
+  place-content: center;
+  padding-block: 5ch;
+}
+
+h1 {
+  margin: 0;
+  font-weight: lighter;
+  padding: 1ch 2ch;
+  background: var(--surface1);
+  border-radius: 1rem;
+}
+
+section {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 30vw 1fr;
+  gap: 5ch;
+
+  & > details {
+    justify-self: flex-start;
+  }
+}
+
+article {
+  margin-block: 5ch;
+  background: var(--surface2);
+  border-radius: 1rem 1rem 0 1rem;
+  color: var(--text1);
+  
+  overflow: auto;
+  resize: both;
+}
+
+summary, label {
+  cursor: pointer;
+  font-weight: lighter;
+}
+
+.option {
+  font-size: 75%;
+  user-select: none;
+}

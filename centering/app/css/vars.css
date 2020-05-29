@@ -1,0 +1,15 @@
+:root {
+  --surface1: lch(5 0 0);
+  --surface2: lch(25 0 0);
+  --text1: hsl(200 20% 80%);
+
+  --pink: hsl(330 60% 71%);
+  --purple: hsl(267 90% 70%);
+  --blue: hsl(188 90% 70%);
+
+  @media (prefers-color-scheme: light) {
+    --surface1: lch(100 0 0);
+    --surface2: lch(80 0 0);
+    --text1: hsl(200 20% 20%);
+  }
+}
