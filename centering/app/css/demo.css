@@ -24,7 +24,7 @@ section {
   gap: 5ch;
 
   & > details {
-    justify-self: flex-start;
+    justify-self: flex-end;
   }
 }
 
