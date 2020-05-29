@@ -18,6 +18,9 @@ jobs:
 
     - name: Build Centering
       run: cd centering && npm install && npm run build
+
+    - name: Build Sidenav
+      run: cd sidenav && npm install && npm run build
       
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
