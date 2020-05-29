@@ -21,18 +21,23 @@ main {
   display: grid;
   grid-template-columns: max-content 1fr;
   position: relative;
+  min-height: 100vh;
   
   @media (min-width: 540px) {
     gap: 2rem;
+  }
+
+  @media (max-width: 540px) {
+    & > section,
+    & > aside {
+      grid-column: span 2;
+      grid-row: 1;
+    }
   }
 }
 
 section {
   padding: 1.5rem;
-  
-  @media (max-width: 540px) {
-    grid-column: span 2;
-  }
   
   & > nav {
     display: flex;
@@ -60,15 +65,11 @@ aside {
   background-color: white;
   color: hsl(0 0% 20%);
   padding: 2rem;
+  box-sizing: border-box;
   
   @media (max-width: 540px) {
     box-shadow: 5px 0 40px hsla(0 0% 0% / .75);
-    position: fixed;
-    bottom: 0;
-    top: 0;
-    z-index: 1;
     width: 90vw;
-    box-sizing: border-box;
     transform: translateX(-110vw);
     transition: transform .6s var(--easeOutExpo);
     will-change: transform;
