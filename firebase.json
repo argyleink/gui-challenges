@@ -7,24 +7,6 @@
       {
         "source": "**",
         "destination": "/stories/dist/"
-      },
-      {
-        "source": "/stories/{,/**}",
-        "destination": "/stories/dist/index.html"
-      },
-      {
-        // Excludes specified pathways from rewrites
-        "source": "!/stories/@(js|css)/**",
-        "destination": "/stories/dist/"
-      },
-      {
-        "source": "/centering/{,/**}",
-        "destination": "/centering/dist/index.html"
-      },
-      {
-        // Excludes specified pathways from rewrites
-        "source": "!/centering/@(js|css)/**",
-        "destination": "/centering/dist/"
       }
     ],
     "ignore": [
