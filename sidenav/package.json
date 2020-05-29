@@ -1,0 +1,44 @@
+{
+  "name": "shortstack",
+  "version": "1.1.6",
+  "author": "Adam Argyle",
+  "description": "rollup & postcss bundler starter",
+  "license": "ISC",
+  "main": "index.js",
+  "browserslist": [
+    "defaults"
+  ],
+  "scripts": {
+    "dev:js": "rollup -c -w",
+    "dev:css": "postcss app/css/index.css -o app/bundle.css -w",
+    "dev:server": "browser-sync app --files 'app/**/*, !app/css/**, !app/js/**' --no-open --no-notify",
+    "prod:server": "browser-sync dist --no-open --no-notify --no-ghost-mode",
+    "build:pre:js": "rollup -c --environment NODE_ENV:production",
+    "build:pre:css": "postcss app/css/index.css -o dist/bundle.css --env production",
+    "build:post:copy": "cp app/index.html dist/index.html",
+    "build": "rm -rf dist && concurrently npm:build:pre:* && concurrently npm:build:post:*",
+    "start": "concurrently --kill-others npm:dev:*",
+    "production": "npm run build && npm run prod:server"
+  },
+  "devDependencies": {
+    "@ampproject/rollup-plugin-closure-compiler": "0.25.2",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@rollup/plugin-node-resolve": "^7.1.3",
+    "browser-sync": "2.26.7",
+    "concurrently": "5.1.0",
+    "cssnano": "^4.1.10",
+    "import-http": "^0.3.1",
+    "postcss": "7.0.27",
+    "postcss-cli": "7.1.0",
+    "postcss-easings": "^2.0.0",
+    "postcss-import": "^12.0.1",
+    "postcss-import-url": "^5.1.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "6.7.0",
+    "rollup": "2.7.2",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-postcss": "^3.1.0",
+    "rollup-plugin-terser": "^5.3.0"
+  }
+}
