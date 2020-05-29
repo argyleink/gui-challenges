@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Centering | GUI Challenges</title>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#ff69b4">
+    <meta name="description" content="🙂">
+
+    <link rel="preload" href="//unpkg.com/prism-themes@1.1.0/themes/prism-atom-dark.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="stylesheet" href="bundle.css">
+    <script src="bundle.js" type="module" defer></script>
+  </head>
+  <body>
+
+    <section>
+      <details>
+        <summary>CSS</summary>
+        <pre class="language-css show-language">
+          <code>
+.grid-center {
+  display: grid;
+  place-content: center;
+  gap: 1ch;
+}
+          </code>
+        </pre>
+        <div class="option">
+          <input type="checkbox" name="direction" id="rtl" value="rtl">
+          <label for="rtl">rtl</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" name="writing-mode" id="vertical-rl" value="vertical-rl">
+          <label for="vertical-rl">vertical-rl</label>
+        </div>
+      </details>
+      <article grid style="height: 25vh; width: 35vmax;">
+        <h1>Grid & Place Content</h1>
+      </article>
+    </section>
+
+    <section>
+      <details>
+        <summary>CSS</summary>
+        <pre class="language-css show-language">
+          <code>
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1ch;
+}
+          </code>
+        </pre>
+        <div class="option">
+          <input type="checkbox" name="direction" id="rtl2" value="rtl">
+          <label for="rtl2">rtl</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" name="writing-mode" id="vertical-rl2" value="vertical-rl">
+          <label for="vertical-rl2">vertical-rl</label>
+        </div>
+      </details>
+      <article flex style="height: 25vh; width: 40vmax;">
+        <h1>Flex & (Direction + Alignment)</h1>
+      </article>
+    </section>
+
+    <section>
+      <details>
+        <summary>CSS</summary>
+        <pre class="language-css show-language">
+          <code>
+.flex-margin-center {
+  display: flex;
+  
+  & > * {
+    margin: auto;
+  }
+}
+          </code>
+        </pre>
+        <div class="option">
+          <input type="checkbox" name="direction" id="rtl3" value="rtl">
+          <label for="rtl3">rtl</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" name="writing-mode" id="vertical-rl3" value="vertical-rl">
+          <label for="vertical-rl3">vertical-rl</label>
+        </div>
+      </details>
+      <article margin style="height: 25vh; width: 30vmax;">
+        <h1>Flex & Auto Margin</h1>
+      </article>
+    </section>
+
+    <section>
+      <details>
+        <summary>CSS</summary>
+        <pre class="language-css show-language">
+          <code>
+.padding-center {
+  padding: 15vmin;
+}
+          </code>
+        </pre>
+        <div class="option">
+          <input type="checkbox" name="direction" id="rtl4" value="rtl">
+          <label for="rtl4">rtl</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" name="writing-mode" id="vertical-rl4" value="vertical-rl">
+          <label for="vertical-rl4">vertical-rl</label>
+        </div>
+      </details>
+      <article padding style="height: 50vh; width: 50vmax;">
+        <h1>Padding</h1>
+      </article>
+    </section>
+
+    <section>
+      <details>
+        <summary>CSS</summary>
+        <pre class="language-css show-language">
+          <code>
+.absolutely-transformed-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+          </code>
+        </pre>
+        <div class="option">
+          <input type="checkbox" name="direction" id="rtl5" value="rtl">
+          <label for="rtl5">rtl</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" name="writing-mode" id="vertical-rl5" value="vertical-rl">
+          <label for="vertical-rl5">vertical-rl</label>
+        </div>
+      </details>
+      <article absolute style="height: 40vh; width: 40vmax;">
+        <h1>Absolute & Transform</h1>
+      </article>
+    </section>
+    
+  </body>
+</html>

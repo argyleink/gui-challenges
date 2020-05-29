@@ -18,6 +18,14 @@
         "destination": "/stories/dist/"
       },
       {
+        "source": "/centering/{,/**}",
+        "destination": "/centering/dist/index.html"
+      },
+      {
+        "source": "!/centering/@(js|css)/**",
+        "destination": "/centering/dist/"
+      },
+      {
         "source": "/sidenav/{,/**}",
         "destination": "/sidenav/dist/index.html"
       },

@@ -1,0 +1,41 @@
+code[class*="language-"], pre[class*="language-"] {
+  font-size: 1.5rem;
+  display: inline-block;
+  color: lch(90 0 0);
+  font-family: 'Dank Mono', 'Operator Mono', 'Inconsolata', 'Fira Mono', 'SF Mono', 'Monaco', 'Droid Sans Mono', 'Source Code Pro', monospace;
+}
+
+.line-numbers .line-numbers-rows {
+  border-right: 1px solid hsl(0 0% 20%);
+  width: 2.5em;
+}
+
+.token {
+  &:matches(.property, .keyword, .tag, .function) {
+    color: var(--blue);
+  }
+
+  &:matches(.selector, .attr-name, .operator, .char, .builtin, .inserted) {
+    color: var(--purple);
+  }
+
+  &:matches(.punctuation) {
+    color: lch(50 0 0);
+  }
+
+  &:matches(.attr-value, .string) {
+    color: lch(90 0 0);
+  }
+
+  &:matches(.class-name, .number) {
+    color: var(--pink);
+  }
+
+  &:matches(.property, .tag, .function, .comment) {
+    font-style: italic;
+  }
+}
+
+.line-numbers-rows > span:before {
+  color: var(--text);
+}

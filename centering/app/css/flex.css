@@ -1,0 +1,13 @@
+[flex] {
+  /* inner */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1ch;
+}
+
+/* support styles */
+[flex] {
+  border: 2px solid hotpink;
+}
