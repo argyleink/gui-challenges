@@ -12,8 +12,6 @@
 [absolute] {
   /* inner */
   position: relative;
-  min-block-size: 10ch;
-  min-inline-size: 30ch;
   border: 2px solid cyan;
 
   & > * {
