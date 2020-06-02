@@ -12,7 +12,7 @@
 [absolute] {
   /* inner */
   position: relative;
-  border: 2px solid cyan;
+  border: 2px solid hotpink;
 
   & > * {
     border: 2px solid hotpink;
