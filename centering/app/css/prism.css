@@ -5,6 +5,10 @@ code[class*="language-"], pre[class*="language-"] {
   font-family: 'Dank Mono', 'Operator Mono', 'Inconsolata', 'Fira Mono', 'SF Mono', 'Monaco', 'Droid Sans Mono', 'Source Code Pro', monospace;
 }
 
+pre[class*="language-"] {
+  padding: 1em 1.25em;
+}
+
 .line-numbers .line-numbers-rows {
   border-right: 1px solid hsl(0 0% 20%);
   width: 2.5em;
