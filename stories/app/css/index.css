@@ -27,24 +27,20 @@ body {
     /* desktop constraint */
     @media (hover: hover) and (min-width: 480px) {
       max-inline-size: 480px;
-      grid-auto-columns: 480px;
       max-block-size: 848px;
-      grid-auto-rows: 848px;
     }
 
     /* smaller desktop constraint */
     @media (hover: hover) and (max-height: 880px) and (min-width: 720px) {
       max-inline-size: 320px;
-      grid-auto-columns: 320px;
       max-block-size: 568px;
-      grid-auto-rows: 568px;
     }
   }
 }
 
 .stories {
   display: grid;
-  grid: 1fr / auto-flow 100vw;
+  grid: 1fr / auto-flow 100%;
   gap: 1ch;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
