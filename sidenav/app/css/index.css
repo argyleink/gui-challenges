@@ -48,20 +48,26 @@ section {
     margin-block-end: 1rem;
     margin-block-start: -1rem;
   }
-  
-  & > nav > .hamburger {
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    margin-inline-start: -1rem;
+}
 
-    &:hover svg {
-      fill: deeppink;
-    }
-    
-    @media (min-width: 540px) {
-      display: none;
-    }
+.hamburger {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 50%;
+  margin-inline-start: -1rem;
+
+  &:hover svg {
+    fill: deeppink;
+  }
+
+  &:active,
+  &:hover {
+    background: hsl(0 0% 0% / 10%);
+  }
+  
+  @media (min-width: 540px) {
+    display: none;
   }
 }
 
@@ -96,6 +102,9 @@ aside {
     right: -10vw;
     z-index: 10;
     background-color: hsla(0,0%,0%,0%);
+    /* push off screen to allow screenreader access */
+    text-indent: 200vw;
+    white-space: nowrap;
   }
   
   & > nav {
