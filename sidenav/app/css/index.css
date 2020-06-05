@@ -44,13 +44,16 @@ section {
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid hsl(0 0% 90%);
-    padding-block-end: 1rem;
+    min-block-size: 3rem;
     margin-block-end: 1rem;
+    margin-block-start: -1rem;
   }
   
   & > nav > .hamburger {
     display: flex;
     align-items: center;
+    padding: 1rem;
+    margin-inline-start: -1rem;
 
     &:hover svg {
       fill: deeppink;
