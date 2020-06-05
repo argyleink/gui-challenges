@@ -49,6 +49,9 @@ section {
   }
   
   & > nav > .hamburger {
+    display: flex;
+    align-items: center;
+
     &:hover svg {
       fill: deeppink;
     }
@@ -64,12 +67,13 @@ aside {
   
   background-color: white;
   color: hsl(0 0% 20%);
-  padding: 2rem;
+  padding: 4rem 2rem 2rem;
   box-sizing: border-box;
   
   @media (max-width: 540px) {
     box-shadow: 5px 0 40px hsla(0 0% 0% / .75);
     width: 90vw;
+    padding: 2rem;
     transform: translateX(-110vw);
     transition: transform .6s var(--easeOutExpo);
     will-change: transform;
