@@ -49,7 +49,6 @@ aside {
   
   & > a {
     min-width: 10vw;
-    background-color: hsla(0,0%,0%,0%);
 
     /* push off screen to allow screenreader access */
     text-indent: 200vw;
@@ -62,16 +61,15 @@ aside {
 }
 
 article {
-  padding: 1.5rem;
+  padding-inline: 1.5rem;
 
   & > header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid hsl(0 0% 90%);
+    border-block-end: 1px solid hsl(0 0% 90%);
     min-block-size: 3rem;
     margin-block-end: 1rem;
-    margin-block-start: -1rem;
   }
 }
 
@@ -85,7 +83,7 @@ article {
   color: hsl(0 0% 20%);
 
   @media (min-width: 540px) {
-    padding-block-start: 5rem;
+    padding-block-start: 4.5rem;
   }
 
   @media (max-width: 540px) {
