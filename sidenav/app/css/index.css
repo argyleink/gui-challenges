@@ -24,7 +24,8 @@ body {
 
   /* todo: a push transition version */
   @media (max-width: 540px) {
-    & > :is(article, aside) {
+    & > article,
+    & > aside {
       grid-area: stack;
     }
 
