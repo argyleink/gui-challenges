@@ -17,29 +17,54 @@ body {
   padding: 0;
 }
 
-main {
+.sidenav {
   display: grid;
-  grid-template-columns: max-content 1fr;
-  position: relative;
+  grid: [stack] 1fr / min-content [stack] 1fr;
   min-height: 100vh;
-  
-  @media (min-width: 540px) {
-    gap: 2rem;
-  }
 
+  /* todo: a push transition version */
   @media (max-width: 540px) {
-    & > section,
+    & > :is(article, aside) {
+      grid-area: stack;
+    }
+
     & > aside {
-      grid-column: span 2;
-      grid-row: 1;
+      --easeOutExpo: cubic-bezier(0.16, 1, 0.3, 1);
+      overscroll-behavior: contain;
+
+      transform: translateX(-110vw);
+      transition: transform .6s var(--easeOutExpo);
+      will-change: transform;
+      
+      &:target {
+        transform: translateX(0);
+      }
     }
   }
 }
 
-section {
-  padding: 1.5rem;
+aside {
+  display: grid;
+  grid-template-columns: [nav] max-content [escape] 1fr;
   
-  & > nav {
+  & > a {
+    min-width: 10vw;
+    background-color: hsla(0,0%,0%,0%);
+
+    /* push off screen to allow screenreader access */
+    text-indent: 200vw;
+    white-space: nowrap;
+
+    @media (min-width: 540px) {
+      display: none;
+    }
+  }
+}
+
+article {
+  padding: 1.5rem;
+
+  & > header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -50,12 +75,41 @@ section {
   }
 }
 
+.brandnav {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 1ch;
+  padding: 2rem;
+
+  background-color: white;
+  color: hsl(0 0% 20%);
+
+  @media (min-width: 540px) {
+    padding-block-start: 5rem;
+  }
+
+  @media (max-width: 540px) {
+    box-shadow: 5px 0 40px hsla(0 0% 0% / .75);
+    min-width: 20ch;
+  }
+
+  & > h4:not(:first-child) {
+    margin-block-start: 2rem;
+  }
+}
+
 .hamburger {
   display: flex;
   align-items: center;
   padding: 1rem;
   border-radius: 50%;
   margin-inline-start: -1rem;
+  block-size: 24px;
+  inline-size: 24px;
+  
+  @media (min-width: 540px) {
+    display: none;
+  }
 
   &:hover svg {
     fill: deeppink;
@@ -65,57 +119,19 @@ section {
   &:hover {
     background: hsl(0 0% 0% / 10%);
   }
-  
-  @media (min-width: 540px) {
-    display: none;
-  }
-}
 
-aside {
-  --easeOutExpo: cubic-bezier(0.16, 1, 0.3, 1);
-  
-  background-color: white;
-  color: hsl(0 0% 20%);
-  padding: 4rem 2rem 2rem;
-  box-sizing: border-box;
-  
-  @media (max-width: 540px) {
-    box-shadow: 5px 0 40px hsla(0 0% 0% / .75);
-    width: 90vw;
-    padding: 2rem;
-    transform: translateX(-110vw);
-    transition: transform .6s var(--easeOutExpo);
-    will-change: transform;
-    overscroll-behavior: contain;
-  }
-  
-  &:target {
-    transform: translateX(0);
-  }
-  
-  & > .backdrop {
-    content: "";
-    width: 10vw !important;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    right: -10vw;
-    z-index: 10;
-    background-color: hsla(0,0%,0%,0%);
-    /* push off screen to allow screenreader access */
-    text-indent: 200vw;
-    white-space: nowrap;
-  }
-  
-  & > nav {
-    display: grid;
-    gap: 1ch;
-    margin-block: 1ch 3ch;
+  & > svg {
+    width: 100%;
   }
 }
 
 h1,h2,h3,h4,figure {
   margin: 0;
+}
+
+nav > h4 {
+  text-transform: uppercase;
+  font-size: .8rem;
 }
 
 p {
@@ -126,4 +142,8 @@ p {
 
 a {
   color: deeppink;
+
+  &:is(:hover, :active, :focus) {
+    color: rebeccapurple;
+  }
 }
