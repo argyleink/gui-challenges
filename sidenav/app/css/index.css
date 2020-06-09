@@ -15,6 +15,7 @@ body {
   font-family: system-ui;
   margin: 0;
   padding: 0;
+  background: lch(90 0 0);
 }
 
 .sidenav {
@@ -24,13 +25,13 @@ body {
 
   /* todo: a push transition version */
   @media (max-width: 540px) {
-    & > article,
-    & > aside {
+    & > * {
       grid-area: stack;
     }
 
     & > aside {
       --easeOutExpo: cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden auto;
       overscroll-behavior: contain;
 
       transform: translateX(-110vw);
@@ -46,22 +47,16 @@ body {
 
 aside {
   display: grid;
-  grid-template-columns: [nav] max-content [escape] 1fr;
+  grid-template-columns: [nav] 2fr [escape] 1fr;
   
   & > a {
-    min-width: 10vw;
-
-    /* push off screen to allow screenreader access */
-    text-indent: 200vw;
-    white-space: nowrap;
-
     @media (min-width: 540px) {
       display: none;
     }
   }
 }
 
-article {
+section {
   padding-inline: 1.5rem;
 
   & > header {
@@ -71,6 +66,23 @@ article {
     border-block-end: 1px solid hsl(0 0% 90%);
     min-block-size: 3rem;
     margin-block-end: 1rem;
+  }
+}
+
+article {
+  display: inline-grid;
+  gap: 2ch;
+  background: white;
+  padding: 2ch;
+  border-radius: 1ch;
+  box-shadow: 0 2px 5px hsl(0 0% 0% / 20%);
+
+  & > * {
+    margin: 0;
+  }
+
+  & > p + :matches(h1,h2,h3,h4,h5,h6) {
+    margin-top: 2ch;
   }
 }
 
@@ -89,7 +101,6 @@ article {
 
   @media (max-width: 540px) {
     box-shadow: 5px 0 40px hsla(0 0% 0% / .75);
-    min-width: 20ch;
   }
 
   & > h4:not(:first-child) {
