@@ -57,7 +57,7 @@ aside {
 }
 
 section {
-  padding-inline: 1.5rem;
+  padding: .5rem 1.5rem;
 
   & > header {
     display: flex;
@@ -91,8 +91,6 @@ article {
   flex-direction: column;
   gap: 1ch;
   padding: 2rem;
-
-  background-color: white;
   color: hsl(0 0% 20%);
 
   @media (min-width: 540px) {
@@ -100,6 +98,7 @@ article {
   }
 
   @media (max-width: 540px) {
+    background-color: white;
     box-shadow: 5px 0 40px hsla(0 0% 0% / .75);
   }
 
