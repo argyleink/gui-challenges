@@ -89,7 +89,7 @@ article {
 .brandnav {
   display: inline-flex;
   flex-direction: column;
-  gap: 1ch;
+  gap: 1ex;
   padding: 2rem;
   color: hsl(0 0% 20%);
 
@@ -100,10 +100,15 @@ article {
   @media (max-width: 540px) {
     background-color: white;
     box-shadow: 5px 0 40px hsla(0 0% 0% / .75);
+    font-size: 1.5rem;
   }
 
   & > h4:not(:first-child) {
     margin-block-start: 2rem;
+  }
+
+  & a {
+    text-decoration: none;
   }
 }
 
