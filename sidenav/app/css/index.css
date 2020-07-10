@@ -95,6 +95,7 @@ article {
   flex-direction: column;
   gap: 1ex;
   padding: 2rem;
+  font-size: 1.25rem;
   color: hsl(0 0% 20%);
 
   @media (min-width: 540px) {
@@ -107,8 +108,12 @@ article {
     font-size: 1.5rem;
   }
 
-  & > h4:not(:first-child) {
-    margin-block-start: 2rem;
+  & > h4 {
+    font-size: 1.5rem;
+
+    &:not(:first-child) {
+      margin-block-start: 2rem;
+    }
   }
 
   & a {
@@ -149,6 +154,15 @@ article {
 
 h1,h2,h3,h4,figure {
   margin: 0;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  max-inline-size: 30ch;
 }
 
 nav > h4 {
