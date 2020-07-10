@@ -41,6 +41,14 @@ body {
       &:target {
         transform: translateX(0);
       }
+
+      /* not keyboard accessible when it’s closed */
+      &:not(:target) {
+        visibility: hidden;
+        transition: 
+          transform .6s var(--easeOutExpo),
+          visibility 0s linear .6s;
+      }
     }
   }
 }
