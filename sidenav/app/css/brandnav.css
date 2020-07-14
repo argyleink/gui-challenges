@@ -1,0 +1,99 @@
+/* these are styles to make it pretty */
+/* sidenav.css has all the layout, state and functionality */
+
+.brandnav {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 2rem;
+  font-size: 1.25rem;
+  color: hsl(0 0% 20%);
+
+  @media (min-width: 540px) {
+    padding-block-start: 4.5rem;
+  }
+
+  @media (max-width: 540px) {
+    background-color: white;
+    box-shadow: 5px 0 40px hsla(0 0% 0% / .75);
+    font-size: 1.5rem;
+  }
+
+  & > h4 {
+    font-size: 1.5rem;
+
+    &:not(:first-child) {
+      margin-block-start: 2rem;
+    }
+  }
+
+  & a {
+    text-decoration: none;
+    line-height: 1.25;
+  }
+}
+
+.hamburger {
+  --size: 36px;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 50%;
+  margin-inline-start: -1rem;
+  block-size: var(--size);
+  inline-size: var(--size);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+  touch-action: manipulation;
+  
+  @media (min-width: 540px) {
+    display: none;
+  }
+
+  &:hover svg {
+    fill: deeppink;
+  }
+
+  &:is(:active, :hover, :focus) {
+    background: hsl(0 0% 0% / 10%);
+  }
+
+  & > svg {
+    width: 100%;
+
+    & > line {
+      stroke: black;
+      stroke-width: 7px;
+    }
+  }
+}
+
+section {
+  padding: .5rem 1.5rem;
+
+  & > header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-block-end: 1px solid hsl(0 0% 90%);
+    min-block-size: 3rem;
+    margin-block-end: 1rem;
+  }
+}
+
+article {
+  display: inline-grid;
+  gap: 2ch;
+  background: white;
+  padding: 2ch;
+  border-radius: 1ch;
+  box-shadow: 0 2px 5px hsl(0 0% 0% / 20%);
+
+  & > * {
+    margin: 0;
+  }
+
+  & > p + :matches(h1,h2,h3,h4,h5,h6) {
+    margin-top: 2ch;
+  }
+}

@@ -1,0 +1,48 @@
+main {
+  display: grid;
+  grid: [stack] 1fr / min-content [stack] 1fr;
+  min-height: 100vh;
+
+  @media (max-width: 540px) {
+    & > * {
+      grid-area: stack;
+    }
+
+    & > aside {
+      --easeOutExpo: cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden auto;
+      overscroll-behavior: contain;
+
+      transform: translateX(-110vw);
+      transition: transform .6s var(--easeOutExpo);
+      will-change: transform;
+      
+      &:target {
+        transform: translateX(0);
+      }
+
+      /* ensure not keyboard accessible when it’s closed */
+      &:not(:target) {
+        visibility: hidden;
+        transition: 
+          transform .6s var(--easeOutExpo),
+          visibility 0s linear .6s;
+      }
+    }
+  }
+}
+
+aside {
+  display: grid;
+  grid-template-columns: [nav] 2fr [escape] 1fr;
+  
+  & > #sidenav-close {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    touch-action: manipulation;
+
+    @media (min-width: 540px) {
+      display: none;
+    }
+  }
+}
