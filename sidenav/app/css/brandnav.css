@@ -1,7 +1,7 @@
 /* these are styles to make it pretty */
 /* sidenav.css has all the layout, state and functionality */
 
-.brandnav {
+nav {
   display: inline-flex;
   flex-direction: column;
   padding: 2rem;
@@ -14,12 +14,13 @@
 
   @media (max-width: 540px) {
     background-color: white;
-    box-shadow: 5px 0 40px hsla(0 0% 0% / .75);
+    border-inline-end: 1px solid hsl(0 0% 90%);
+    box-shadow: 5px 0 40px hsla(330 30% 20% / .75);
     font-size: 1.5rem;
   }
 
   & > h4 {
-    font-size: 1.5rem;
+    text-transform: uppercase;
 
     &:not(:first-child) {
       margin-block-start: 2rem;
@@ -35,27 +36,23 @@
 .hamburger {
   --size: 36px;
   display: flex;
-  align-items: center;
+  place-content: center;
   padding: 1rem;
   border-radius: 50%;
   margin-inline-start: -1rem;
   block-size: var(--size);
   inline-size: var(--size);
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  user-select: none;
-  touch-action: manipulation;
-  
-  @media (min-width: 540px) {
-    display: none;
-  }
 
   &:hover svg {
     fill: deeppink;
   }
 
-  &:is(:active, :hover, :focus) {
+  &:is(:hover, :focus) {
     background: hsl(0 0% 0% / 10%);
+  }
+
+  &:active {
+    background: hsl(0 0% 0% / 20%);
   }
 
   & > svg {

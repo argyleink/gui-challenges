@@ -1,13 +1,17 @@
 const sidenav = document.querySelector('#sidenav-open')
 const closenav = document.querySelector('#sidenav-close')
-const hamburger = document.querySelector('#sidenav-button')
+const opennav = document.querySelector('#sidenav-button')
 
 // set focus to our open/close buttons after animation
 sidenav.addEventListener('transitionend', e => {
-  if (document.location.hash === '#sidenav-open')
-    closenav.focus()
-  else
-    hamburger.focus()
+  if (e.propertyName !== 'transform')
+    return
+
+  const isOpen = document.location.hash === '#sidenav-open'
+
+  isOpen
+    ? closenav.focus()
+    : opennav.focus()
 })
 
 // close our menu when esc is pressed

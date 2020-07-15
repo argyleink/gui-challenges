@@ -1,4 +1,4 @@
-main {
+#sidenav-container {
   display: grid;
   grid: [stack] 1fr / min-content [stack] 1fr;
   min-height: 100vh;
@@ -7,42 +7,63 @@ main {
     & > * {
       grid-area: stack;
     }
-
-    & > aside {
-      --easeOutExpo: cubic-bezier(0.16, 1, 0.3, 1);
-      overflow: hidden auto;
-      overscroll-behavior: contain;
-
-      transform: translateX(-110vw);
-      transition: transform .6s var(--easeOutExpo);
-      will-change: transform;
-      
-      &:target {
-        transform: translateX(0);
-      }
-
-      /* ensure not keyboard accessible when it’s closed */
-      &:not(:target) {
-        visibility: hidden;
-        transition: 
-          transform .6s var(--easeOutExpo),
-          visibility 0s linear .6s;
-      }
-    }
   }
 }
 
-aside {
+#sidenav-open {
+  --easeOutExpo: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration: .6s;
+
   display: grid;
   grid-template-columns: [nav] 2fr [escape] 1fr;
-  
-  & > #sidenav-close {
-    -webkit-tap-highlight-color: transparent;
-    user-select: none;
-    touch-action: manipulation;
 
-    @media (min-width: 540px) {
-      display: none;
+  @media (max-width: 540px) {
+    overflow: hidden auto;
+    overscroll-behavior: contain;
+
+    visibility: hidden; /* ensure not keyboard accessible when it’s closed */
+    transform: translateX(-110vw);
+    will-change: transform;
+    transition: 
+      transform var(--duration) var(--easeOutExpo),
+      visibility 0s linear var(--duration);
+    
+    &:target {
+      visibility: visible;
+      transform: translateX(0);
+      transition: transform var(--duration) var(--easeOutExpo);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    --duration: 1ms;
+  }
+
+  & > nav {
+    @media (max-width: 540px) {
+      background-color: white;
     }
   }
 }
+
+#sidenav-button,
+#sidenav-close {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+  touch-action: manipulation;
+
+  @media (min-width: 540px) {
+    display: none;
+  }
+}
+
+/* use this if copying/pasting skeleton */
+/* #sidenav-button > svg {
+  max-width: 50px;
+
+  & > line {
+    stroke: black;
+    stroke-width: 7px;
+  }
+} */
