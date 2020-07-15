@@ -38,12 +38,6 @@
   @media (prefers-reduced-motion: reduce) {
     --duration: 1ms;
   }
-
-  & > nav {
-    @media (max-width: 540px) {
-      background-color: white;
-    }
-  }
 }
 
 #sidenav-button,
@@ -59,7 +53,13 @@
 }
 
 /* use this if copying/pasting skeleton */
-/* #sidenav-button > svg {
+/* @media (max-width: 540px) {
+  #sidenav-open > nav {
+    background-color: white;
+  }
+}
+
+#sidenav-button > svg {
   max-width: 50px;
 
   & > line {

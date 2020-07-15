@@ -6,16 +6,16 @@ nav {
   flex-direction: column;
   padding: 2rem;
   font-size: 1.25rem;
-  color: hsl(0 0% 20%);
+  color: var(--text);
 
   @media (min-width: 540px) {
     padding-block-start: 4.5rem;
   }
 
   @media (max-width: 540px) {
-    background-color: white;
-    border-inline-end: 1px solid hsl(0 0% 90%);
-    box-shadow: 5px 0 40px hsla(330 30% 20% / .75);
+    background-color: var(--surface2);
+    border-inline-end: 1px var(--surface1);
+    box-shadow: 5px 0 40px hsla(0 0% 0% / .45);
     font-size: 1.5rem;
   }
 
@@ -44,22 +44,22 @@ nav {
   inline-size: var(--size);
 
   &:hover svg {
-    fill: deeppink;
+    fill: hsl(var(--brandHSL));
   }
 
   &:is(:hover, :focus) {
-    background: hsl(0 0% 0% / 10%);
+    background: hsl(var(--brandHSL) / 10%);
   }
 
   &:active {
-    background: hsl(0 0% 0% / 20%);
+    background: hsl(var(--brandHSL) / 20%);
   }
 
   & > svg {
     width: 100%;
 
     & > line {
-      stroke: black;
+      stroke: var(--text);
       stroke-width: 7px;
     }
   }
@@ -72,7 +72,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-block-end: 1px solid hsl(0 0% 90%);
+    border-block-end: 1px solid var(--surface2);
     min-block-size: 3rem;
     margin-block-end: 1rem;
   }
@@ -81,7 +81,7 @@ section {
 article {
   display: inline-grid;
   gap: 2ch;
-  background: white;
+  background: var(--surface2);
   padding: 2ch;
   border-radius: 1ch;
   box-shadow: 0 2px 5px hsl(0 0% 0% / 20%);
