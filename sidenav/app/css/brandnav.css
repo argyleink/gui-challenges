@@ -29,7 +29,7 @@ nav {
 
   & a {
     text-decoration: none;
-    line-height: 1.25;
+    line-height: 1.25;;
   }
 }
 
@@ -42,9 +42,10 @@ nav {
   margin-inline-start: -1rem;
   block-size: var(--size);
   inline-size: var(--size);
+  outline-color: hsl(var(--brandHSL));
 
-  &:hover svg {
-    fill: hsl(var(--brandHSL));
+  &:is(:hover, :focus) svg > line {
+    stroke: hsl(var(--brandHSL));
   }
 
   &:is(:hover, :focus) {
@@ -63,6 +64,10 @@ nav {
       stroke-width: 7px;
     }
   }
+}
+
+aside a {
+  outline-color: hsl(var(--brandHSL));
 }
 
 section {
