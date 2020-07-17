@@ -34,22 +34,32 @@ nav {
 }
 
 .hamburger {
-  --size: 36px;
+  --size: 4rem;
   display: flex;
   place-content: center;
   padding: 1rem;
+  box-sizing: border-box;
   border-radius: 50%;
+  border: 2px solid transparent;
   margin-inline-start: -1rem;
   block-size: var(--size);
   inline-size: var(--size);
-  outline-color: hsl(var(--brandHSL));
+  outline: none;
+  transition:
+    border-color .25s ease,
+    background-color .25s ease;
 
-  &:is(:hover, :focus) svg > line {
-    stroke: hsl(var(--brandHSL));
+  &:hover {
+    border-color: hsl(var(--brandHSL) / 50%);
   }
 
-  &:is(:hover, :focus) {
+  &:focus {
+    border-color: hsl(var(--brandHSL) / 12%);
     background: hsl(var(--brandHSL) / 10%);
+  }
+
+  &:hover svg > line {
+    stroke: hsl(var(--brandHSL));
   }
 
   &:active {
@@ -62,6 +72,7 @@ nav {
     & > line {
       stroke: var(--text);
       stroke-width: 7px;
+      transition: stroke .25s ease;
     }
   }
 }
