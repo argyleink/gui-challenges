@@ -78,6 +78,7 @@ nav {
 }
 
 aside > a {
+  outline: 1px solid hsl(var(--brandHSL));
   outline-offset: -1px;
 }
 

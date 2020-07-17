@@ -1,10 +1,9 @@
 body {
   display: grid;
   grid: [stack] 1fr / min-content [stack] 1fr;
-  min-height: 100vh;
 
   @media (max-width: 540px) {
-    & > * {
+    & > :matches(aside, main) {
       grid-area: stack;
     }
   }
