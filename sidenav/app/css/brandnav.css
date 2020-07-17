@@ -68,6 +68,8 @@ nav {
 
 aside a {
   outline-color: hsl(var(--brandHSL));
+  margin: 1px;
+  max-height: calc(100vh - 3px);
 }
 
 section {
