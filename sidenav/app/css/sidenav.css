@@ -21,7 +21,7 @@
     overflow: hidden auto;
     overscroll-behavior: contain;
 
-    visibility: hidden; /* ensure not keyboard accessible when it’s closed */
+    visibility: hidden; /* not keyboard accessible when closed */
     transform: translateX(-110vw);
     will-change: transform;
     transition: 
@@ -51,6 +51,7 @@
     display: none;
   }
 }
+
 
 /* use this if copying/pasting skeleton */
 /* @media (max-width: 540px) {
