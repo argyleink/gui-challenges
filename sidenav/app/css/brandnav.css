@@ -77,7 +77,6 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-block-end: 1px solid var(--surface2);
     min-block-size: 3rem;
     margin-block-end: 1rem;
   }
