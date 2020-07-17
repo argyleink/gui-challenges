@@ -5,7 +5,7 @@
   --surface: lch(10 0 0);
   --surface2: lch(20 0 0);
   --text: lch(90 0 0);
-  --text2: lch(60 0 0);
+  --text2: lch(70 0 0);
   --brandHSL: 328 100% 54%;
 
   @media (prefers-color-scheme: light) {
