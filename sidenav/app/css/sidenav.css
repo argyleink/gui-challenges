@@ -1,4 +1,4 @@
-#sidenav-container {
+body {
   display: grid;
   grid: [stack] 1fr / min-content [stack] 1fr;
   min-height: 100vh;
@@ -18,6 +18,9 @@
   grid-template-columns: [nav] 2fr [escape] 1fr;
 
   @media (max-width: 540px) {
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
     overflow: hidden auto;
     overscroll-behavior: contain;
 
