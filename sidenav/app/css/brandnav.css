@@ -78,8 +78,13 @@ nav {
 }
 
 aside > a {
-  outline: 1px solid hsl(var(--brandHSL));
   outline-offset: -1px;
+  outline: 1px solid transparent;
+
+  &:focus {
+    outline-color: hsl(var(--brandHSL));
+    transition: outline-color .25s ease;
+  }
 }
 
 main {
