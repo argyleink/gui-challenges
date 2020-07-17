@@ -29,7 +29,7 @@ nav {
 
   & a {
     text-decoration: none;
-    line-height: 1.25;;
+    line-height: 1.25;
   }
 }
 
@@ -66,13 +66,11 @@ nav {
   }
 }
 
-aside a {
-  outline-color: hsl(var(--brandHSL));
-  margin: 1px;
-  max-height: calc(100vh - 3px);
+aside > a {
+  outline-offset: -1px;
 }
 
-section {
+main {
   padding: .5rem 1.5rem;
 
   & > header {

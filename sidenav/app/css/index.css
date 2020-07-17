@@ -48,6 +48,8 @@ p {
 
 a {
   color: hsl(var(--brandHSL));
+  outline-color: hsl(var(--brandHSL));
+  outline-offset: 5px;
 
   &:is(:hover, :active, :focus) {
     color: rebeccapurple;
