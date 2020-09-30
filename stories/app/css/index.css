@@ -44,7 +44,8 @@ body {
   gap: 1ch;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  overscroll-behavior-x: contain;
+  overscroll-behavior: contain;
+  touch-action: pan-x;
 }
 
 .user {
