@@ -1,0 +1,99 @@
+.tabs {
+  --accent: 328deg 100% 54%;
+  
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  font-size: 1rem;
+}
+
+.tabs > nav {
+  --text-color: hsl(0 0% 35%);
+  --text-active-color: hsl(0 0% 10%);
+
+  display: grid;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  & > div {
+    display: flex;
+    align-items: center;
+  }
+
+  & a {
+    white-space: nowrap;
+    min-block-size: 4ch;
+    display: inline-flex;
+    align-items: center;
+    font-size: .8rem;
+    color: var(--text-color);
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0 1.5rem;
+    border-block-end: 2px solid transparent;
+    scroll-snap-align: start;
+    transition: color .3s ease;
+    outline-color: hsl(var(--accent));
+
+    &:hover {
+      background: hsl(var(--accent) / 5%);
+    }
+
+    &:focus {
+      outline-offset: -.5ch;
+    }
+  }
+
+  & > .indicator {
+    min-inline-size: 5ch;
+    block-size: 2px;
+    margin-block-end: 4px;
+    background: hsl(var(--accent));
+    border-radius: 1rem;
+  }
+}
+
+.tabs > section {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  block-size: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+
+  & > article {
+    scroll-snap-align: start;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tabs {
+    & > nav {
+      scroll-behavior: smooth;
+
+      & a:matches(:target,:active,[active]) {
+        color: var(--text-active-color);
+        border-block-end-color: hsl(var(--accent));
+      }
+    }
+
+    & .indicator {
+      visibility: hidden;
+    }
+  }
+}

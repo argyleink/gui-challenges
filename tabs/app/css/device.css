@@ -1,0 +1,33 @@
+.device {
+  display: flex;
+  flex-direction: column;
+  inline-size: 300px;
+  block-size: 500px;
+  border-radius: 1ch;
+  overflow: hidden;
+  border: 1px solid hsl(0 0% 95%);
+  box-shadow:
+    0 2.9px 1.4px hsl(0 0% 0% / 0.018),
+    0 6.8px 3.3px hsl(0 0% 0% / 0.026),
+    0 12.3px 5.9px hsl(328deg 100% 10% / 0.032),
+    0 20.4px 9.8px hsl(328deg 100% 10% / 0.038),
+    0 33.6px 16.1px hsl(328deg 100% 10% / 0.044),
+    0 58.7px 28.2px hsl(0 0% 0% / 0.052),
+    0 127px 61px hsl(0 0% 0% / 0.07)
+  ;
+  resize: both; 
+}
+
+.device > .tabs {
+  flex: 1;
+}
+
+header > svg {
+  width: 1.25rem;
+  padding: 1.5rem 1rem 1rem 1.5rem;
+}
+
+nav svg {
+  width: 1.4em;
+  pointer-events: none;
+}
