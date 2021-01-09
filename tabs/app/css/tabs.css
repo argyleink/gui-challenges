@@ -13,9 +13,15 @@
   --text-active-color: hsl(0 0% 10%);
 
   display: grid;
-  overflow-x: auto;
+  grid-template-rows: 
+    48px 
+    2px;
+  min-block-size: fit-content;
+  flex-shrink: 0;
+  overflow: auto hidden;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
+  scrollbar-width: none;
 
   &::-webkit-scrollbar {
     width: 0;
@@ -24,12 +30,10 @@
 
   & > div {
     display: flex;
-    align-items: center;
   }
 
   & a {
     white-space: nowrap;
-    min-block-size: 4ch;
     display: inline-flex;
     align-items: center;
     font-size: .8rem;
@@ -54,7 +58,6 @@
   & > .indicator {
     min-inline-size: 5ch;
     block-size: 2px;
-    margin-block-end: 4px;
     background: hsl(var(--accent));
     border-radius: 1rem;
   }
@@ -65,8 +68,7 @@
   grid-auto-flow: column;
   grid-auto-columns: 100%;
   block-size: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: auto hidden;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
 
@@ -74,6 +76,7 @@
     scroll-snap-align: start;
     overflow-y: auto;
     overscroll-behavior-y: contain;
+    scroll-margin-top: 50rem;
   }
 
   @media (prefers-reduced-motion: no-preference) {

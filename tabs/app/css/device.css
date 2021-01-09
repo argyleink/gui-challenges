@@ -1,8 +1,8 @@
 .device {
   display: flex;
   flex-direction: column;
-  inline-size: 300px;
-  block-size: 500px;
+  max-inline-size: 300px;
+  max-block-size: 500px;
   border-radius: 1ch;
   overflow: hidden;
   border: 1px solid hsl(0 0% 95%);
