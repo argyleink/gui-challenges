@@ -13,21 +13,28 @@
   overflow: hidden;
   position: relative;
 
-  & > :matches(header, section) {
-    overflow: auto hidden;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x mandatory;
+  & :matches(header, nav, section, article, a) {
+    outline-color: hsl(var(--accent));
+    outline-offset: -5px;
+  }
+}
+
+.scroll-snap-x {
+  overflow: auto hidden;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
+  
+  @media (hover: none) {
     scrollbar-width: none;
 
     &::-webkit-scrollbar {
       width: 0;
       height: 0;
     }
-  }
-
-  & :matches(header, nav, section, article, a) {
-    outline-color: hsl(var(--accent));
-    outline-offset: -5px;
   }
 }
 
@@ -59,7 +66,7 @@
     padding: var(--space-2) var(--space-3);
 
     & > svg {
-      width: 1.5em;
+      inline-size: 1.5em;
       pointer-events: none;
     }
 
@@ -93,10 +100,6 @@
     overscroll-behavior-y: contain;
 
     padding: var(--space-2) var(--space-3);
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    scroll-behavior: smooth;
   }
 }
 
