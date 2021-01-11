@@ -58,10 +58,8 @@
     text-decoration: none;
     padding: var(--space-2) var(--space-3);
 
-    transition: color .3s ease;
-
     & > svg {
-      width: 1.4em;
+      width: 1.5em;
       pointer-events: none;
     }
 
@@ -77,8 +75,8 @@
   & > .indicator {
     inline-size: 0;
     block-size: var(--indicator-size);
+    border-radius: var(--indicator-size);
     background: hsl(var(--accent));
-    border-radius: 1rem;
   }
 }
 
@@ -97,7 +95,6 @@
     padding: var(--space-2) var(--space-3);
   }
 
-  /* upgrade to smooth animation if motion is no issue */
   @media (prefers-reduced-motion: no-preference) {
     scroll-behavior: smooth;
   }
