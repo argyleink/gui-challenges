@@ -102,13 +102,17 @@
 
 @media (prefers-reduced-motion: reduce) {
   /* 
-    - swap to border-bottom 
-    - hide the animated indicator 
+    - swap to border-bottom styles
+    - transition colors
+    - hide the animated .indicator 
   */
 
   .tabs {
     & > header a {
-      border-block-end: var(--indicator-size) solid transparent;
+      border-block-end: var(--indicator-size) solid hsl(var(--accent) / 0%);
+      transition:
+        color .7s ease,
+        border-color .5s ease;
 
       &:matches(:target,:active,[active]) {
         color: var(--text-active-color);
