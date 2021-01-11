@@ -19,15 +19,24 @@ body {
 p {
   max-inline-size: 35ch;
   margin-block: .5ch;
+
+  & + p {
+    margin-block-start: 1rem;
+  }
 }
 
-h2:first-of-type {
-  margin-block-start: 0;
+h2 {
+  font-size: 2.5rem;
+  margin-block-end: .5rem;
+  line-height: 1;
+
+  &:first-of-type {
+    margin-block-start: 0;
+  }
 }
 
 article {
   box-sizing: border-box;
-  padding: 1rem 1.5rem;
   font-family: "Blokk";
   font-size: 1.25rem;
   line-height: 1;

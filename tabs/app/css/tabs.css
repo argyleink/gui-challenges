@@ -1,23 +1,34 @@
 .tabs {
-  --accent: 328deg 100% 54%;
+  --hue: 328deg;
+  --accent: var(--hue) 100% 54%;
+  --indicator-size: 2px;
+
+  --space-1: .5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
   
   display: flex;
   flex-direction: column;
+
   overflow: hidden;
   position: relative;
-  font-size: 1rem;
+
+  & :matches(header,nav,section,article,a) {
+    outline-color: hsl(var(--accent));
+    outline-offset: -5px;
+  }
 }
 
-.tabs > nav {
-  --text-color: hsl(0 0% 35%);
-  --text-active-color: hsl(0 0% 10%);
+.tabs > header {
+  --text-color: hsl(var(--hue) 5% 40%);
+  --text-active-color: hsl(var(--hue) 20% 10%);
 
-  display: grid;
-  grid-template-rows: 
-    48px 
-    2px;
-  min-block-size: fit-content;
   flex-shrink: 0;
+  min-block-size: fit-content;
+
+  display: flex;
+  flex-direction: column;
+
   overflow: auto hidden;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
@@ -28,23 +39,29 @@
     height: 0;
   }
 
-  & > div {
+  & > nav {
     display: flex;
   }
 
   & a {
-    white-space: nowrap;
+    scroll-snap-align: start;
+
     display: inline-flex;
     align-items: center;
+    white-space: nowrap;
+
     font-size: .8rem;
     color: var(--text-color);
     font-weight: bold;
     text-decoration: none;
-    padding: 0 1.5rem;
-    border-block-end: 2px solid transparent;
-    scroll-snap-align: start;
+    padding: var(--space-2) var(--space-3);
+
     transition: color .3s ease;
-    outline-color: hsl(var(--accent));
+
+    & > svg {
+      width: 1.4em;
+      pointer-events: none;
+    }
 
     &:hover {
       background: hsl(var(--accent) / 5%);
@@ -56,40 +73,54 @@
   }
 
   & > .indicator {
-    min-inline-size: 5ch;
-    block-size: 2px;
+    inline-size: 0;
+    block-size: var(--indicator-size);
     background: hsl(var(--accent));
     border-radius: 1rem;
   }
 }
 
 .tabs > section {
+  block-size: 100%;
+
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 100%;
-  block-size: 100%;
+
   overflow: auto hidden;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
+
+  /* fix scrollbar when "showing always" */
+  &::-webkit-scrollbar {
+    height: 0;
+  }
 
   & > article {
     scroll-snap-align: start;
     overflow-y: auto;
     overscroll-behavior-y: contain;
-    scroll-margin-top: 50rem;
+
+    padding: var(--space-2) var(--space-3);
   }
 
+  /* upgrade to smooth animation if motion is no issue */
   @media (prefers-reduced-motion: no-preference) {
     scroll-behavior: smooth;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tabs {
-    & > nav {
-      scroll-behavior: smooth;
+  /* 
+    - swap to border-bottom 
+    - hide the animated indicator 
+  */
 
-      & a:matches(:target,:active,[active]) {
+  .tabs {
+    & > header a {
+      border-block-end: var(--indicator-size) solid transparent;
+
+      &:matches(:target,:active,[active]) {
         color: var(--text-active-color);
         border-block-end-color: hsl(var(--accent));
       }

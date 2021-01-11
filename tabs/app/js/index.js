@@ -3,8 +3,8 @@ import 'https://argyleink.github.io/scroll-timeline/dist/scroll-timeline.js'
 // grab and stash elements
 const tabgroup     = document.querySelector('.tabs')
 const tabsection   = tabgroup.querySelector(':scope > section')
-const tabnav       = tabgroup.querySelector(':scope > nav')
-const tabnavitems  = tabgroup.querySelectorAll(':scope > nav a')
+const tabnav       = tabgroup.querySelector(':scope nav')
+const tabnavitems  = tabnav.querySelectorAll(':scope a')
 const tabindicator = tabgroup.querySelector(':scope .indicator')
 
 // based on the scroll timeline
