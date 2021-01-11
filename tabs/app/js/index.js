@@ -53,8 +53,8 @@ if (motionOK) {
 }
 
 const setActiveTab = tabbtn => {
-  document
-    .querySelector('.tabs a[active]')
+  tabnav
+    .querySelector(':scope a[active]')
     .removeAttribute('active')
   
   tabbtn.setAttribute('active', '')
@@ -64,16 +64,8 @@ const setActiveTab = tabbtn => {
 const determineActiveTabSection = () => {
   const i = tabsection.scrollLeft / tabsection.clientWidth
   const matchingNavItem = tabnavitems[i]
+  
   matchingNavItem && setActiveTab(matchingNavItem)
-}
-
-window.onload = () => {
-  if (location.hash)
-    tabsection.scrollLeft = document
-      .querySelector(location.hash)
-      .offsetLeft
-    
-  determineActiveTabSection()
 }
 
 tabnav.addEventListener('click', e => {
@@ -83,5 +75,16 @@ tabnav.addEventListener('click', e => {
 
 tabsection.addEventListener('scroll', () => {
   clearTimeout(tabsection.scrollEndTimer)               
-  tabsection.scrollEndTimer = setTimeout(determineActiveTabSection, 100)
+  tabsection.scrollEndTimer = setTimeout(
+    determineActiveTabSection
+  , 100)
 })
+
+window.onload = () => {
+  if (location.hash)
+    tabsection.scrollLeft = document
+      .querySelector(location.hash)
+      .offsetLeft
+    
+  determineActiveTabSection()
+}
