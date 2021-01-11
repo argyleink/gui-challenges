@@ -67,8 +67,14 @@ const determineActiveTabSection = () => {
   matchingNavItem && setActiveTab(matchingNavItem)
 }
 
-// TODO: restore state from URL in nav items
-determineActiveTabSection()
+window.onload = () => {
+  if (location.hash)
+    tabsection.scrollLeft = document
+      .querySelector(location.hash)
+      .offsetLeft
+    
+  determineActiveTabSection()
+}
 
 tabnav.addEventListener('click', e => {
   if (e.target.nodeName !== "A") return
