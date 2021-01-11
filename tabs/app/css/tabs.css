@@ -13,7 +13,19 @@
   overflow: hidden;
   position: relative;
 
-  & :matches(header,nav,section,article,a) {
+  & > :matches(header, section) {
+    overflow: auto hidden;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+  }
+
+  & :matches(header, nav, section, article, a) {
     outline-color: hsl(var(--accent));
     outline-offset: -5px;
   }
@@ -28,16 +40,6 @@
 
   display: flex;
   flex-direction: column;
-
-  overflow: auto hidden;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-  }
 
   & > nav {
     display: flex;
@@ -86,15 +88,6 @@
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 100%;
-
-  overflow: auto hidden;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory;
-
-  /* fix scrollbar when "showing always" */
-  &::-webkit-scrollbar {
-    height: 0;
-  }
 
   & > article {
     scroll-snap-align: start;
