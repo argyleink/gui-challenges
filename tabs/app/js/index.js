@@ -1,8 +1,8 @@
 import 'https://argyleink.github.io/scroll-timeline/dist/scroll-timeline.js'
 
-const motionOK = window.matchMedia(
+const {matches:motionOK} = window.matchMedia(
   '(prefers-reduced-motion: no-preference)'
-).matches
+)
 
 // grab and stash elements
 const tabgroup     = document.querySelector('.tabs')
