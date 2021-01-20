@@ -22,6 +22,22 @@ if (motionOK) {
   // based on the scroll timeline position
   // move the indicator left/right on X to the links position
   // resize the indicator width based on the nav link's intrinsic size
+
+  // {
+  //   transform: [
+  //     "translateX(0px)", 
+  //     "translateX(121px)", 
+  //     "translateX(238px)", 
+  //     "translateX(464px)",
+  //   ],
+  //   width: [
+  //     "121px",
+  //     "117px",
+  //     "226px",
+  //     "67px",
+  //   ]
+  // }
+
   tabindicator.animate({ 
       transform: [...tabnavitems].map(({offsetLeft}) => 
         `translateX(${offsetLeft}px)`),
@@ -50,6 +66,27 @@ if (motionOK) {
       }
     )
   })
+
+  // {
+  //   color: [
+  //     "var(--text-active-color)", 
+  //     "var(--text-color)", 
+  //     "var(--text-color)", 
+  //     "var(--text-color)"
+  //   ]
+  // }
+
+  // OR
+
+  // {
+  //   color: [
+  //     "var(--text-color)", 
+  //     "var(--text-color)", 
+  //     "var(--text-active-color)", 
+  //     "var(--text-color)"
+  //   ]
+  // }
+
 }
 
 const setActiveTab = tabbtn => {
