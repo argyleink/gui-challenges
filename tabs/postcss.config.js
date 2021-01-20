@@ -14,7 +14,9 @@ const dev = {
     postcssPresetEnv({
       stage: 0,
       features: {
-        'logical-properties-and-values': false,
+        'logical-properties-and-values': false, 
+        'prefers-color-scheme-query': false, 
+        'gap-properties': false,
       }
     }),
   ]
@@ -29,6 +31,11 @@ const prod = {
     postcsseasings(),
     postcssPresetEnv({
       stage: 0,
+      features: {
+        'logical-properties-and-values': false, 
+        'prefers-color-scheme-query': false, 
+        'gap-properties': false,
+      }
     }),
     cssnano({
       preset: 'default'
