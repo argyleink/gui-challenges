@@ -12,10 +12,16 @@ sidenav.addEventListener('transitionend', e => {
   isOpen
     ? closenav.focus()
     : opennav.focus()
+
+  if (!isOpen) {
+    history.replaceState(history.state, '')
+  }
 })
 
 // close our menu when esc is pressed
 sidenav.addEventListener('keyup', e => {
   if (e.code === 'Escape')
-    document.location.hash = ''
+    window.history.length
+      ? window.history.back()
+      : document.location.hash = ''
 })
