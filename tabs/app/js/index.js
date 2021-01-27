@@ -11,33 +11,34 @@ const tabnav       = tabgroup.querySelector(':scope nav')
 const tabnavitems  = tabnav.querySelectorAll(':scope a')
 const tabindicator = tabgroup.querySelector(':scope .indicator')
 
+/* 
+  shared timeline for .indicator 
+  and nav > a colors */
+const sectionScrollTimeline = new ScrollTimeline({
+  scrollSource: tabsection,
+  orientation: 'inline',
+  fill: 'both',
+})
+
+/*
+  for each nav link
+  - animate color based on the scroll timeline
+  - color is active when its the current index*/
+tabnavitems.forEach(navitem => {
+  navitem.animate({
+      color: [...tabnavitems].map(item => 
+        item === navitem
+          ? `var(--text-active-color)`
+          : `var(--text-color)`)
+    }, {
+      duration: 1000,
+      fill:     'both',
+      timeline: sectionScrollTimeline,
+    }
+  )
+})
+
 if (motionOK) {
-  // shared timeline for .indicator and nav > a colors
-  const sectionScrollTimeline = new ScrollTimeline({
-    scrollSource: tabsection,
-    orientation: 'inline',
-    fill: 'both',
-  })
-
-  // based on the scroll timeline position
-  // move the indicator left/right on X to the links position
-  // resize the indicator width based on the nav link's intrinsic size
-
-  // {
-  //   transform: [
-  //     "translateX(0px)", 
-  //     "translateX(121px)", 
-  //     "translateX(238px)", 
-  //     "translateX(464px)",
-  //   ],
-  //   width: [
-  //     "121px",
-  //     "117px",
-  //     "226px",
-  //     "67px",
-  //   ]
-  // }
-
   tabindicator.animate({ 
       transform: [...tabnavitems].map(({offsetLeft}) => 
         `translateX(${offsetLeft}px)`),
@@ -45,48 +46,10 @@ if (motionOK) {
         `${offsetWidth}px`)
     }, {
       duration: 1000,
-      fill: 'both',
+      fill:     'both',
       timeline: sectionScrollTimeline,
     }
   )
-
-  // for each nav link
-  // animate color based on the scroll timeline
-  // color is active when its the current index
-  tabnavitems.forEach(navitem => {
-    navitem.animate({
-        color: [...tabnavitems].map(item => 
-          item === navitem
-            ? `var(--text-active-color)`
-            : `var(--text-color)`)
-      }, {
-        duration: 1000,
-        fill: 'both',
-        timeline: sectionScrollTimeline,
-      }
-    )
-  })
-
-  // {
-  //   color: [
-  //     "var(--text-active-color)", 
-  //     "var(--text-color)", 
-  //     "var(--text-color)", 
-  //     "var(--text-color)"
-  //   ]
-  // }
-
-  // OR
-
-  // {
-  //   color: [
-  //     "var(--text-color)", 
-  //     "var(--text-color)", 
-  //     "var(--text-active-color)", 
-  //     "var(--text-color)"
-  //   ]
-  // }
-
 }
 
 const setActiveTab = tabbtn => {
