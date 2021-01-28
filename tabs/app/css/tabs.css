@@ -79,7 +79,7 @@ snap-tabs > header {
     }
   }
 
-  & > .indicator {
+  & > .snap-indicator {
     inline-size: 0;
     block-size: var(--indicator-size);
     border-radius: var(--indicator-size);
@@ -123,7 +123,7 @@ snap-tabs > section {
       }
     }
 
-    & .indicator {
+    & .snap-indicator {
       visibility: hidden;
     }
   }

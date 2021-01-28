@@ -9,7 +9,7 @@ const tabgroup     = document.querySelector('snap-tabs')
 const tabsection   = tabgroup.querySelector(':scope > section')
 const tabnav       = tabgroup.querySelector(':scope nav')
 const tabnavitems  = tabnav.querySelectorAll(':scope a')
-const tabindicator = tabgroup.querySelector(':scope .indicator')
+const tabindicator = tabgroup.querySelector(':scope .snap-indicator')
 
 /* 
   shared timeline for .indicator 
