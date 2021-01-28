@@ -5,7 +5,7 @@ const {matches:motionOK} = window.matchMedia(
 )
 
 // grab and stash elements
-const tabgroup     = document.querySelector('.tabs')
+const tabgroup     = document.querySelector('snap-tabs')
 const tabsection   = tabgroup.querySelector(':scope > section')
 const tabnav       = tabgroup.querySelector(':scope nav')
 const tabnavitems  = tabnav.querySelectorAll(':scope a')

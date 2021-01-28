@@ -1,4 +1,4 @@
-.tabs {
+snap-tabs {
   --hue: 328deg;
   --accent: var(--hue) 100% 54%;
   --indicator-size: 2px;
@@ -38,7 +38,7 @@
   }
 }
 
-.tabs > header {
+snap-tabs > header {
   --text-color: hsl(var(--hue) 5% 40%);
   --text-active-color: hsl(var(--hue) 20% 10%);
 
@@ -87,7 +87,7 @@
   }
 }
 
-.tabs > section {
+snap-tabs > section {
   block-size: 100%;
 
   display: grid;
@@ -110,7 +110,7 @@
     - hide the animated .indicator 
   */
 
-  .tabs {
+  snap-tabs {
     & > header a {
       border-block-end: var(--indicator-size) solid hsl(var(--accent) / 0%);
       transition:
