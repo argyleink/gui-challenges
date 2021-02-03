@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Vite Preset Env</title>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#ff69b4">
+    <meta name="description" content="🙂">
+  </head>
+  <body>
+    
+    <main>
+      <h1>Settings</h1>
+      
+      <form>
+
+        <section>
+          <header>
+            <h2>Sound & vibration</h2>
+            <small>Adjust system volume channels</small>
+          </header>
+          
+          <fieldset>
+            
+            <figure>
+              <picture>
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                </svg>
+              </picture>
+              <figcaption>
+                <label for="media-volume">Media volume</label>
+                <input name="media-volume" type="range" value="3" max="11">
+              </figcaption>
+            </figure>
+
+            <figure>
+              <picture>
+                <svg viewBox="0 0 24 24">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                </svg>
+              </picture>
+              <figcaption>
+                <label for="call-volume">Call volume</label>
+                <input name="call-volume" type="range" value="7" max="11">
+              </figcaption>
+            </figure>
+
+            <figure>
+              <picture>
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                </svg>
+              </picture>
+              <figcaption>
+                <label for="ring-volume">Ring volume</label>
+                <input name="ring-volume" type="range" value="5" max="11">
+              </figcaption>
+            </figure>
+
+            <figure>
+              <picture>
+                <svg viewBox="0 0 24 24">
+                  <path d="M22 5.72l-4.6-3.86-1.29 1.53 4.6 3.86L22 5.72zM7.88 3.39L6.6 1.86 2 5.71l1.29 1.53 4.59-3.85zM12.5 8H11v6l4.75 2.85.75-1.23-4-2.37V8zM12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 16c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/>
+                </svg>
+              </picture>
+              <figcaption>
+                <label for="alarm-volume">Alarm volume</label>
+                <input name="alarm-volume" type="range" value="8" max="11">
+              </figcaption>
+            </figure>
+            
+          </fieldset>
+        </section>
+
+        <section>
+          <header>
+            <h2>Notifications</h2>
+            <small>Turn specific channels on/off</small>
+          </header>
+          
+          <fieldset>
+
+            <figure>
+              <input id="text-notifications" type="checkbox" checked>
+              <figcaption>
+                <label for="text-notifications">
+                  <h3>Text Messages</h3>
+                  <small>Get notified about all text messages sent to your device</small>
+                </label>
+              </figcaption>
+            </figure>
+
+            <figure>
+              <input id="voice-notifications" type="checkbox">
+              <figcaption>
+                <label for="voice-notifications">
+                  <h3>Voice Mail</h3>
+                  <small>Get notified about all voice messages sent to your device</small>
+                </label>
+              </figcaption>
+            </figure>
+
+            <figure>
+              <input id="email-notifications" type="checkbox">
+              <figcaption>
+                <label for="email-notifications">
+                  <h3>Emails</h3>
+                  <small>Get notified about all text messages to your device</small>
+                </label>
+              </figcaption>
+            </figure>
+
+          </fieldset>
+        </section>
+
+      </form>
+    </main>
+
+    <script type="module" src="/index.js"></script>
+  </body>
+</html>
