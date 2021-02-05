@@ -1,9 +1,9 @@
 :root {
-  --surface: lch(10 0 0);
-  --surface2: lch(6 0 0);
+  --surface1: lch(10 0 0);
+  --surface2: lch(15 0 0);
   --surface3: lch(20 0 0);
   --surface4: lch(25 0 0);
-  --text: lch(95 0 0);
+  --text1: lch(95 0 0);
   --text2: lch(75 0 0);
   --brand: lch(64 20 237);
 
@@ -16,11 +16,11 @@
   --space7: 6rem;
 
   @media (prefers-color-scheme: light) {
-    --surface: lch(90 0 0);
+    --surface1: lch(90 0 0);
     --surface2: lch(100 0 0);
     --surface3: lch(98 0 0);
     --surface4: lch(85 0 0);
-    --text: lch(20 0 0);
+    --text1: lch(20 0 0);
     --text2: lch(45 0 0);
     --brand: lch(64 40 237);
   }
@@ -39,8 +39,8 @@ body {
   margin: 0;
   padding-block: var(--space5);
 
-  background: var(--surface);
-  color: var(--text);
+  background: var(--surface1);
+  color: var(--text1);
   font-family: system-ui, sans-serif;
 }
 
@@ -74,7 +74,15 @@ form {
   align-items: flex-start;
 
   --fixed-bg-gradient: linear-gradient(
+    to bottom, 
+    hsl(328deg 70% 60%), 
+    hsl(240deg 70% 60%)
+  );
+
+  @media (prefers-color-scheme: light) {
+    --fixed-bg-gradient: linear-gradient(
     to bottom, deeppink, blue);
+  }
 }
 
 section {
@@ -108,11 +116,6 @@ input[type="range"] {
   --thumb-size: 3ex;
   --thumb-offset: -1.25ex;
 
-  @media (width >= 540px) {
-    --thumb-size: 2ex;
-    --thumb-offset: -.75ex;
-  }
-
   display: block;
   width: 100%;
   margin: 1ex 0;
@@ -136,21 +139,23 @@ input[type="range"] {
 
   &::-webkit-slider-thumb {
     appearance: none;
+    border: 3px solid var(--surface3);
     height: var(--thumb-size);
     width: var(--thumb-size);
     margin-top: var(--thumb-offset);
-    clip-path: ellipse();
-    background: var(--text);
+    border-radius: 50%;
+    background: var(--fixed-bg-gradient) fixed;
     cursor: ew-resize;
   }
 
   &::-moz-range-thumb {
     appearance: none;
+    border: 3px solid var(--surface3);
     height: var(--thumb-size);
     width: var(--thumb-size);
     margin-top: var(--thumb-offset);
-    clip-path: ellipse();
-    background: var(--text);
+    border-radius: 50%;
+    background: var(--fixed-bg-gradient) fixed;
     cursor: ew-resize;
   }
 }
