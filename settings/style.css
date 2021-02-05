@@ -16,22 +16,14 @@
   --space7: 6rem;
 
   @media (prefers-color-scheme: light) {
-    --surface: lch(98 0 0);
+    --surface: lch(90 0 0);
     --surface2: lch(100 0 0);
-    --surface3: lch(90 0 0);
+    --surface3: lch(98 0 0);
     --surface4: lch(85 0 0);
     --text: lch(20 0 0);
     --text2: lch(45 0 0);
     --brand: lch(64 40 237);
-
-    @media (dynamic-range: high) {
-      --brand: color(display-p3 1 0 1);
-    }
   }
-}
-
-::selection {
-  background-color: var(--brand);
 }
 
 html {
