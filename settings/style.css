@@ -78,7 +78,7 @@ main {
 form {
   display: grid;
   gap: var(--space6) var(--space7);
-  grid-template-columns: repeat(auto-fit, minmax(min(0px, 100%), 35ch));
+  grid-template-columns: repeat(auto-fit, minmax(min(1px, 100%), 35ch));
   align-items: flex-start;
 
   --fixed-bg-gradient: linear-gradient(
