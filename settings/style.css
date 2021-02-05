@@ -1,8 +1,10 @@
 :root {
   --surface: lch(10 0 0);
+  --surface2: lch(6 0 0);
+  --surface3: lch(20 0 0);
   --text: lch(95 0 0);
   --text2: lch(75 0 0);
-  --brand: lch(64 40 347);
+  --brand: lch(64 20 237);
 
   --space1: .25rem;
   --space2: .5rem;
@@ -13,9 +15,11 @@
 
   @media (prefers-color-scheme: light) {
     --surface: lch(98 0 0);
+    --surface2: lch(100 0 0);
+    --surface3: lch(90 0 0);
     --text: lch(20 0 0);
     --text2: lch(45 0 0);
-    --brand: lch(65 64 350);
+    --brand: lch(64 40 237);
 
     @media (dynamic-range: high) {
       --brand: color(display-p3 1 0 1);
@@ -55,7 +59,11 @@ main {
   padding: var(--space3);
 
   @media (width >= 540px) {
-    padding: var(--space5);    
+    padding: var(--space5);
+  }
+
+  @media (width <= 540px) {
+    place-content: center;
   }
 }
 
@@ -68,7 +76,7 @@ form {
 
 section {
   display: grid;
-  gap: var(--space4);
+  gap: var(--space3);
 }
 
 header {
@@ -81,20 +89,77 @@ fieldset {
   padding: 0;
   margin: 0;
   display: grid;
-  gap: var(--space4);
+  gap: var(--space2);
+  border-radius: var(--space3);
+  background: var(--surface3);
+  overflow: hidden;
+  transition: box-shadow .3s ease;
+
+  &:focus-within {
+    box-shadow: 0 5px 20px -10px hsl(0 0% 0% / 50%);
+  }
 }
 
 input[type="range"] {
   display: block;
   width: 100%;
-  margin: 0;
+  margin: 1ex 0;
+  appearance: none;
+  background: transparent;
+
+  &::-webkit-slider-runnable-track {
+    appearance: none;
+    height: .5ex;
+    border-radius: 5ex;
+    background: var(--text);
+  }
+
+  &::-moz-range-track {
+    appearance: none;
+    height: .5ex;
+    border-radius: 5ex;
+    background: var(--brand);
+  }
+
+  &::-webkit-slider-thumb {
+    appearance: none;
+    height: 2ex;
+    width: 2ex;
+    margin-top: -.75ex;
+    border-radius: 50%;
+    background: var(--brand);
+    box-shadow: 0 1px 3px hsl(0 0% 0% / 50%);
+    cursor: ew-resize;
+  }
+
+  &::-moz-range-thumb {
+    appearance: none;
+    height: 2ex;
+    width: 2ex;
+    margin-top: -.75ex;
+    border-radius: 50%;
+    background: var(--brand);
+    box-shadow: 0 1px 3px hsl(0 0% 0% / 50%);
+    cursor: ew-resize;
+  }
 }
 
 figure {
   display: grid;
   grid-template-columns: var(--space5) 1fr;
-  gap: var(--space3);
+  gap: var(--space2);
+  padding: var(--space4);
+  transition: background .1s ease;
   margin: 0;
+
+  &:focus-within {
+    background: var(--surface2);
+    transition-duration: .2s;
+
+    & svg {
+      fill: var(--brand);
+    }
+  }
 
   & > :matches(figcaption, label) {
     display: grid;
@@ -106,7 +171,7 @@ figure {
   }
 
   & > :matches(picture, input[type="checkbox"]) {
-    place-self: center;
+    align-self: center;
   }
 }
 
@@ -117,4 +182,5 @@ small {
 svg {
   fill: var(--text2);
   block-size: var(--space4);
+  transition: fill .5s ease;
 }
