@@ -74,7 +74,7 @@ form {
   align-items: flex-start;
 
   --fixed-bg-gradient: linear-gradient(
-    to bottom, red, blue);
+    to bottom, deeppink, blue);
 }
 
 section {
