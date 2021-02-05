@@ -24,6 +24,9 @@ jobs:
 
     - name: Build Tabs
       run: cd tabs && npm install && npm run build
+
+    - name: Build Settings
+      run: cd settings && npm install && npm run build
       
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master

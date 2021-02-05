@@ -1,0 +1,234 @@
+:root {
+  --surface: lch(10 0 0);
+  --surface2: lch(6 0 0);
+  --surface3: lch(20 0 0);
+  --surface4: lch(25 0 0);
+  --text: lch(95 0 0);
+  --text2: lch(75 0 0);
+  --brand: lch(64 20 237);
+
+  --space1: .25rem;
+  --space2: .5rem;
+  --space3: 1rem;
+  --space4: 1.5rem;
+  --space5: 2rem;
+  --space6: 3rem;
+  --space7: 6rem;
+
+  @media (prefers-color-scheme: light) {
+    --surface: lch(98 0 0);
+    --surface2: lch(100 0 0);
+    --surface3: lch(90 0 0);
+    --surface4: lch(85 0 0);
+    --text: lch(20 0 0);
+    --text2: lch(45 0 0);
+    --brand: lch(64 40 237);
+
+    @media (dynamic-range: high) {
+      --brand: color(display-p3 1 0 1);
+    }
+  }
+}
+
+::selection {
+  background-color: var(--brand);
+}
+
+html {
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+body {
+  min-block-size: 100%;
+  min-inline-size: 100%;
+
+  box-sizing: border-box;
+  margin: 0;
+  padding-block: var(--space5);
+
+  background: var(--surface);
+  color: var(--text);
+  font-family: system-ui, sans-serif;
+}
+
+h1,h2,h3 { 
+  margin: 0; 
+  font-weight: 500;
+}
+
+main {
+  display: grid;
+  gap: var(--space6);
+  padding: var(--space3);
+
+  @media (width >= 540px) {
+    padding: var(--space5);
+  }
+
+  @media (width >= 800px) {
+    padding: var(--space6);
+  }
+
+  @media (width <= 540px) {
+    place-content: center;
+  }
+}
+
+form {
+  display: grid;
+  gap: var(--space6) var(--space7);
+  grid-template-columns: repeat(auto-fit, minmax(min(0px, 100%), 35ch));
+  align-items: flex-start;
+
+  --fixed-bg-gradient: linear-gradient(
+    to bottom, red, blue);
+}
+
+section {
+  display: grid;
+  gap: var(--space3);
+}
+
+header {
+  display: grid;
+  gap: var(--space2);
+}
+
+fieldset {
+  border: 1px solid var(--surface4);
+  background: var(--surface4);
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1px;
+  border-radius: var(--space3);
+  overflow: hidden;
+  transition: box-shadow .3s ease;
+
+  &:focus-within {
+    box-shadow: 0 5px 20px -10px hsl(0 0% 0% / 50%);
+  }
+}
+
+input[type="range"] {
+  --track-height: .5ex;
+  --thumb-size: 3ex;
+  --thumb-offset: -1.25ex;
+
+  @media (width >= 540px) {
+    --thumb-size: 2ex;
+    --thumb-offset: -.75ex;
+  }
+
+  display: block;
+  width: 100%;
+  margin: 1ex 0;
+  appearance: none;
+  background: transparent;
+  outline-offset: 5px;
+
+  &::-webkit-slider-runnable-track {
+    appearance: none;
+    height: var(--track-height);
+    border-radius: 5ex;
+    background: var(--fixed-bg-gradient) fixed;
+  }
+
+  &::-moz-range-track {
+    appearance: none;
+    height: var(--track-height);
+    border-radius: 5ex;
+    background: var(--fixed-bg-gradient) fixed;
+  }
+
+  &::-webkit-slider-thumb {
+    appearance: none;
+    height: var(--thumb-size);
+    width: var(--thumb-size);
+    margin-top: var(--thumb-offset);
+    clip-path: ellipse();
+    background: var(--text);
+    cursor: ew-resize;
+  }
+
+  &::-moz-range-thumb {
+    appearance: none;
+    height: var(--thumb-size);
+    width: var(--thumb-size);
+    margin-top: var(--thumb-offset);
+    clip-path: ellipse();
+    background: var(--text);
+    cursor: ew-resize;
+  }
+}
+
+input[type="checkbox"] {
+  inline-size: var(--space3);
+  block-size: var(--space3);
+  outline-offset: 5px;
+}
+
+figure {
+  background: var(--surface3);
+  display: grid;
+  grid-template-columns: var(--space5) 1fr;
+  gap: var(--space4);
+  padding-block: var(--space3);
+  padding-inline: var(--space4);
+  transition: background .1s ease;
+  margin: 0;
+
+  @media (width >= 540px) {
+    grid-template-columns: var(--space7) 1fr;
+    gap: var(--space2);
+    padding-block: var(--space4);
+    padding-inline: 0 var(--space6);
+  }
+
+  &:focus-within {
+    opacity: 1;
+    background: var(--surface2);
+    transition-duration: .2s;
+
+    & svg {
+      fill: white;
+    }
+
+    & picture {
+      background: var(--fixed-bg-gradient) fixed;
+    }
+  }
+
+  & > :matches(figcaption, label) {
+    display: grid;
+    gap: var(--space2);
+  }
+
+  & > figcaption > label {
+    display: contents;
+  }
+
+  & > picture {
+    block-size: var(--space6);
+    inline-size: var(--space6);
+    clip-path: ellipse();
+    display: inline-grid;
+    place-content: center;
+  }
+
+  & > :matches(picture, input[type="checkbox"]) {
+    place-self: center;
+  }
+}
+
+small {
+  color: var(--text2);
+  line-height: 1.5;
+}
+
+svg {
+  fill: var(--text2);
+  block-size: var(--space4);
+  transition: fill .5s ease;
+}
