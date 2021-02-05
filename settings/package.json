@@ -9,7 +9,7 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --base=/settings/dist/",
     "serve": "vite preview"
   },
   "devDependencies": {
