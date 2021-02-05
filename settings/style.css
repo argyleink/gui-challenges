@@ -230,5 +230,4 @@ small {
 svg {
   fill: var(--text2);
   block-size: var(--space4);
-  transition: fill .5s ease;
 }
