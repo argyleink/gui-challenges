@@ -62,7 +62,7 @@ main {
     padding: var(--space6);
   }
 
-  @media (width <= 540px) {
+  @media (width <= 800px) {
     place-content: center;
   }
 }
@@ -177,13 +177,8 @@ input[type="range"] {
     }
   }
 
-  &:active {
-    &::-webkit-slider-thumb {
-      --thumb-highlight-size: 10px;
-    }
-    &::-moz-range-thumb {
-      --thumb-highlight-size: 10px;
-    }
+  &:matches(:hover,:active) {
+    --thumb-highlight-size: 10px;
   }
 }
 
