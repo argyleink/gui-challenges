@@ -117,6 +117,7 @@ input[type="range"] {
   --thumb-offset: -1.25ex;
   --thumb-highlight-size: 0px;
   --thumb-highlight-color: hsl(0deg 0% 100% / 20%);
+  --track-fill: 0%;
 
   @media (prefers-color-scheme: light) {
     --thumb-highlight-color: hsl(0deg 0% 0% / 20%);
@@ -133,14 +134,18 @@ input[type="range"] {
     appearance: none;
     height: var(--track-height);
     border-radius: 5ex;
-    background: var(--fixed-bg-gradient) fixed;
+    background: 
+      linear-gradient(to right, transparent var(--track-fill), var(--surface1) 0%),
+      var(--fixed-bg-gradient) fixed;
   }
 
   &::-moz-range-track {
     appearance: none;
     height: var(--track-height);
     border-radius: 5ex;
-    background: var(--fixed-bg-gradient) fixed;
+    background: 
+      linear-gradient(to right, transparent var(--track-fill), var(--surface1) 0%),
+      var(--fixed-bg-gradient) fixed;
   }
 
   &::-webkit-slider-thumb {
@@ -221,7 +226,7 @@ figure {
 
   & > :matches(figcaption, label) {
     display: grid;
-    gap: var(--space1);
+    gap: var(--space2);
   }
 
   & > figcaption > label {
