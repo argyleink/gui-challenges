@@ -87,12 +87,12 @@ form {
 
 section {
   display: grid;
-  gap: var(--space3);
+  gap: var(--space4);
 }
 
 header {
   display: grid;
-  gap: var(--space2);
+  gap: var(--space1);
 }
 
 fieldset {
@@ -115,6 +115,12 @@ input[type="range"] {
   --track-height: .5ex;
   --thumb-size: 3ex;
   --thumb-offset: -1.25ex;
+  --thumb-highlight-size: 0px;
+  --thumb-highlight-color: hsl(0deg 0% 100% / 20%);
+
+  @media (prefers-color-scheme: light) {
+    --thumb-highlight-color: hsl(0deg 0% 0% / 20%);
+  }
 
   display: block;
   width: 100%;
@@ -139,24 +145,45 @@ input[type="range"] {
 
   &::-webkit-slider-thumb {
     appearance: none;
+    cursor: ew-resize;
     border: 3px solid var(--surface3);
     height: var(--thumb-size);
     width: var(--thumb-size);
     margin-top: var(--thumb-offset);
     border-radius: 50%;
     background: var(--fixed-bg-gradient) fixed;
-    cursor: ew-resize;
+    box-shadow: 0 0 0 var(--thumb-highlight-size) var(--thumb-highlight-color);
+    transition: box-shadow .1s ease;
+
+    @nest figure:focus-within & {
+      border-color: var(--surface2);
+    }
   }
 
   &::-moz-range-thumb {
     appearance: none;
+    cursor: ew-resize;
     border: 3px solid var(--surface3);
     height: var(--thumb-size);
     width: var(--thumb-size);
     margin-top: var(--thumb-offset);
     border-radius: 50%;
     background: var(--fixed-bg-gradient) fixed;
-    cursor: ew-resize;
+    box-shadow: 0 0 0 var(--thumb-highlight-size) var(--thumb-highlight-color);
+    transition: box-shadow .1s ease;
+
+    @nest figure:focus-within & {
+      border-color: var(--surface2);
+    }
+  }
+
+  &:active {
+    &::-webkit-slider-thumb {
+      --thumb-highlight-size: 10px;
+    }
+    &::-moz-range-thumb {
+      --thumb-highlight-size: 10px;
+    }
   }
 }
 
@@ -199,7 +226,7 @@ figure {
 
   & > :matches(figcaption, label) {
     display: grid;
-    gap: var(--space2);
+    gap: var(--space1);
   }
 
   & > figcaption > label {
