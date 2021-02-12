@@ -191,6 +191,7 @@ input[type="checkbox"] {
   inline-size: var(--space3);
   block-size: var(--space3);
   outline-offset: 5px;
+  accent-color: var(--brand);
 }
 
 figure {
