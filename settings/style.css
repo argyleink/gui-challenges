@@ -197,11 +197,12 @@ input[type="checkbox"] {
   accent-color: var(--brand);
   clip-path: circle(150%);
   box-shadow: 0 0 0 var(--thumb-highlight-size) var(--thumb-highlight-color);
-  transition: box-shadow .3s ease;
+  transition: box-shadow .3s ease .2s;
   border-radius: 999px;
 
   &:hover {
     --thumb-highlight-size: 30px;
+    transition-delay: 0s;
   }
 }
 
