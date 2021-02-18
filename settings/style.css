@@ -188,10 +188,20 @@ input[type="range"] {
 }
 
 input[type="checkbox"] {
+  --thumb-highlight-size: 0px;
+  --thumb-highlight-color: hsl(0deg 0% 100% / 20%);
+
   inline-size: var(--space3);
   block-size: var(--space3);
   outline-offset: 5px;
   accent-color: var(--brand);
+  clip-path: circle(100%);
+  box-shadow: 0 0 0 var(--thumb-highlight-size) var(--thumb-highlight-color);
+  transition: box-shadow .1s ease;
+
+  &:matches(:hover,:focus) {
+    --thumb-highlight-size: 10px;
+  }
 }
 
 figure {
@@ -213,7 +223,6 @@ figure {
 
   &:focus-within {
     opacity: 1;
-    background: var(--surface2);
     transition-duration: .2s;
 
     & svg {
@@ -221,6 +230,7 @@ figure {
     }
 
     & picture {
+      clip-path: circle(50%);
       background: var(--fixed-bg-gradient) fixed;
     }
   }
@@ -237,9 +247,11 @@ figure {
   & > picture {
     block-size: var(--space6);
     inline-size: var(--space6);
-    clip-path: ellipse();
+    clip-path: circle(40%);
     display: inline-grid;
     place-content: center;
+    background: var(--surface3) fixed;
+    transition: clip-path .3s ease;
   }
 
   & > :matches(picture, input[type="checkbox"]) {
