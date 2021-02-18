@@ -195,12 +195,13 @@ input[type="checkbox"] {
   block-size: var(--space3);
   outline-offset: 5px;
   accent-color: var(--brand);
-  clip-path: circle(100%);
+  clip-path: circle(150%);
   box-shadow: 0 0 0 var(--thumb-highlight-size) var(--thumb-highlight-color);
-  transition: box-shadow .1s ease;
+  transition: box-shadow .3s ease;
+  border-radius: 999px;
 
-  &:matches(:hover,:focus) {
-    --thumb-highlight-size: 10px;
+  &:hover {
+    --thumb-highlight-size: 30px;
   }
 }
 
