@@ -6,6 +6,7 @@
   --text1: lch(95 0 0);
   --text2: lch(75 0 0);
   --brand: lch(64 20 237);
+  --thumb-highlight-color: hsl(0deg 0% 100% / 20%);
 
   --space1: .25rem;
   --space2: .5rem;
@@ -23,6 +24,7 @@
     --text1: lch(20 0 0);
     --text2: lch(45 0 0);
     --brand: lch(64 40 237);
+    --thumb-highlight-color: hsl(0deg 0% 0% / 20%);
   }
 }
 
@@ -116,12 +118,7 @@ input[type="range"] {
   --thumb-size: 3ex;
   --thumb-offset: -1.25ex;
   --thumb-highlight-size: 0px;
-  --thumb-highlight-color: hsl(0deg 0% 100% / 20%);
   --track-fill: 0%;
-
-  @media (prefers-color-scheme: light) {
-    --thumb-highlight-color: hsl(0deg 0% 0% / 20%);
-  }
 
   display: block;
   width: 100%;
@@ -182,27 +179,45 @@ input[type="range"] {
     }
   }
 
-  &:matches(:hover,:active) {
+  &:is(:hover,:active) {
     --thumb-highlight-size: 10px;
   }
 }
 
 input[type="checkbox"] {
-  --thumb-highlight-size: 0px;
-  --thumb-highlight-color: hsl(0deg 0% 100% / 20%);
-
   inline-size: var(--space3);
   block-size: var(--space3);
+  margin: 0;
   outline-offset: 5px;
   accent-color: var(--brand);
-  clip-path: circle(150%);
-  box-shadow: 0 0 0 var(--thumb-highlight-size) var(--thumb-highlight-color);
-  transition: box-shadow .3s ease .2s;
-  border-radius: 999px;
+  position: relative;
+  transform-style: preserve-3d;
 
-  &:hover {
-    --thumb-highlight-size: 30px;
-    transition-delay: 0s;
+  &:hover::before {
+    --thumb-scale: 1;
+  }
+
+  &::before {
+    --thumb-scale: .01;
+    --thumb-highlight-size: var(--space6);
+
+    content: "";
+    inline-size: var(--thumb-highlight-size);
+    block-size: var(--thumb-highlight-size);
+    clip-path: circle(50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: var(--thumb-highlight-color);
+    transition: transform .2s ease;
+    transform-origin: center center;
+    transform: 
+      translateX(-50%) 
+      translateY(-50%) 
+      translateZ(-1px) 
+      scale(var(--thumb-scale))
+    ;
+    will-change: transform;
   }
 }
 
