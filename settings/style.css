@@ -192,6 +192,7 @@ input[type="checkbox"] {
   accent-color: var(--brand);
   position: relative;
   transform-style: preserve-3d;
+  cursor: pointer;
 
   &:hover::before {
     --thumb-scale: 1;
