@@ -168,7 +168,12 @@ input[type="range"] {
     border-radius: 50%;
     background: var(--brand-bg-gradient) fixed;
     box-shadow: 0 0 0 var(--thumb-highlight-size) var(--thumb-highlight-color);
-    transition: box-shadow .1s ease;
+    
+    @media (prefers-reduced-motion: no-preference) {
+      & {
+        transition: box-shadow .1s ease;
+      }
+    }
 
     @nest figure:focus-within & {
       border-color: var(--surface2);
@@ -185,7 +190,12 @@ input[type="range"] {
     border-radius: 50%;
     background: var(--brand-bg-gradient) fixed;
     box-shadow: 0 0 0 var(--thumb-highlight-size) var(--thumb-highlight-color);
-    transition: box-shadow .1s ease;
+
+    @media (prefers-reduced-motion: no-preference) {
+      & {
+        transition: box-shadow .1s ease;
+      }
+    }
 
     @nest figure:focus-within & {
       border-color: var(--surface2);
@@ -223,7 +233,6 @@ input[type="checkbox"] {
     top: 50%;
     left: 50%;
     background: var(--thumb-highlight-color);
-    transition: transform .2s ease;
     transform-origin: center center;
     transform: 
       translateX(-50%) 
@@ -232,6 +241,12 @@ input[type="checkbox"] {
       scale(var(--thumb-scale))
     ;
     will-change: transform;
+
+    @media (prefers-reduced-motion: no-preference) {
+      & {
+        transition: transform .2s ease;
+      }
+    }
   }
 }
 
@@ -282,7 +297,12 @@ figure {
     display: inline-grid;
     place-content: center;
     background: var(--surface3) fixed;
-    transition: clip-path .3s ease;
+
+    @media (prefers-reduced-motion: no-preference) {
+      & {
+        transition: clip-path .3s ease;
+      }
+    }
   }
 
   & > :matches(picture, input[type="checkbox"]) {
