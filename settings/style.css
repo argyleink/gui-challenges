@@ -8,8 +8,8 @@
   --text2: lch(75 0 0);
 
   --brand: lch(64 20 237);
-  --brand-bg1: hsl(328deg 70% 60%);
-  --brand-bg2: hsl(240deg 70% 60%);
+  --brand-bg1: lch(70 64 349);
+  --brand-bg2: lch(60 84 300);
 
   --brand-bg-gradient: linear-gradient(
     to bottom, 
@@ -38,8 +38,8 @@
       --text2: lch(45 0 0);
 
       --brand: lch(64 40 237);
-      --brand-bg1: deeppink;
-      --brand-bg2: blue;
+      --brand-bg1: lch(50 64 349);
+      --brand-bg2: lch(40 84 300);
 
       --thumb-highlight-color: hsl(0deg 0% 0% / 20%);
     }
