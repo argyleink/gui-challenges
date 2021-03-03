@@ -3,9 +3,20 @@
   --surface2: lch(15 0 0);
   --surface3: lch(20 0 0);
   --surface4: lch(25 0 0);
+
   --text1: lch(95 0 0);
   --text2: lch(75 0 0);
+
   --brand: lch(64 20 237);
+  --brand-bg1: hsl(328deg 70% 60%);
+  --brand-bg2: hsl(240deg 70% 60%);
+
+  --brand-bg-gradient: linear-gradient(
+    to bottom, 
+    var(--brand-bg1), 
+    var(--brand-bg2)
+  );
+
   --thumb-highlight-color: hsl(0deg 0% 100% / 20%);
 
   --space1: .25rem;
@@ -17,14 +28,21 @@
   --space7: 6rem;
 
   @media (prefers-color-scheme: light) {
-    --surface1: lch(90 0 0);
-    --surface2: lch(100 0 0);
-    --surface3: lch(98 0 0);
-    --surface4: lch(85 0 0);
-    --text1: lch(20 0 0);
-    --text2: lch(45 0 0);
-    --brand: lch(64 40 237);
-    --thumb-highlight-color: hsl(0deg 0% 0% / 20%);
+    & {
+      --surface1: lch(90 0 0);
+      --surface2: lch(100 0 0);
+      --surface3: lch(98 0 0);
+      --surface4: lch(85 0 0);
+
+      --text1: lch(20 0 0);
+      --text2: lch(45 0 0);
+
+      --brand: lch(64 40 237);
+      --brand-bg1: deeppink;
+      --brand-bg2: blue;
+
+      --thumb-highlight-color: hsl(0deg 0% 0% / 20%);
+    }
   }
 }
 
@@ -70,19 +88,8 @@ form {
   max-width: 89vw;
   display: grid;
   gap: var(--space6) var(--space7);
-  grid-template-columns: repeat(auto-fit, minmax(min(1px, 100%), 35ch));
+  grid-template-columns: repeat(auto-fit, minmax(min(10ch, 100%), 35ch));
   align-items: flex-start;
-
-  --fixed-bg-gradient: linear-gradient(
-    to bottom, 
-    hsl(328deg 70% 60%), 
-    hsl(240deg 70% 60%)
-  );
-
-  @media (prefers-color-scheme: light) {
-    --fixed-bg-gradient: linear-gradient(
-    to bottom, deeppink, blue);
-  }
 }
 
 section {
@@ -119,7 +126,7 @@ input[type="range"] {
   --track-fill: 0%;
 
   display: block;
-  width: 100%;
+  inline-size: 100%;
   margin: 1ex 0;
   appearance: none;
   background: transparent;
@@ -127,31 +134,39 @@ input[type="range"] {
 
   &::-webkit-slider-runnable-track {
     appearance: none;
-    height: var(--track-height);
+    block-size: var(--track-height);
     border-radius: 5ex;
     background: 
-      linear-gradient(to right, transparent var(--track-fill), var(--surface1) 0%),
-      var(--fixed-bg-gradient) fixed;
+      linear-gradient(
+        to right, 
+        transparent var(--track-fill), 
+        var(--surface1) 0%
+      ),
+      var(--brand-bg-gradient) fixed;
   }
 
   &::-moz-range-track {
     appearance: none;
-    height: var(--track-height);
+    block-size: var(--track-height);
     border-radius: 5ex;
     background: 
-      linear-gradient(to right, transparent var(--track-fill), var(--surface1) 0%),
-      var(--fixed-bg-gradient) fixed;
+      linear-gradient(
+        to right, 
+        transparent var(--track-fill), 
+        var(--surface1) 0%
+      ),
+      var(--brand-bg-gradient) fixed;
   }
 
   &::-webkit-slider-thumb {
     appearance: none;
     cursor: ew-resize;
     border: 3px solid var(--surface3);
-    height: var(--thumb-size);
-    width: var(--thumb-size);
+    block-size: var(--thumb-size);
+    inline-size: var(--thumb-size);
     margin-top: var(--thumb-offset);
     border-radius: 50%;
-    background: var(--fixed-bg-gradient) fixed;
+    background: var(--brand-bg-gradient) fixed;
     box-shadow: 0 0 0 var(--thumb-highlight-size) var(--thumb-highlight-color);
     transition: box-shadow .1s ease;
 
@@ -164,11 +179,11 @@ input[type="range"] {
     appearance: none;
     cursor: ew-resize;
     border: 3px solid var(--surface3);
-    height: var(--thumb-size);
-    width: var(--thumb-size);
+    block-size: var(--thumb-size);
+    inline-size: var(--thumb-size);
     margin-top: var(--thumb-offset);
     border-radius: 50%;
-    background: var(--fixed-bg-gradient) fixed;
+    background: var(--brand-bg-gradient) fixed;
     box-shadow: 0 0 0 var(--thumb-highlight-size) var(--thumb-highlight-color);
     transition: box-shadow .1s ease;
 
@@ -247,7 +262,7 @@ figure {
 
     & picture {
       clip-path: circle(50%);
-      background: var(--fixed-bg-gradient) fixed;
+      background: var(--brand-bg-gradient) fixed;
     }
   }
 
