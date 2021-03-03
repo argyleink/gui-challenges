@@ -39,7 +39,7 @@ body {
 
   box-sizing: border-box;
   margin: 0;
-  padding-block: var(--space5);
+  padding-block: var(--space2);
 
   background: var(--surface1);
   color: var(--text1);
@@ -54,6 +54,7 @@ h1,h2,h3 {
 main {
   display: grid;
   gap: var(--space6);
+  place-content: center;
   padding: var(--space3);
 
   @media (width >= 540px) {
@@ -63,13 +64,10 @@ main {
   @media (width >= 800px) {
     padding: var(--space6);
   }
-
-  @media (width <= 800px) {
-    place-content: center;
-  }
 }
 
 form {
+  max-width: 89vw;
   display: grid;
   gap: var(--space6) var(--space7);
   grid-template-columns: repeat(auto-fit, minmax(min(1px, 100%), 35ch));
