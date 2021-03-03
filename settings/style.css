@@ -1,3 +1,5 @@
+@custom-media --motionOK (prefers-reduced-motion: no-preference);
+
 :root {
   --surface1: lch(10 0 0);
   --surface2: lch(15 0 0);
@@ -169,7 +171,7 @@ input[type="range"] {
     background: var(--brand-bg-gradient) fixed;
     box-shadow: 0 0 0 var(--thumb-highlight-size) var(--thumb-highlight-color);
     
-    @media (prefers-reduced-motion: no-preference) {
+    @media (--motionOK) {
       & {
         transition: box-shadow .1s ease;
       }
@@ -191,7 +193,7 @@ input[type="range"] {
     background: var(--brand-bg-gradient) fixed;
     box-shadow: 0 0 0 var(--thumb-highlight-size) var(--thumb-highlight-color);
 
-    @media (prefers-reduced-motion: no-preference) {
+    @media (--motionOK) {
       & {
         transition: box-shadow .1s ease;
       }
@@ -242,7 +244,7 @@ input[type="checkbox"] {
     ;
     will-change: transform;
 
-    @media (prefers-reduced-motion: no-preference) {
+    @media (--motionOK) {
       & {
         transition: transform .2s ease;
       }
@@ -298,7 +300,7 @@ input[type="checkbox"] {
     place-content: center;
     background: var(--surface3) fixed;
 
-    @media (prefers-reduced-motion: no-preference) {
+    @media (--motionOK) {
       & {
         transition: clip-path .3s ease;
       }
