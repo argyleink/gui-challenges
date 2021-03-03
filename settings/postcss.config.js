@@ -10,6 +10,7 @@ module.exports = {
         // 'logical-properties-and-values': false, 
         'prefers-color-scheme-query': false, 
         'gap-properties': false,
+        'custom-properties': false,
       }
     }),
   ]
