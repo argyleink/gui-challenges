@@ -175,7 +175,7 @@ input[type="range"] {
       }
     }
 
-    @nest figure:focus-within & {
+    @nest .fieldset-item:focus-within & {
       border-color: var(--surface2);
     }
   }
@@ -197,7 +197,7 @@ input[type="range"] {
       }
     }
 
-    @nest figure:focus-within & {
+    @nest .fieldset-item:focus-within & {
       border-color: var(--surface2);
     }
   }
@@ -250,15 +250,16 @@ input[type="checkbox"] {
   }
 }
 
-figure {
+.fieldset-item {
   background: var(--surface3);
+  transition: background .2s ease;
+
   display: grid;
   grid-template-columns: var(--space5) 1fr;
   gap: var(--space4);
+
   padding-block: var(--space3);
   padding-inline: var(--space4);
-  transition: background .1s ease;
-  margin: 0;
 
   @media (width >= 540px) {
     grid-template-columns: var(--space7) 1fr;
@@ -268,8 +269,7 @@ figure {
   }
 
   &:focus-within {
-    opacity: 1;
-    transition-duration: .2s;
+    background: var(--surface2);
 
     & svg {
       fill: white;
@@ -281,12 +281,12 @@ figure {
     }
   }
 
-  & > :matches(figcaption, label) {
+  & > :is(.input-stack, label) {
     display: grid;
     gap: var(--space2);
   }
 
-  & > figcaption > label {
+  & > .input-stack > label {
     display: contents;
   }
 
@@ -305,7 +305,7 @@ figure {
     }
   }
 
-  & > :matches(picture, input[type="checkbox"]) {
+  & > :is(picture, input[type="checkbox"]) {
     place-self: center;
   }
 }
