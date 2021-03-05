@@ -19,7 +19,7 @@
     var(--brand-bg2)
   );
 
-  --thumb-highlight-color: hsl(0deg 0% 100% / 20%);
+  --thumb-highlight-color: lch(100 0 0 / 20%);
 
   --space1: .25rem;
   --space2: .5rem;
@@ -43,7 +43,7 @@
       --brand-bg1: lch(50 64 349);
       --brand-bg2: lch(40 84 300);
 
-      --thumb-highlight-color: hsl(0deg 0% 0% / 20%);
+      --thumb-highlight-color: lch(0 0 0 / 20%);
     }
   }
 }
