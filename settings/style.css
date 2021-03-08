@@ -21,13 +21,13 @@
 
   --thumb-highlight-color: lch(100 0 0 / 20%);
 
-  --space1: .25rem;
-  --space2: .5rem;
-  --space3: 1rem;
-  --space4: 1.5rem;
-  --space5: 2rem;
-  --space6: 3rem;
-  --space7: 6rem;
+  --space-xxs: .25rem;
+  --space-xs:  .5rem;
+  --space-sm:  1rem;
+  --space-md:  1.5rem;
+  --space-lg:  2rem;
+  --space-xl:  3rem;
+  --space-xxl: 6rem;
 
   @media (prefers-color-scheme: light) {
     & {
@@ -59,7 +59,7 @@ body {
 
   box-sizing: border-box;
   margin: 0;
-  padding-block: var(--space2);
+  padding-block: var(--space-xs);
 
   background: var(--surface1);
   color: var(--text1);
@@ -73,23 +73,23 @@ h1,h2,h3 {
 
 main {
   display: grid;
-  gap: var(--space6);
+  gap: var(--space-xl);
   place-content: center;
-  padding: var(--space3);
+  padding: var(--space-sm);
 
   @media (width >= 540px) {
-    & { padding: var(--space5); }
+    & { padding: var(--space-lg); }
   }
 
   @media (width >= 800px) {
-    & { padding: var(--space6); }
+    & { padding: var(--space-xl); }
   }
 }
 
 form {
   max-width: 89vw;
   display: grid;
-  gap: var(--space6) var(--space7);
+  gap: var(--space-xl) var(--space-xxl);
   grid-template-columns: 
     repeat(auto-fit, minmax(min(10ch, 100%), 35ch));
   align-items: flex-start;
@@ -97,12 +97,12 @@ form {
 
 section {
   display: grid;
-  gap: var(--space4);
+  gap: var(--space-md);
 }
 
 header {
   display: grid;
-  gap: var(--space1);
+  gap: var(--space-xxs);
 }
 
 fieldset {
@@ -112,7 +112,7 @@ fieldset {
   margin: 0;
   display: grid;
   gap: 1px;
-  border-radius: var(--space3);
+  border-radius: var(--space-sm);
   overflow: hidden;
   transition: box-shadow .3s ease;
 
@@ -211,8 +211,8 @@ input[type="range"] {
 }
 
 input[type="checkbox"] {
-  inline-size: var(--space3);
-  block-size: var(--space3);
+  inline-size: var(--space-sm);
+  block-size: var(--space-sm);
   margin: 0;
   outline-offset: 5px;
   accent-color: var(--brand);
@@ -226,7 +226,7 @@ input[type="checkbox"] {
 
   &::before {
     --thumb-scale: .01;
-    --thumb-highlight-size: var(--space6);
+    --thumb-highlight-size: var(--space-xl);
 
     content: "";
     inline-size: var(--thumb-highlight-size);
@@ -258,17 +258,17 @@ input[type="checkbox"] {
   transition: background .2s ease;
 
   display: grid;
-  grid-template-columns: var(--space5) 1fr;
-  gap: var(--space4);
+  grid-template-columns: var(--space-lg) 1fr;
+  gap: var(--space-md);
 
-  padding-block: var(--space3);
-  padding-inline: var(--space4);
+  padding-block: var(--space-sm);
+  padding-inline: var(--space-md);
 
   @media (width >= 540px) {
-    grid-template-columns: var(--space7) 1fr;
-    gap: var(--space2);
-    padding-block: var(--space4);
-    padding-inline: 0 var(--space6);
+    grid-template-columns: var(--space-xxl) 1fr;
+    gap: var(--space-xs);
+    padding-block: var(--space-md);
+    padding-inline: 0 var(--space-xl);
   }
 
   &:focus-within {
@@ -286,7 +286,7 @@ input[type="checkbox"] {
 
   & > :is(.input-stack, label) {
     display: grid;
-    gap: var(--space2);
+    gap: var(--space-xs);
   }
 
   & > .input-stack > label {
@@ -294,8 +294,8 @@ input[type="checkbox"] {
   }
 
   & > picture {
-    block-size: var(--space6);
-    inline-size: var(--space6);
+    block-size: var(--space-xl);
+    inline-size: var(--space-xl);
     clip-path: circle(40%);
     display: inline-grid;
     place-content: center;
@@ -320,5 +320,5 @@ small {
 
 svg {
   fill: var(--text2);
-  block-size: var(--space4);
+  block-size: var(--space-md);
 }
