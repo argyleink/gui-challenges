@@ -78,11 +78,11 @@ main {
   padding: var(--space3);
 
   @media (width >= 540px) {
-    padding: var(--space5);
+    & { padding: var(--space5); }
   }
 
   @media (width >= 800px) {
-    padding: var(--space6);
+    & { padding: var(--space6); }
   }
 }
 
@@ -90,7 +90,8 @@ form {
   max-width: 89vw;
   display: grid;
   gap: var(--space6) var(--space7);
-  grid-template-columns: repeat(auto-fit, minmax(min(10ch, 100%), 35ch));
+  grid-template-columns: 
+    repeat(auto-fit, minmax(min(10ch, 100%), 35ch));
   align-items: flex-start;
 }
 
