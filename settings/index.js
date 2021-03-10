@@ -2,9 +2,8 @@ const form = document.querySelector('form')
 const sliders = document.querySelectorAll('input[type="range"]')
 
 const rangeToPercent = slider => {
-  const value = slider.value
   const max = slider.getAttribute('max') || 10
-  const percent = value / max * 100
+  const percent = slider.value / max * 100
 
   return `${parseInt(percent)}%`
 }

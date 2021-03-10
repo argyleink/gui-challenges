@@ -123,10 +123,10 @@ fieldset {
 
 input[type="range"] {
   --track-height: .5ex;
+  --track-fill: 0%;
   --thumb-size: 3ex;
   --thumb-offset: -1.25ex;
   --thumb-highlight-size: 0px;
-  --track-fill: 0%;
 
   display: block;
   inline-size: 100%;
