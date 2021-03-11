@@ -90,9 +90,14 @@ form {
   max-width: 89vw;
   display: grid;
   gap: var(--space-xl) var(--space-xxl);
+  --repeat: auto-fit;
   grid-template-columns: 
-    repeat(auto-fit, minmax(min(10ch, 100%), 35ch));
+    repeat(var(--repeat), minmax(min(10ch, 100%), 35ch));
   align-items: flex-start;
+
+  @media (orientation: landscape) and (width >= 640px) { & {
+    --repeat: 2;
+  }}
 }
 
 section {
