@@ -313,6 +313,11 @@ input[type="checkbox"] {
     }
   }
 
+  & svg {
+    fill: var(--text2);
+    block-size: var(--space-md);
+  }
+
   & > :is(picture, input[type="checkbox"]) {
     place-self: center;
   }
@@ -323,7 +328,23 @@ small {
   line-height: 1.5;
 }
 
-svg {
-  fill: var(--text2);
-  block-size: var(--space-md);
+.github-corner {
+  color: var(--surface1);
+  fill: var(--surface3); 
+  
+  &:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+  }
+}
+
+@keyframes octocat-wave{
+  0%,100% {
+    transform: rotate(0)
+  }
+  20%,60% {
+    transform: rotate(-25deg)
+  }
+  40%,80% {
+    transform: rotate(10deg)
+  }
 }
