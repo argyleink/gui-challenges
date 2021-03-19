@@ -14,8 +14,8 @@
   --brand-bg2: lch(60 84 300);
 
   --brand-bg-gradient: linear-gradient(
-    to bottom, 
-    var(--brand-bg1), 
+    to bottom,
+    var(--brand-bg1),
     var(--brand-bg2)
   );
 
@@ -66,8 +66,8 @@ body {
   font-family: system-ui, sans-serif;
 }
 
-h1,h2,h3 { 
-  margin: 0; 
+h1,h2,h3 {
+  margin: 0;
   font-weight: 500;
 }
 
@@ -91,7 +91,7 @@ form {
   display: grid;
   gap: var(--space-xl) var(--space-xxl);
   --repeat: auto-fit;
-  grid-template-columns: 
+  grid-template-columns:
     repeat(var(--repeat), minmax(min(10ch, 100%), 35ch));
   align-items: flex-start;
 
@@ -144,10 +144,10 @@ input[type="range"] {
     appearance: none;
     block-size: var(--track-height);
     border-radius: 5ex;
-    background: 
+    background:
       linear-gradient(
-        to right, 
-        transparent var(--track-fill), 
+        to right,
+        transparent var(--track-fill),
         var(--surface1) 0%
       ),
       var(--brand-bg-gradient) fixed;
@@ -157,10 +157,10 @@ input[type="range"] {
     appearance: none;
     block-size: var(--track-height);
     border-radius: 5ex;
-    background: 
+    background:
       linear-gradient(
-        to right, 
-        transparent var(--track-fill), 
+        to right,
+        transparent var(--track-fill),
         var(--surface1) 0%
       ),
       var(--brand-bg-gradient) fixed;
@@ -176,7 +176,7 @@ input[type="range"] {
     border-radius: 50%;
     background: var(--brand-bg-gradient) fixed;
     box-shadow: 0 0 0 var(--thumb-highlight-size) var(--thumb-highlight-color);
-    
+
     @media (--motionOK) {
       & {
         transition: box-shadow .1s ease;
@@ -242,10 +242,10 @@ input[type="checkbox"] {
     left: 50%;
     background: var(--thumb-highlight-color);
     transform-origin: center center;
-    transform: 
-      translateX(-50%) 
-      translateY(-50%) 
-      translateZ(-1px) 
+    transform:
+      translateX(-50%)
+      translateY(-50%)
+      translateZ(-1px)
       scale(var(--thumb-scale))
     ;
     will-change: transform;
@@ -289,7 +289,7 @@ input[type="checkbox"] {
     }
   }
 
-  & > :is(.input-stack, label) {
+  & :is(.input-stack, label) {
     display: grid;
     gap: var(--space-xs);
   }
@@ -330,8 +330,8 @@ small {
 
 .github-corner {
   color: var(--surface1);
-  fill: var(--surface3); 
-  
+  fill: var(--surface3);
+
   &:hover .octo-arm {
     animation: octocat-wave 560ms ease-in-out
   }
