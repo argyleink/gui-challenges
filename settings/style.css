@@ -140,6 +140,13 @@ input[type="range"] {
   background: transparent;
   outline-offset: 5px;
 
+  @media (hover: none) {
+    & {
+      --thumb-size: 30px;
+      --thumb-offset: -14px;
+    }
+  }
+
   &::-webkit-slider-runnable-track {
     appearance: none;
     block-size: var(--track-height);
@@ -227,6 +234,13 @@ input[type="checkbox"] {
 
   &:hover::before {
     --thumb-scale: 1;
+  }
+
+  @media (hover: none) {
+    & {
+      inline-size: var(--space-md);
+      block-size: var(--space-md);
+    }
   }
 
   &::before {
