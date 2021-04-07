@@ -32,36 +32,60 @@ h1 {
     8rem);
 }
 
-#split-by-letter {
-  @media (--motionOK) {
+@media (--motionOK) {
+  [letter-animation] {
     & > span {
       display: inline-block;
       white-space: break-spaces;
+    }
+  }
 
+  [letter-animation="breath"] {
+    & > span {
       animation: 
         breath 1200ms ease 
         calc(var(--index) * 100 * 1ms) 
         infinite alternate;
     }
   }
-}
 
-#split-by-word {
-  overflow: hidden;
-  overflow: clip;
+  [letter-animation="hover"] {
+    & > span {
+      transition: transform .3s ease;
+      cursor: pointer;
 
-  display: inline-flex;
-  gap: 1ch;
+      &:hover {
+        transform: scale(1.25);
+      }
+    }
+  }
 
-  @media (--motionOK) {
+  [word-animation] {
+    overflow: hidden;
+    overflow: clip;
+
+    display: inline-flex;
+    gap: 1ch;
+  }
+
+  [word-animation="trampoline"] {
     & > span {
       display: inline-block;
       transform: translateY(100%);
-
       animation: 
-        slide 3s ease 
-        calc(var(--index) * 200 * 1ms) 
+        trampoline 3s ease 
+        calc(var(--index) * 150 * 1ms) 
         infinite alternate;
+    }
+  }
+
+  [word-animation="hover"] {
+    & > span {
+      transition: transform .3s ease;
+      
+      &:hover {
+        transform: translateY(-10px);
+      }
     }
   }
 }
@@ -77,15 +101,14 @@ h1 {
   }
 }
 
-@keyframes slide {
+@keyframes trampoline {
   0% {
     transform: translateY(100%);
-    opacity: 0;
+    color: cyan;
     animation-timing-function: ease-out;
   }
   50% {
     transform: translateY(0);
-    opacity: 1;
     animation-timing-function: ease-in;
   }
 }

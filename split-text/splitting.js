@@ -1,21 +1,14 @@
-export const elementsByLetter = text => {
-  return [...text].map((letter, i) => {
-    const node = document.createElement('span')
+const span = (text, index) => {
+  const node = document.createElement('span')
 
-    node.textContent = letter
-    node.style.setProperty('--index', i)
-    
-    return node
-  })
+  node.textContent = text
+  node.style.setProperty('--index', index)
+  
+  return node
 }
 
-export const elementsByWord = text => {
-  return text.split(' ').map((word, i) => {
-    const node = document.createElement('span')
+export const elementsByLetter = text =>
+  [...text].map(span)
 
-    node.textContent = word
-    node.style.setProperty('--index', i)
-    
-    return node
-  })
-}
+export const elementsByWord = text =>
+  text.split(' ').map(span)

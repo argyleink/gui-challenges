@@ -5,12 +5,18 @@ const {matches:motionOK} = window.matchMedia(
 )
 
 if (motionOK) {
-  const splitLetter = document.querySelector('#split-by-letter')
-  const splitWord = document.querySelector('#split-by-word')
+  const splitTargets = document.querySelectorAll('[split-by]')
 
-  const splitLetters = elementsByLetter(splitLetter.textContent)
-  const splitWords = elementsByWord(splitWord.textContent)
+  splitTargets.forEach(node => {
+    const type = node.getAttribute('split-by')
+    let splits = null
 
-  splitLetter.firstChild.replaceWith(...splitLetters)
-  splitWord.firstChild.replaceWith(...splitWords)
+    if (type === 'letter')
+      splits = elementsByLetter(node.textContent)
+    else if (type === 'word')
+      splits = elementsByWord(node.textContent)
+
+    if (splits)
+      node.firstChild.replaceWith(...splits)
+  })
 }
