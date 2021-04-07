@@ -32,68 +32,90 @@ h1 {
     8rem);
 }
 
-@media (--motionOK) {
-  [letter-animation] {
-    & > span {
+letter-animation {
+  @media (--motionOK) {
+    @nest [&] > span {
       display: inline-block;
       white-space: break-spaces;
     }
-  }
 
-  [letter-animation="breath"] {
-    & > span {
-      animation: 
-        breath 1200ms ease 
-        calc(var(--index) * 100 * 1ms) 
-        infinite alternate;
-    }
-  }
-
-  [letter-animation="hover"] {
-    &:hover > span {
-      transform: scale(.75);
-    }
-
-    & > span {
-      transition: transform .3s ease;
-      cursor: pointer;
-
-      &:hover {
-        transform: scale(1.25);
+    @nest [&="breath"] {
+      & > span {
+        animation: 
+          breath 1200ms ease 
+          calc(var(--index) * 100 * 1ms) 
+          infinite alternate;
       }
     }
-  }
 
-  [word-animation] {
-    overflow: hidden;
-    overflow: clip;
+    @nest [&="hover"] {
+      &:hover > span {
+        transform: scale(.75);
+      }
 
-    display: inline-flex;
-    gap: 1ch;
-  }
+      & > span {
+        transition: transform .3s ease;
+        cursor: pointer;
 
-  [word-animation="trampoline"] {
-    & > span {
-      display: inline-block;
-      transform: translateY(100%);
-      animation: 
-        trampoline 3s ease 
-        calc(var(--index) * 150 * 1ms) 
-        infinite alternate;
-    }
-  }
-
-  [word-animation="hover"] {
-    & > span {
-      transition: transform .3s ease;
-      cursor: pointer;
-      
-      &:hover {
-        transform: translateY(-10px);
+        &:hover {
+          transform: scale(1.25);
+        }
       }
     }
   }
 }
+
+word-animation {
+  @media (--motionOK) {
+    @nest [&] {
+      display: inline-flex;
+      gap: 1ch;
+    }
+
+    @nest [&="trampoline"] {
+      overflow: hidden;
+      overflow: clip;
+
+      & > span {
+        display: inline-block;
+        transform: translateY(100%);
+        animation: 
+          trampoline 3s ease 
+          calc(var(--index) * 150 * 1ms) 
+          infinite alternate;
+      }
+    }
+
+    @nest [&="hover"] {
+      & > span {
+        transition: transform .3s ease;
+        cursor: pointer;
+        
+        &:nth-of-type(1) {
+          transform-origin: center;
+          &:hover {
+            transform: translateY(-10px) rotateZ(5deg) scale(1.25);
+          }
+        }
+
+        &:nth-of-type(2) {
+          transform-origin: left center;
+          &:hover {
+            transform: translateY(-10px) rotateZ(-10deg) scale(1.25);
+          }
+        }
+
+        &:nth-of-type(3) {
+          transform-origin: right center;
+          &:hover {
+            transform: translateY(-10px) rotateZ(3deg) scale(1.25);
+          }
+        }
+      }
+    }
+  }
+}
+
 
 @keyframes breath {
   from {
@@ -109,7 +131,6 @@ h1 {
 @keyframes trampoline {
   0% {
     transform: translateY(100%);
-    color: cyan;
     animation-timing-function: ease-out;
   }
   50% {
