@@ -1,0 +1,91 @@
+@custom-media --motionOK (prefers-reduced-motion: no-preference);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+body {
+  min-block-size: 100%;
+  min-inline-size: 100%;
+  font-family: system-ui, sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10vh;
+}
+
+h1 {
+  font-weight: 100;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  font-size: clamp(
+    2rem, 
+    calc(1rem + 5vw), 
+    8rem);
+}
+
+#split-by-letter {
+  @media (--motionOK) {
+    & > span {
+      display: inline-block;
+      white-space: break-spaces;
+
+      animation: 
+        breath 1200ms ease 
+        calc(var(--index) * 100 * 1ms) 
+        infinite alternate;
+    }
+  }
+}
+
+#split-by-word {
+  overflow: hidden;
+  overflow: clip;
+
+  display: inline-flex;
+  gap: 1ch;
+
+  @media (--motionOK) {
+    & > span {
+      display: inline-block;
+      transform: translateY(100%);
+
+      animation: 
+        slide 3s ease 
+        calc(var(--index) * 200 * 1ms) 
+        infinite alternate;
+    }
+  }
+}
+
+@keyframes breath {
+  from {
+    animation-timing-function: ease-out;
+  }
+  to {
+    transform: scale(1.25);
+    filter: blur(5px);
+    animation-timing-function: ease-in-out;
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+    animation-timing-function: ease-out;
+  }
+  50% {
+    transform: translateY(0);
+    opacity: 1;
+    animation-timing-function: ease-in;
+  }
+}
