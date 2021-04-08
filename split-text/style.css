@@ -114,8 +114,10 @@ word-animation {
         transition: transform .3s ease;
         cursor: pointer;
 
-        &:not(:hover) {
-          transform: translateY(50%);
+        @media (hover) {
+          &:not(:hover) {
+            transform: translateY(50%);
+          }
         }
       }
     }
