@@ -12,9 +12,9 @@ if (motionOK) {
     let nodes = null
 
     if (type === 'letter')
-      nodes = byLetter(node.textContent)
+      nodes = byLetter(node.innerText)
     else if (type === 'word')
-      nodes = byWord(node.textContent)
+      nodes = byWord(node.innerText)
 
     if (nodes)
       node.firstChild.replaceWith(...nodes)

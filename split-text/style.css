@@ -32,6 +32,13 @@ h1 {
     8rem);
 }
 
+p {
+  font-weight: lighter;
+  line-height: 1.25;
+  max-inline-size: 20ch;
+  font-size: clamp(1.25rem, calc(1rem + 3vw), 3rem);
+}
+
 letter-animation {
   @media (--motionOK) {
 
@@ -77,13 +84,11 @@ word-animation {
 
     @nest [&] {
       display: inline-flex;
+      flex-wrap: wrap;
       gap: 1ch;
     }
 
     @nest [&="trampoline"] {
-      overflow: hidden;
-      overflow: clip;
-
       & > span {
         display: inline-block;
         transform: translateY(100%);
@@ -95,29 +100,15 @@ word-animation {
     }
 
     @nest [&="hover"] {
+      overflow: hidden;
+      overflow: clip;
+
       & > span {
         transition: transform .3s ease;
         cursor: pointer;
-        
-        &:nth-of-type(1) {
-          transform-origin: center;
-          &:hover {
-            transform: translateY(-10px) rotateZ(5deg) scale(1.25);
-          }
-        }
 
-        &:nth-of-type(2) {
-          transform-origin: left center;
-          &:hover {
-            transform: translateY(-10px) rotateZ(-10deg) scale(1.25);
-          }
-        }
-
-        &:nth-of-type(3) {
-          transform-origin: right center;
-          &:hover {
-            transform: translateY(-10px) rotateZ(3deg) scale(1.25);
-          }
+        &:not(:hover) {
+          transform: translateY(50%);
         }
       }
     }
