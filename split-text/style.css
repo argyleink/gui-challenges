@@ -41,12 +41,18 @@ letter-animation {
     }
 
     @nest [&="breath"] {
+      --glow-color: white;
+
       & > span {
         animation: 
           breath 1200ms ease 
           calc(var(--index) * 100 * 1ms) 
           infinite alternate;
       }
+
+      @media (prefers-color-scheme: light) { & {
+        --glow-color: black;
+      }}
     }
 
     @nest [&="hover"] {
@@ -125,7 +131,7 @@ word-animation {
   }
   to {
     transform: translateY(-5px) scale(1.25);
-    text-shadow: 0 0 25px white;
+    text-shadow: 0 0 25px var(--glow-color);
     animation-timing-function: ease-in-out;
   }
 }
