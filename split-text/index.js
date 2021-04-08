@@ -1,4 +1,4 @@
-import {elementsByLetter, elementsByWord} from './splitting.js'
+import {byLetter, byWord} from './splitting.js'
 
 const {matches:motionOK} = window.matchMedia(
   '(prefers-reduced-motion: no-preference)'
@@ -9,14 +9,14 @@ if (motionOK) {
 
   splitTargets.forEach(node => {
     const type = node.getAttribute('split-by')
-    let splits = null
+    let nodes = null
 
     if (type === 'letter')
-      splits = elementsByLetter(node.textContent)
+      nodes = byLetter(node.textContent)
     else if (type === 'word')
-      splits = elementsByWord(node.textContent)
+      nodes = byWord(node.textContent)
 
-    if (splits)
-      node.firstChild.replaceWith(...splits)
+    if (nodes)
+      node.firstChild.replaceWith(...nodes)
   })
 }

@@ -28,12 +28,13 @@ h1 {
   text-transform: uppercase;
   font-size: clamp(
     2rem, 
-    calc(1rem + 5vw), 
+    calc(1rem + 4vw), 
     8rem);
 }
 
 letter-animation {
   @media (--motionOK) {
+
     @nest [&] > span {
       display: inline-block;
       white-space: break-spaces;
@@ -67,6 +68,7 @@ letter-animation {
 
 word-animation {
   @media (--motionOK) {
+
     @nest [&] {
       display: inline-flex;
       gap: 1ch;
@@ -122,8 +124,8 @@ word-animation {
     animation-timing-function: ease-out;
   }
   to {
-    transform: scale(1.25);
-    filter: blur(5px);
+    transform: translateY(-5px) scale(1.25);
+    text-shadow: 0 0 25px white;
     animation-timing-function: ease-in-out;
   }
 }

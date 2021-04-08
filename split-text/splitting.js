@@ -7,8 +7,8 @@ const span = (text, index) => {
   return node
 }
 
-export const elementsByLetter = text =>
+export const byLetter = text =>
   [...text].map(span)
 
-export const elementsByWord = text =>
+export const byWord = text =>
   text.split(' ').map(span)
