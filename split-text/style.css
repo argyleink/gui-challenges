@@ -1,0 +1,148 @@
+@custom-media --motionOK (prefers-reduced-motion: no-preference);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+body {
+  min-block-size: 100%;
+  min-inline-size: 100%;
+  font-family: system-ui, sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10vh;
+  padding-inline: 5vh;
+}
+
+h1 {
+  font-weight: 100;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+
+  --scalar: 2vw;
+  font-size: clamp(
+    1.5rem, 
+    calc(1rem + var(--scalar)), 
+    8rem);
+
+  @media (width > 480px) { & {
+    --scalar: 4vw;
+  }}
+}
+
+p {
+  font-weight: lighter;
+  line-height: 1.25;
+  max-inline-size: 20ch;
+  font-size: clamp(1.25rem, calc(1rem + 3vw), 3rem);
+}
+
+letter-animation {
+  @media (--motionOK) {
+
+    @nest [&] > span {
+      display: inline-block;
+      white-space: break-spaces;
+    }
+
+    @nest [&="breath"] {
+      --glow-color: white;
+
+      & > span {
+        animation: 
+          breath 1200ms ease 
+          calc(var(--index) * 100 * 1ms) 
+          infinite alternate;
+      }
+
+      @media (prefers-color-scheme: light) { & {
+        --glow-color: black;
+      }}
+    }
+
+    @nest [&="hover"] {
+      &:hover > span {
+        transform: scale(.75);
+      }
+
+      & > span {
+        transition: transform .3s ease;
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.25);
+        }
+      }
+    }
+  }
+}
+
+word-animation {
+  @media (--motionOK) {
+
+    @nest [&] {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 1ch;
+    }
+
+    @nest [&="trampoline"] {
+      & > span {
+        display: inline-block;
+        transform: translateY(100%);
+        animation: 
+          trampoline 3s ease 
+          calc(var(--index) * 150 * 1ms) 
+          infinite alternate;
+      }
+    }
+
+    @nest [&="hover"] {
+      overflow: hidden;
+      overflow: clip;
+
+      & > span {
+        transition: transform .3s ease;
+        cursor: pointer;
+
+        @media (hover) {
+          &:not(:hover) {
+            transform: translateY(50%);
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@keyframes breath {
+  from {
+    animation-timing-function: ease-out;
+  }
+  to {
+    transform: translateY(-5px) scale(1.25);
+    text-shadow: 0 0 25px var(--glow-color);
+    animation-timing-function: ease-in-out;
+  }
+}
+
+@keyframes trampoline {
+  0% {
+    transform: translateY(100%);
+    animation-timing-function: ease-out;
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: ease-in;
+  }
+}
