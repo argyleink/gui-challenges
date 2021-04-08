@@ -20,16 +20,23 @@ body {
   align-items: center;
   justify-content: center;
   gap: 10vh;
+  padding-inline: 5vh;
 }
 
 h1 {
   font-weight: 100;
   letter-spacing: .25em;
   text-transform: uppercase;
+
+  --scalar: 2vw;
   font-size: clamp(
-    2rem, 
-    calc(1rem + 4vw), 
+    1.5rem, 
+    calc(1rem + var(--scalar)), 
     8rem);
+
+  @media (width > 480px) { & {
+    --scalar: 4vw;
+  }}
 }
 
 p {
