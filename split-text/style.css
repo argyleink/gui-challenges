@@ -8,6 +8,13 @@
 html {
   block-size: 100%;
   inline-size: 100%;
+
+  overflow: hidden auto;
+  scroll-snap-type: y;
+
+  & > body > section {
+    scroll-snap-align: center;
+  }
 }
 
 body {
@@ -19,8 +26,14 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10vh;
-  padding-inline: 2vh;
+  padding: 15vh 2vh;
+}
+
+section {
+  block-size: 70vh;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 h1 {
