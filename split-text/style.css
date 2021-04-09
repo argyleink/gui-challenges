@@ -84,15 +84,16 @@ letter-animation {
 
     @nest [&="hover"] {
       &:hover > span {
-        transform: scale(.75);
+        transform: scale(.75) perspective(1px);
       }
 
       & > span {
         transition: transform .3s ease;
         cursor: pointer;
+        will-change: transform;
 
         &:hover {
-          transform: scale(1.25);
+          transform: scale(1.25) perspective(1px);
         }
       }
     }
