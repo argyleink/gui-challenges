@@ -121,14 +121,14 @@ word-animation {
     }
 
     @nest [&="hover"] {
-      overflow: hidden;
-      overflow: clip;
+      @media (hover) {
+        overflow: hidden;
+        overflow: clip;
 
-      & > span {
-        transition: transform .3s ease;
-        cursor: pointer;
+        & > span {
+          transition: transform .3s ease;
+          cursor: pointer;
 
-        @media (hover) {
           &:not(:hover) {
             transform: translateY(50%);
           }
