@@ -1,0 +1,177 @@
+:root {
+  --sm-space: 1rem;
+  --md-space: 2rem;
+}
+
+html {
+  block-size: 100%;
+}
+
+body {
+  min-block-size: 100%;
+  box-sizing: border-box;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--md-space);
+  padding-block-start: var(--md-space);
+
+  font-family: system-ui, sans-serif;
+}
+
+section {
+  --gap: var(--md-space);
+
+  display: grid;
+  gap: var(--gap);
+
+  & > header {
+    padding-left: var(--gap);
+    padding-right: var(--gap);
+
+    display: grid;
+    gap: calc(var(--sm-space) / 2);
+
+    &:dir(rtl) {
+      padding-right: var(--gap);
+      padding-left: var(--gap);
+    }
+
+    @supports (padding-inline: 1rem) {
+      & {
+        padding-inline: var(--gap);
+      }
+    }
+
+    & > :is(h2,h3) {
+      margin: 0;
+    }
+  }
+}
+
+.horizontal-media-scroller {
+  --size: 150px;
+
+  contain: layout;
+  display: grid;
+  grid-auto-flow: column;
+  gap: calc(var(--gap) / 2);
+  margin: 0;
+
+  padding-left: var(--gap);
+  padding-right: var(--gap);
+  padding-inline: var(--gap);
+  padding-block-end: calc(var(--gap) / 2);
+
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  scroll-padding-left: var(--gap);
+  scroll-padding-inline: var(--gap);
+
+  & figure {
+    scroll-snap-align: start;
+
+    /*  container padding fix  */
+    &:last-of-type::after {
+      content: "";
+      position: absolute;
+
+      width: var(--gap);
+      height: 100%;
+      inline-size: var(--gap);
+      block-size: 100%;
+
+      inset-block-start: 0;
+
+      right: calc(var(--gap) * -1);
+      inset-inline-end: calc(var(--gap) * -1);
+
+      &:dir(rtl) {
+        left: calc(var(--gap) * -1);
+        right: auto;
+      }
+    }
+  }
+
+  & a {
+    text-decoration: none;
+    color: inherit;
+    outline-offset: calc(var(--gap) / 4);
+  }
+
+  & li {
+    display: inline-block;
+  }
+}
+
+figure {
+  display: grid;
+  gap: calc(var(--gap) / 2);
+  margin: 0;
+
+  cursor: pointer;
+  user-select: none;
+
+  & > picture {
+    inline-size: var(--size);
+    block-size: var(--size);
+
+    & > img {
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+
+      border-radius: 1ex;
+      overflow: hidden;
+
+      background-image: 
+        linear-gradient(
+          to bottom, 
+          hsl(0 0% 40%), 
+          hsl(0 0% 20%)
+        );
+    }
+
+    @supports (aspect-ratio: 1) {
+      & {
+        inline-size: auto;
+        aspect-ratio: 16/9;
+
+        @nest section:nth-child(odd) & {
+          aspect-ratio: 1;
+        }
+
+        @nest section:nth-child(odd):not(:first-of-type) & {
+          block-size: calc(var(--size) * 2);
+          aspect-ratio: 4/3;
+
+          @media (width <= 480px) {
+            block-size: calc(var(--size) * 1.5);
+          }
+        }
+      }
+    }
+  }
+
+  & > figcaption {
+    font-size: 1.75rem;
+    font-weight: 300;
+    line-height: .75; /* demo text only */
+    word-break: break-word;
+    font-family: "blokk";
+  }
+}
+
+h2 {
+  font-size: var(--md-space);
+  font-weight: 800;
+  letter-spacing: .75px;
+}
+
+h3 {
+  font-weight: 400;
+  letter-spacing: .75px;
+}
