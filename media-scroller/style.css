@@ -74,23 +74,27 @@ section {
     scroll-snap-align: start;
 
     /*  container padding fix  */
-    &:last-of-type::after {
-      content: "";
-      position: absolute;
+    &:last-of-type {
+      position: relative;
 
-      width: var(--gap);
-      height: 100%;
-      inline-size: var(--gap);
-      block-size: 100%;
+      &::after {
+        content: "";
+        position: absolute;
 
-      inset-block-start: 0;
+        width: var(--gap);
+        height: 100%;
+        inline-size: var(--gap);
+        block-size: 100%;
 
-      right: calc(var(--gap) * -1);
-      inset-inline-end: calc(var(--gap) * -1);
+        inset-block-start: 0;
 
-      &:dir(rtl) {
-        left: calc(var(--gap) * -1);
-        right: auto;
+        right: calc(var(--gap) * -1);
+        inset-inline-end: calc(var(--gap) * -1);
+
+        &:dir(rtl) {
+          left: calc(var(--gap) * -1);
+          right: auto;
+        }
       }
     }
   }
