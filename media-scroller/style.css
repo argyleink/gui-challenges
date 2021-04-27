@@ -65,8 +65,8 @@ section {
   padding-block: calc(var(--gap) / 2);
 
   overflow-x: auto;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x proximity;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: inline mandatory;
   scroll-padding-left: var(--gap);
   scroll-padding-inline: var(--gap);
 
