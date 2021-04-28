@@ -16,7 +16,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   gap: var(--md-space);
-  padding-block-start: var(--md-space);
+  padding-block-start: calc(var(--md-space) * 2);
   padding-block-end: var(--md-space);
 
   font-family: system-ui, sans-serif;
@@ -51,7 +51,7 @@ section {
 
   padding-inline-start: var(--gap);
   padding-inline-end: var(--gap);
-  padding-block-end: var(--gap);
+  padding-block-end: calc(var(--gap) / 2);
 
   overflow-x: auto;
   overscroll-behavior-inline: contain;
