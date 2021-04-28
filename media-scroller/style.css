@@ -60,6 +60,10 @@ section {
   scroll-padding-right: var(--gap);
   scroll-padding-inline: var(--gap);
 
+  & > li {
+    display: inline-block;
+  }
+
   & figure {
     scroll-snap-align: start;
 
@@ -94,10 +98,6 @@ section {
         transition: outline-offset .25s ease;
       }
     }
-  }
-
-  & li {
-    display: inline-block;
   }
 }
 
