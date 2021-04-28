@@ -1,0 +1,171 @@
+:root {
+  --sm-space: 1rem;
+  --md-space: 2rem;
+}
+
+html {
+  block-size: 100%;
+}
+
+body {
+  min-block-size: 100%;
+  box-sizing: border-box;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--md-space);
+  padding-block-start: var(--md-space);
+  padding-block-end: var(--md-space);
+
+  font-family: system-ui, sans-serif;
+}
+
+section {
+  --gap: var(--md-space);
+
+  display: grid;
+  gap: var(--gap);
+
+  & > header {
+    padding-inline-start: var(--gap);
+    padding-inline-end: var(--gap);
+
+    display: grid;
+    gap: calc(var(--sm-space) / 2);
+
+    & > :is(h2,h3) {
+      margin: 0;
+    }
+  }
+}
+
+.horizontal-media-scroller {
+  --size: 150px;
+
+  display: grid;
+  grid-auto-flow: column;
+  gap: calc(var(--gap) / 2);
+  margin: 0;
+
+  padding-inline-start: var(--gap);
+  padding-inline-end: var(--gap);
+  padding-block-end: var(--gap);
+
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: inline mandatory;
+  scroll-padding-left: var(--gap);
+  scroll-padding-right: var(--gap);
+  scroll-padding-inline: var(--gap);
+
+  & figure {
+    scroll-snap-align: start;
+
+    /*  container padding fix  */
+    &:last-of-type {
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+
+        inline-size: var(--gap);
+        block-size: 100%;
+
+        inset-block-start: 0;
+        inset-inline-end: calc(var(--gap) * -1);
+      }
+    }
+  }
+
+  & a {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+
+    &:focus {
+      outline-offset: calc(var(--gap) / 4);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      & {
+        transition: outline-offset .25s ease;
+      }
+    }
+  }
+
+  & li {
+    display: inline-block;
+  }
+}
+
+figure {
+  display: grid;
+  gap: calc(var(--gap) / 2);
+  margin: 0;
+
+  cursor: pointer;
+  user-select: none;
+
+  & > picture {
+    inline-size: var(--size);
+    block-size: var(--size);
+  }
+
+  & img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+
+    border-radius: 1ex;
+    overflow: hidden;
+
+    background-image: 
+      linear-gradient(
+        to bottom, 
+        hsl(0 0% 40%), 
+        hsl(0 0% 20%)
+      );
+  }
+
+  & > figcaption {
+    font-size: 1.75rem;
+    font-weight: 300;
+    line-height: .75; /* demo text only */
+    word-break: break-word;
+    font-family: "blokk";
+  }
+}
+
+h2 {
+  font-size: var(--md-space);
+  font-weight: 800;
+  letter-spacing: .75px;
+}
+
+h3 {
+  font-weight: 400;
+  letter-spacing: .75px;
+}
+
+@supports (aspect-ratio: 1) {
+  figure > picture {
+    inline-size: auto;
+    aspect-ratio: 16/9;
+
+    @nest section:nth-child(odd) & {
+      aspect-ratio: 1;
+    }
+
+    @nest section:nth-child(odd):not(:first-of-type) & {
+      block-size: calc(var(--size) * 2);
+      aspect-ratio: 4/3;
+
+      @media (width <= 480px) {
+        block-size: calc(var(--size) * 1.5);
+      }
+    }
+  }
+}

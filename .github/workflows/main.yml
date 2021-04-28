@@ -30,6 +30,9 @@ jobs:
 
     - name: Build Split Text
       run: cd split-text && npm install && npm run build
+
+    - name: Build Media Scroller
+      run: cd media-scroller && npm install && npm run build
       
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
