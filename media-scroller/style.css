@@ -151,15 +151,15 @@ h3 {
 }
 
 @supports (aspect-ratio: 1) {
-  figure > picture {
+  .horizontal-media-scroller figure > picture {
     inline-size: auto;
-    aspect-ratio: 16/9;
+    aspect-ratio: 1;
 
-    @nest section:nth-child(odd) & {
-      aspect-ratio: 1;
+    @nest section:nth-child(2) & {
+      aspect-ratio: 16/9;  
     }
 
-    @nest section:nth-child(odd):not(:first-of-type) & {
+    @nest section:nth-child(3) & {
       block-size: calc(var(--size) * 2);
       aspect-ratio: 4/3;
 
