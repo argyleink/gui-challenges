@@ -51,7 +51,7 @@ section {
 
   padding-inline-start: var(--gap);
   padding-inline-end: var(--gap);
-  padding-block-end: calc(var(--gap) / 2);
+  padding-block: calc(var(--gap) / 2);
 
   overflow-x: auto;
   overscroll-behavior-inline: contain;
