@@ -62,13 +62,9 @@ section {
 
   & > li {
     display: inline-block;
-  }
-
-  & figure {
-    scroll-snap-align: start;
 
     /*  container padding fix  */
-    &:last-of-type {
+    &:last-of-type figure {
       position: relative;
 
       &::after {
@@ -82,6 +78,10 @@ section {
         inset-inline-end: calc(var(--gap) * -1);
       }
     }
+  }
+
+  & figure {
+    scroll-snap-align: start;
   }
 
   & a {
