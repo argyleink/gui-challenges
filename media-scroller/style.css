@@ -115,6 +115,16 @@ figure {
   cursor: pointer;
   user-select: none;
 
+  @media (prefers-reduced-data: reduce) {
+    & {
+      min-inline-size: var(--size);
+
+      & > picture {
+        display: none;
+      }
+    }
+  }
+
   & > picture {
     inline-size: var(--size);
     block-size: var(--size);
