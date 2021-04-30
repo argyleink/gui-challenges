@@ -95,9 +95,10 @@ section {
     display: inline-block;
     text-decoration: none;
     color: inherit;
+    outline-offset: 12px;
 
     &:focus {
-      outline-offset: calc(var(--gap) / 4);
+      outline-offset: 7px;
     }
 
     @media (prefers-reduced-motion: no-preference) {
