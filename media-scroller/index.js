@@ -1,4 +1,4 @@
-import {rovingIndex} from './roving-on.js'
+import {rovingIndex} from 'roving-ux'
 
 document.querySelectorAll('.horizontal-media-scroller')
   .forEach(scroller => rovingIndex({
