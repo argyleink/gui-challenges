@@ -60,6 +60,12 @@ section {
   scroll-padding-right: var(--gap);
   scroll-padding-inline: var(--gap);
 
+  @media (prefers-reduced-motion: no-preference) {
+    & {
+      scroll-behavior: smooth;
+    }
+  }
+
   & > li {
     display: inline-block;
 
