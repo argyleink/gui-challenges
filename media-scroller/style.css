@@ -151,7 +151,6 @@ figure {
   & > figcaption {
     font-size: 1.75rem;
     font-weight: 300;
-    line-height: .75; /* demo text only */
     word-break: break-word;
     font-family: "blokk";
   }
