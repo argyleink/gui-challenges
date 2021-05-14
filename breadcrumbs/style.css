@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  block-size: 100%;
+}
+
+body {
+  min-block-size: 100%;
+  font-family: system-ui, sans-serif;
+}
+
+nav {
+  --nav-gap: 2ch;
+
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+
+  gap: var(--nav-gap);
+  padding: calc(var(--nav-gap) / 2);
+  padding-block-end: var(--nav-gap);
+  scroll-padding-inline: var(--nav-gap);
+
+  & > * {
+    display: inline-flex;
+    align-items: center;
+    gap: calc(var(--nav-gap) / 2);
+  }
+
+  & a {
+    text-underline-offset: .5em;
+    outline-offset: .5em;
+    white-space: nowrap;
+
+    &:not([href]) {
+      color: ButtonText;
+    }
+  }
+
+  & svg {
+    max-block-size: 100%;
+    margin: 1ch;
+  }
+}
+
+svg {
+  stroke: CanvasText;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1px;
+
+  @nest .collection:not(a) > .pile:is(:focus-within, :hover) & {
+    stroke: Highlight;
+    stroke-width: 2px;
+  }
+}
+
+.collection {
+  display: flex;
+  align-items: center;
+  gap: 1ch;
+  padding: 0;
+
+  & select {
+    inline-size: 100%;
+    block-size: 100%;
+    opacity: .01;
+  }
+
+  &:not(:first-child)::before {
+    content: '/';
+    color: ButtonText;
+  }
+}
+
+.pile {
+  display: grid;
+  grid: [stack] 4ch / [stack] 4ch;
+  place-items: center;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px ButtonText;
+
+  &:is(:focus-within, :hover) {
+    box-shadow: 0 0 0 2px Highlight;
+  }
+
+  & > * {
+    grid-area: stack;
+  }
+}

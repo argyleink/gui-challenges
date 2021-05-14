@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Breadcrumbs | GUI Challenges</title>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#222">
+    <meta name="description" content="🙂">
+    <meta name="color-scheme" content="dark light">
+    <link rel="stylesheet" href="/style.css">
+    <script type="module" src="/index.js"></script>
+  </head>
+  <body>
+
+    <nav class="breadcrumbs">
+      <a href="#home">
+        <span class="pile" style="box-shadow:none">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+        </span>
+        Home
+      </a>
+
+      <span class="collection">
+        <a href="#collection">Collection Page B</a>
+        <span class="pile">
+          <svg viewBox="0 0 24 24">
+            <path d="M19 9l-7 7-7-7"/>
+          </svg>
+          <select>
+            <option>Page A</option>
+            <option selected>Page B</option>
+            <option>Other Page Options</option>
+          </select>
+        </span>
+      </span>
+
+      <span class="collection">
+        <a>Sub Collection Page B</a>
+        <span class="pile">
+          <svg viewBox="0 0 24 24">
+            <path d="M19 9l-7 7-7-7"/>
+          </svg>
+          <select>
+            <option>Page A</option>
+            <option>Page B</option>
+            <option selected>Other Page Options</option>
+          </select>
+        </span>
+      </span>
+
+    </nav>
+
+  </body>
+</html>
