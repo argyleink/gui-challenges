@@ -1,11 +1,5 @@
 :root {
-  --space-xxs: .25rem;
-  --space-xs:  .5rem;
-  --space-sm:  1rem;
-  --space-md:  1.5rem;
-  --space-lg:  2rem;
-  --space-xl:  3rem;
-  --space-xxl: 6rem;
+  color-scheme: dark light;
 
   /* destructure brand channels */
   --hue: 200;
@@ -91,9 +85,78 @@ body {
 
   display: grid;
   place-content: center;
+  gap: 10vh;
+}
 
-  padding-block-start: var(--space-xs);
-  padding-block-end: var(--space-xs);
+section {
+  display: grid;
+  gap: 2ch;
+
+  & h2 {
+    font-size: 7rem;
+    font-weight: 100;
+  }
+}
+
+.surface-samples {
+  display: grid;
+  grid-template-columns: 20ch 20ch;
+  grid-auto-rows: 20ch;
+  gap: 2ch;
+
+  & > * {
+    --surface-shadow: var(--hue) calc(var(--saturation) / 8) calc(var(--lightness) / 5);
+    box-shadow: 0 1rem .5rem -.5rem ;
+    box-shadow:
+      0 2.8px 2.2px hsl(var(--surface-shadow) / .02),
+      0 6.7px 5.3px hsl(var(--surface-shadow) / .028),
+      0 12.5px 10px hsl(var(--surface-shadow) / .035),
+      0 22.3px 17.9px hsl(var(--surface-shadow) / .042),
+      0 41.8px 33.4px hsl(var(--surface-shadow) / .05),
+      0 100px 80px hsl(var(--surface-shadow) / .07)
+    ;
+    border-radius: 1rem;
+    display: grid;
+    place-content: center;
+    font-size: 3rem;
+    font-weight: 200;
+  }
+}
+
+.text-samples {
+  display: grid;
+  gap: 2ch;
+  grid-template-columns: 20ch 20ch;
+
+  & > * {
+    font-size: 3rem;
+  }
+}
+
+.surface1 {
   background: var(--surface1);
+  color: var(--text2);
+}
+
+.surface2 {
+  background: var(--surface2);
+  color: var(--text2);
+}
+
+.surface3 {
+  background: var(--surface3);
   color: var(--text1);
+}
+
+.surface4 {
+  background: var(--surface4);
+  color: var(--text1);
+}
+
+.text1 {
+  color: var(--text1);
+}
+
+.text2 {
+  color: var(--text2);
 }
