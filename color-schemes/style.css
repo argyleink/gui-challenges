@@ -1,0 +1,99 @@
+:root {
+  --space-xxs: .25rem;
+  --space-xs:  .5rem;
+  --space-sm:  1rem;
+  --space-md:  1.5rem;
+  --space-lg:  2rem;
+  --space-xl:  3rem;
+  --space-xxl: 6rem;
+
+  /* destructure brand channels */
+  --hue: 200;
+  --saturation: 100%;
+  --lightness: 50%;
+  
+  /* build colors with props */
+  --brand: hsl(
+    var(--hue) 
+    calc(var(--saturation) / 2)
+    var(--lightness) 
+  );
+  
+  --text1: hsl(var(--hue) 15% 85%);
+  --text2: hsl(var(--hue) 15% 65%);
+
+  --surface1: hsl(var(--hue) 10% 10%);
+  --surface2: hsl(var(--hue) 10% 15%);
+  --surface3: hsl(var(--hue) 5%  20%);
+  --surface4: hsl(var(--hue) 5% 25%);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --brand: hsl(
+      var(--hue) 
+      var(--saturation)
+      var(--lightness) 
+    );
+
+    /* very dark brand blue */
+    --text1: hsl(
+      var(--hue) 
+      var(--saturation)
+      10% /* lower is darker */
+    );
+
+    --text2: hsl(
+      var(--hue) 
+      calc(var(--saturation) / 2)
+      30%
+    );
+    
+    /* very bright brand white */
+    --surface1: hsl(
+      var(--hue) 
+      calc(var(--saturation) / 6) 
+      90% /* higher is lighter */
+    );
+
+    --surface2: hsl(
+      var(--hue) 
+      calc(var(--saturation) / 8) 
+      99% 
+    );
+
+    --surface3: hsl(
+      var(--hue) 
+      calc(var(--saturation) / 8) 
+      96% 
+    );
+
+    --surface4: hsl(
+      var(--hue) 
+      calc(var(--saturation) / 8) 
+      85% 
+    );
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  block-size: 100%;
+}
+
+body {
+  min-block-size: 100%;
+  font-family: system-ui, sans-serif;
+
+  display: grid;
+  place-content: center;
+
+  padding-block-start: var(--space-xs);
+  padding-block-end: var(--space-xs);
+  background: var(--surface1);
+  color: var(--text1);
+}
