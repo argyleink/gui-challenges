@@ -9,33 +9,58 @@
     <meta name="theme-color" content="#222">
     <meta name="description" content="🙂">
 
-    <link rel="stylesheet" href="//gitcdn.xyz/repo/octoshrimpy/blokkfont/master/blokkfont.css">
     <link rel="stylesheet" href="/style.css">
     <script type="module" src="/index.js"></script>
   </head>
   <body>
 
-    <section>
-      <header>
-        <h2>Surfaces</h2>
-      </header>
-      <div class="surface-samples">
-        <div class="surface1">1</div>
-        <div class="surface2">2</div>
-        <div class="surface3">3</div>
-        <div class="surface4">4</div>
-      </div>
-    </section>
+    <header>
+      <h3>Color Scheme</h3>
+      <form id="theme-switcher">
+        <div>
+          <input checked type="radio" id="auto" name="theme" value="auto">
+          <label for="auto">Auto</label>
+        </div>
+        <div>
+          <input type="radio" id="light" name="theme" value="light">
+          <label for="light">Light</label>
+        </div>
+        <div>
+          <input type="radio" id="dark" name="theme" value="dark">
+          <label for="dark">Dark</label>
+        </div>
+        <div>
+          <input type="radio" id="dim" name="theme" value="dim">
+          <label for="dim">Dim</label>
+        </div>
+      </form>
+    </header>
 
-    <section>
-      <header>
-        <h2>Text Colors</h2>
-      </header>
-      <div class="text-samples">
-        <h1 class="text1">Color 1</h1>
-        <h1 class="text2">Color 2</h1>
-      </div>
-    </section>
+    <main>
+      <section>
+        <div class="surface-samples">
+          <div class="surface1">1</div>
+          <div class="surface2">2</div>
+          <div class="surface3">3</div>
+          <div class="surface4">4</div>
+        </div>
+      </section>
+
+      <section>
+        <div class="text-samples">
+          <h1 class="text1">
+            <span class="swatch text1"></span>
+            Text Color 1
+          </h1>
+          <h1 class="text2">
+            <span class="swatch text2"></span>
+            Text Color 2
+          </h1>
+          <p class="text1">Bite off human's toes bite off human's toes leave hair on owner's clothes yet tickle my belly at your own peril i will pester for food.</p>
+          <p class="text2">When you're in the kitchen even if it's salad litter kitter kitty litty little kitten big roar roar feed me i will ruin the couch with my claws.</p>
+        </div>
+      </section>
+    </main>
 
   </body>
 </html>

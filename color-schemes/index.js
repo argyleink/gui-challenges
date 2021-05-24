@@ -1,1 +1,8 @@
-console.info('nothin to see here')
+const switcher = document.querySelector('#theme-switcher')
+const doc = document.firstElementChild
+
+switcher.addEventListener('input', e =>
+  setTheme(e.target.value))
+
+const setTheme = theme =>
+  doc.setAttribute('color-scheme', theme)

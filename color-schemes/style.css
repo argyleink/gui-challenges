@@ -1,5 +1,127 @@
+/* todo: light, dim, high-contrast */
+
 :root {
-  color-scheme: dark light;
+  color-scheme: light dark;
+
+  --brand: hsl(
+    var(--hue) 
+    var(--saturation)
+    var(--lightness) 
+  );
+
+  /* very dark brand blue */
+  --text1: hsl(
+    var(--hue) 
+    var(--saturation)
+    10% /* lower is darker */
+  );
+
+  --text2: hsl(
+    var(--hue) 
+    calc(var(--saturation) / 2)
+    30%
+  );
+  
+  /* very bright brand white */
+  --surface1: hsl(
+    var(--hue) 
+    calc(var(--saturation) / 6) 
+    90% /* higher is lighter */
+  );
+
+  --surface2: hsl(
+    var(--hue) 
+    calc(var(--saturation) / 8) 
+    99% 
+  );
+
+  --surface3: hsl(
+    var(--hue) 
+    calc(var(--saturation) / 8) 
+    96% 
+  );
+
+  --surface4: hsl(
+    var(--hue) 
+    calc(var(--saturation) / 8) 
+    85% 
+  );
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* destructure brand channels */
+    --hue: 200;
+    --saturation: 100%;
+    --lightness: 50%;
+    
+    /* build colors with props */
+    --brand: hsl(
+      var(--hue) 
+      calc(var(--saturation) / 2)
+      var(--lightness) 
+    );
+    
+    --text1: hsl(var(--hue) 15% 85%);
+    --text2: hsl(var(--hue) 15% 65%);
+
+    --surface1: hsl(var(--hue) 10% 10%);
+    --surface2: hsl(var(--hue) 10% 15%);
+    --surface3: hsl(var(--hue) 5%  20%);
+    --surface4: hsl(var(--hue) 5% 25%);
+  }
+}
+
+[color-scheme="light"] {
+  color-scheme: light;
+
+  --brand: hsl(
+    var(--hue) 
+    var(--saturation)
+    var(--lightness) 
+  );
+
+  /* very dark brand blue */
+  --text1: hsl(
+    var(--hue) 
+    var(--saturation)
+    10% /* lower is darker */
+  );
+
+  --text2: hsl(
+    var(--hue) 
+    calc(var(--saturation) / 2)
+    30%
+  );
+  
+  /* very bright brand white */
+  --surface1: hsl(
+    var(--hue) 
+    calc(var(--saturation) / 6) 
+    90% /* higher is lighter */
+  );
+
+  --surface2: hsl(
+    var(--hue) 
+    calc(var(--saturation) / 8) 
+    99% 
+  );
+
+  --surface3: hsl(
+    var(--hue) 
+    calc(var(--saturation) / 8) 
+    96% 
+  );
+
+  --surface4: hsl(
+    var(--hue) 
+    calc(var(--saturation) / 8) 
+    85% 
+  );
+}
+
+[color-scheme="dark"] {
+  color-scheme: dark;
 
   /* destructure brand channels */
   --hue: 200;
@@ -22,52 +144,25 @@
   --surface4: hsl(var(--hue) 5% 25%);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --brand: hsl(
-      var(--hue) 
-      var(--saturation)
-      var(--lightness) 
-    );
+[color-scheme="dim"] {
+  --hue: 200;
+  --saturation: 70%;
+  --lightness: 20%;
+  
+  /* build colors with props */
+  --brand: hsl(
+    var(--hue) 
+    calc(var(--saturation) / 2)
+    var(--lightness) 
+  );
+  
+  --text1: hsl(var(--hue) 15% 75%);
+  --text2: hsl(var(--hue) 10% 60%);
 
-    /* very dark brand blue */
-    --text1: hsl(
-      var(--hue) 
-      var(--saturation)
-      10% /* lower is darker */
-    );
-
-    --text2: hsl(
-      var(--hue) 
-      calc(var(--saturation) / 2)
-      30%
-    );
-    
-    /* very bright brand white */
-    --surface1: hsl(
-      var(--hue) 
-      calc(var(--saturation) / 6) 
-      90% /* higher is lighter */
-    );
-
-    --surface2: hsl(
-      var(--hue) 
-      calc(var(--saturation) / 8) 
-      99% 
-    );
-
-    --surface3: hsl(
-      var(--hue) 
-      calc(var(--saturation) / 8) 
-      96% 
-    );
-
-    --surface4: hsl(
-      var(--hue) 
-      calc(var(--saturation) / 8) 
-      85% 
-    );
-  }
+  --surface1: hsl(var(--hue) 10% 20%);
+  --surface2: hsl(var(--hue) 10% 25%);
+  --surface3: hsl(var(--hue) 5%  30%);
+  --surface4: hsl(var(--hue) 5% 35%);
 }
 
 * {
@@ -77,25 +172,52 @@
 
 html {
   block-size: 100%;
+  background: var(--surface1);
+  color: var(--text1);
 }
 
 body {
   min-block-size: 100%;
   font-family: system-ui, sans-serif;
-
+  padding-block: 10vmax;
   display: grid;
   place-content: center;
-  gap: 10vh;
+  gap: 10vmax;
+}
+
+main {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: start;
+  align-content: center;
+  justify-content: center;
+  gap: 20vmax 20vmin;
 }
 
 section {
   display: grid;
-  gap: 2ch;
+  gap: 2.5vh;
 
   & h2 {
     font-size: 7rem;
     font-weight: 100;
   }
+}
+
+p {
+  max-inline-size: 35ch;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+header {
+  display: inline-grid;
+  gap: 1ch;
+}
+
+form {
+  display: flex;
+  gap: 2ch;
 }
 
 .surface-samples {
@@ -126,10 +248,12 @@ section {
 .text-samples {
   display: grid;
   gap: 2ch;
-  grid-template-columns: 20ch 20ch;
 
-  & > * {
+  & > h1 {
     font-size: 3rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 1ch;
   }
 }
 
@@ -159,4 +283,14 @@ section {
 
 .text2 {
   color: var(--text2);
+}
+
+.swatch {
+  display: inline-block;
+  inline-size: 1.5ch;
+  block-size: 1.5ch;
+  border-radius: 50%;
+
+  &.text1 { background: var(--text1); }
+  &.text2 { background: var(--text2); }
 }
