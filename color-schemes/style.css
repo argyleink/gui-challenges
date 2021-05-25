@@ -7,11 +7,11 @@
   /* light */
   --brand-light: hsl(var(--hue) var(--saturation) var(--lightness));
   --text1-light: hsl(var(--hue) var(--saturation) 10%);
-  --text2-light: hsl(var(--hue) calc(var(--saturation) / 2) 30%);
-  --surface1-light: hsl(var(--hue) calc(var(--saturation) / 6) 90%);
-  --surface2-light: hsl(var(--hue) calc(var(--saturation) / 8) 99%);
-  --surface3-light: hsl(var(--hue) calc(var(--saturation) / 8) 92%);
-  --surface4-light: hsl(var(--hue) calc(var(--saturation) / 8) 85%);
+  --text2-light: hsl(var(--hue) 30% 30%);
+  --surface1-light: hsl(var(--hue) 25% 90%);
+  --surface2-light: hsl(var(--hue) 20% 99%);
+  --surface3-light: hsl(var(--hue) 20% 92%);
+  --surface4-light: hsl(var(--hue) 20% 85%);
   --surface-shadow-light: var(--hue) 10% calc(var(--lightness) / 5);
   --shadow-strength-light: .02;
 
