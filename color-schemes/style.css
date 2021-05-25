@@ -1,6 +1,4 @@
-:root {
-  color-scheme: light;
-
+* {
   /* brand foundation */
   --hue: 200;
   --saturation: 100%;
@@ -46,6 +44,10 @@
   --surface4-dim: hsl(var(--hue) 5% 35%);
   --surface-shadow-dim: var(--hue) 30% 13%;
   --shadow-strength-dim: .2;
+}
+
+:root {
+  color-scheme: light;
 
   /* set defaults */
   --brand: var(--brand-light);
@@ -169,6 +171,12 @@ header {
 form {
   display: flex;
   gap: 2ch;
+
+  & > div {
+    display: inline-flex;
+    align-items: center;
+    gap: .75ch;
+  }
 }
 
 .surface-samples {
