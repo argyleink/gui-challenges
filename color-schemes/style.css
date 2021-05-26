@@ -12,7 +12,7 @@
   --surface2-light: hsl(var(--hue) 20% 99%);
   --surface3-light: hsl(var(--hue) 20% 92%);
   --surface4-light: hsl(var(--hue) 20% 85%);
-  --surface-shadow-light: var(--hue) 10% calc(var(--lightness) / 5);
+  --surface-shadow-light: var(--hue) 10% 20%;
   --shadow-strength-light: .02;
 
   /* dark */
