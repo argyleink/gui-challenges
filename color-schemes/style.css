@@ -201,7 +201,7 @@ form {
 
 .text-samples {
   display: grid;
-  gap: 1ch;
+  gap: 1.5ch;
 
   & > h1 {
     font-size: 2.5rem;
@@ -242,6 +242,9 @@ form {
 
 .text2 {
   color: var(--text2);
+  @nest p& {
+    font-weight: 200;
+  }
 }
 
 .swatch {
