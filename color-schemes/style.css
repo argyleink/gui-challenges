@@ -1,48 +1,48 @@
 * {
   /* brand foundation */
-  --hue: 200;
-  --saturation: 100%;
-  --lightness: 50%;
+  --brand-hue: 200;
+  --brand-saturation: 100%;
+  --brand-lightness: 50%;
 
   /* light */
-  --brand-light: hsl(var(--hue) var(--saturation) var(--lightness));
-  --text1-light: hsl(var(--hue) var(--saturation) 10%);
-  --text2-light: hsl(var(--hue) 30% 30%);
-  --surface1-light: hsl(var(--hue) 25% 90%);
-  --surface2-light: hsl(var(--hue) 20% 99%);
-  --surface3-light: hsl(var(--hue) 20% 92%);
-  --surface4-light: hsl(var(--hue) 20% 85%);
-  --surface-shadow-light: var(--hue) 10% 20%;
+  --brand-light: hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness));
+  --text1-light: hsl(var(--brand-hue) var(--brand-saturation) 10%);
+  --text2-light: hsl(var(--brand-hue) 30% 30%);
+  --surface1-light: hsl(var(--brand-hue) 25% 90%);
+  --surface2-light: hsl(var(--brand-hue) 20% 99%);
+  --surface3-light: hsl(var(--brand-hue) 20% 92%);
+  --surface4-light: hsl(var(--brand-hue) 20% 85%);
+  --surface-shadow-light: var(--brand-hue) 10% 20%;
   --shadow-strength-light: .02;
 
   /* dark */
   --brand-dark: hsl(
-    var(--hue) 
-    calc(var(--saturation) / 2)
-    calc(var(--lightness) / 1.5)
+    var(--brand-hue) 
+    calc(var(--brand-saturation) / 2)
+    calc(var(--brand-lightness) / 1.5)
   );
-  --text1-dark: hsl(var(--hue) 15% 85%);
-  --text2-dark: hsl(var(--hue) 5% 65%);
-  --surface1-dark: hsl(var(--hue) 10% 10%);
-  --surface2-dark: hsl(var(--hue) 10% 15%);
-  --surface3-dark: hsl(var(--hue) 5%  20%);
-  --surface4-dark: hsl(var(--hue) 5% 25%);
-  --surface-shadow-dark: var(--hue) 50% 3%;
+  --text1-dark: hsl(var(--brand-hue) 15% 85%);
+  --text2-dark: hsl(var(--brand-hue) 5% 65%);
+  --surface1-dark: hsl(var(--brand-hue) 10% 10%);
+  --surface2-dark: hsl(var(--brand-hue) 10% 15%);
+  --surface3-dark: hsl(var(--brand-hue) 5%  20%);
+  --surface4-dark: hsl(var(--brand-hue) 5% 25%);
+  --surface-shadow-dark: var(--brand-hue) 50% 3%;
   --shadow-strength-dark: .8;
 
   /* dim */
   --brand-dim: hsl(
-    var(--hue) 
-    calc(var(--saturation) / 1.25)
-    calc(var(--lightness) / 1.25)
+    var(--brand-hue) 
+    calc(var(--brand-saturation) / 1.25)
+    calc(var(--brand-lightness) / 1.25)
   );
-  --text1-dim: hsl(var(--hue) 15% 75%);
-  --text2-dim: hsl(var(--hue) 10% 61%);
-  --surface1-dim: hsl(var(--hue) 10% 20%);
-  --surface2-dim: hsl(var(--hue) 10% 25%);
-  --surface3-dim: hsl(var(--hue) 5%  30%);
-  --surface4-dim: hsl(var(--hue) 5% 35%);
-  --surface-shadow-dim: var(--hue) 30% 13%;
+  --text1-dim: hsl(var(--brand-hue) 15% 75%);
+  --text2-dim: hsl(var(--brand-hue) 10% 61%);
+  --surface1-dim: hsl(var(--brand-hue) 10% 20%);
+  --surface2-dim: hsl(var(--brand-hue) 10% 25%);
+  --surface3-dim: hsl(var(--brand-hue) 5%  30%);
+  --surface4-dim: hsl(var(--brand-hue) 5% 35%);
+  --surface-shadow-dim: var(--brand-hue) 30% 13%;
   --shadow-strength-dim: .2;
 }
 
@@ -238,13 +238,13 @@ form {
 
 .text1 {
   color: var(--text1);
+  @nest p& {
+    font-weight: 200;
+  }
 }
 
 .text2 {
   color: var(--text2);
-  @nest p& {
-    font-weight: 200;
-  }
 }
 
 .swatch {
@@ -259,7 +259,7 @@ form {
 }
 
 .rad-shadow {
-  border: 1px solid hsl(var(--hue) 10% 50% / 15%);
+  border: 1px solid hsl(var(--brand-hue) 10% 50% / 15%);
   box-shadow: 0 1rem .5rem -.5rem;
   box-shadow:
     0 2.8px 2.2px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + .03)),
