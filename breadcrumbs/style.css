@@ -1,3 +1,5 @@
+@custom-media --motionOK (prefers-reduced-motion: no-preference);
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -25,9 +27,10 @@ nav {
   gap: var(--nav-gap);
   padding: calc(var(--nav-gap) / 2);
 
-  & > a {
+  & > a:first-of-type {
     display: inline-flex;
     align-items: center;
+    gap: calc(var(--nav-gap) / 4);
   }
 
   & a {
@@ -61,7 +64,7 @@ nav {
 .collection {
   display: flex;
   align-items: center;
-  gap: calc(var(--nav-gap) / 2);
+  gap: calc(var(--nav-gap) / 4);
   padding: 0;
   cursor: pointer;
 
@@ -69,7 +72,7 @@ nav {
     inline-size: 100%;
     block-size: 100%;
     opacity: .01;
-    font-size: 16px
+    font-size: 16px; /* fix iOS zoom */
   }
 }
 
@@ -80,12 +83,19 @@ nav {
   aspect-ratio: 1;
   border-radius: 50%;
 
+  --disguised-shadow-size: 0px;
+  box-shadow: 0 0 0 var(--disguised-shadow-size) Highlight;
+  
+  @media (--motionOK) { & {
+    transition: box-shadow .2s ease;
+  }}
+
   @nest :is(:focus-within, :hover) > & {
-    box-shadow: 0 0 0 2px ButtonText;
+    --disguised-shadow-size: 1px;
   }
 
   &:is(:focus-within, :hover) {
-    box-shadow: 0 0 0 2px Highlight;
+    --disguised-shadow-size: 2px;
 
     & svg {
       stroke: Highlight;
