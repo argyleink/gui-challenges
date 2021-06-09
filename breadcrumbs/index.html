@@ -14,40 +14,157 @@
   </head>
   <body>
 
+    <svg style="display: none;">
+
+      <symbol id="icon-home">
+        <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+      </symbol>
+      
+      <symbol id="icon-dropdown-arrow">
+        <title>A down arrow</title>
+        <path d="M19 9l-7 7-7-7"/>
+      </symbol>
+      
+    </svg>
+
     <nav class="breadcrumbs">
       <a href="#home">
-        <span class="pile" style="box-shadow:none">
+        <span class="disguised-select" style="box-shadow:none">
           <svg viewBox="0 0 24 24">
-            <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            <use xlink:href="#icon-home" />
           </svg>
         </span>
         Home
       </a>
 
-      <span class="collection">
-        <a href="#collection">Collection Page B</a>
-        <span class="pile">
+    </nav>
+
+    <nav class="breadcrumbs">
+      <a href="#home">
+        <span class="disguised-select" style="box-shadow:none">
           <svg viewBox="0 0 24 24">
-            <path d="M19 9l-7 7-7-7"/>
+            <use xlink:href="#icon-home" />
+          </svg>
+        </span>
+        Home
+      </a>
+
+      <span class="divider">|</span>
+
+      <span class="collection">
+        <a href="#">Collection B</a>
+        <span class="disguised-select">
+          <svg viewBox="0 0 24 24">
+            <use xlink:href="#icon-dropdown-arrow" />
           </svg>
           <select>
-            <option>Page A</option>
-            <option selected>Page B</option>
-            <option>Other Page Options</option>
+            <option>Collection A</option>
+            <option selected>Collection B</option>
+            <option>Other Collections</option>
           </select>
         </span>
       </span>
 
-      <span class="collection">
-        <a>Sub Collection Page B</a>
-        <span class="pile">
+    </nav>
+
+    <nav class="breadcrumbs">
+      <a href="#home">
+        <span class="disguised-select" style="box-shadow:none">
           <svg viewBox="0 0 24 24">
-            <path d="M19 9l-7 7-7-7"/>
+            <use xlink:href="#icon-home" />
+          </svg>
+        </span>
+        Home
+      </a>
+
+      <span class="divider">|</span>
+
+      <span class="collection">
+        <a href="#collection-b">Collection B</a>
+        <span class="disguised-select">
+          <svg viewBox="0 0 24 24">
+            <use xlink:href="#icon-dropdown-arrow" />
           </svg>
           <select>
-            <option>Page A</option>
-            <option>Page B</option>
-            <option selected>Other Page Options</option>
+            <option>Collection A</option>
+            <option selected>Collection B</option>
+            <option>Other Collections</option>
+          </select>
+        </span>
+      </span>
+
+      <span class="divider">|</span>
+
+      <span class="collection">
+        <a href="#">Sub Collection B</a>
+        <span class="disguised-select">
+          <svg viewBox="0 0 24 24">
+            <use xlink:href="#icon-dropdown-arrow" />
+          </svg>
+          <select>
+            <option>Sub Collection A</option>
+            <option selected>Sub Collection B</option>
+            <option>Other Sub Collections</option>
+          </select>
+        </span>
+      </span>
+
+    </nav>
+
+    <nav class="breadcrumbs">
+      <a href="#home">
+        <span class="disguised-select" style="box-shadow:none">
+          <svg viewBox="0 0 24 24">
+            <use xlink:href="#icon-home" />
+          </svg>
+        </span>
+        Home
+      </a>
+
+      <span class="divider">|</span>
+
+      <span class="collection">
+        <a href="#collection-b">Unisex</a>
+        <span class="disguised-select">
+          <svg viewBox="0 0 24 24">
+            <use xlink:href="#icon-dropdown-arrow" />
+          </svg>
+          <select>
+            <option>Womens</option>
+            <option selected>Unisex</option>
+            <option>Mens</option>
+          </select>
+        </span>
+      </span>
+
+      <span class="divider">|</span>
+
+      <span class="collection">
+        <a href="#sub-collection-b">Tees</a>
+        <span class="disguised-select">
+          <svg viewBox="0 0 24 24">
+            <use xlink:href="#icon-dropdown-arrow" />
+          </svg>
+          <select>
+            <option>Pants</option>
+            <option selected>Tees</option>
+            <option>Jackets</option>
+          </select>
+        </span>
+      </span>
+
+      <span class="divider">|</span>
+
+      <span class="collection">
+        <a href="#">On Sale</a>
+        <span class="disguised-select">
+          <svg viewBox="0 0 24 24">
+            <use xlink:href="#icon-dropdown-arrow" />
+          </svg>
+          <select>
+            <option>New</option>
+            <option>Summer</option>
+            <option selected>On Sale</option>
           </select>
         </span>
       </span>
