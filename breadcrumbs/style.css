@@ -44,39 +44,28 @@ nav {
     }
   }
 
-  & svg {
-    max-block-size: 100%;
-    margin: calc(var(--nav-gap) / 4);
-
-    stroke: CanvasText;
-    fill: none;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-width: 1px;
-  }
-
   & > .divider {
     color: ButtonText;
     font-size: .5em;
   }
 }
 
-.collection {
+.crumb {
   display: flex;
   align-items: center;
   gap: calc(var(--nav-gap) / 4);
   padding: 0;
   cursor: pointer;
-
-  & select {
-    inline-size: 100%;
-    block-size: 100%;
-    opacity: .01;
-    font-size: 16px; /* fix iOS zoom */
-  }
 }
 
 .disguised-select {
+  inline-size: 100%;
+  block-size: 100%;
+  opacity: .01;
+  font-size: 16px; /* fix iOS zoom */
+}
+
+.crumbicon {
   display: grid;
   grid: [stack] 3ch / [stack] 3ch;
   place-items: center;
@@ -105,5 +94,16 @@ nav {
 
   & > * {
     grid-area: stack;
+  }
+
+  & > svg {
+    max-block-size: 100%;
+    margin: calc(var(--nav-gap) / 4);
+
+    stroke: CanvasText;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1px;
   }
 }
