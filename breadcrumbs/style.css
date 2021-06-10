@@ -31,6 +31,10 @@ nav {
     display: inline-flex;
     align-items: center;
     gap: calc(var(--nav-gap) / 4);
+
+    @media (width <= 480px) { & > .home-label {
+      display: none;
+    }}
   }
 
   & a {
