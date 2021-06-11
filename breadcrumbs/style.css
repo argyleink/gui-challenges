@@ -23,11 +23,12 @@ nav {
   display: flex;
   align-items: center;
   overflow-x: auto;
+  overscroll-behavior-x: contain;
 
   gap: var(--nav-gap);
   padding: calc(var(--nav-gap) / 2);
 
-  & > a:first-of-type {
+  & > a:first-of-type:not(.crumb) {
     display: inline-flex;
     align-items: center;
     gap: calc(var(--nav-gap) / 4);
@@ -39,7 +40,7 @@ nav {
 
   & a {
     text-underline-offset: .25em;
-    outline-offset: .5em;
+    outline-offset: 3px;
     white-space: nowrap;
 
     &[href="#"] {
@@ -76,19 +77,19 @@ nav {
   aspect-ratio: 1;
   border-radius: 50%;
 
-  --disguised-shadow-size: 0px;
-  box-shadow: inset 0 0 0 var(--disguised-shadow-size) Highlight;
+  --icon-shadow-size: 0px;
+  box-shadow: inset 0 0 0 var(--icon-shadow-size) Highlight;
   
   @media (--motionOK) { & {
     transition: box-shadow .2s ease;
   }}
 
-  @nest :is(:focus-within, :hover) > & {
-    --disguised-shadow-size: 1px;
+  @nest .crumb:where(:focus-within, :hover) > & {
+    --icon-shadow-size: 1px;
   }
 
   &:is(:focus-within, :hover) {
-    --disguised-shadow-size: 2px;
+    --icon-shadow-size: 2px;
 
     & svg {
       stroke: Highlight;
