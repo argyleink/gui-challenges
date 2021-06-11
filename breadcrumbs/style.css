@@ -47,11 +47,6 @@ nav {
       text-decoration: none;
     }
   }
-
-  & > .divider {
-    color: ButtonText;
-    font-size: .5em;
-  }
 }
 
 .crumb {
@@ -60,6 +55,11 @@ nav {
   gap: calc(var(--nav-gap) / 4);
   padding: 0;
   cursor: pointer;
+}
+
+.crumb-separator {
+  color: ButtonText;
+  font-size: .5em;
 }
 
 .disguised-select {
