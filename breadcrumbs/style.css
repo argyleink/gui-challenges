@@ -31,10 +31,6 @@ body {
   padding: calc(var(--nav-gap) / 2);
   scroll-padding-inline: calc(var(--nav-gap) / 2);
 
-  @supports (-webkit-hyphens:none) { & {
-    scroll-snap-type: none;
-  }}
-
   & > a:first-of-type:not(.crumb) {
     display: inline-flex;
     align-items: center;
@@ -53,6 +49,10 @@ body {
   & > .crumb:last-of-type {
     scroll-snap-align: end;
   }
+
+  @supports (-webkit-hyphens:none) { & {
+    scroll-snap-type: none;
+  }}
 }
 
 .crumb {
