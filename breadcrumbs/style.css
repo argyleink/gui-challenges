@@ -17,7 +17,7 @@ body {
   align-content: start;
 }
 
-nav {
+.breadcrumbs {
   --nav-gap: 2ch;
 
   display: flex;
@@ -51,11 +51,9 @@ nav {
 }
 
 .crumb {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: calc(var(--nav-gap) / 4);
-  padding: 0;
-  cursor: pointer;
 }
 
 .crumb-separator {
@@ -71,10 +69,11 @@ nav {
 }
 
 .crumbicon {
+  --crumbicon-size: 3ch;
+
   display: grid;
-  grid: [stack] 3ch / [stack] 3ch;
+  grid: [stack] var(--crumbicon-size) / [stack] var(--crumbicon-size);
   place-items: center;
-  aspect-ratio: 1;
   border-radius: 50%;
 
   --icon-shadow-size: 0px;
