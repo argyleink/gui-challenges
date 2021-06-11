@@ -14,6 +14,7 @@ body {
   font-family: system-ui, sans-serif;
   display: grid;
   gap: 2ch;
+  padding-block: .5ch;
   align-content: start;
 }
 
@@ -24,9 +25,15 @@ body {
   align-items: center;
   overflow-x: auto;
   overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
 
   gap: var(--nav-gap);
   padding: calc(var(--nav-gap) / 2);
+  scroll-padding-inline: calc(var(--nav-gap) / 2);
+
+  @supports (-webkit-hyphens:none) { & {
+    scroll-snap-type: none;
+  }}
 
   & > a:first-of-type:not(.crumb) {
     display: inline-flex;
@@ -41,12 +48,10 @@ body {
   & a {
     text-underline-offset: .25em;
     outline-offset: 3px;
-    white-space: nowrap;
+  }
 
-    &[href="#"] {
-      color: CanvasText;
-      text-decoration: none;
-    }
+  & > .crumb:last-of-type {
+    scroll-snap-align: end;
   }
 }
 
@@ -54,6 +59,10 @@ body {
   display: inline-flex;
   align-items: center;
   gap: calc(var(--nav-gap) / 4);
+
+  & > :is(a, strong) {
+    white-space: nowrap;
+  }
 }
 
 .crumb-separator {
