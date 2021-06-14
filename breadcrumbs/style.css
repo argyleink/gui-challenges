@@ -91,11 +91,11 @@ body {
     transition: box-shadow .2s ease;
   }}
 
-  @nest .crumb:where(:focus-within, :hover) > & {
+  @nest .crumb:is(:focus-within, :hover) > & {
     --icon-shadow-size: 1px;
   }
 
-  &:is(:focus-within, :hover) {
+  @nest .crumb > &:is(:focus-within, :hover) {
     --icon-shadow-size: 2px;
 
     & svg {
