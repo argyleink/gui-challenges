@@ -22,7 +22,10 @@ navs.forEach(nav => {
     if (ignoreChange) return
 
     console.info('User wishes to change path to: ', e.target.value)
+    // change entire URL
     // location.pathname = target.value
+    // or 
+    // use your favorite clientside framework's router
   })
 
   nav.addEventListener('keydown', ({ key }) => {
