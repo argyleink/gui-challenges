@@ -77,10 +77,10 @@ body {
 }
 
 .crumbicon {
-  --crumbicon-size: 3ch;
+  --size: 3ch;
 
   display: grid;
-  grid: [stack] var(--crumbicon-size) / [stack] var(--crumbicon-size);
+  grid: [stack] var(--size) / [stack] var(--size);
   place-items: center;
   border-radius: 50%;
 
@@ -99,7 +99,6 @@ body {
     --icon-shadow-size: 2px;
 
     & svg {
-      stroke: currentColor;
       stroke-width: 2px;
     }
   }
@@ -112,7 +111,7 @@ body {
     max-block-size: 100%;
     margin: calc(var(--nav-gap) / 4);
 
-    stroke: CanvasText;
+    stroke: currentColor;
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
