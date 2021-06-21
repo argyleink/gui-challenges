@@ -21,7 +21,12 @@ navs.forEach(nav => {
   nav.addEventListener('change', e => {
     if (ignoreChange) return
 
-    console.info('User wishes to change path to: ', e.target.value)
+    const option = e.target
+    const choice = option.value
+
+    option.closest('.crumb').querySelector(':scope > a').textContent = choice
+    console.info('User wishes to change path to: ', choice)
+
     // change entire URL
     // location.pathname = target.value
     // or 
