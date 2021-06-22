@@ -67,6 +67,10 @@ body {
       font-weight: bold;
     }
   }
+
+  &.tree-changed ~ * {
+    display: none;
+  }
 }
 
 .crumb-separator {

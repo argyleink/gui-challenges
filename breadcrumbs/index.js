@@ -15,8 +15,10 @@ navs.forEach(nav => {
 
     const option = e.target
     const choice = option.value
+    const crumb = option.closest('.crumb')
 
-    option.closest('.crumb').querySelector(':scope > a').textContent = choice
+    crumb.classList.add('tree-changed')
+    crumb.querySelector(':scope > a').textContent = choice
     console.info('change path to: ', choice)
     // change entire URL
     // or 
