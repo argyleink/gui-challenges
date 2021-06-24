@@ -44,6 +44,13 @@ body {
   & a {
     text-underline-offset: .25em;
     outline-offset: 3px;
+
+    /* fix Safari inaccessible dark color scheme links */
+    @media (prefers-color-scheme: dark) {
+      @supports (-webkit-hyphens:none) { &[href] {
+        color: hsl(240 100% 81%);
+      }}
+    }
   }
 
   & > .crumb:last-of-type {
