@@ -34,6 +34,9 @@ jobs:
 
     - name: Build Color Schemes
       run: cd color-schemes && npm install && npm run build
+
+    - name: Build Breadcrumbs
+      run: cd breadcrumbs && npm install && npm run build
       
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
