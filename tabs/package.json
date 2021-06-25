@@ -30,7 +30,7 @@
     "copyfiles": "^2.4.1",
     "cssnano": "^4.1.10",
     "import-http": "^0.3.1",
-    "postcss": "7.0.27",
+    "postcss": "7.0.36",
     "postcss-cli": "7.1.0",
     "postcss-easings": "^2.0.0",
     "postcss-import": "^12.0.1",
