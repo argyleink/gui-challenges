@@ -1,13 +1,10 @@
-const breadcrumbs    = document.querySelectorAll('.breadcrumbs')
-const navs           = document.querySelectorAll('.breadcrumbs select')
-
+const crumbs         = document.querySelectorAll('.breadcrumbs select')
 const allowedKeys    = new Set(['Tab', 'Enter', ' '])
 const preventedKeys  = new Set(['ArrowUp', 'ArrowDown'])
 
-// watch crumbs for changes,
-// ensures it's a full value change, 
-// not a user exploring options via keyboard
-navs.forEach(nav => {
+// watch crumbs for *full* changes,
+// ensures it's not a user exploring options via keyboard
+crumbs.forEach(nav => {
   let ignoreChange = false
 
   nav.addEventListener('change', e => {
@@ -17,12 +14,13 @@ navs.forEach(nav => {
     const choice = option.value
     const crumb = option.closest('.crumb')
 
+    // flag crumb so adjacent siblings can be hidden
     crumb.classList.add('tree-changed')
+
+    // update crumb text to reflect the user's choice
     crumb.querySelector(':scope > a').textContent = choice
-    console.info('change path to: ', choice)
-    // change entire URL
-    // or 
-    // use your favorite clientside framework's router
+
+    routePage(choice)
   })
 
   nav.addEventListener('keydown', ({ key }) => {
@@ -32,3 +30,10 @@ navs.forEach(nav => {
       ignoreChange = false
   })
 })
+
+const routePage = route => {
+  console.info('change path to: ', route)
+  // change entire URL (window.location)
+  // or 
+  // use your favorite clientside framework's router
+}
