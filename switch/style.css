@@ -13,79 +13,74 @@ body {
   min-block-size: 100%;
   font-family: system-ui, sans-serif;
   display: grid;
+  gap: 2ch;
   place-content: center;
 }
 
-gui-switch {
-  --track-size: 4rem;
+.gui-switch {
   --thumb-size: 2rem;
+  --track-size: calc(var(--thumb-size) * 2);
   --thumb: hsl(0 0% 100%);
-  --track: hsl(0 0% 90%);
-  --track-on: hsl(80 60% 45%);
+  --track-inactive: hsl(80 0% 80%);
+  --track-active: hsl(80 60% 45%);
 
   --thumb-color: var(--thumb);
-  --track-color: var(--track);
-  --track-color-on: var(--track-on);
+  --track-color-inactive: var(--track-inactive);
+  --track-color-active: var(--track-active);
+
+  display: flex;
+  align-items: center;
+  gap: 2ch;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 
   @media (prefers-color-scheme: dark) {
-    --thumb: hsl(0 0% 80%);
-    --track: hsl(0 0% 2%);
-    --track-on: hsl(80 50% 60%);
+    --thumb: hsl(0 0% 100%);
+    --track-inactive: hsl(80 0% 2%);
+    --track-active: hsl(80 60% 50%);
   }
 
-  & > label {
-    user-select: none;
-    cursor: pointer;
+  & > input {
+    appearance: none;
+    border: none;
+    outline-offset: 5px;
+    padding: 2px;
+    box-sizing: content-box;
+
+    background: var(--track-inactive);
+    inline-size: var(--track-size);
+    block-size: var(--thumb-size);
+    border-radius: var(--track-size);
+
     display: grid;
-    grid: var(--thumb-size) / var(--track-size);
+    grid: [stack] 1fr / [stack] 1fr;
 
-    & > span {
-      display: none;
-    }
-
-    &::before, 
-    &::after {
-      grid-area: 1/1;
-      content: "";
-    }
+    @media (--motionOK) { & {
+      transition: background-color .25s ease;
+    }}
 
     &::before {
-      background-color: var(--track-color);
-      border-radius: var(--track-size);
-
-      @media (--motionOK) { & {
-        transition: background-color .25s ease;
-      }}
-    }
-
-    &::after {
+      content: "";
+      cursor: pointer;
+      grid-area: stack;
       inline-size: var(--thumb-size);
       block-size: var(--thumb-size);
-      background-color: var(--thumb-color);
+      background-color: var(--thumb);
       border-radius: 50%;
-      box-shadow:
-        0 0 2px hsl(0 0% 0% / 50%),
-        0 3px 2px rgba(0, 0, 0, 0.066),
-        0 8px 5.6px rgba(0, 0, 0, 0.095),
-        0 15px 13.6px rgba(0, 0, 0, 0.124),
-        0 45px 45px rgba(0, 0, 0, 0.19)
-      ;
 
       @media (--motionOK) { & {
         transition: transform .25s ease;
       }}
     }
-  }
 
-  & > input[type="checkbox"] {
-    display: none;
-  }
+    &:checked {
+      background: var(--track-active);
 
-  & > input:checked + label::before {
-    background: var(--track-on);
-  }
-
-  & > input:checked + label::after {
-    transform: translateX(100%);
+      &::before {
+        transform: translateX(100%);
+      }
+    }
   }
 }

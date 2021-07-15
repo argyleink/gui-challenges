@@ -15,12 +15,15 @@
   </head>
   <body>
 
-    <gui-switch>
-      <input id="label-example" type="checkbox"/>
-      <label for="label-example">
-        <span>Label Example</span>
-      </label>
-    </gui-switch>
+    <label for="switch-1" class="gui-switch">
+      Default
+      <input type="checkbox" id="switch-1">
+    </label>
+
+    <label for="switch-2" class="gui-switch" style="--track-active: hotpink">
+      Custom Color
+      <input type="checkbox" id="switch-2" checked="true">
+    </label>
 
   </body>
 </html>
