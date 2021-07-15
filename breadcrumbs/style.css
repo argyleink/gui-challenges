@@ -89,7 +89,7 @@ body {
   inline-size: 100%;
   block-size: 100%;
   opacity: .01;
-  font-size: 16px; /* fix iOS zoom */
+  font-size: min(100%, 16px); /* fix iOS zoom */
 }
 
 .crumbicon {
