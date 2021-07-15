@@ -37,9 +37,9 @@ body {
   -webkit-tap-highlight-color: transparent;
 
   @media (prefers-color-scheme: dark) {
-    --thumb: hsl(0 0% 100%);
-    --track-inactive: hsl(80 0% 2%);
-    --track-active: hsl(80 60% 50%);
+    --thumb: hsl(0 0% 5%);
+    --track-inactive: hsl(80 0% 35%);
+    --track-active: hsl(80 60% 60%);
   }
 
   & > input {
