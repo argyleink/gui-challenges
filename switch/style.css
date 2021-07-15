@@ -1,0 +1,91 @@
+@custom-media --motionOK (prefers-reduced-motion: no-preference);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  block-size: 100%;
+}
+
+body {
+  min-block-size: 100%;
+  font-family: system-ui, sans-serif;
+  display: grid;
+  place-content: center;
+}
+
+gui-switch {
+  --track-size: 4rem;
+  --thumb-size: 2rem;
+  --thumb: hsl(0 0% 100%);
+  --track: hsl(0 0% 90%);
+  --track-on: hsl(80 60% 45%);
+
+  --thumb-color: var(--thumb);
+  --track-color: var(--track);
+  --track-color-on: var(--track-on);
+
+  @media (prefers-color-scheme: dark) {
+    --thumb: hsl(0 0% 80%);
+    --track: hsl(0 0% 2%);
+    --track-on: hsl(80 50% 60%);
+  }
+
+  & > label {
+    user-select: none;
+    cursor: pointer;
+    display: grid;
+    grid: var(--thumb-size) / var(--track-size);
+
+    & > span {
+      display: none;
+    }
+
+    &::before, 
+    &::after {
+      grid-area: 1/1;
+      content: "";
+    }
+
+    &::before {
+      background-color: var(--track-color);
+      border-radius: var(--track-size);
+
+      @media (--motionOK) { & {
+        transition: background-color .25s ease;
+      }}
+    }
+
+    &::after {
+      inline-size: var(--thumb-size);
+      block-size: var(--thumb-size);
+      background-color: var(--thumb-color);
+      border-radius: 50%;
+      box-shadow:
+        0 0 2px hsl(0 0% 0% / 50%),
+        0 3px 2px rgba(0, 0, 0, 0.066),
+        0 8px 5.6px rgba(0, 0, 0, 0.095),
+        0 15px 13.6px rgba(0, 0, 0, 0.124),
+        0 45px 45px rgba(0, 0, 0, 0.19)
+      ;
+
+      @media (--motionOK) { & {
+        transition: transform .25s ease;
+      }}
+    }
+  }
+
+  & > input[type="checkbox"] {
+    display: none;
+  }
+
+  & > input:checked + label::before {
+    background: var(--track-on);
+  }
+
+  & > input:checked + label::after {
+    transform: translateX(100%);
+  }
+}
