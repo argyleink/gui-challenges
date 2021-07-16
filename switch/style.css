@@ -21,10 +21,12 @@ body {
   --thumb-size: 2rem;
   --track-size: calc(var(--thumb-size) * 2);
   --thumb: hsl(0 0% 100%);
+  --thumb-highlight: hsl(0 0% 0% / 25%);
   --track-inactive: hsl(80 0% 80%);
   --track-active: hsl(80 60% 45%);
 
   --thumb-color: var(--thumb);
+  --thumb-color-highlight: var(--thumb-highlight);
   --track-color-inactive: var(--track-inactive);
   --track-color-active: var(--track-active);
 
@@ -38,16 +40,20 @@ body {
 
   @media (prefers-color-scheme: dark) {
     --thumb: hsl(0 0% 5%);
+    --thumb-highlight: hsl(0 0% 100% / 25%);
     --track-inactive: hsl(80 0% 35%);
     --track-active: hsl(80 60% 60%);
   }
 
   & > input {
+    --thumb-position: 0%;
+    --thumb-transition-duration: .25s;
+
     appearance: none;
     border: none;
     outline-offset: 5px;
-    padding: 2px;
     box-sizing: content-box;
+    padding: 2px;
 
     background: var(--track-inactive);
     inline-size: var(--track-size);
@@ -55,32 +61,40 @@ body {
     border-radius: var(--track-size);
 
     display: grid;
+    align-items: center;
     grid: [stack] 1fr / [stack] 1fr;
 
-    @media (--motionOK) { & {
-      transition: background-color .25s ease;
-    }}
+    transition: 
+      background-color .25s ease,
+      border-color .25s ease;
 
     &::before {
+      --highlight-size: 0;
+
       content: "";
       cursor: pointer;
       grid-area: stack;
       inline-size: var(--thumb-size);
       block-size: var(--thumb-size);
       background-color: var(--thumb);
+      box-shadow: 0 0 0 var(--highlight-size) var(--thumb-color-highlight);
       border-radius: 50%;
+      transform: translateX(var(--thumb-position));
 
       @media (--motionOK) { & {
-        transition: transform .25s ease;
+        transition: 
+          transform var(--thumb-transition-duration) ease,
+          box-shadow .25s ease;
       }}
+    }
+
+    &:hover::before {
+      --highlight-size: .5rem;
     }
 
     &:checked {
       background: var(--track-active);
-
-      &::before {
-        transform: translateX(100%);
-      }
+      --thumb-position: 100%;
     }
   }
 }
