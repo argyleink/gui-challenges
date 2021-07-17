@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Breadcrumbs | GUI Challenges</title>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="deeppink" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="Canvas" media="(prefers-color-scheme: dark)">
+    <meta name="description" content="🙂">
+    <meta name="color-scheme" content="dark light">
+    <link rel="stylesheet" href="/style.css">
+    <script type="module" src="/index.js"></script>
+  </head>
+  <body>
+
+    <svg style="display: none;">
+
+      <symbol id="icon-home">
+        <title>A home icon</title>
+        <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+      </symbol>
+
+      <symbol id="icon-dropdown-arrow">
+        <title>A down arrow</title>
+        <path d="M19 9l-7 7-7-7"/>
+      </symbol>
+
+    </svg>
+
+    <nav class="breadcrumbs" role="navigation" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <ol class="list">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="./home/" itemprop="item">
+            <span class="crumbicon">
+              <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                <use href="#icon-home" />
+              </svg>
+            </span>
+            <span class="home-label" itemprop="name">Home</span>
+            <meta itemprop="position" content="1" />
+          </a>
+        </li>
+      </ol>
+    </nav>
+
+    <nav class="breadcrumbs" role="navigation" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <ol class="list">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="./home/" itemprop="item">
+            <span class="crumbicon">
+              <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                <use href="#icon-home" />
+              </svg>
+            </span>
+            <span class="home-label" itemprop="name">Home</span>
+            <meta itemprop="position" content="1" />
+          </a>
+        </li>
+        <li class="crumb-separator" aria-hidden="true">»</li>
+        <li class="crumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a aria-current="page" itemprop="item">
+            <span itemprop="name">Page A</span>
+          </a>
+          <meta itemprop="position" content="2" />
+          <span class="crumbicon">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+              <use href="#icon-dropdown-arrow" />
+            </svg>
+            <select class="disguised-select" title="Navigate to another page">
+              <option selected>Page A</option>
+              <option>Page B</option>
+              <option>Page C</option>
+            </select>
+          </span>
+        </li>
+      </ol>
+    </nav>
+
+    <nav class="breadcrumbs" role="navigation" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <ol class="list">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="./home/" itemprop="item">
+            <span class="crumbicon">
+              <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                <use href="#icon-home" />
+              </svg>
+            </span>
+            <span class="home-label" itemprop="name">Home</span>
+            <meta itemprop="position" content="1" />
+          </a>
+        </li>
+        <li class="crumb-separator" aria-hidden="true">|</li>
+        <li class="crumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="./home/collection-b/" itemprop="item">
+            <span itemprop="name">Collection B</span>
+          </a>
+          <meta itemprop="position" content="2" />
+          <span class="crumbicon">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+              <use href="#icon-dropdown-arrow" />
+            </svg>
+            <select class="disguised-select" title="Navigate to another collection">
+              <option>Collection A</option>
+              <option selected>Collection B</option>
+              <option>Other Collections</option>
+            </select>
+          </span>
+        </li>
+        <li class="crumb-separator" aria-hidden="true">|</li>
+        <li class="crumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a aria-current="page" itemprop="item">
+            <span itemprop="name">Sub Collection C</span>
+          </a>
+          <meta itemprop="position" content="3" />
+          <span class="crumbicon">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+              <use href="#icon-dropdown-arrow" />
+            </svg>
+            <select class="disguised-select" title="Navigate to another sub collection">
+              <option>Sub Collection A</option>
+              <option>Sub Collection B</option>
+              <option selected>Sub Collection C</option>
+            </select>
+          </span>
+        </li>
+      </ol>
+    </nav>
+
+    <nav class="breadcrumbs" role="navigation" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <ol class="list">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="./home/" itemprop="item">
+            <span class="crumbicon">
+              <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                <use href="#icon-home" />
+              </svg>
+            </span>
+            <span class="home-label" itemprop="name">Home</span>
+            <meta itemprop="position" content="1" />
+          </a>
+        </li>
+        <li class="crumb-separator" aria-hidden="true">→</li>
+        <li class="crumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="./home/rpg/" itemprop="item">
+            <span itemprop="name">RPG</span>
+          </a>
+          <meta itemprop="position" content="2" />
+          <span class="crumbicon">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+              <use href="#icon-dropdown-arrow" />
+            </svg>
+            <select class="disguised-select" title="Navigate to another genre">
+              <option>FPS</option>
+              <option selected>RPG</option>
+              <option>Brawler</option>
+              <option>Dungeon Crawler</option>
+              <option>Sports</option>
+              <option>Puzzle</option>
+            </select>
+          </span>
+        </li>
+        <li class="crumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="./home/rpg/indie/" itemprop="item">
+            <span itemprop="name">Indie</span>
+          </a>
+          <meta itemprop="position" content="3" />
+          <span class="crumbicon">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+              <use href="#icon-dropdown-arrow" />
+            </svg>
+            <select class="disguised-select" title="Navigate to another category">
+              <option>AAA</option>
+              <option selected>Indie</option>
+              <option>Self Published</option>
+            </select>
+          </span>
+        </li>
+        <li class="crumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a aria-current="page" itemprop="item">
+            <span itemprop="name">On Sale</span>
+          </a>
+          <meta itemprop="position" content="4" />
+          <span class="crumbicon">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+              <use href="#icon-dropdown-arrow" />
+            </svg>
+            <select class="disguised-select" title="Navigate to another collection">
+              <option>New</option>
+              <option>Under 5</option>
+              <option selected>On Sale</option>
+            </select>
+          </span>
+        </li>
+      </ol>
+    </nav>
+
+    <nav class="breadcrumbs" role="navigation" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <ol class="list">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="./home/" itemprop="item">
+            <span class="crumbicon">
+              <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                <use href="#icon-home" />
+              </svg>
+            </span>
+            <span class="home-label" itemprop="name">Home</span>
+            <meta itemprop="position" content="1" />
+          </a>
+        </li>
+        <li class="crumb-separator" aria-hidden="true">·</li>
+        <li class="crumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="./home/blog/" itemprop="item">
+            <span itemprop="name">Blog</span>
+          </a>
+          <meta itemprop="position" content="2" />
+          <span class="crumbicon">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+              <use href="#icon-dropdown-arrow" />
+            </svg>
+            <select class="disguised-select" title="Navigate to another site section">
+              <option>About</option>
+              <option selected>RPG</option>
+              <option>Projects</option>
+              <option>Clients</option>
+            </select>
+          </span>
+        </li>
+        <li class="crumb-separator" aria-hidden="true">·</li>
+        <li class="crumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="./home/blog/front-end/" itemprop="item">
+            <span itemprop="name">Front-end</span>
+          </a>
+          <meta itemprop="position" content="3" />
+          <span class="crumbicon">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+              <use href="#icon-dropdown-arrow" />
+            </svg>
+            <select class="disguised-select" title="Navigate to another category">
+              <option>Back-end</option>
+              <option selected>Front-end</option>
+            </select>
+          </span>
+        </li>
+        <li class="crumb-separator" aria-hidden="true">·</li>
+        <li class="crumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="./home/blog/front-end/accessibility/" itemprop="item">
+            <span itemprop="name">Accessibility</span>
+          </a>
+          <meta itemprop="position" content="4" />
+          <span class="crumbicon">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+              <use href="#icon-dropdown-arrow" />
+            </svg>
+            <select class="disguised-select" title="Navigate to another topic">
+              <option>Color</option>
+              <option>Markup</option>
+              <option selected>Accessibility</option>
+              <option>Javascript</option>
+            </select>
+          </span>
+        </li>
+        <li class="crumb-separator" aria-hidden="true">·</li>
+        <li class="crumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a aria-current="page" itemprop="item">
+            <span itemprop="name">Why you still need role="navigation" on a nav element</span>
+          </a>
+          <meta itemprop="position" content="5" />
+          <span class="crumbicon">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+              <use href="#icon-dropdown-arrow" />
+            </svg>
+            <select class="disguised-select" title="Navigate to another article">
+              <option>How to setup roving UX</option>
+              <option>The trick to good visibly hidden elements</option>
+              <option selected>Why you still need role="navigation" on a nav element</option>
+            </select>
+          </span>
+        </li>
+      </ol>
+    </nav>
+  </body>
+</html>
