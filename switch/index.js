@@ -1,3 +1,5 @@
+import {getStyle, getPseudoStyle} from './style-utils.js'
+
 const elements = document.querySelectorAll('.gui-switch')
 const switches = new Map()
 
@@ -7,17 +9,17 @@ const state = {
 
 const dragInit = event => {
   state.activethumb = event.target
-  event.target.addEventListener('pointermove', dragging)
+  state.activethumb.addEventListener('pointermove', dragging)
 }
 
 const dragging = event => {
   if (!state.activethumb) return
 
-  let swx = switches.get(state.activethumb.closest('.gui-switch'))
-  let pos = event.offsetX - swx.thumbsize / 2
+  let {thumbsize, bounds} = switches.get(state.activethumb.parentElement)
+  let pos = event.offsetX - thumbsize / 2
 
-  if (pos < swx.bounds.lower) pos = 0
-  if (pos > swx.bounds.upper) pos = swx.bounds.upper
+  if (pos < bounds.lower) pos = 0
+  if (pos > bounds.upper) pos = bounds.upper
 
   state.activethumb.style.setProperty('--thumb-transition-duration', '0s')
   state.activethumb.style.setProperty('--thumb-position', `${pos}px`)
@@ -26,36 +28,28 @@ const dragging = event => {
 const dragEnd = event => {
   if (!state.activethumb) return
 
-  state.activethumb.style.removeProperty('--thumb-position')
   state.activethumb.style.removeProperty('--thumb-transition-duration')
+  state.activethumb.style.removeProperty('--thumb-position')
   state.activethumb.removeEventListener('pointermove', dragging)
   state.activethumb = null
 }
 
-const getStyle = (element, prop) => {
-  return parseInt(
-    window.getComputedStyle(element)
-      .getPropertyValue(prop)
-  )
+const determineChecked = () => {
+  let {bounds} = switches.get(state.activethumb.parentElement)
+  let curpos = state.activethumb.style.getPropertyValue('--thumb-position')
+
+  return parseInt(curpos) >= bounds.middle
 }
 
-const getPseudoStyle = (element, prop) => {
-  return parseInt(
-    window.getComputedStyle(element, ':before')
-      .getPropertyValue(prop)
-  )
-}
-
-elements.forEach(sx => {
-  sx.addEventListener('pointerdown', dragInit)
-  sx.addEventListener('pointerup', dragEnd)
-
-  let checkbox = sx.querySelector('input')
-
+elements.forEach(guiswitch => {
+  let checkbox = guiswitch.querySelector('input')
   let thumbsize = getPseudoStyle(checkbox, 'width')
   let padding = getStyle(checkbox, 'padding-left') + getStyle(checkbox, 'padding-right')
 
-  switches.set(sx, {
+  checkbox.addEventListener('pointerdown', dragInit)
+  checkbox.addEventListener('pointerup', dragEnd)
+
+  switches.set(guiswitch, {
     thumbsize,
     padding,
     bounds: {
@@ -69,14 +63,7 @@ elements.forEach(sx => {
 window.addEventListener('pointerup', event => {
   if (!state.activethumb) return
 
-  let sx = switches.get(state.activethumb.parentElement)
-
-  let curpos = parseInt(
-    state.activethumb.style.getPropertyValue('--thumb-position')
-  )
-
-  if (curpos >= sx.bounds.middle) 
-    state.activethumb.checked = true
+  state.activethumb.checked = determineChecked()
 
   dragEnd(event)
 })

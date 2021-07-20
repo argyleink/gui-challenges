@@ -34,6 +34,7 @@ body {
   align-items: center;
   gap: 2ch;
   justify-content: space-between;
+
   cursor: pointer;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
