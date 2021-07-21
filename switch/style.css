@@ -96,10 +96,10 @@ body {
 
     &:checked {
       background: var(--track-active);
-      --thumb-position: 100%;
+      --thumb-position: calc(var(--track-size) - 100%);
 
       &:dir(rtl) {
-        --thumb-position: -100%;
+        --thumb-position: calc((var(--track-size) - 100%) * -1);
       }
     }
 
