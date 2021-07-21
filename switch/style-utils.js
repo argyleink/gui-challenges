@@ -1,16 +1,12 @@
-const getStyle = (element, prop) => {
-  return parseInt(
+const getStyle = (element, prop) =>
+  parseInt(
     window.getComputedStyle(element)
-      .getPropertyValue(prop)
-  )
-}
+      .getPropertyValue(prop))
 
-const getPseudoStyle = (element, prop) => {
-  return parseInt(
+const getPseudoStyle = (element, prop) =>
+  parseInt(
     window.getComputedStyle(element, ':before')
-      .getPropertyValue(prop)
-  )
-}
+      .getPropertyValue(prop))
 
 export {
   getStyle,
