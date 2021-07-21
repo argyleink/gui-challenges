@@ -50,8 +50,11 @@ const padRelease = () => {
   }, 300)
 }
 
-const preventBubbles = event =>
+const preventBubbles = event => {
+  if (!state.activethumb || !state.recentlyDragged) return
   event.preventDefault() && event.stopPropagation()
+}
+  
 
 const labelClick = event => {
   if (state.recentlyDragged || !event.target.classList.contains('gui-switch')) 
