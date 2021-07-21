@@ -9,6 +9,8 @@ const state = {
 }
 
 const dragInit = event => {
+  if (event.target.disabled) return
+
   state.activethumb = event.target
   state.activethumb.addEventListener('pointermove', dragging)
 }
@@ -51,22 +53,31 @@ const padRelease = () => {
 }
 
 const preventBubbles = event => {
-  if (!state.activethumb || !state.recentlyDragged) return
-  event.preventDefault() && event.stopPropagation()
+  if (state.recentlyDragged)
+    event.preventDefault() && event.stopPropagation()
 }
-  
 
 const labelClick = event => {
-  if (state.recentlyDragged || !event.target.classList.contains('gui-switch')) 
-    return
+  if (
+    state.recentlyDragged || 
+    !event.target.classList.contains('gui-switch') || 
+    event.target.querySelector('input').disabled
+  ) return
 
   let checkbox = event.target.querySelector('input')
   checkbox.checked = !checkbox.checked
+  event.preventDefault()
 }
 
 const determineChecked = () => {
   let {bounds} = switches.get(state.activethumb.parentElement)
   let curpos = state.activethumb.style.getPropertyValue('--thumb-position')
+
+  if (!curpos) {
+    curpos = state.activethumb.checked
+      ? bounds.lower
+      : bounds.upper
+  }
 
   return parseInt(curpos) >= bounds.middle
 }

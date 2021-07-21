@@ -90,7 +90,7 @@ body {
       }}
     }
 
-    &:hover::before {
+    &:not(:disabled):hover::before {
       --highlight-size: .5rem;
     }
 
@@ -101,6 +101,19 @@ body {
 
     &:indeterminate {
       --thumb-position: 50%;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      --thumb: hsl(0 0% 93%);
+
+      &::before {
+        cursor: not-allowed;
+      }
+
+      @media (prefers-color-scheme: dark) { & {
+        --thumb: hsl(0 0% 20%);
+      }}
     }
   }
 }
