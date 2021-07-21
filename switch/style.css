@@ -13,8 +13,21 @@ body {
   min-block-size: 100%;
   font-family: system-ui, sans-serif;
   display: grid;
+  grid-auto-columns: 30ch;
+  gap: 5ch 20ch;
+  align-items: start;
+  align-content: center;
+  justify-content: center;
+
+  @media (min-width: 720px) { & {
+    grid-auto-flow: column;
+  }}
+}
+
+section {
+  display: grid;
   gap: 2ch;
-  place-content: center;
+  align-items: flex-start;
 }
 
 .gui-switch {

@@ -15,54 +15,62 @@
   </head>
   <body>
 
-    <label for="switch-1" class="gui-switch">
-      Default
-      <input type="checkbox" role="switch" id="switch-1">
-    </label>
+    
 
-    <label for="switch-2" class="gui-switch" style="--track-active: hotpink">
-      Custom Active
-      <input type="checkbox" role="switch" id="switch-2" checked="true">
-    </label>
+    <section>
+      <h2>States</h2>
 
-    <label for="switch-3" class="gui-switch">
-      Indeterminate
-      <input type="checkbox" role="switch" id="switch-3">
-      <script>document.getElementById('switch-3').indeterminate = true</script>
-    </label>
+      <label for="switch-1" class="gui-switch">
+        Default
+        <input type="checkbox" role="switch" id="switch-1">
+      </label>
 
-    <label for="switch-4" class="gui-switch">
-      Disabled
-      <input type="checkbox" role="switch" id="switch-4" disabled>
-    </label>
+      <label for="switch-2" class="gui-switch" style="--track-active: hotpink">
+        Custom Active
+        <input type="checkbox" role="switch" id="switch-2" checked="true">
+      </label>
 
-    <hr>
+      <label for="switch-3" class="gui-switch">
+        Indeterminate
+        <input type="checkbox" role="switch" id="switch-3">
+        <script>document.getElementById('switch-3').indeterminate = true</script>
+      </label>
 
-    <label for="switch-5" class="gui-switch" style="--track-inactive: red; --track-active: lime;">
-      Off
-      <input type="checkbox" role="switch" id="switch-5">
-      On
-    </label>
+      <label for="switch-4" class="gui-switch">
+        Disabled
+        <input type="checkbox" role="switch" id="switch-4" disabled>
+      </label>
+    </section>
 
-    <label for="switch-6" class="gui-switch" style="--thumb-size: 15px;">
-      15px Small
-      <input type="checkbox" role="switch" id="switch-6" checked>
-    </label>
+    <section>
+      <h2>Overrides</h2>
 
-    <label for="switch-7" class="gui-switch" style="--track-size: 75px;">
-      75px Track
-      <input type="checkbox" role="switch" id="switch-7">
-    </label>
+      <label for="switch-6" class="gui-switch" style="--thumb-size: 15px;">
+        Small
+        <input type="checkbox" role="switch" id="switch-6" checked>
+      </label>
 
-    <label for="switch-8" class="gui-switch" style="flex-direction: column; gap: .5ch; align-items: flex-start;">
-      Stacked layout
-      <input type="checkbox" role="switch" id="switch-8">
-    </label>
+      <label for="switch-7" class="gui-switch" style="--track-size: 8rem;">
+        Long
+        <input type="checkbox" role="switch" id="switch-7">
+      </label>
 
-    <label for="switch-9" class="gui-switch" style="flex-direction: column; gap: .5ch; align-items: flex-end; --track-active: cyan; --thumb-size: 1.5rem;">
-      Subscribe
-      <input type="checkbox" role="switch" id="switch-9" checked>
-    </label>
+      <label for="switch-8" class="gui-switch" style="flex-direction: column; gap: .5ch; align-items: flex-start;">
+        Stacked Label
+        <input type="checkbox" role="switch" id="switch-8">
+      </label>
+
+      <label for="switch-5" class="gui-switch" style="--track-inactive: red; --track-active: lime;">
+        Off
+        <input type="checkbox" role="switch" id="switch-5">
+        On
+      </label>
+
+      <label for="switch-9" class="gui-switch" style="flex-direction: column; gap: .5ch; align-items: flex-end; --track-active: cyan; --thumb-size: 1.5rem; --thumb: hsl(180 50% 15%);">
+        Subscribe
+        <input type="checkbox" role="switch" id="switch-9" checked>
+      </label>
+    </section>
 
   </body>
 </html>
