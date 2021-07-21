@@ -97,10 +97,18 @@ body {
     &:checked {
       background: var(--track-active);
       --thumb-position: 100%;
+
+      &:dir(rtl) {
+        --thumb-position: -100%;
+      }
     }
 
     &:indeterminate {
       --thumb-position: 50%;
+
+      &:dir(rtl) {
+        --thumb-position: -50%;
+      }
     }
 
     &:disabled {
