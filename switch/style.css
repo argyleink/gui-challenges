@@ -1,0 +1,139 @@
+@custom-media --motionOK (prefers-reduced-motion: no-preference);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  block-size: 100%;
+}
+
+body {
+  min-block-size: 100%;
+  font-family: system-ui, sans-serif;
+  display: grid;
+  grid-auto-columns: 30ch;
+  gap: 5ch 20ch;
+  align-items: start;
+  align-content: center;
+  justify-content: center;
+
+  @media (min-width: 720px) { & {
+    grid-auto-flow: column;
+  }}
+}
+
+section {
+  display: grid;
+  gap: 2ch;
+  align-items: flex-start;
+}
+
+.gui-switch {
+  --thumb-size: 2rem;
+  --track-size: calc(var(--thumb-size) * 2);
+  --thumb: hsl(0 0% 100%);
+  --thumb-highlight: hsl(0 0% 0% / 25%);
+  --track-inactive: hsl(80 0% 80%);
+  --track-active: hsl(80 60% 45%);
+
+  --thumb-color: var(--thumb);
+  --thumb-color-highlight: var(--thumb-highlight);
+  --track-color-inactive: var(--track-inactive);
+  --track-color-active: var(--track-active);
+
+  display: flex;
+  align-items: center;
+  gap: 2ch;
+  justify-content: space-between;
+
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  @media (prefers-color-scheme: dark) {
+    --thumb: hsl(0 0% 5%);
+    --thumb-highlight: hsl(0 0% 100% / 25%);
+    --track-inactive: hsl(80 0% 35%);
+    --track-active: hsl(80 60% 60%);
+  }
+
+  & > input {
+    --thumb-position: 0%;
+    --thumb-transition-duration: .25s;
+
+    appearance: none;
+    touch-action: pan-y;
+    border: none;
+    outline-offset: 5px;
+    box-sizing: content-box;
+    padding: 2px;
+
+    background: var(--track-inactive);
+    inline-size: var(--track-size);
+    block-size: var(--thumb-size);
+    border-radius: var(--track-size);
+
+    display: grid;
+    align-items: center;
+    grid: [stack] 1fr / [stack] 1fr;
+
+    transition: background-color .25s ease,;
+
+    &::before {
+      --highlight-size: 0;
+
+      content: "";
+      cursor: pointer;
+      grid-area: stack;
+      inline-size: var(--thumb-size);
+      block-size: var(--thumb-size);
+      background-color: var(--thumb);
+      box-shadow: 0 0 0 var(--highlight-size) var(--thumb-color-highlight);
+      border-radius: 50%;
+      transform: translateX(var(--thumb-position));
+
+      @media (--motionOK) { & {
+        transition: 
+          transform var(--thumb-transition-duration) ease,
+          box-shadow .25s ease;
+      }}
+    }
+
+    &:not(:disabled):hover::before {
+      --highlight-size: .5rem;
+    }
+
+    &:checked {
+      background: var(--track-active);
+      --thumb-position: calc(var(--track-size) - 100%);
+
+      &:dir(rtl) {
+        --thumb-position: calc((var(--track-size) - 100%) * -1);
+      }
+    }
+
+    &:indeterminate {
+      --thumb-position: 50%;
+
+      &:dir(rtl) {
+        --thumb-position: -50%;
+      }
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      --thumb: transparent;
+
+      &::before {
+        cursor: not-allowed;
+        box-shadow: inset 0 0 0 2px hsl(0 0% 100% / 50%);
+
+        @media (prefers-color-scheme: dark) { & {
+          box-shadow: inset 0 0 0 2px hsl(0 0% 0% / 50%);
+        }}
+      }
+    }
+  }
+}
