@@ -51,6 +51,7 @@ body {
     --thumb-transition-duration: .25s;
 
     appearance: none;
+    touch-action: pan-y;
     border: none;
     outline-offset: 5px;
     box-sizing: content-box;
@@ -96,6 +97,10 @@ body {
     &:checked {
       background: var(--track-active);
       --thumb-position: 100%;
+    }
+
+    &:indeterminate {
+      --thumb-position: 50%;
     }
   }
 }

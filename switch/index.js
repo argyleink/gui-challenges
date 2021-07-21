@@ -5,6 +5,7 @@ const switches = new Map()
 
 const state = {
   activethumb: null,
+  recentlyDragged: false,
 }
 
 const dragInit = event => {
@@ -28,10 +29,36 @@ const dragging = event => {
 const dragEnd = event => {
   if (!state.activethumb) return
 
+  state.activethumb.checked = determineChecked()
+
+  if (state.activethumb.indeterminate)
+    state.activethumb.indeterminate = false
+
   state.activethumb.style.removeProperty('--thumb-transition-duration')
   state.activethumb.style.removeProperty('--thumb-position')
   state.activethumb.removeEventListener('pointermove', dragging)
   state.activethumb = null
+
+  padRelease()
+}
+
+const padRelease = () => {
+  state.recentlyDragged = true
+
+  setTimeout(_ => {
+    state.recentlyDragged = false
+  }, 300)
+}
+
+const preventBubbles = event =>
+  event.preventDefault() && event.stopPropagation()
+
+const labelClick = event => {
+  if (state.recentlyDragged || !event.target.classList.contains('gui-switch')) 
+    return
+
+  let checkbox = event.target.querySelector('input')
+  checkbox.checked = !checkbox.checked
 }
 
 const determineChecked = () => {
@@ -48,6 +75,8 @@ elements.forEach(guiswitch => {
 
   checkbox.addEventListener('pointerdown', dragInit)
   checkbox.addEventListener('pointerup', dragEnd)
+  checkbox.addEventListener('click', preventBubbles)
+  guiswitch.addEventListener('click', labelClick)
 
   switches.set(guiswitch, {
     thumbsize,
@@ -62,8 +91,6 @@ elements.forEach(guiswitch => {
 
 window.addEventListener('pointerup', event => {
   if (!state.activethumb) return
-
-  state.activethumb.checked = determineChecked()
 
   dragEnd(event)
 })

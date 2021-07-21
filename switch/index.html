@@ -25,15 +25,16 @@
       <input type="checkbox" role="switch" id="switch-2" checked="true">
     </label>
 
-    <label for="switch-3" class="gui-switch" style="--track-inactive: red; --track-active: lime;">
-      Off
+    <label for="switch-3" class="gui-switch">
+      Indeterminate
       <input type="checkbox" role="switch" id="switch-3">
-      On
+      <script>document.getElementById('switch-3').indeterminate = true</script>
     </label>
 
-    <label for="switch-4" class="gui-switch" style="--track-active: hsl(180 80% 80%)">
-      Subscribe
-      <input type="checkbox" role="switch" id="switch-4" checked="true">
+    <label for="switch-4" class="gui-switch" style="--track-inactive: red; --track-active: lime;">
+      Off
+      <input type="checkbox" role="switch" id="switch-4">
+      On
     </label>
 
   </body>
