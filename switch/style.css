@@ -109,7 +109,7 @@ section {
       grid-area: stack;
       inline-size: var(--thumb-size);
       block-size: var(--thumb-size);
-      background-color: var(--thumb-color);
+      background: var(--thumb-color);
       box-shadow: 0 0 0 var(--highlight-size) var(--thumb-color-highlight);
       border-radius: 50%;
       transform: translateX(var(--thumb-position));
