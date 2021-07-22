@@ -45,6 +45,8 @@ section {
   --track-color-inactive: var(--track-inactive);
   --track-color-active: var(--track-active);
 
+  --isLTR: 1;
+
   display: flex;
   align-items: center;
   gap: 2ch;
@@ -61,11 +63,15 @@ section {
     --track-active: hsl(80 60% 60%);
   }
 
+  &:dir(rtl) {
+    --isLTR: -1;
+  }
+
   &.-vertical {
     min-block-size: calc(var(--track-size) + 4px);
 
     & > input {
-      transform: rotate(-90deg);
+      transform: rotate(calc(90deg * var(--isLTR) * -1));
       touch-action: pan-x;
     }
   }
@@ -119,19 +125,11 @@ section {
 
     &:checked {
       background: var(--track-active);
-      --thumb-position: calc(var(--track-size) - 100%);
-
-      &:dir(rtl) {
-        --thumb-position: calc((var(--track-size) - 100%) * -1);
-      }
+      --thumb-position: calc((var(--track-size) - 100%) * var(--isLTR));
     }
 
     &:indeterminate {
-      --thumb-position: 50%;
-
-      &:dir(rtl) {
-        --thumb-position: -50%;
-      }
+      --thumb-position: calc(50% * var(--isLTR));
     }
 
     &:disabled {
