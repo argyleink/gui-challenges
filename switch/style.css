@@ -34,9 +34,10 @@ section {
 
 .gui-switch {
   --thumb-size: 2rem;
-  --track-size: calc(var(--thumb-size) * 2);
   --thumb: hsl(0 0% 100%);
   --thumb-highlight: hsl(0 0% 0% / 25%);
+  
+  --track-size: calc(var(--thumb-size) * 2);
   --track-padding: 2px;
   --track-inactive: hsl(80 0% 80%);
   --track-active: hsl(80 60% 45%);
@@ -80,18 +81,18 @@ section {
   & > input {
     --thumb-position: 0%;
     --thumb-transition-duration: .25s;
+    
     padding: var(--track-padding);
+    background: var(--track-color-inactive);
+    inline-size: var(--track-size);
+    block-size: var(--thumb-size);
+    border-radius: var(--track-size);
 
     appearance: none;
     touch-action: pan-y;
     border: none;
     outline-offset: 5px;
     box-sizing: content-box;
-
-    background: var(--track-color-inactive);
-    inline-size: var(--track-size);
-    block-size: var(--thumb-size);
-    border-radius: var(--track-size);
 
     flex-shrink: 0;
     display: grid;
