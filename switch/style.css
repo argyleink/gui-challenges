@@ -75,6 +75,7 @@ section {
     block-size: var(--thumb-size);
     border-radius: var(--track-size);
 
+    flex-shrink: 0;
     display: grid;
     align-items: center;
     grid: [stack] 1fr / [stack] 1fr;
