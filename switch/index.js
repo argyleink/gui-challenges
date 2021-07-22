@@ -18,14 +18,20 @@ const dragInit = event => {
 const dragging = event => {
   if (!state.activethumb) return
 
-  let {thumbsize, bounds} = switches.get(state.activethumb.parentElement)
+  let {thumbsize, bounds, padding} = switches.get(state.activethumb.parentElement)
+  let directionality = getStyle(state.activethumb, '--isLTR')
+
+  let track = (directionality === -1)
+    ? (state.activethumb.clientWidth * -1) + thumbsize + padding
+    : 0
+
   let pos = event.offsetX - thumbsize / 2
 
   if (pos < bounds.lower) pos = 0
   if (pos > bounds.upper) pos = bounds.upper
 
   state.activethumb.style.setProperty('--thumb-transition-duration', '0s')
-  state.activethumb.style.setProperty('--thumb-position', `${pos}px`)
+  state.activethumb.style.setProperty('--thumb-position', `${track + pos}px`)
 }
 
 const dragEnd = event => {
@@ -71,7 +77,10 @@ const labelClick = event => {
 
 const determineChecked = () => {
   let {bounds} = switches.get(state.activethumb.parentElement)
-  let curpos = state.activethumb.style.getPropertyValue('--thumb-position')
+  let curpos = 
+    Math.abs(
+      parseInt(
+        state.activethumb.style.getPropertyValue('--thumb-position')))
 
   if (!curpos) {
     curpos = state.activethumb.checked
@@ -79,7 +88,7 @@ const determineChecked = () => {
       : bounds.upper
   }
 
-  return parseInt(curpos) >= bounds.middle
+  return curpos >= bounds.middle
 }
 
 elements.forEach(guiswitch => {
