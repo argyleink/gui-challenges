@@ -13,14 +13,16 @@ body {
   min-block-size: 100%;
   font-family: system-ui, sans-serif;
   display: grid;
-  grid-auto-columns: 30ch;
+  grid-auto-columns: min(35ch, 100%);
   gap: 5ch 20ch;
+  padding: 5ch;
   align-items: start;
   align-content: center;
   justify-content: center;
 
   @media (min-width: 720px) { & {
     grid-auto-flow: column;
+    grid-auto-columns: 30ch;
   }}
 }
 
