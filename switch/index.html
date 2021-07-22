@@ -23,16 +23,6 @@
         <input type="checkbox" role="switch" id="switch-1">
       </label>
 
-      <label for="switch-vertical" class="gui-switch -vertical">
-        Vertical
-        <input type="checkbox" role="switch" id="switch-vertical" checked>
-      </label>
-
-      <label for="switch-2" class="gui-switch" style="--track-active: hotpink">
-        Custom Active Color
-        <input type="checkbox" role="switch" id="switch-2" checked="true">
-      </label>
-
       <label for="switch-3" class="gui-switch">
         Indeterminate
         <input type="checkbox" role="switch" id="switch-3">
@@ -48,19 +38,40 @@
         Disabled (checked)
         <input type="checkbox" role="switch" id="switch-5" disabled checked>
       </label>
+
+      <label for="switch-vertical" class="gui-switch -vertical">
+        Vertical
+        <input type="checkbox" role="switch" id="switch-vertical">
+      </label>
+
     </section>
 
     <section>
       <h2>Overrides</h2>
 
-      <label for="switch-6" class="gui-switch" style="--thumb-size: 15px;">
-        Small
-        <input type="checkbox" role="switch" id="switch-6" checked>
+      <label for="switch-2" class="gui-switch" style="--track-active: hotpink">
+        Custom Active Color
+        <input type="checkbox" role="switch" id="switch-2" checked="true">
+      </label>
+
+      <label for="switch-xs" class="gui-switch" style="--thumb-size: 15px;">
+        XS
+        <input type="checkbox" role="switch" id="switch-xs" checked>
+      </label>
+
+      <label for="switch-xl" class="gui-switch" style="--thumb-size: 50px;">
+        XL
+        <input type="checkbox" role="switch" id="switch-xl">
       </label>
 
       <label for="switch-7" class="gui-switch" style="--track-size: 8rem;">
-        Long
-        <input type="checkbox" role="switch" id="switch-7">
+        Length
+        <input type="checkbox" role="switch" id="switch-7" checked>
+      </label>
+
+      <label for="switch-padded" class="gui-switch" style="--track-padding: 8px">
+        Track Padding
+        <input type="checkbox" role="switch" id="switch-padded">
       </label>
 
       <label for="switch-8" class="gui-switch" style="flex-direction: column; gap: .5ch; align-items: flex-start;">
@@ -68,13 +79,15 @@
         <input type="checkbox" role="switch" id="switch-8">
       </label>
 
-      <label for="switch-9" class="gui-switch -vertical" style="flex-direction: column; justify-content: flex-start; --track-inactive: red; --track-active: lime;">
-        On
-        <input type="checkbox" role="switch" id="switch-9">
-        Off
-      </label>
+      <div style="display: flex; justify-content: flex-end;">
+        <label for="switch-9" class="gui-switch -vertical" style="flex-direction: column; justify-content: flex-start; --track-inactive: red; --track-active: lime;">
+          On
+          <input type="checkbox" role="switch" id="switch-9">
+          Off
+        </label>
+      </div>
 
-      <label for="switch-10" class="gui-switch" style="flex-direction: column; gap: .5ch; align-items: flex-end; --track-active: cyan; --track-inactive: hsl(180 25% 60%); --thumb-size: 1.5rem; --thumb: hsl(180 50% 15%);">
+      <label for="switch-10" class="gui-switch" style="flex-direction: column; gap: .5ch; align-items: flex-start; --track-active: cyan; --track-inactive: rebeccapurple; --thumb-size: 1.5rem; --thumb-color: linear-gradient(to bottom right, deeppink, hotpink); --thumb-highlight: hsl(328 100% 54% / 25%);">
         Size & Colors & Position
         <input type="checkbox" role="switch" id="switch-10" checked>
       </label>
