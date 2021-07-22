@@ -129,7 +129,10 @@ section {
     }
 
     &:indeterminate {
-      --thumb-position: calc(50% * var(--isLTR));
+      --thumb-position: calc(
+        calc(calc(var(--track-size) / 2) - calc(var(--thumb-size) / 2))
+        * var(--isLTR)
+      );
     }
 
     &:disabled {
