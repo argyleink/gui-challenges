@@ -87,7 +87,7 @@ section {
     box-sizing: content-box;
     padding: 2px;
 
-    background: var(--track-inactive);
+    background: var(--track-color-inactive);
     inline-size: var(--track-size);
     block-size: var(--thumb-size);
     border-radius: var(--track-size);
@@ -107,7 +107,7 @@ section {
       grid-area: stack;
       inline-size: var(--thumb-size);
       block-size: var(--thumb-size);
-      background-color: var(--thumb);
+      background-color: var(--thumb-color);
       box-shadow: 0 0 0 var(--highlight-size) var(--thumb-color-highlight);
       border-radius: 50%;
       transform: translateX(var(--thumb-position));
@@ -124,7 +124,7 @@ section {
     }
 
     &:checked {
-      background: var(--track-active);
+      background: var(--track-color-active);
       --thumb-position: calc((var(--track-size) - 100%) * var(--isLTR));
     }
 
@@ -137,7 +137,7 @@ section {
 
     &:disabled {
       cursor: not-allowed;
-      --thumb: transparent;
+      --thumb-color: transparent;
 
       &::before {
         cursor: not-allowed;
