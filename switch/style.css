@@ -56,12 +56,12 @@ section {
   user-select: none;
   -webkit-tap-highlight-color: transparent;
 
-  @media (prefers-color-scheme: dark) {
+  @media (prefers-color-scheme: dark) { & {
     --thumb: hsl(0 0% 5%);
     --thumb-highlight: hsl(0 0% 100% / 25%);
     --track-inactive: hsl(80 0% 35%);
     --track-active: hsl(80 60% 60%);
-  }
+  }}
 
   &:dir(rtl) {
     --isLTR: -1;
