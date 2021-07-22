@@ -80,7 +80,7 @@ section {
     align-items: center;
     grid: [stack] 1fr / [stack] 1fr;
 
-    transition: background-color .25s ease,;
+    transition: background-color .25s ease;
 
     &::before {
       --highlight-size: 0;
