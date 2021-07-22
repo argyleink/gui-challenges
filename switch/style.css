@@ -61,6 +61,15 @@ section {
     --track-active: hsl(80 60% 60%);
   }
 
+  &.-vertical {
+    min-block-size: calc(var(--track-size) + 4px);
+
+    & > input {
+      transform: rotate(-90deg);
+      touch-action: pan-x;
+    }
+  }
+
   & > input {
     --thumb-position: 0%;
     --thumb-transition-duration: .25s;

@@ -23,6 +23,11 @@
         <input type="checkbox" role="switch" id="switch-1">
       </label>
 
+      <label for="switch-vertical" class="gui-switch -vertical">
+        Vertical
+        <input type="checkbox" role="switch" id="switch-vertical" checked>
+      </label>
+
       <label for="switch-2" class="gui-switch" style="--track-active: hotpink">
         Custom Active Color
         <input type="checkbox" role="switch" id="switch-2" checked="true">
@@ -63,14 +68,14 @@
         <input type="checkbox" role="switch" id="switch-8">
       </label>
 
-      <label for="switch-9" class="gui-switch" style="--track-inactive: red; --track-active: lime;">
-        Off
-        <input type="checkbox" role="switch" id="switch-9">
+      <label for="switch-9" class="gui-switch -vertical" style="flex-direction: column; justify-content: flex-start; --track-inactive: red; --track-active: lime;">
         On
+        <input type="checkbox" role="switch" id="switch-9">
+        Off
       </label>
 
-      <label for="switch-10" class="gui-switch" style="flex-direction: column; gap: .5ch; align-items: flex-end; --track-active: cyan; --thumb-size: 1.5rem; --thumb: hsl(180 50% 15%);">
-        Subscribe
+      <label for="switch-10" class="gui-switch" style="flex-direction: column; gap: .5ch; align-items: flex-end; --track-active: cyan; --track-inactive: hsl(180 25% 60%); --thumb-size: 1.5rem; --thumb: hsl(180 50% 15%);">
+        Size & Colors & Position
         <input type="checkbox" role="switch" id="switch-10" checked>
       </label>
     </section>
