@@ -87,9 +87,29 @@
         </label>
       </div>
 
-      <label for="switch-10" class="gui-switch" style="flex-direction: column; gap: .5ch; align-items: flex-start; --track-active: cyan; --track-inactive: rebeccapurple; --thumb-size: 1.5rem; --thumb-color: linear-gradient(to bottom right, deeppink, hotpink); --thumb-highlight: hsl(328 100% 54% / 25%);">
+      <style>
+        .ios-light {
+          flex-direction: column; 
+          gap: .5ch; 
+          align-items: flex-start; 
+          --track-active: hsl(212deg 100% 50%); 
+          --track-inactive: white; 
+          --thumb-size: 1.5rem; 
+          --thumb-color: white; 
+          --thumb-highlight: hsl(212 100% 50% / 25%);
+        }
+        .ios-light > input::before {
+          box-shadow: 
+            0 0 0 var(--highlight-size) var(--thumb-color-highlight),
+            0 0 0 1px hsl(0 0% 0% / 15%),
+            0px 3px 4px 1px hsl(0 0% 0% / 20%)
+          ;
+        }
+      </style>
+
+      <label for="switch-10" class="gui-switch ios-light">
         Size & Colors & Position
-        <input type="checkbox" role="switch" id="switch-10" checked>
+        <input type="checkbox" role="switch" id="switch-10">
       </label>
     </section>
 
