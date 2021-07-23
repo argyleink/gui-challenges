@@ -6,7 +6,37 @@
 }
 
 html {
+  --brand-hue: 200;
+  --brand-saturation: 100%;
+  --brand-lightness: 50%;
+
+  --brand-light: hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness));
+  --text1-light: hsl(var(--brand-hue) var(--brand-saturation) 10%);
+  --surface1-light: hsl(var(--brand-hue) 25% 100%);
+
+  --brand-dark: hsl( var(--brand-hue) calc(var(--brand-saturation) / 2) calc(var(--brand-lightness) / 1.5) );
+  --text1-dark: hsl(var(--brand-hue) 15% 85%);
+  --surface1-dark: hsl(var(--brand-hue) 10% 10%);
+}
+
+:root {
+  --brand: var(--brand-light);
+  --text1: var(--text1-light);
+  --surface1: var(--surface1-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --brand: var(--brand-dark);
+    --text1: var(--text1-dark);
+    --surface1: var(--surface1-dark);
+  }
+}
+
+html {
   block-size: 100%;
+  background-color: var(--surface1);
+  color: var(--text1);
 }
 
 body {
