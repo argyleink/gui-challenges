@@ -119,6 +119,7 @@ section {
     border-radius: var(--track-size);
 
     appearance: none;
+    pointer-events: none;
     touch-action: pan-y;
     border: none;
     outline-offset: 5px;
@@ -136,6 +137,7 @@ section {
 
       content: "";
       cursor: pointer;
+      pointer-events: auto;
       grid-area: stack;
       inline-size: var(--thumb-size);
       block-size: var(--thumb-size);
