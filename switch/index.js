@@ -13,6 +13,7 @@ const dragInit = event => {
 
   state.activethumb = event.target
   state.activethumb.addEventListener('pointermove', dragging)
+  state.activethumb.style.setProperty('--thumb-transition-duration', '0s')
 }
 
 const dragging = event => {
@@ -30,7 +31,6 @@ const dragging = event => {
   if (pos < bounds.lower) pos = 0
   if (pos > bounds.upper) pos = bounds.upper
 
-  state.activethumb.style.setProperty('--thumb-transition-duration', '0s')
   state.activethumb.style.setProperty('--thumb-position', `${track + pos}px`)
 }
 
