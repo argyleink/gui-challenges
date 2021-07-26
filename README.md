@@ -10,3 +10,4 @@ I built interfaces my way, then challenge you to do it your way. With our creati
 7. Media Scroller [`Demo`](https://gui-challenges.web.app/media-scroller/dist/) [`Blog post`](https://web.dev/building-a-media-scroller-component/)
 8. Color Schemes [`Demo`](https://gui-challenges.web.app/color-schemes/dist/) [`Blog post`](https://web.dev/building-a-color-scheme/)
 9. Breadcrumbs [`Demo`](https://gui-challenges.web.app/breadcrumbs/dist/) [`Blog post`](https://web.dev/building-a-breadcrumbs-component/)
+10. Switch [`Demo`](https://gui-challenges.web.app/switch/dist/) [`Blog post (coming soon)`](https://web.dev/building-a-switch-component/)
