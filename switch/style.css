@@ -128,7 +128,7 @@ section {
     flex-shrink: 0;
     display: grid;
     align-items: center;
-    grid: [stack] 1fr / [stack] 1fr;
+    grid: [track] 1fr / [track] 1fr;
 
     transition: background-color .25s ease;
 
@@ -138,7 +138,7 @@ section {
       content: "";
       cursor: pointer;
       pointer-events: auto;
-      grid-area: stack;
+      grid-area: track;
       inline-size: var(--thumb-size);
       block-size: var(--thumb-size);
       background: var(--thumb-color);
