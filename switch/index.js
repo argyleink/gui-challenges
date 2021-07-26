@@ -26,7 +26,7 @@ const dragging = event => {
     ? (state.activethumb.clientWidth * -1) + thumbsize + padding
     : 0
 
-  let pos = event.offsetX - thumbsize / 2
+  let pos = Math.round(event.offsetX - thumbsize / 2)
 
   if (pos < bounds.lower) pos = 0
   if (pos > bounds.upper) pos = bounds.upper
