@@ -49,38 +49,51 @@ body {
 }
 
 .gui-split-button {
+  --theme: rebeccapurple;
+  --ontheme: white;
+  --border: 1px solid var(--theme);
+  --radius: 6px;
+
   display: inline-flex;
-  border: 1px solid gray;
-  border-radius: .5ch;
-  background: var(--surface1);
-  color: var(--text1);
-  fill: var(--text1);
+  box-shadow: inset 0 0 0 1px var(--theme);
+  border-radius: var(--radius);
+  background: var(--ontheme);
+  color: var(--theme);
+  fill: var(--theme);
+  font-size: 1.25rem;
+
+  @media (prefers-color-scheme: dark) {
+    --theme: hsl(270deg 40% 55%);
+  }
 
   & > button {
-    border-radius: .5ch 0 0 .5ch;
+    border-radius: var(--radius) 0 0 var(--radius);
   }
 
   & button {
     cursor: pointer;
     appearance: none;
     background: none;
-    color: inherit;
     border: none;
     white-space: nowrap;
+    color: inherit;
+    font-size: inherit;
     padding-block: 1ch;
     padding-inline: 1.5ch;
     width: 100%;
     text-align: end;
+    outline-color: var(--theme);
+    outline-offset: -3px;
 
-    &:hover {
-      background: white;
-      color: black;
+    &:is(:hover, :focus) {
+      background: var(--theme);
+      color: white;
     }
   }
 
   & hr {
-    border-bottom: none;
-    border-top: 1px solid gray;
+    border: none;
+    border-top: var(--border);
   }
   
   & > span {
@@ -88,22 +101,26 @@ body {
     position: relative;
     display: inline-flex;
     align-items: center;
-    border-inline-start: 1px solid gray;
+    background: var(--theme);
+    fill: white;
+    border-inline-start: var(--border);
+    border-radius: 0 var(--radius) var(--radius) 0;
 
     &:is(:hover,:focus-within) {
-      background: white;
-      fill: black;
+      background: var(--theme);
     }
 
     & > ul {
       opacity: 0;
+
       position: absolute;
       top: calc(100% + 2px);
       right: 0;
+      box-shadow: inset 0 0 0 1px var(--theme);
       
       list-style-type: none;
+      background: white;
       padding: 0;
-      border: 1px solid gray;
       border-radius: .5ch;
       overflow: hidden;
       display: inline-grid;
