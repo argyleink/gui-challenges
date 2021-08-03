@@ -49,25 +49,21 @@ body {
 }
 
 .gui-split-button {
-  --theme: rebeccapurple;
+  --theme: hsl(220 75% 55%);
+  --theme-hover: hsl(220 75% 50%);
+  --theme-border: hsl(220 50% 75%);
   --ontheme: white;
-  --border: 1px solid var(--theme);
+  --border: 1px solid var(--theme-border);
   --radius: 6px;
 
   display: inline-flex;
-  box-shadow: inset 0 0 0 1px var(--theme);
   border-radius: var(--radius);
-  background: var(--ontheme);
-  color: var(--theme);
-  fill: var(--theme);
-  font-size: 1.25rem;
+  background: var(--theme);
+  color: var(--ontheme);
+  fill: var(--ontheme);
 
   @media (prefers-color-scheme: dark) {
-    --theme: hsl(270deg 40% 55%);
-  }
-
-  & > button {
-    border-radius: var(--radius) 0 0 var(--radius);
+    --theme: hsl(220 40% 55%);
   }
 
   & button {
@@ -76,55 +72,78 @@ body {
     background: none;
     border: none;
     white-space: nowrap;
-    color: inherit;
+    color: hsl(0 0% 20%);
+    font-family: inherit;
     font-size: inherit;
-    padding-block: 1ch;
-    padding-inline: 1.5ch;
-    width: 100%;
+    font-weight: 300;
+    padding-block: 1.25ch;
+    padding-inline: 2ch;
     text-align: end;
     outline-color: var(--theme);
     outline-offset: -3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 1ch;
 
     &:is(:hover, :focus) {
-      background: var(--theme);
+      background: var(--theme-hover);
       color: white;
+
+      & > svg {
+        stroke: white;
+        fill: none;
+      }
     }
   }
 
-  & hr {
-    border: none;
-    border-top: var(--border);
+  & > button {
+    border-radius: var(--radius) 0 0 var(--radius);
+    color: inherit;
   }
   
   & > span {
+    inline-size: 4ch;
     cursor: pointer;
     position: relative;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     background: var(--theme);
-    fill: white;
     border-inline-start: var(--border);
     border-radius: 0 var(--radius) var(--radius) 0;
 
     &:is(:hover,:focus-within) {
-      background: var(--theme);
+      background: var(--theme-hover);
     }
 
     & > ul {
       opacity: 0;
 
       position: absolute;
-      top: calc(100% + 2px);
+      bottom: 95%;
       right: 0;
-      box-shadow: inset 0 0 0 1px var(--theme);
+      box-shadow:
+        0 2.8px 2.2px rgba(0, 0, 0, 0.02),
+        0 6.7px 5.3px rgba(0, 0, 0, 0.028),
+        0 12.5px 10px rgba(0, 0, 0, 0.035),
+        0 22.3px 17.9px rgba(0, 0, 0, 0.042),
+        0 41.8px 33.4px rgba(0, 0, 0, 0.05),
+        0 100px 80px rgba(0, 0, 0, 0.07)
+      ;
       
       list-style-type: none;
       background: white;
-      padding: 0;
-      border-radius: .5ch;
+      color: var(--theme);
+      padding-inline: 0;
+      padding-block: .5ch;
+      border-radius: var(--radius);
       overflow: hidden;
       display: inline-grid;
       justify-items: stretch;
+
+      & > li {
+        display: contents;
+      }
     }
     
     &:focus-within {
@@ -138,8 +157,8 @@ body {
   }
   
   & svg {
-    inline-size: 2.5ch;
-    padding-inline: .5ch;
+    inline-size: 2ch;
+    stroke: var(--theme);
     box-sizing: content-box;
     transition: transform .2s ease;
   }
