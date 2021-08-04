@@ -88,7 +88,7 @@ body {
     color: var(--theme);
     font-family: inherit;
     font-size: inherit;
-    font-weight: 300;
+    font-weight: 400;
     padding-block: 1.25ch;
     padding-inline: 2.5ch;
     text-align: end;
@@ -96,7 +96,7 @@ body {
     outline-offset: -5px;
     display: inline-flex;
     align-items: center;
-    gap: 1.5ch;
+    gap: 1ch;
 
     &:is(:hover, :focus) {
       background: var(--theme-hover);
@@ -176,16 +176,7 @@ body {
 
   position: absolute;
   bottom: 80%;
-  left: 20%;
-
-  box-shadow:
-    0 -5px 5px 0 hsl(var(--shadow) / calc(var(--shadow-strength) + 5%)),
-    0 1px 1px -2px hsl(var(--shadow) / calc(var(--shadow-strength) + 10%)),
-    0 2px 2px -2px hsl(var(--shadow) / calc(var(--shadow-strength) + 12%)),
-    0 5px 5px -2px hsl(var(--shadow) / calc(var(--shadow-strength) + 13%)),
-    0 9px 9px -2px hsl(var(--shadow) / calc(var(--shadow-strength) + 14%)),
-    0 16px 16px -2px hsl(var(--shadow) / calc(var(--shadow-strength) + 20%))
-  ;
+  left: -30%;
   
   list-style-type: none;
   background: var(--popupbg);
@@ -198,6 +189,15 @@ body {
   justify-items: stretch;
   font-size: .9em;
   transition: opacity .3s ease;
+
+  box-shadow:
+    0 -5px 5px 0 hsl(var(--shadow) / calc(var(--shadow-strength) + 5%)),
+    0 1px 1px -2px hsl(var(--shadow) / calc(var(--shadow-strength) + 10%)),
+    0 2px 2px -2px hsl(var(--shadow) / calc(var(--shadow-strength) + 12%)),
+    0 5px 5px -2px hsl(var(--shadow) / calc(var(--shadow-strength) + 13%)),
+    0 9px 9px -2px hsl(var(--shadow) / calc(var(--shadow-strength) + 14%)),
+    0 16px 16px -2px hsl(var(--shadow) / calc(var(--shadow-strength) + 20%))
+  ;
 
   @media (--motionOK) {
     transform: translateY(5px);
