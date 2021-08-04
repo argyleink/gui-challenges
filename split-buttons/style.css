@@ -1,4 +1,5 @@
 @custom-media --motionOK (prefers-reduced-motion: no-preference);
+@custom-media --dark (prefers-color-scheme: dark);
 
 * {
   box-sizing: border-box;
@@ -25,7 +26,7 @@ html {
   --surface1: var(--surface1-light);
 }
 
-@media (prefers-color-scheme: dark) {
+@media (--dark) {
   :root {
     --brand: var(--brand-dark);
     --text1: var(--text1-dark);
@@ -50,12 +51,14 @@ body {
 }
 
 .gui-split-button {
-  --theme: hsl(220 75% 55%);
-  --theme-text: hsl(220 75% 30%);
-  --theme-hover: hsl(220 75% 50%);
+  --theme:        hsl(220 75% 55%);
+  --theme-hover:  hsl(220 75% 50%);
+  --theme-active: hsl(220 75% 45%);
+  --theme-text:   hsl(220 75% 30%);
   --theme-border: hsl(220 50% 75%);
-  --ontheme: hsl(220 90% 98%);
-  --popupbg: hsl(220 90% 99%);
+  --ontheme:      hsl(220 90% 98%);
+  --popupbg:      hsl(220 90% 99%);
+
   --border: 1px solid var(--theme-border);
   --radius: 6px;
 
@@ -64,14 +67,16 @@ body {
   background: var(--theme);
   color: var(--ontheme);
   fill: var(--ontheme);
+  touch-action: manipulation;
 
-  @media (prefers-color-scheme: dark) {
-    --theme: hsl(220 50% 60%);
-    --theme-text: hsl(220 10% 75%);
-    --theme-hover: hsl(220 50% 65%);
+  @media (--dark) {
+    --theme:        hsl(220 50% 60%);
+    --theme-hover:  hsl(220 50% 65%);
+    --theme-active: hsl(220 75% 70%);
+    --theme-text:   hsl(220 10% 85%);
     --theme-border: hsl(220 20% 70%);
-    --ontheme: hsl(220 90% 5%);
-    --popupbg: hsl(220 10% 30%);
+    --ontheme:      hsl(220 90% 5%);
+    --popupbg:      hsl(220 10% 30%);
   }
 
   & button {
@@ -95,12 +100,16 @@ body {
 
     &:is(:hover, :focus) {
       background: var(--theme-hover);
-      color: white;
+      color: var(--ontheme);
 
       & > svg {
-        stroke: white;
+        stroke: currentColor;
         fill: none;
       }
+    }
+
+    &:active {
+      background: var(--theme-active);
     }
   }
 
@@ -140,6 +149,10 @@ body {
 
   &:is(:hover,:focus-within) {
     background: var(--theme-hover);
+  }
+
+  &:active {
+    background: var(--theme-active);
   } 
   
   &:focus-within {
@@ -155,24 +168,29 @@ body {
 }
 
 .gui-popup {
+  --shadow: 220 70% 15%;
+  --shadow-strength: 1%;
+
   opacity: 0;
   transform: translateY(5px);
   pointer-events: none;
 
   position: absolute;
-  bottom: 90%;
-  right: 0;
+  bottom: 80%;
+  left: 20%;
+
   box-shadow:
-    0 3px 2px hsl(220 10% 0% / 2%),
-    0 7px 5px hsl(220 10% 0% / 3%),
-    0 12px 10px hsl(220 10% 0% / 25%),
-    0 22px 18px hsl(220 10% 0% / 4%),
-    0 42px 33px hsl(220 10% 0% / 5%),
-    0 100px 80px hsl(220 10% 0% / 7%)
+    0 -5px 5px 0 hsl(var(--shadow) / calc(var(--shadow-strength) + 5%)),
+    0 1px 1px -2px hsl(var(--shadow) / calc(var(--shadow-strength) + 10%)),
+    0 2px 2px -2px hsl(var(--shadow) / calc(var(--shadow-strength) + 12%)),
+    0 5px 5px -2px hsl(var(--shadow) / calc(var(--shadow-strength) + 13%)),
+    0 9px 9px -2px hsl(var(--shadow) / calc(var(--shadow-strength) + 14%)),
+    0 16px 16px -2px hsl(var(--shadow) / calc(var(--shadow-strength) + 20%))
   ;
   
   list-style-type: none;
   background: var(--popupbg);
+  color: var(--theme-text);
   padding-inline: 0;
   padding-block: .5ch;
   border-radius: var(--radius);
@@ -183,12 +201,17 @@ body {
 
   @media (--motionOK) {
     transition: 
-    opacity .3s ease,
-    transform .3s ease;
+      opacity .3s ease,
+      transform .3s ease;
+  }
+
+  @media (--dark) {
+    --shadow-strength: 5%;
+    --shadow: 220 3% 2%;
   }
 
   & > li {
-    display: contents;
+    max-inline-size: 45ch;
   }
 
   & svg {
@@ -202,5 +225,6 @@ body {
 
   & button {
     color: var(--theme-text);
+    width: 100%;
   }
 }
