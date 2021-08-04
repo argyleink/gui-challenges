@@ -172,7 +172,6 @@ body {
   --shadow-strength: 1%;
 
   opacity: 0;
-  transform: translateY(5px);
   pointer-events: none;
 
   position: absolute;
@@ -198,8 +197,11 @@ body {
   display: inline-grid;
   justify-items: stretch;
   font-size: .9em;
+  transition: opacity .3s ease;
 
   @media (--motionOK) {
+    transform: translateY(5px);
+
     transition: 
       opacity .3s ease,
       transform .3s ease;
