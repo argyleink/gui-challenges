@@ -98,7 +98,7 @@ body {
     align-items: center;
     gap: 1ch;
 
-    &:is(:hover, :focus) {
+    &:is(:hover, :focus-visible) {
       background: var(--theme-hover);
       color: var(--ontheme);
 
