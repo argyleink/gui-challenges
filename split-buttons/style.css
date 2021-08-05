@@ -189,7 +189,7 @@ body {
 
   position: absolute;
   bottom: 80%;
-  left: -30%;
+  left: -1.5ch;
   
   list-style-type: none;
   background: var(--popupbg);
