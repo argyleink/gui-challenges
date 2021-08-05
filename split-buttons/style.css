@@ -89,7 +89,7 @@ body {
     color: var(--theme);
     font-family: inherit;
     font-size: inherit;
-    font-weight: 400;
+    font-weight: 500;
     padding-block: 1.25ch;
     padding-inline: 2.5ch;
     text-align: end;
@@ -171,7 +171,8 @@ body {
     & > svg {
       transform: rotateZ(.5turn);
     }
-    & > ul {
+    & > .gui-popup {
+      transition-duration: .5s;
       opacity: 1;
       transform: translateY(0);
       pointer-events: auto;
@@ -215,13 +216,21 @@ body {
     transform: translateY(5px);
 
     transition: 
-      opacity .3s ease,
-      transform .3s ease;
+      opacity .1s ease,
+      transform .1s ease;
   }
 
   @media (--dark) {
     --shadow-strength: 5%;
     --shadow: 220 3% 2%;
+
+    & button:not(:focus-visible, :hover) {
+      text-shadow: 0 1px 0 var(--ontheme);
+    }
+
+    & button:not(:focus-visible, :hover) > svg {
+      filter: drop-shadow(0 1px 0 var(--ontheme));
+    }
   }
 
   & > li {
