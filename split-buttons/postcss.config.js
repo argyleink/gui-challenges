@@ -12,6 +12,7 @@ module.exports = {
         'gap-properties': false,
         'custom-properties': false,
         'dir-pseudo-class': false,
+        'focus-within': false,
       }
     }),
   ]
