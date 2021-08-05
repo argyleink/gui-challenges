@@ -18,6 +18,7 @@
     "vite": "2.x  || >2.0.0-alpha"
   },
   "dependencies": {
+    "blingblingjs": "^2.1.1",
     "roving-ux": "^1.0.0"
   }
 }
