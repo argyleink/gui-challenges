@@ -125,10 +125,12 @@ body {
   }
 
   @media (--light) {
-    & > button {
+    & > button,
+    & button:is(:focus-visible, :hover) {
       text-shadow: 0 1px 0 var(--theme-active);
     }
-    & > .gui-popup-button > svg {
+    & > .gui-popup-button > svg,
+    & button:is(:focus-visible, :hover) > svg {
       filter: drop-shadow(0 1px 0 var(--theme-active));
     }
   }
