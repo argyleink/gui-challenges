@@ -216,8 +216,8 @@ body {
     transform: translateY(5px);
 
     transition: 
-      opacity .1s ease,
-      transform .1s ease;
+      opacity 50ms ease,
+      transform 50ms ease;
   }
 
   @media (--dark) {
