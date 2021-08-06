@@ -169,6 +169,7 @@ body {
   
   &:focus-within {
     & > svg {
+      transition-duration: .5s;
       transform: rotateZ(.5turn);
     }
     & > .gui-popup {
