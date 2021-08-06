@@ -116,7 +116,7 @@ body {
 
   & > button {
     border-radius: var(--radius) 0 0 var(--radius);
-    color: inherit;
+    color: var(--ontheme);
 
     & > svg {
       fill: none;
