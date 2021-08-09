@@ -68,7 +68,7 @@ body {
   background: var(--theme);
   color: var(--ontheme);
   fill: var(--ontheme);
-  
+
   touch-action: manipulation;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
@@ -166,6 +166,9 @@ body {
     background: var(--theme-hover);
   }
 
+  /* fixes iOS trying to be helpful */
+  &:focus {outline: none}
+
   &:active {
     background: var(--theme-active);
   } 
@@ -215,6 +218,9 @@ body {
     0 9px 9px -2px hsl(var(--shadow) / calc(var(--shadow-strength) + 14%)),
     0 16px 16px -2px hsl(var(--shadow) / calc(var(--shadow-strength) + 20%))
   ;
+
+  /* fixes iOS trying to be helpful */
+  &:focus {outline: none}
 
   @media (--motionOK) {
     transform: translateY(5px);
