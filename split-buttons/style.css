@@ -68,7 +68,10 @@ body {
   background: var(--theme);
   color: var(--ontheme);
   fill: var(--ontheme);
+  
   touch-action: manipulation;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 
   @media (--dark) {
     --theme:        hsl(220 50% 60%);
