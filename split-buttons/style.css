@@ -243,6 +243,10 @@ body {
     }
   }
 
+  @media (width <= 400px) {
+    left: -200%;
+  }
+
   & > li {
     max-inline-size: 45ch;
   }
