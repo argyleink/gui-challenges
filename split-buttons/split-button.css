@@ -1,11 +1,11 @@
 .gui-split-button {
-  --theme:        hsl(220 75% 55%);
-  --theme-hover:  hsl(220 75% 50%);
-  --theme-active: hsl(220 75% 45%);
-  --theme-text:   hsl(220 75% 30%);
+  --theme:        hsl(220 75% 50%);
+  --theme-hover:  hsl(220 75% 45%);
+  --theme-active: hsl(220 75% 40%);
+  --theme-text:   hsl(220 75% 25%);
   --theme-border: hsl(220 50% 75%);
   --ontheme:      hsl(220 90% 98%);
-  --popupbg:      hsl(220 90% 99%);
+  --popupbg:      hsl(220 0% 100%);
 
   --border: 1px solid var(--theme-border);
   --radius: 6px;
