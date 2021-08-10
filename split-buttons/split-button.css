@@ -9,8 +9,8 @@
 
   --border: 1px solid var(--theme-border);
   --radius: 6px;
-  --in-speed: 50ms;
-  --out-speed: 300ms;
+  --in-speed: 500ms;
+  --out-speed: 100ms;
 
   display: inline-flex;
   border-radius: var(--radius);
@@ -124,17 +124,17 @@
 
   @media (--motionOK) {
     & > svg {
-      transition: transform .2s ease;
+      transition: transform var(--out-speed) ease;
     }
   }
   
   &:focus-within {
     & > svg {
-      transition-duration: .5s;
+      transition-duration: var(--in-speed);
       transform: rotateZ(.5turn);
     }
     & > .gui-popup {
-      transition-duration: .5s;
+      transition-duration: var(--in-speed);
       opacity: 1;
       transform: translateY(0);
       pointer-events: auto;
@@ -181,8 +181,8 @@
     transform: translateY(5px);
 
     transition: 
-      opacity var(--in-speed) ease,
-      transform var(--in-speed) ease;
+      opacity var(--out-speed) ease,
+      transform var(--out-speed) ease;
   }
 
   @media (--dark) {
