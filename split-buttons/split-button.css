@@ -105,7 +105,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--theme);
   border-inline-start: var(--border);
   border-radius: 0 var(--radius) var(--radius) 0;
 
