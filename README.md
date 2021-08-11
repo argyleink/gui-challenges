@@ -1,5 +1,5 @@
 # GUI Challenges
-I built interfaces my way, then challenge you to do it your way. With our creativec minds combined, we'll find multiple ways to solve these interfaces and expand the diversity of our skills.
+I build interfaces my way, then challenge you to do it your way. With our creative minds combined, we'll find multiple ways to solve these interfaces and expand the diversity of our skills.
 
 1. Stories [`Demo`](https://gui-challenges.web.app/stories/dist/) [`Blog post`](https://web.dev/building-a-stories-component/)
 2. Centering [`Demo`](https://gui-challenges.web.app/centering/dist/) [`Blog post`](https://web.dev/centering-in-css/)
@@ -10,5 +10,5 @@ I built interfaces my way, then challenge you to do it your way. With our creati
 7. Media Scroller [`Demo`](https://gui-challenges.web.app/media-scroller/dist/) [`Blog post`](https://web.dev/building-a-media-scroller-component/)
 8. Color Schemes [`Demo`](https://gui-challenges.web.app/color-schemes/dist/) [`Blog post`](https://web.dev/building-a-color-scheme/)
 9. Breadcrumbs [`Demo`](https://gui-challenges.web.app/breadcrumbs/dist/) [`Blog post`](https://web.dev/building-a-breadcrumbs-component/)
-10. Switch [`Demo`](https://gui-challenges.web.app/switch/dist/) [`Blog post (coming soon)`](https://web.dev/building-a-switch-component/)
+10. Switch [`Demo`](https://gui-challenges.web.app/switch/dist/) [`Blog post`](https://web.dev/building-a-switch-component/)
 11. Split Buttons [`Demo`](https://gui-challenges.web.app/split-buttons/dist/) [`Blog post (coming soon)`](https://web.dev/building-a-split-button-component/)
