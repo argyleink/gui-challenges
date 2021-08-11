@@ -1,7 +1,7 @@
 import {getStyle, getPseudoStyle} from './style-utils.js'
 
 const elements = document.querySelectorAll('.gui-switch')
-const switches = new Map()
+const switches = new WeakMap()
 
 const state = {
   activethumb: null,
