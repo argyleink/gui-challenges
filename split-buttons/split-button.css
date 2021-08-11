@@ -120,12 +120,6 @@
   &:active {
     background: var(--theme-active);
   }
-
-  @media (--motionOK) {
-    & > svg {
-      transition: transform var(--out-speed) ease;
-    }
-  }
   
   &:focus-within {
     & > svg {
@@ -137,6 +131,19 @@
       opacity: 1;
       transform: translateY(0);
       pointer-events: auto;
+    }
+  }
+
+  @media (--motionOK) {
+    & > svg {
+      transition: transform var(--out-speed) ease;
+    }
+    & > .gui-popup {
+      transform: translateY(5px);
+
+      transition: 
+        opacity var(--out-speed) ease,
+        transform var(--out-speed) ease;
     }
   }
 }
@@ -175,14 +182,6 @@
 
   /* fixes iOS trying to be helpful */
   &:focus {outline: none}
-
-  @media (--motionOK) {
-    transform: translateY(5px);
-
-    transition: 
-      opacity var(--out-speed) ease,
-      transform var(--out-speed) ease;
-  }
 
   @media (--dark) {
     --shadow-strength: 5%;
