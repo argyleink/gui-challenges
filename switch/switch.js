@@ -19,8 +19,8 @@ class Switch extends HTMLInputElement
           const padding = getStyle(this, 'padding-left') + getStyle(this, 'padding-right');
 
           this.#thumbsize = thumbsize;
-          this._padding = padding;
-          this._bounds = {
+          this.#padding = padding;
+          this.#bounds = {
               lower: 0,
               middle: (this.clientWidth - padding) / 4,
               upper: this.clientWidth - thumbsize - padding,
@@ -49,7 +49,7 @@ class Switch extends HTMLInputElement
             return;
         }
 
-        this._isDragging = true;
+        this.#isDragging = true;
 
         this.addEventListener('pointermove', this.dragging.bind(this));
         this.style.setProperty('--thumb-transition-duration', '0s');
@@ -57,7 +57,7 @@ class Switch extends HTMLInputElement
   
     dragEnd()
     {
-        if(this._isDragging !== true)
+        if(this.#isDragging !== true)
         {
             return;
         }
@@ -73,33 +73,33 @@ class Switch extends HTMLInputElement
         this.style.removeProperty('--thumb-position');
         this.removeEventListener('pointermove', this.dragging.bind(this));
 
-        this._isDragging = false;
+        this.#isDragging = false;
 
         this.padRelease();
     }
   
     dragging(event)
     {
-        if(this._isDragging !== true)
+        if(this.#isDragging !== true)
         {
             return;
         }
 
         const directionality = getStyle(this, '--isLTR');
         const track = (directionality === -1)
-            ? (this.clientWidth * -1) + this._thumbsize + this._padding
+            ? (this.clientWidth * -1) + this.#thumbsize + this.#padding
             : 0;
 
-        let pos = Math.round(event.offsetX - this._thumbsize / 2);
+        let pos = Math.round(event.offsetX - this.#thumbsize / 2);
 
-        if(pos < this._bounds.lower)
+        if(pos < this.#bounds.lower)
         {
             pos = 0;
         }
 
-        if(pos > this._bounds.upper)
+        if(pos > this.#bounds.upper)
         {
-            pos = this._bounds.upper;
+            pos = this.#bounds.upper;
         }
 
         this.style.setProperty('--thumb-position', `${track + pos}px`);
@@ -116,23 +116,23 @@ class Switch extends HTMLInputElement
         if (!curpos)
         {
             curpos = this.checked
-                ? this._bounds.lower
-                : this._bounds.upper;
+                ? this.#bounds.lower
+                : this.#bounds.upper;
         }
 
-        return curpos >= this._bounds.middle;
+        return curpos >= this.#bounds.middle;
     }
   
     padRelease()
     {
-        this._recentlyDragged = true;
+        this.#recentlyDragged = true;
 
-        setTimeout(_ => this._recentlyDragged = false, 300);
+        setTimeout(_ => this.#recentlyDragged = false, 300);
     }
   
     preventBlubbling()
     {
-        if(this._recentlyDragged)
+        if(this.#recentlyDragged)
         {
             event.preventDefault() && event.stopPropagation();
         }
