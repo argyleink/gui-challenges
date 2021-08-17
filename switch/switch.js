@@ -15,24 +15,22 @@ class Switch extends HTMLInputElement
     connectedCallback()
     {
         // There is some racing condition, no clue as to what, this delay seems to circumvent it for now
-        setTimeout(_ => {
-            const thumbsize = getPseudoStyle(this, 'width');
-            const padding = getStyle(this, 'padding-left') + getStyle(this, 'padding-right');
+          const thumbsize = getPseudoStyle(this, 'width');
+          const padding = getStyle(this, 'padding-left') + getStyle(this, 'padding-right');
 
-            this._thumbsize = thumbsize;
-            this._padding = padding;
-            this._bounds = {
-                lower: 0,
-                middle: (this.clientWidth - padding) / 4,
-                upper: this.clientWidth - thumbsize - padding,
-            };
+          this._thumbsize = thumbsize;
+          this._padding = padding;
+          this._bounds = {
+              lower: 0,
+              middle: (this.clientWidth - padding) / 4,
+              upper: this.clientWidth - thumbsize - padding,
+          };
 
-            this.addEventListener('pointerdown', this.dragInit.bind(this));
-            this.addEventListener('pointerup', this.dragEnd.bind(this));
-            this.addEventListener('click', this.preventBlubbling.bind(this));
+          this.addEventListener('pointerdown', this.dragInit.bind(this));
+          this.addEventListener('pointerup', this.dragEnd.bind(this));
+          this.addEventListener('click', this.preventBlubbling.bind(this));
 
-            window.addEventListener('pointerup', this.dragEnd.bind(this));
-        }, 1000);
+          window.addEventListener('pointerup', this.dragEnd.bind(this));
     }
   
     disconnectedCallback()
