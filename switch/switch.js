@@ -2,11 +2,11 @@ import {getStyle, getPseudoStyle} from './style-utils.js'
 
 class Switch extends HTMLInputElement
 {
-    _isDragging = false;
-    _recentlyDragged = false;
-    _thumbsize = 0;
-    _padding = 0;
-    _bounds = {
+    #isDragging = false;
+    #recentlyDragged = false;
+    #thumbsize = 0;
+    #padding = 0;
+    #bounds = {
         lower: 0,
         middle: 0,
         upper: 0,
