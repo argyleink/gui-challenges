@@ -18,7 +18,7 @@ class Switch extends HTMLInputElement
           const thumbsize = getPseudoStyle(this, 'width');
           const padding = getStyle(this, 'padding-left') + getStyle(this, 'padding-right');
 
-          this._thumbsize = thumbsize;
+          this.#thumbsize = thumbsize;
           this._padding = padding;
           this._bounds = {
               lower: 0,
