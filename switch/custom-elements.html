@@ -10,7 +10,7 @@
     <meta name="theme-color" content="Canvas" media="(prefers-color-scheme: dark)">
     <meta name="description" content="🙂">
     <link rel="stylesheet" href="/style.css">
-    <script type="module" src="/index.js"></script>
+    <script type="module" src="/switch.js"></script>
   </head>
   <body>
 
@@ -19,28 +19,28 @@
 
       <label for="switch-1" class="gui-switch">
         Default
-        <input type="checkbox" role="switch" id="switch-1">
+        <input is="gui-switch" type="checkbox" role="switch" id="switch-1">
       </label>
 
       <label for="switch-3" class="gui-switch">
         Indeterminate
-        <input type="checkbox" role="switch" id="switch-3">
+        <input is="gui-switch" type="checkbox" role="switch" id="switch-3">
         <script>document.getElementById('switch-3').indeterminate = true</script>
       </label>
 
       <label for="switch-4" class="gui-switch">
         Disabled
-        <input type="checkbox" role="switch" id="switch-4" disabled>
+        <input is="gui-switch" type="checkbox" role="switch" id="switch-4" disabled>
       </label>
 
       <label for="switch-5" class="gui-switch">
         Disabled (checked)
-        <input type="checkbox" role="switch" id="switch-5" disabled checked>
+        <input is="gui-switch" type="checkbox" role="switch" id="switch-5" disabled checked>
       </label>
 
       <label for="switch-vertical" class="gui-switch -vertical">
         Vertical
-        <input type="checkbox" role="switch" id="switch-vertical">
+        <input is="gui-switch" type="checkbox" role="switch" id="switch-vertical">
       </label>
 
     </section>
@@ -50,38 +50,38 @@
 
       <label for="switch-2" class="gui-switch" style="--track-active: hotpink">
         Custom Active Color
-        <input type="checkbox" role="switch" id="switch-2" checked="true">
+        <input is="gui-switch" type="checkbox" role="switch" id="switch-2" checked="true">
       </label>
 
       <label for="switch-xs" class="gui-switch" style="--thumb-size: 15px;">
         XS
-        <input type="checkbox" role="switch" id="switch-xs" checked>
+        <input is="gui-switch" type="checkbox" role="switch" id="switch-xs" checked>
       </label>
 
       <label for="switch-xl" class="gui-switch" style="--thumb-size: 50px;">
         XL
-        <input type="checkbox" role="switch" id="switch-xl">
+        <input is="gui-switch" type="checkbox" role="switch" id="switch-xl">
       </label>
 
       <label for="switch-7" class="gui-switch" style="--track-size: 8rem;">
         Length
-        <input type="checkbox" role="switch" id="switch-7" checked>
+        <input is="gui-switch" type="checkbox" role="switch" id="switch-7" checked>
       </label>
 
       <label for="switch-padded" class="gui-switch" style="--track-padding: 8px">
         Track Padding
-        <input type="checkbox" role="switch" id="switch-padded">
+        <input is="gui-switch" type="checkbox" role="switch" id="switch-padded">
       </label>
 
       <label for="switch-8" class="gui-switch" style="flex-direction: column; gap: .5ch; align-items: flex-start;">
         Stacked Label
-        <input type="checkbox" role="switch" id="switch-8">
+        <input is="gui-switch" type="checkbox" role="switch" id="switch-8">
       </label>
 
       <div style="display: flex; justify-content: flex-end;">
         <label for="switch-9" class="gui-switch -vertical" style="flex-direction: column; justify-content: flex-start; --track-inactive: red; --track-active: lime;">
           On
-          <input type="checkbox" role="switch" id="switch-9">
+          <input is="gui-switch" type="checkbox" role="switch" id="switch-9">
           Off
         </label>
       </div>
@@ -111,7 +111,7 @@
 
       <label for="switch-10" class="gui-switch ios-light">
         Size & Colors & Position
-        <input type="checkbox" role="switch" id="switch-10">
+        <input is="gui-switch" type="checkbox" role="switch" id="switch-10">
       </label>
     </section>
 
