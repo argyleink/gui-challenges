@@ -70,7 +70,8 @@
   }
 
   & > button {
-    border-radius: var(--radius) 0 0 var(--radius);
+    border-end-start-radius: var(--radius);
+    border-start-start-radius: var(--radius);
 
     & > svg {
       fill: none;
@@ -106,7 +107,8 @@
   align-items: center;
   justify-content: center;
   border-inline-start: var(--border);
-  border-radius: 0 var(--radius) var(--radius) 0;
+  border-start-end-radius: var(--radius);
+  border-end-end-radius: var(--radius);
 
   &:is(:hover,:focus-within) {
     background: var(--theme-hover);
