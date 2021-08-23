@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Multi-Select | GUI Challenges</title>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="deeppink" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="Canvas" media="(prefers-color-scheme: dark)">
+    <meta name="description" content="🙂">
+    <link rel="stylesheet" href="/style.css">
+    <script type="module" src="/index.js"></script>
+  </head>
+  <body>
+
+    <header>
+      <h1>Lighting</h1>
+      <small>Find your perfect light</small>
+    </header>
+
+    <select multiple="true" title="Filter results by category">
+      <optgroup label="New">
+        <option value="last 30 days">Last 30 Days</option>
+        <option value="last 6 months">Last 6 Months</option>
+      </optgroup>
+      <optgroup label="Lamps">
+        <option value="table lamps">Table Lamps</option>
+        <option value="desk lamps">Desk Lamps</option>
+        <option value="floor lamps">Floor Lamps</option>
+      </optgroup>
+      <optgroup label="Ceiling">
+        <option value="chandeliers">Chandeliers</option>
+        <option value="pendant">Pendant</option>
+        <option value="flush">Flush</option>
+        <option value="fans">Fans</option>
+      </optgroup>
+      <optgroup label="By Room">
+        <option value="bedroom">Bedroom</option>
+        <option value="dining room">Dining Room</option>
+        <option value="kitchen">Kitchen</option>
+        <option value="living room">Living Room</option>
+        <option value="bathroom">Bathroom</option>
+        <option value="entryway">Entryway</option>
+        <option value="outdoor">Outdoor</option>
+      </optgroup>
+      <optgroup label="Kids">
+        <option value="lamps">Lamps</option>
+        <option value="night lights">Night Lights</option>
+        <option value="ceiling">Ceiling</option>
+      </optgroup>
+    </select>
+
+    <section>
+      <fieldset>
+        <legend>New</legend>
+        <div>
+          <input type="checkbox" id="last 30 days" name="new" value="last 30 days">
+          <label for="last 30 days">Last 30 Days</label>
+        </div>
+        <div>
+          <input type="checkbox" id="last 6 months" name="new" value="last 6 months">
+          <label for="last 6 months">Last 6 Months</label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Lamps</legend>
+        <div>
+          <input type="checkbox" id="table lamps" name="lamps" value="table lamps">
+          <label for="table lamps">Table Lamps</label>
+        </div>
+        <div>
+          <input type="checkbox" id="desk lamps" name="lamps" value="desk lamps">
+          <label for="desk lamps">Desk Lamps</label>
+        </div>
+        <div>
+          <input type="checkbox" id="floor lamps" name="lamps" value="floor lamps">
+          <label for="floor lamps">Floor Lamps</label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Ceiling</legend>
+        <div>
+          <input type="checkbox" id="chandeliers" name="ceiling" value="chandeliers">
+          <label for="chandeliers">Chandeliers</label>
+        </div>
+        <div>
+          <input type="checkbox" id="pendant" name="ceiling" value="pendant">
+          <label for="pendant">Pendant</label>
+        </div>
+        <div>
+          <input type="checkbox" id="flush" name="ceiling" value="flush">
+          <label for="flush">Flush</label>
+        </div>
+        <div>
+          <input type="checkbox" id="fans" name="ceiling" value="fans">
+          <label for="fans">Fans</label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>By Room</legend>
+        <div>
+          <input type="checkbox" id="bedroom" name="by room" value="bedroom">
+          <label for="bedroom">Bedroom</label>
+        </div>
+        <div>
+          <input type="checkbox" id="dining room" name="by room" value="dining room">
+          <label for="dining room">Dining Room</label>
+        </div>
+        <div>
+          <input type="checkbox" id="kitchen" name="by room" value="kitchen">
+          <label for="kitchen">Kitchen</label>
+        </div>
+        <div>
+          <input type="checkbox" id="living room" name="by room" value="living room">
+          <label for="living room">Living Room</label>
+        </div>
+        <div>
+          <input type="checkbox" id="bathroom" name="by room" value="bathroom">
+          <label for="bathroom">Bathroom</label>
+        </div>
+        <div>
+          <input type="checkbox" id="entryway" name="by room" value="entryway">
+          <label for="entryway">Entryway</label>
+        </div>
+        <div>
+          <input type="checkbox" id="outdoor" name="by room" value="outdoor">
+          <label for="outdoor">Outdoor</label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Kids</legend>
+        <div>
+          <input type="checkbox" id="lamps" name="kids" value="lamps">
+          <label for="lamps">Lamps</label>
+        </div>
+        <div>
+          <input type="checkbox" id="night lights" name="kids" value="night lights">
+          <label for="night lights">Night Lights</label>
+        </div>
+        <div>
+          <input type="checkbox" id="ceiling" name="kids" value="ceiling">
+          <label for="ceiling">Ceiling</label>
+        </div>
+      </fieldset>
+    </section>
+
+  </body>
+</html>

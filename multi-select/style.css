@@ -1,0 +1,100 @@
+:root {
+  --border-color: hsl(221 72% 60%);
+  --surface-color-1: hsl(221 90% 100%);
+  --surface-color-2: hsl(221 40% 98%);
+  --text-color-1: hsl(221 50% 15%);
+  --text-color-2: hsl(221 40% 40%);
+  --shadow-highlight-color: hsl(219 62% 42% / 25%);
+  
+  @media (prefers-color-scheme: dark) {
+    --border-color: hsl(221 40% 70%);
+    --surface-color-1: hsl(221 20% 5%);
+    --surface-color-2: hsl(221 10% 10%);
+    --text-color-1: hsl(221 90% 98%);
+    --text-color-2: hsl(221 10% 70%);
+    --shadow-highlight-color: hsl(219 50% 82% / 25%);
+  }
+}
+
+select {
+  font-size: min(100%, 16px);
+}
+
+section {
+  display: grid;
+  gap: 2ch;
+  inline-size: 30ch;
+}
+
+fieldset {
+  padding-block: 1.5ch 2ch;
+  padding-inline: 2ch;
+  border-radius: 1ch;
+  background-color: var(--surface-color-2);
+  border: 1px solid var(--border-color);
+  accent-color: var(--border-color);
+  
+  & > legend {
+    font-size: .9em;
+    color: var(--text-color-2);
+  }
+  
+  & > div + div {
+    margin-top: 2ch;
+  }
+  
+  & > div {
+    display: flex;
+    gap: 1.5ch;
+    align-items: center;
+    color: var(--text-color-1);
+  }
+}
+
+input[type="checkbox"] {
+  transition: box-shadow .2s ease;
+  inline-size: 3ch;
+  block-size: 3ch;
+  outline-offset: 5px;
+  outline-color: var(--border-color);
+  
+  &:checked {
+    box-shadow: 0 0 0 5px var(--shadow-highlight-color);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  block-size: 100%;
+  color-scheme: dark light;
+  background-color: var(--surface-color-1);
+  color: var(--text-color-1);
+}
+
+body {
+  min-block-size: 100%;
+  font-family: system-ui, sans-serif;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-items: flex-start;
+  gap: 5vmin;
+  padding: 10vmin;
+}
+
+@media (pointer: fine) {
+  select[multiple] {
+    display: none;
+  }
+}
+
+@media (pointer: coarse) {
+  section {
+    display: none;
+  }
+}

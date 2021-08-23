@@ -43,6 +43,9 @@ jobs:
 
     - name: Build Split Buttons
       run: cd split-buttons && npm install && npm run build
+
+    - name: Build Multi-Select
+      run: cd multi-select && npm install && npm run build
       
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
