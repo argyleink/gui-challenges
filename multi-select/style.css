@@ -20,10 +20,10 @@ select {
   font-size: min(100%, 16px);
 }
 
-section {
+form {
   display: grid;
   gap: 2ch;
-  inline-size: 30ch;
+  max-inline-size: 30ch;
 }
 
 fieldset {
@@ -58,7 +58,7 @@ input[type="checkbox"] {
   outline-offset: 5px;
   outline-color: var(--border-color);
   
-  &:checked {
+  &:hover {
     box-shadow: 0 0 0 5px var(--shadow-highlight-color);
   }
 }
@@ -83,7 +83,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   justify-items: flex-start;
-  gap: 5vmin;
+  gap: 3vmin;
   padding: 10vmin;
 }
 
