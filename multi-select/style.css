@@ -48,6 +48,10 @@ fieldset {
     gap: 1.5ch;
     align-items: center;
     color: var(--text-color-1);
+
+    & > label {
+      line-height: 1.5;
+    }
   }
 }
 
@@ -60,6 +64,32 @@ input[type="checkbox"] {
   
   &:hover {
     box-shadow: 0 0 0 5px var(--shadow-highlight-color);
+  }
+}
+
+main {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 5vmin;
+  align-items: flex-start;
+}
+
+aside {
+  display: grid;
+  gap: 2ch;
+}
+
+article {
+  --size: 30ch;
+
+  padding-top: 4.5rem;
+
+  & > span {
+    background: hsl(0 0% 50% / 25%);
+    border-radius: 10px;
+    inline-size: 25ch;
+    block-size: 25ch;
+    margin: 0 2ch 2ch 0;
   }
 }
 
@@ -81,9 +111,6 @@ body {
 
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-items: flex-start;
-  gap: 3vmin;
   padding: 10vmin;
 }
 
