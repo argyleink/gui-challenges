@@ -72,6 +72,10 @@ main {
   grid-template-columns: max-content 1fr;
   gap: 5vmin;
   align-items: flex-start;
+
+  @media (orientation: portrait) {
+    grid-template-columns: 1fr;
+  }
 }
 
 aside {
@@ -80,16 +84,19 @@ aside {
 }
 
 article {
-  --size: 30ch;
-
-  padding-top: 4.5rem;
+  --size: 20%;
+  margin-right: -2ch;
 
   & > span {
     background: hsl(0 0% 50% / 25%);
     border-radius: 10px;
-    inline-size: 25ch;
+    inline-size: var(--size);
     block-size: 25ch;
     margin: 0 2ch 2ch 0;
+
+    @media (orientation: portrait) {
+      --size: calc(50% - 2ch);
+    }
   }
 }
 
