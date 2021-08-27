@@ -78,7 +78,7 @@ html {
 body {
   min-block-size: 100%;
   font-family: system-ui, sans-serif;
-  
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -94,7 +94,7 @@ body {
 }
 
 @media (pointer: coarse) {
-  section {
+  form {
     display: none;
   }
 }
