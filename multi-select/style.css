@@ -1,3 +1,7 @@
+@custom-media --motionOK (prefers-reduced-motion: no-preference);
+@custom-media --dark (prefers-color-scheme: dark);
+@custom-media --light (prefers-color-scheme: light);
+
 :root {
   --border-color: hsl(221 30% 90%);
   --surface-color-1: hsl(221 90% 98%);
@@ -6,7 +10,7 @@
   --text-color-2: hsl(221 20% 40%);
   --shadow-highlight-color: hsl(219 62% 42% / 25%);
   
-  @media (prefers-color-scheme: dark) {
+  @media (--dark) {
     --border-color: hsl(221 10% 20%);
     --surface-color-1: hsl(221 20% 5%);
     --surface-color-2: hsl(221 5% 10%);
@@ -31,13 +35,17 @@ form {
 fieldset {
   padding-block: 1.5ch 2ch;
   padding-inline: 2ch;
-  border-radius: 1ch;
+  border-radius: 10px;
   background-color: var(--surface-color-2);
   border: 1px solid var(--border-color);
   accent-color: var(--border-color);
 
   &:first-of-type {
     margin-top: -5px;
+  }
+
+  &:focus-within {
+    border-color: var(--text-color-2);
   }
   
   & > legend {
@@ -51,7 +59,7 @@ fieldset {
   
   & > div {
     display: flex;
-    gap: 1.5ch;
+    gap: 2ch;
     align-items: center;
     color: var(--text-color-1);
 
@@ -61,16 +69,51 @@ fieldset {
   }
 }
 
+/* https://web.dev/building-a-settings-component/#custom-checkbox */
 input[type="checkbox"] {
-  transition: box-shadow .2s ease;
-  inline-size: 3ch;
-  block-size: 3ch;
+  margin: 0;
   outline-offset: 5px;
-  accent-color: var(--text-color-2);
-  outline-color: var(--border-color);
-  
-  &:hover {
-    box-shadow: 0 0 0 5px var(--shadow-highlight-color);
+  accent-color: var(--brand);
+  transform-style: preserve-3d;
+  cursor: pointer;
+
+  &:hover::before {
+    --thumb-scale: 1;
+  }
+
+  @media (hover: none) {
+    & {
+      inline-size: 1.5rem;
+      block-size: 1.5rem;
+    }
+  }
+
+  &::before {
+    --thumb-scale: .01;
+    --thumb-highlight-size: 3rem;
+
+    content: "";
+    inline-size: var(--thumb-highlight-size);
+    block-size: var(--thumb-highlight-size);
+    clip-path: circle(50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: hsl(0 0% 50% / 20%);
+    transform-origin: center center;
+    transform: 
+      translateX(-50%) 
+      translateY(-50%) 
+      translateZ(-1px) 
+      scale(var(--thumb-scale))
+    ;
+    will-change: transform;
+
+    @media (--motionOK) {
+      & {
+        transition: transform .2s ease;
+      }
+    }
   }
 }
 
