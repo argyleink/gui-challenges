@@ -3,13 +3,13 @@
   --surface-color-1: hsl(221 90% 98%);
   --surface-color-2: hsl(221 40% 100%);
   --text-color-1: hsl(221 50% 15%);
-  --text-color-2: hsl(221 40% 40%);
+  --text-color-2: hsl(221 20% 40%);
   --shadow-highlight-color: hsl(219 62% 42% / 25%);
   
   @media (prefers-color-scheme: dark) {
-    --border-color: hsl(221 20% 20%);
+    --border-color: hsl(221 10% 20%);
     --surface-color-1: hsl(221 20% 5%);
-    --surface-color-2: hsl(221 10% 10%);
+    --surface-color-2: hsl(221 5% 10%);
     --text-color-1: hsl(221 90% 98%);
     --text-color-2: hsl(221 20% 80%);
     --shadow-highlight-color: hsl(219 50% 82% / 25%);
@@ -18,6 +18,8 @@
 
 select {
   font-size: min(100%, 16px);
+  padding-inline: 1ch;
+  padding-block: .5ch;
 }
 
 form {
@@ -33,6 +35,10 @@ fieldset {
   background-color: var(--surface-color-2);
   border: 1px solid var(--border-color);
   accent-color: var(--border-color);
+
+  &:first-of-type {
+    margin-top: -5px;
+  }
   
   & > legend {
     font-size: .9em;
@@ -73,6 +79,10 @@ main {
   grid-template-columns: max-content 1fr;
   gap: 5vmin;
   align-items: flex-start;
+
+  & > header {
+    grid-column: 1 / -1;
+  }
 
   @media (orientation: portrait) {
     grid-template-columns: 1fr;
@@ -140,7 +150,12 @@ header {
 }
 
 @media (pointer: coarse) {
-  form {
+  form > fieldset {
     display: none;
+  }
+
+  article {
+    grid-row: 3;
+    grid-column: 1 / -1;
   }
 }
