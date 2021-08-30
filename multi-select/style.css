@@ -142,6 +142,7 @@ article {
   margin: -1ch;
 
   & > span {
+    will-change: transform;
     background: hsl(0 0% 50% / 25%);
     border-radius: 10px;
     inline-size: var(--size);
