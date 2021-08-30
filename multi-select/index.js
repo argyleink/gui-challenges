@@ -5,14 +5,23 @@ const IsotopeGrid = new Isotope( 'article', {
   layoutMode: 'fitRows',
   percentPosition: true
 })
+  
+const filterGrid = query =>
+  IsotopeGrid.arrange({filter: query})
 
-document.querySelector('select').addEventListener('input', e => {
-  let selectData = Array.from(e.target.selectedOptions).reduce((data, opt) => {
+// takes a <select> and returns the selection as an array
+const prepareSelectOptions = element =>
+  Array.from(element.selectedOptions).reduce((data, opt) => {
     data.push([opt.parentElement.label, opt.value])
     return data
   }, [])
+
+// <select> watcher
+document.querySelector('select').addEventListener('input', e => {
+  let selectData = prepareSelectOptions(e.target)
   console.info(selectData)
 
+  // DEMO
   // isotope query assembly from checkbox selections
   let query = selectData.reduce((query, val) => {
     query.push('.' + val[1].split(' ').join('-'))
@@ -22,6 +31,7 @@ document.querySelector('select').addEventListener('input', e => {
   filterGrid(query.join(','))
 })
 
+// <input type="checkbox"/> watcher
 document
   .querySelectorAll('form input')
   .forEach(checkbox => {
@@ -29,6 +39,7 @@ document
       const formData = new FormData(document.querySelector('form'))
       console.info(Array.from(formData.entries()))
 
+      // DEMO
       // isotope query assembly from checkbox selections
       let query = Array.from(formData.values()).reduce((query, val) => {
         query.push('.' + val.split(' ').join('-'))
@@ -38,6 +49,3 @@ document
       filterGrid(query.join(','))
     })  
   })
-  
-const filterGrid = query =>
-  IsotopeGrid.arrange({filter: query})
