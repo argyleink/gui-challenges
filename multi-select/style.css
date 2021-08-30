@@ -24,6 +24,12 @@ select {
   font-size: min(100%, 16px);
   padding-inline: 1ch;
   padding-block: .5ch;
+
+  @media (pointer: fine) {
+    &[multiple] {
+      display: none;
+    }
+  }
 }
 
 form {
@@ -33,19 +39,18 @@ form {
 }
 
 fieldset {
-  padding-block: 1.5ch 2ch;
-  padding-inline: 2ch;
+  padding: 2ch;
   border-radius: 10px;
   background-color: var(--surface-color-2);
   border: 1px solid var(--border-color);
   accent-color: var(--border-color);
 
-  &:first-of-type {
-    margin-top: -5px;
-  }
-
   &:focus-within {
     border-color: var(--text-color-2);
+  }
+
+  @media (pointer: coarse) {
+    display: none;
   }
   
   & > legend {
@@ -67,6 +72,30 @@ fieldset {
       line-height: 1.5;
     }
   }
+}
+
+/* Demo Styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  block-size: 100%;
+  color-scheme: dark light;
+  background-color: var(--surface-color-1);
+  color: var(--text-color-1);
+}
+
+body {
+  min-block-size: 100%;
+  font-family: Blokk, system-ui, sans-serif;
+  font-size: 125%;
+
+  display: flex;
+  flex-direction: column;
+  padding: 10vmin;
 }
 
 /* https://web.dev/building-a-settings-component/#custom-checkbox */
@@ -130,6 +159,13 @@ main {
   @media (orientation: portrait) {
     grid-template-columns: 1fr;
   }
+
+  @media (pointer: coarse) {
+    & > article {
+      grid-row: 3;
+      grid-column: 1 / -1;
+    }
+  }
 }
 
 aside {
@@ -160,46 +196,11 @@ article {
   }
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-html {
-  block-size: 100%;
-  color-scheme: dark light;
-  background-color: var(--surface-color-1);
-  color: var(--text-color-1);
-}
-
-body {
-  min-block-size: 100%;
-  font-family: Blokk, system-ui, sans-serif;
-  font-size: 125%;
-
-  display: flex;
-  flex-direction: column;
-  padding: 10vmin;
-}
-
 header {
   display: grid;
   gap: 1ch;
 }
 
-@media (pointer: fine) {
-  select[multiple] {
-    display: none;
-  }
-}
-
-@media (pointer: coarse) {
-  form > fieldset {
-    display: none;
-  }
-
-  article {
-    grid-row: 3;
-    grid-column: 1 / -1;
-  }
+fieldset:first-of-type {
+  margin-top: -5px;
 }
