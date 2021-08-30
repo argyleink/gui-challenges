@@ -47,6 +47,10 @@ fieldset {
 
   &:focus-within {
     border-color: var(--text-color-2);
+
+    & > legend {
+      color: var(--text-color-1);
+    }
   }
 
   @media (pointer: coarse) {
