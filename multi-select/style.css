@@ -1,17 +1,17 @@
 :root {
-  --border-color: hsl(221 72% 60%);
-  --surface-color-1: hsl(221 90% 100%);
-  --surface-color-2: hsl(221 40% 98%);
+  --border-color: hsl(221 30% 90%);
+  --surface-color-1: hsl(221 90% 98%);
+  --surface-color-2: hsl(221 40% 100%);
   --text-color-1: hsl(221 50% 15%);
   --text-color-2: hsl(221 40% 40%);
   --shadow-highlight-color: hsl(219 62% 42% / 25%);
   
   @media (prefers-color-scheme: dark) {
-    --border-color: hsl(221 40% 70%);
+    --border-color: hsl(221 20% 20%);
     --surface-color-1: hsl(221 20% 5%);
     --surface-color-2: hsl(221 10% 10%);
     --text-color-1: hsl(221 90% 98%);
-    --text-color-2: hsl(221 10% 70%);
+    --text-color-2: hsl(221 20% 80%);
     --shadow-highlight-color: hsl(219 50% 82% / 25%);
   }
 }
@@ -60,6 +60,7 @@ input[type="checkbox"] {
   inline-size: 3ch;
   block-size: 3ch;
   outline-offset: 5px;
+  accent-color: var(--text-color-2);
   outline-color: var(--border-color);
   
   &:hover {
@@ -84,18 +85,23 @@ aside {
 }
 
 article {
-  --size: 20%;
-  margin-right: -2ch;
+  --size: min(300px, calc(25% - 2ch));
+  margin: -1ch;
 
   & > span {
     background: hsl(0 0% 50% / 25%);
     border-radius: 10px;
     inline-size: var(--size);
-    block-size: 25ch;
-    margin: 0 2ch 2ch 0;
+    block-size: 15ch;
+    margin: 1ch;
 
     @media (orientation: portrait) {
       --size: calc(50% - 2ch);
+    }
+
+    @supports (aspect-ratio: 1) {
+      block-size: auto;
+      aspect-ratio: 1;
     }
   }
 }
@@ -114,11 +120,17 @@ html {
 
 body {
   min-block-size: 100%;
-  font-family: system-ui, sans-serif;
+  font-family: Blokk, system-ui, sans-serif;
+  font-size: 125%;
 
   display: flex;
   flex-direction: column;
   padding: 10vmin;
+}
+
+header {
+  display: grid;
+  gap: 1ch;
 }
 
 @media (pointer: fine) {

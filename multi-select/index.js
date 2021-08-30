@@ -3,6 +3,7 @@ import 'https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js'
 const IsotopeGrid = new Isotope( 'article', {
   itemSelector: 'span',
   layoutMode: 'fitRows',
+  percentPosition: true
 })
 
 document.querySelector('select').addEventListener('input', e => {
