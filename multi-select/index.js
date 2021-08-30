@@ -12,23 +12,23 @@ const filterGrid = query =>
 // takes a <select> and returns the selection as an array
 const prepareSelectOptions = element =>
   Array.from(element.selectedOptions).reduce((data, opt) => {
-    data.push([opt.parentElement.label, opt.value])
+    data.push([opt.parentElement.label.toLowerCase(), opt.value])
     return data
   }, [])
 
 // <select> watcher
 document.querySelector('select').addEventListener('input', e => {
   let selectData = prepareSelectOptions(e.target)
-  console.info(selectData)
+  console.warn('Multiselect', selectData)
 
   // DEMO
   // isotope query assembly from checkbox selections
   let query = selectData.reduce((query, val) => {
     query.push('.' + val[1].split(' ').join('-'))
     return query
-  }, [])
+  }, []).join(',')
 
-  filterGrid(query.join(','))
+  filterGrid(query)
 })
 
 // <input type="checkbox"/> watcher
@@ -37,15 +37,15 @@ document
   .forEach(checkbox => {
     checkbox.addEventListener('input', e => {
       const formData = new FormData(document.querySelector('form'))
-      console.info(Array.from(formData.entries()))
+      console.warn('Checkboxes', Array.from(formData.entries()))
 
       // DEMO
       // isotope query assembly from checkbox selections
       let query = Array.from(formData.values()).reduce((query, val) => {
         query.push('.' + val.split(' ').join('-'))
         return query
-      }, [])
+      }, []).join(',')
 
-      filterGrid(query.join(','))
+      filterGrid(query)
     })  
   })
