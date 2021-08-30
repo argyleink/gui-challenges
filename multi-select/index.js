@@ -6,8 +6,17 @@ const IsotopeGrid = new Isotope( 'article', {
   percentPosition: true
 })
   
-const filterGrid = query =>
-  IsotopeGrid.arrange({filter: query})
+const filterGrid = query => {
+  const { matches:motionOK } = window.matchMedia(
+    '(prefers-reduced-motion: no-preference)'
+  )
+  
+  IsotopeGrid.arrange({
+    filter: query,
+    stagger: 25,
+    transitionDuration: motionOK ? '0.4s' : 0,
+  })
+}
 
 // takes a <select> and returns the selection as an array
 const prepareSelectOptions = element =>
