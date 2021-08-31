@@ -21,7 +21,7 @@
 }
 
 select {
-  font-size: min(100%, 16px);
+  font-size: max(100%, 16px);
   padding-inline: 1ch;
   padding-block: .5ch;
 
