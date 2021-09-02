@@ -188,7 +188,7 @@ h3 {
 }
 
 .github-corner {
-  fill: white;
+  fill: CanvasText;
   color: Canvas; 
   
   &:hover .octo-arm {
