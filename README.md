@@ -49,3 +49,6 @@ and expand the diversity of our skills.**
   [`Demo`](https://gui-challenges.web.app/split-buttons/dist/) 
   [`YouTube (coming soon)`](#) 
   [`Article (coming soon)`](https://web.dev/building-a-split-button-component/)
+
+
+[View full this page here](https://devgupta-ikr.github.io/gui-challenges/)
