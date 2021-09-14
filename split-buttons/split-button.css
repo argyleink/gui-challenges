@@ -167,8 +167,8 @@
   pointer-events: none;
 
   position: absolute;
-  bottom: 80%;
-  left: -1.5ch;
+  inset-block-end: 80%;
+  inset-inline-start: -1.5ch;
   
   list-style-type: none;
   background: var(--popupbg);
@@ -208,7 +208,7 @@
   }
 
   @media (width <= 400px) {
-    left: -200%;
+    inset-inline-start: -200%;
   }
 
   & svg {
