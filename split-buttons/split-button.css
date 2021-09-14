@@ -70,12 +70,16 @@
   }
 
   & > button {
-    border-end-start-radius: var(--radius);
-    border-start-start-radius: var(--radius);
+    border-radius: var(--radius) 0 0 var(--radius);
 
     & > svg {
       fill: none;
       stroke: var(--ontheme);
+    }
+  
+    @supports (border-start-start-radius: 1px) {
+      border-end-start-radius: var(--radius);
+      border-start-start-radius: var(--radius);
     }
   }
 
@@ -106,9 +110,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-inline-start: var(--border);
-  border-start-end-radius: var(--radius);
-  border-end-end-radius: var(--radius);
+  border-left: var(--border);
+  border-radius: 0 var(--radius) var(--radius) 0;
+
+  @supports (border-start-start-radius: 1px) {
+    border-inline-start: var(--border);
+    border-start-end-radius: var(--radius);
+    border-end-end-radius: var(--radius);
+  }
 
   &:is(:hover,:focus-within) {
     background: var(--theme-hover);

@@ -43,17 +43,22 @@ body {
   min-block-size: 100%;
   font-family: system-ui, sans-serif;
   display: grid;
-  grid-auto-columns: min(35ch, 100%);
-  gap: 5ch 20ch;
+  place-content: center;
   padding: 5ch;
-  align-items: start;
-  align-content: center;
-  justify-content: center;
 
-  @media (min-width: 720px) { & {
-    grid-auto-flow: column;
-    grid-auto-columns: 30ch;
-  }}
+  & > main {
+    display: grid;
+    grid-auto-columns: min(35ch, 100%);
+    gap: 5ch 20ch;
+    align-items: start;
+    align-content: center;
+    justify-content: center;
+
+    @media (min-width: 720px) { & {
+      grid-auto-flow: column;
+      grid-auto-columns: 30ch;
+    }}
+  }
 }
 
 section {
@@ -182,5 +187,26 @@ section {
         }}
       }
     }
+  }
+}
+
+.github-corner {
+  fill: var(--text1);
+  color: var(--surface1); 
+  
+  &:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+  }
+}
+
+@keyframes octocat-wave{
+  0%,100% {
+    transform: rotate(0)
+  }
+  20%,60% {
+    transform: rotate(-25deg)
+  }
+  40%,80% {
+    transform: rotate(10deg)
   }
 }
