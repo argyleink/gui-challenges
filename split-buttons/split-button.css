@@ -110,7 +110,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-left: var(--border);
+  border-inline-start: var(--border);
   border-radius: 0 var(--radius) var(--radius) 0;
 
   @supports (border-start-start-radius: 1px) {
