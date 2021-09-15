@@ -56,5 +56,7 @@ document
       }, []).join(',')
 
       filterGrid(query)
+
+      document.querySelector('#applied-filters').textContent = " giving " + IsotopeGrid.getFilteredItemElements().length + " results"
     })  
   })
