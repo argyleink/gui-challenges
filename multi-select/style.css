@@ -205,6 +205,30 @@ header {
   gap: 1ch;
 }
 
+aside {
+  counter-reset: filters;
+
+  & :checked {
+    counter-increment: filters; 
+  }
+
+  & #applied-filters::before {
+    content: counter(filters) " filters ";
+  }
+}
+
 fieldset:first-of-type {
-  margin-top: -5px;
+  margin-block-start: -5px;
+}
+
+[role="status"] {
+  @media (--useSelect) {
+    display: none;
+  }
+}
+
+.sr-only {
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
