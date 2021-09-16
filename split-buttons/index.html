@@ -13,14 +13,18 @@
     <script type="module" src="/index.js"></script>
   </head>
   <body>
+<!-- // split button is fairly new to components so not sure if the following practice introduces more clarity to AT or just brings confusion. would be nice to raise at the open-ui dicussions? -->
+<!-- the main button need to play the role of a list box decendant and, at the same time, interactive button -->
+<!-- this PR tries to be very explicit with the associated roles to sharpen up intent -->
 
     <div class="gui-split-button">
-      <button>View Cart</button>
-      <span class="gui-popup-button" aria-haspopup="true" aria-expanded="false" title="Open for more actions">
+      <button id="gui-active-button">View Cart</button>
+      <span class="gui-popup-button" aria-haspopup="true" aria-expanded="false" aria-controls="gui-options-listbox" title="Open for more actions">
         <svg aria-hidden="true" viewBox="0 0 20 20">
           <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
         </svg>
-        <ul class="gui-popup">
+        <!--! does aria owns adds defined elements to nested children, or excluds unlisted once is defined -->
+        <ul id="gui-options-listbox" class="gui-popup" role="listbox" aria-multiselectable="false" aria-owns="gui-active-button" aria-activedescendant="gui-active-button">
           <li><button>
             <svg aria-hidden="true" viewBox="0 0 24 24">
               <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
