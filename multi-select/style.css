@@ -10,6 +10,14 @@
   --text-color-1: hsl(221 50% 15%);
   --text-color-2: hsl(221 20% 40%);
   --shadow-highlight-color: hsl(219 62% 42% / 25%);
+
+  --isLTR: 1;
+  --isRTL: -1;
+  
+  &:dir(rtl) {
+    --isLTR: -1;
+    --isRTL: 1;
+  }
   
   @media (--dark) {
     --border-color: hsl(221 10% 20%);
@@ -134,7 +142,7 @@ input[type="checkbox"] {
     background: hsl(0 0% 50% / 20%);
     transform-origin: center center;
     transform: 
-      translateX(-50%) 
+      translateX(calc(var(--isRTL) * 50%)) 
       translateY(-50%) 
       translateZ(-1px) 
       scale(var(--thumb-scale))
