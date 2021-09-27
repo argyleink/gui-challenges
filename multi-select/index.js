@@ -50,6 +50,8 @@ document.querySelector('select').addEventListener('input', e => {
 document
   .querySelector('aside form')
   .addEventListener('input', e => {
+    if (e.target.nodeName === 'SELECT') return
+      
     const formData = new FormData(document.querySelector('form'))
     console.warn('Checkboxes', Array.from(formData.entries()))
 
