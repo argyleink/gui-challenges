@@ -30,6 +30,9 @@ document.querySelector('select').addEventListener('input', e => {
   let selectData = prepareSelectOptions(e.target)
   console.warn('Multiselect', selectData)
 
+  // update counter value for screen readers
+  e.target.closest('aside').style.counterSet = selectData.length
+
   // DEMO
   // isotope query assembly from checkbox selections
   let query = selectData.reduce((query, val) => {
