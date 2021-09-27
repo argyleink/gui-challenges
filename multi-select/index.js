@@ -43,23 +43,20 @@ document.querySelector('select').addEventListener('input', e => {
   filterGrid(query)
 })
 
-// <input type="checkbox"/> watcher
 document
-  .querySelectorAll('form input')
-  .forEach(checkbox => {
-    checkbox.addEventListener('input', e => {
-      const formData = new FormData(document.querySelector('form'))
-      console.warn('Checkboxes', Array.from(formData.entries()))
+  .querySelector('aside form')
+  .addEventListener('input', e => {
+    const formData = new FormData(document.querySelector('form'))
+    console.warn('Checkboxes', Array.from(formData.entries()))
 
-      // DEMO
-      // isotope query assembly from checkbox selections
-      let query = Array.from(formData.values()).reduce((query, val) => {
-        query.push('.' + val.split(' ').join('-'))
-        return query
-      }, []).join(',')
+    // DEMO
+    // isotope query assembly from checkbox selections
+    let query = Array.from(formData.values()).reduce((query, val) => {
+      query.push('.' + val.split(' ').join('-'))
+      return query
+    }, []).join(',')
 
-      filterGrid(query)
+    filterGrid(query)
 
-      document.querySelector('#applied-filters').textContent = " giving " + IsotopeGrid.getFilteredItemElements().length + " results"
-    })  
+    document.querySelector('#applied-filters').textContent = " giving " + IsotopeGrid.getFilteredItemElements().length + " results"
   })
