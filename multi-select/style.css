@@ -1,0 +1,236 @@
+@custom-media --motionOK (prefers-reduced-motion: no-preference);
+@custom-media --dark (prefers-color-scheme: dark);
+@custom-media --light (prefers-color-scheme: light);
+@custom-media --useSelect (pointer: coarse);
+
+:root {
+  --border-color: hsl(221 30% 90%);
+  --surface-color-1: hsl(221 90% 98%);
+  --surface-color-2: hsl(221 40% 100%);
+  --text-color-1: hsl(221 50% 15%);
+  --text-color-2: hsl(221 20% 40%);
+  --shadow-highlight-color: hsl(219 62% 42% / 25%);
+
+  --isLTR: 1;
+  --isRTL: -1;
+  
+  &:dir(rtl) {
+    --isLTR: -1;
+    --isRTL: 1;
+  }
+  
+  @media (--dark) {
+    --border-color: hsl(221 10% 20%);
+    --surface-color-1: hsl(221 20% 5%);
+    --surface-color-2: hsl(221 5% 10%);
+    --text-color-1: hsl(221 90% 98%);
+    --text-color-2: hsl(221 20% 80%);
+    --shadow-highlight-color: hsl(219 50% 82% / 25%);
+  }
+}
+
+select {
+  font-size: max(100%, 1rem);
+  padding-inline: 1ch;
+  padding-block: .5ch;
+  display: none;
+
+  @media (--useSelect) {
+    &[multiple] {
+      display: block;
+    }
+  }
+}
+
+form {
+  display: grid;
+  gap: 2ch;
+  max-inline-size: 30ch;
+}
+
+fieldset {
+  padding: 2ch;
+  border-radius: 10px;
+  background-color: var(--surface-color-2);
+  border: 1px solid var(--border-color);
+
+  @media (--useSelect) {
+    display: none;
+  }
+
+  &:focus-within {
+    border-color: var(--text-color-2);
+
+    & > legend {
+      color: var(--text-color-1);
+    }
+  }
+  
+  & > legend {
+    font-size: .9em;
+    color: var(--text-color-2);
+  }
+  
+  & > div + div {
+    margin-block-start: 2ch;
+  }
+  
+  & > div {
+    display: flex;
+    gap: 2ch;
+    align-items: baseline;
+    color: var(--text-color-1);
+
+    & > label {
+      line-height: 1.5;
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  block-size: 100%;
+  color-scheme: dark light;
+  background-color: var(--surface-color-1);
+  color: var(--text-color-1);
+}
+
+body {
+  min-block-size: 100%;
+  font-family: Blokk, system-ui, sans-serif;
+  font-size: 125%;
+
+  display: flex;
+  flex-direction: column;
+  padding: 10vmin;
+}
+
+/* https://web.dev/building-a-settings-component/#custom-checkbox */
+input[type="checkbox"] {
+  margin: 0;
+  outline-offset: 5px;
+  accent-color: var(--text-color-2);
+  transform-style: preserve-3d;
+  cursor: pointer;
+
+  &:hover::before {
+    --thumb-scale: 1;
+  }
+
+  @media (hover: none) {
+    & {
+      inline-size: 1.5rem;
+      block-size: 1.5rem;
+    }
+  }
+
+  &::before {
+    --thumb-scale: .01;
+    --thumb-highlight-size: 3rem;
+
+    content: "";
+    inline-size: var(--thumb-highlight-size);
+    block-size: var(--thumb-highlight-size);
+    clip-path: circle(50%);
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    background: hsl(0 0% 50% / 20%);
+    transform-origin: center center;
+    transform: 
+      translateX(calc(var(--isRTL) * 50%)) 
+      translateY(-50%) 
+      translateZ(-1px) 
+      scale(var(--thumb-scale))
+    ;
+    will-change: transform;
+
+    @media (--motionOK) {
+      & {
+        transition: transform .2s ease;
+      }
+    }
+  }
+}
+
+main {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 5vmin;
+  align-items: flex-start;
+
+  & > header {
+    grid-column: 1 / -1;
+  }
+
+  @media (orientation: portrait) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (--useSelect) {
+    & > article {
+      grid-row: 3;
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+article {
+  --size: min(300px, calc(25% - 2ch));
+  margin: -1ch;
+
+  & > span {
+    will-change: transform;
+    background: hsl(0 0% 50% / 25%);
+    border-radius: 10px;
+    inline-size: var(--size);
+    block-size: 15ch;
+    margin: 1ch;
+
+    @media (orientation: portrait) {
+      --size: calc(50% - 2ch);
+    }
+
+    @supports (aspect-ratio: 1) {
+      block-size: auto;
+      aspect-ratio: 1;
+    }
+  }
+}
+
+header {
+  display: grid;
+  gap: 1ch;
+}
+
+aside {
+  counter-reset: filters;
+
+  & :checked {
+    counter-increment: filters; 
+  }
+
+  & #applied-filters::before {
+    content: counter(filters) " filters ";
+  }
+}
+
+fieldset:first-of-type {
+  margin-block-start: -5px;
+}
+
+[role="status"] {
+  @media (--useSelect) {
+    display: none;
+  }
+}
+
+.sr-only {
+  inline-size: 0;
+  block-size: 0;
+  overflow: hidden;
+}

@@ -1,6 +1,5 @@
 # GUI Challenges
 > I build interfaces my way, then challenge you to do it your way. 
-
 With our creative minds combined, 
 **we'll find multiple ways to solve these interfaces 
 and expand the diversity of our skills.**
@@ -46,6 +45,10 @@ and expand the diversity of our skills.**
   [`YouTube`](https://www.youtube.com/watch?v=_KqccADghcA) 
   [`Article`](https://web.dev/building-a-switch-component/)
 11. Split Buttons 
-  [`Demo`](https://gui-challenges.web.app/split-buttons/dist/) 
+  [`Demo`](https://gui-challenges.web.app/split-buttons/dist/)
   [`YouTube`](https://www.youtube.com/watch?v=Qcpru-fIgwk) 
-  [`Article`](https://web.dev/building-a-split-button-component/)
+  [`Article`](https://web.dev/building-a-split-button-component/) 
+12. Multi-Select 
+  [`Demo`](https://gui-challenges.web.app/multi-select/dist/) 
+  [`YouTube (coming soon)`](#) 
+  [`Article (coming soon)`](https://web.dev/building-a-multi-select-component/)  
