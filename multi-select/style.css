@@ -78,7 +78,7 @@ fieldset {
   & > div {
     display: flex;
     gap: 2ch;
-    align-items: center;
+    align-items: baseline;
     color: var(--text-color-1);
 
     & > label {
