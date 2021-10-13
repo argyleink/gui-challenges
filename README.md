@@ -50,5 +50,5 @@ and expand the diversity of our skills.**
   [`Article`](https://web.dev/building-a-split-button-component/) 
 12. Multi-Select 
   [`Demo`](https://gui-challenges.web.app/multi-select/dist/) 
-  [`YouTube (coming soon)`](#) 
-  [`Article (coming soon)`](https://web.dev/building-a-multi-select-component/)  
+  [`YouTube`](https://www.youtube.com/watch?v=x0aCdLDZ8BM) 
+  [`Article`](https://web.dev/building-a-multi-select-component/)  
