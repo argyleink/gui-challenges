@@ -64,7 +64,7 @@ body {
   }
 
   @media (dynamic-range: high) {
-    --theme: color(display-p3 0 0 1);
+    --theme: color(display-p3 .4 0 .9);
   }
 }
 
@@ -82,7 +82,7 @@ body {
     --distance: 15px;
 
     @media (--motionOK) {
-      --distance: 50px;
+      --distance: 3vmax;
     }
   }
 }
@@ -91,14 +91,15 @@ body {
   appearance: none;
   outline: none;
   border: none;
+  
+  background-color: var(--_btn-bg);
+  color: var(--_btn-text);
+  text-shadow: 0 1px 1px var(--_btn-text-shadow);
 
   font-size: 5vmin;
   font-family: Audiowide;
   padding-block: .75ch;
   padding-inline: 2ch;
-  background-color: var(--_btn-bg);
-  color: var(--_btn-text);
-  text-shadow: 0 1px 1px var(--_btn-text-shadow);
   border-radius: 5px 20px;
   transform: translateZ(var(--distance));
   transform-style: preserve-3d;
