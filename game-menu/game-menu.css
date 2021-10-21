@@ -1,0 +1,156 @@
+body {
+  perspective: 40vw;
+}
+
+.threeD-button-set {
+  --y:;
+  --x:;
+  --distance: 1px;
+  --theme: cyan;
+  --theme-bg: hsl(180 100% 50% / 25%);
+  --theme-bg-hover: hsl(180 100% 50% / 40%);
+  --theme-text: white;
+  --theme-shadow: hsl(180 100% 10% / 25%);
+
+  --_max-rotateY: 10deg;
+  --_max-rotateX: 15deg;
+  --_btn-bg: var(--theme-bg);
+  --_btn-bg-hover: var(--theme-bg-hover);
+  --_btn-text: var(--theme-text);
+  --_btn-text-shadow: var(--theme-shadow);
+  --_bounce-ease: cubic-bezier(.5, 1.75, .75, 1.25);
+
+  /* remove <ul> margins */
+  margin: 0;
+
+  /* vertical rag-right layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.5vmin;
+  
+  /* create 3D space context */
+  transform-style: preserve-3d;
+
+  /* clamped menu rotation to not be too extreme */
+  transform: 
+    rotateY(
+      clamp(
+        calc(var(--_max-rotateY) * -1), 
+        var(--y), 
+        var(--_max-rotateY
+      )
+    )) 
+    rotateX(
+      clamp(
+        calc(var(--_max-rotateX) * -1), 
+        var(--x), 
+        var(--_max-rotateX)
+      )
+    )
+  ;
+  
+  @media (--motionOK) {
+    will-change: transform;
+    transition: transform .1s ease;
+    animation: rotate-y 5s ease-in-out infinite;
+  }
+
+  @media (--dark) {
+    --theme: hsl(255 53% 50%);
+    --theme-bg: hsl(255 53% 71% / 25%);
+    --theme-bg-hover: hsl(255 53% 50% / 40%);
+    --theme-shadow: hsl(255 53% 10% / 25%);
+  }
+
+  @media (dynamic-range: high) {
+    --theme: color(display-p3 0 0 1);
+  }
+}
+
+.threeD-button-set > li {
+  /* change display type from list-item */
+  display: inline-flex;
+
+  /* create context for button pseudos */
+  position: relative;
+
+  /* create 3D space context */
+  transform-style: preserve-3d; 
+  
+  &:is(:hover, :focus-within) > button:not(:active) {
+    --distance: 15px;
+
+    @media (--motionOK) {
+      --distance: 50px;
+    }
+  }
+}
+  
+.threeD-button-set button {
+  appearance: none;
+  outline: none;
+  border: none;
+
+  font-size: 5vmin;
+  font-family: Audiowide;
+  padding-block: .75ch;
+  padding-inline: 2ch;
+  background-color: var(--_btn-bg);
+  color: var(--_btn-text);
+  text-shadow: 0 1px 1px var(--_btn-text-shadow);
+  border-radius: 5px 20px;
+  transform: translateZ(var(--distance));
+  transform-style: preserve-3d;
+  
+  &:is(:hover, :focus-within) {
+    background-color: var(--_btn-bg-hover);
+
+    @media (--motionOK) {
+      transition-timing-function: var(--_bounce-ease);
+      transition-duration: .4s;
+
+      &::after  { transition-duration: .5s }
+      &::before { transition-duration: .3s }
+    }
+  }
+  
+  &::after,
+  &::before {
+    content: '';
+    opacity: .8;
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--theme);
+    border-radius: 5px 20px;
+    transform: translateZ(calc(var(--distance) / 3));
+
+    @media (--motionOK) {
+      transition: transform .1s ease-out;   
+    }
+  }
+  
+  &::before {
+    border-width: 3px;
+    transform: translateZ(calc(var(--distance) / 3 * -1));
+
+    @media (--dark) {
+      box-shadow: 
+        0 0 25px var(--theme), 
+        inset 0 0 25px var(--theme);
+    }
+  }
+  
+  @media (--motionOK) {
+    will-change: transform;
+    transition: 
+      transform .2s ease,
+      background-color .5s ease;
+  }
+}
+
+@keyframes rotate-y {
+  50% {
+    transform: rotateY(15deg) rotateX(-6deg);
+  }
+}
