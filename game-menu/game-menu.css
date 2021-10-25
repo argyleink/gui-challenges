@@ -38,9 +38,9 @@ body {
       clamp(
         calc(var(--_max-rotateY) * -1), 
         var(--y), 
-        var(--_max-rotateY
+        var(--_max-rotateY)
       )
-    )) 
+    ) 
     rotateX(
       clamp(
         calc(var(--_max-rotateX) * -1), 
