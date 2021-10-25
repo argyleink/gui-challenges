@@ -103,12 +103,11 @@ body {
   transform-style: preserve-3d;
   
   &:is(:hover, :focus-visible):not(:active) {
+    /* subtle distance plus bg color change on hover/focus */
     --distance: 15px;
-
-    /* change bg color on hover for all */
     background-color: var(--_btn-bg-hover);
 
-    /* if motion is OK, setup transitions */
+    /* if motion is OK, setup transitions and increase distance */
     @media (--motionOK) {
       --distance: 3vmax;
 
