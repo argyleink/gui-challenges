@@ -79,14 +79,6 @@ body {
 
   /* create 3D space context */
   transform-style: preserve-3d; 
-  
-  &:is(:hover, :focus-within) > button:not(:active) {
-    --distance: 15px;
-
-    @media (--motionOK) {
-      --distance: 3vmax;
-    }
-  }
 }
   
 .threeD-button-set button {
@@ -110,12 +102,16 @@ body {
   transform: translateZ(var(--distance));
   transform-style: preserve-3d;
   
-  &:is(:hover, :focus-within) {
+  &:is(:hover, :focus-within):not(:active) {
+    --distance: 15px;
+
     /* change bg color on hover for all */
     background-color: var(--_btn-bg-hover);
 
     /* if motion is OK, setup transitions */
     @media (--motionOK) {
+      --distance: 3vmax;
+
       transition-timing-function: var(--_bounce-ease);
       transition-duration: .4s;
 
