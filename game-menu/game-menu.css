@@ -102,7 +102,7 @@ body {
   transform: translateZ(var(--distance));
   transform-style: preserve-3d;
   
-  &:is(:hover, :focus-within):not(:active) {
+  &:is(:hover, :focus-visible):not(:active) {
     --distance: 15px;
 
     /* change bg color on hover for all */
