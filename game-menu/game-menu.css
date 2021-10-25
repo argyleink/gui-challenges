@@ -63,8 +63,10 @@ body {
     --theme-shadow: hsl(255 53% 10% / 25%);
   }
 
-  @media (dynamic-range: high) {
-    --theme: color(display-p3 .4 0 .9);
+  @media (--HDcolor) {
+    @supports (color: color(display-p3 0 0 0)) {
+      --theme: color(display-p3 .4 0 .9);
+    }
   }
 }
 
