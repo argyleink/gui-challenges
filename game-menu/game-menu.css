@@ -27,7 +27,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 2.5vmin;
+  gap: 2.5vh;
   
   /* create 3D space context */
   transform-style: preserve-3d;
