@@ -6,7 +6,7 @@ body {
   --y:;
   --x:;
   --distance: 1px;
-  --theme: cyan;
+  --theme: hsl(180 100% 50%);
   --theme-bg: hsl(180 100% 50% / 25%);
   --theme-bg-hover: hsl(180 100% 50% / 40%);
   --theme-text: white;
@@ -90,10 +90,12 @@ body {
 }
   
 .threeD-button-set button {
+  /* strip out default button styles */
   appearance: none;
   outline: none;
   border: none;
   
+  /* bring in brand styles via props */
   background-color: var(--_btn-bg);
   color: var(--_btn-text);
   text-shadow: 0 1px 1px var(--_btn-text-shadow);
@@ -103,12 +105,16 @@ body {
   padding-block: .75ch;
   padding-inline: 2ch;
   border-radius: 5px 20px;
+
+  /* prepare for 3D perspective transforms */
   transform: translateZ(var(--distance));
   transform-style: preserve-3d;
   
   &:is(:hover, :focus-within) {
+    /* change bg color on hover for all */
     background-color: var(--_btn-bg-hover);
 
+    /* if motion is OK, setup transitions */
     @media (--motionOK) {
       transition-timing-function: var(--_bounce-ease);
       transition-duration: .4s;
@@ -120,23 +126,34 @@ body {
   
   &::after,
   &::before {
+    /* create empty element */
     content: '';
     opacity: .8;
+
+    /* cover the parent (button) */
     position: absolute;
     inset: 0;
+
+    /* style the element for border accents */
     border: 1px solid var(--theme);
     border-radius: 5px 20px;
+
+    /* move in Z space with a multiplier */
     transform: translateZ(calc(var(--distance) / 3));
 
+    /* if motion is OK, transition the Z space move */
     @media (--motionOK) {
       transition: transform .1s ease-out;   
     }
   }
   
+  /* exceptions for one of the pseudo elements */
+  /* this will be pushed back and have a thicker border */
   &::before {
     border-width: 3px;
     transform: translateZ(calc(var(--distance) / 3 * -1));
 
+    /* in dark mode, it glows! */
     @media (--dark) {
       box-shadow: 
         0 0 25px var(--theme), 
