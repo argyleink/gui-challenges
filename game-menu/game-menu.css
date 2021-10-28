@@ -49,6 +49,11 @@ body {
       )
     )
   ;
+
+  /* removes Safari focus ring on <ul> after button interaction */
+  &:focus {
+    outline: none;
+  }
   
   @media (--motionOK) {
     will-change: transform;
@@ -86,6 +91,7 @@ body {
   appearance: none;
   outline: none;
   border: none;
+  -webkit-tap-highlight-color: transparent;
   
   /* bring in brand styles via props */
   background-color: var(--_btn-bg);
