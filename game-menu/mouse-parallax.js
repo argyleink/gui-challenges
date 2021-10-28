@@ -9,8 +9,8 @@ if (motionOK) {
   window.addEventListener('mousemove', ({target, clientX, clientY}) => {
     const {dx,dy} = getAngles(clientX, clientY)
 
-    menu.attributeStyleMap.set('--x', `${dy / 20}deg`)
-    menu.attributeStyleMap.set('--y', `${dx / 20}deg`)
+    menu.style.setProperty('--x', `${dy / 20}deg`)
+    menu.style.setProperty('--y', `${dx / 20}deg`)
   })
 }
 
