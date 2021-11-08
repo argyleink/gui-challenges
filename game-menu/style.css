@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import "game-menu.css";
+
+@custom-media --motionOK (prefers-reduced-motion: no-preference);
+@custom-media --dark (prefers-color-scheme: dark);
+@custom-media --HDcolor (dynamic-range: high);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  block-size: 100%;
+  background: conic-gradient(at -10% 50%, deeppink, cyan);
+
+  @media (--dark) {
+    background: conic-gradient(at -10% 50%, #212529, 50%, #495057, #212529);    
+  }
+}
+
+body {
+  min-block-size: 100%;
+  font-family: system-ui, sans-serif;
+  
+  display: grid;
+  place-content: center;
+}
