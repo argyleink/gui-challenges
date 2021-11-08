@@ -98,7 +98,7 @@ body {
   color: var(--_btn-text);
   text-shadow: 0 1px 1px var(--_btn-text-shadow);
 
-  font-size: 5vmin;
+  font-size: min(5vmin, 3rem);
   font-family: Audiowide;
   padding-block: .75ch;
   padding-inline: 2ch;
