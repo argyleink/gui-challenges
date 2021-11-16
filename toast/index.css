@@ -17,10 +17,17 @@ body {
   min-block-size: 100%;
   font-family: system-ui, sans-serif;
   
-  display: grid;
-  place-content: center;
+  display: flex;
+  gap: 2ch;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 720px) {
+    flex-direction: column;
+  }
 }
 
 button {
   font-size: 1.25rem;
+  touch-action: manipulation;
 }

@@ -2,12 +2,11 @@ const Toaster = document.createElement('section')
 Toaster.classList.add('gui-toast-group')
 document.body.prepend(Toaster)
 
-const createToast = ({text = 'Default text', duration = null}) => {
+const createToast = text => {
   const node = document.createElement('output')
   
   node.textContent = text
   node.classList.add('gui-toast')
-  node.style.setProperty('--_duration', duration)
 
   return node
 }
@@ -18,8 +17,8 @@ const addToast = toast => {
     : Toaster.appendChild(toast)
 }
 
-const Toast = options => {
-  let toast = createToast(options)
+const Toast = text => {
+  let toast = createToast(text)
   addToast(toast)
 
   return new Promise((resolve, reject) => {

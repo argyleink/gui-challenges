@@ -1,18 +1,25 @@
 .gui-toast-group {
   position: fixed;
-  inset-block-end: 5vh;
+  z-index: 2147483647;
+  inset-block-end: 0;
   inset-inline: 0;
+  padding-block-end: 5vh;
 
   display: grid;
   justify-items: center;
   justify-content: center;
   gap: 1vh;
+
+  /* optimizations */
+  contain: layout paint;
+  pointer-events: none;
 }
 
 .gui-toast {
   --_duration: 5s;
-  --_bg-lightness: 95%;
+  --_bg-lightness: 90%;
 
+  color: black;
   background: hsl(0 0% var(--_bg-lightness) / 90%);
   
   max-inline-size: 20ch;
@@ -25,6 +32,7 @@
   animation: ToastShow var(--_duration) ease;
 
   @media (--dark) {
+    color: white;
     --_bg-lightness: 0%;
   }
 }
