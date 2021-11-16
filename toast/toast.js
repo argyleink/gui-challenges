@@ -12,7 +12,11 @@ const createToast = text => {
 }
 
 const addToast = toast => {
-  Toaster.children.length
+  const { matches:motionOK } = window.matchMedia(
+    '(prefers-reduced-motion: no-preference)'
+  )
+
+  Toaster.children.length && motionOK
     ? flipToast(toast)
     : Toaster.appendChild(toast)
 }

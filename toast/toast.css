@@ -11,13 +11,13 @@
   gap: 1vh;
 
   /* optimizations */
-  contain: layout paint;
   pointer-events: none;
 }
 
 .gui-toast {
   --_duration: 5s;
   --_bg-lightness: 90%;
+  --_travel-distance: 0;
 
   color: black;
   background: hsl(0 0% var(--_bg-lightness) / 90%);
@@ -35,11 +35,15 @@
     color: white;
     --_bg-lightness: 0%;
   }
+
+  @media (--motionOK) {
+    --_travel-distance: 5vh;
+  }
 }
 
 @keyframes ToastShow {
   0% {
-    transform: translateY(5vh);
+    transform: translateY(var(--_travel-distance));
     opacity: 0;
   }
   5%, 90% {
