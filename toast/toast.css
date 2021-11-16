@@ -1,0 +1,43 @@
+.gui-toast-group {
+  position: fixed;
+  inset-block-end: 5vh;
+  inset-inline: 0;
+
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+  gap: 1vh;
+}
+
+.gui-toast {
+  --_duration: 5s;
+  --_bg-lightness: 95%;
+
+  background: hsl(0 0% var(--_bg-lightness) / 90%);
+  
+  padding-block: .5ch;
+  padding-inline: 1ch;
+  border-radius: 3px;
+  font-size: 1rem;
+
+  will-change: transform;
+  animation: ToastShow var(--_duration) ease;
+
+  @media (--dark) {
+    --_bg-lightness: 0%;
+  }
+}
+
+@keyframes ToastShow {
+  0% {
+    transform: translateY(1vh);
+    opacity: 0;
+  }
+  5%, 90% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
