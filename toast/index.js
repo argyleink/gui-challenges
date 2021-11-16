@@ -4,6 +4,7 @@ import Toast from './toast.js'
 $('button').on('click', async () => {
   await Toast({
     text: randomSpell(),
+    // text: 'super duper long toast that no one should ever write',
     // duration: '4s',
   })
   console.log('poof')

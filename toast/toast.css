@@ -15,6 +15,7 @@
 
   background: hsl(0 0% var(--_bg-lightness) / 90%);
   
+  max-inline-size: 20ch;
   padding-block: .5ch;
   padding-inline: 1ch;
   border-radius: 3px;
