@@ -1,6 +1,10 @@
-const Toaster = document.createElement('section')
-Toaster.classList.add('gui-toast-group')
-document.body.prepend(Toaster)
+const init = () => {
+  const node = document.createElement('section')
+  node.classList.add('gui-toast-group')
+
+  document.body.prepend(node)
+  return node
+}
 
 const createToast = text => {
   const node = document.createElement('output')
@@ -35,7 +39,7 @@ const Toast = text => {
 
 // https://aerotwist.com/blog/flip-your-animations/
 const flipToast = toast => {
-  const FLIPS = []
+  const FLIPS = new Array()
   const kids_to_move = Array.from(Toaster.children)
 
   // FIRST
@@ -66,4 +70,5 @@ const flipToast = toast => {
   })
 }
 
+const Toaster = init()
 export default Toast
