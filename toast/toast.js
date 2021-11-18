@@ -9,7 +9,7 @@ const init = () => {
 const createToast = text => {
   const node = document.createElement('output')
   
-  node.textContent = text
+  node.innerText = text
   node.classList.add('gui-toast')
 
   return node
