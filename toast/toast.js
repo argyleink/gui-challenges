@@ -54,11 +54,14 @@ const flipToast = toast => {
   // LAST
   kids_to_move.forEach((child, i) => {
     FLIPS[i].last = child.getBoundingClientRect()
+  })
+
+  kids_to_move.forEach((child, i) => {
     let {first, last} = FLIPS[i]
 
     // INVERT
     let invert = first.top - last.top
-    
+
     // PLAY
     child.animate([
       { transform: `translateY(${invert}px)` },
