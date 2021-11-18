@@ -22,7 +22,7 @@
   color: black;
   background: hsl(0 0% var(--_bg-lightness) / 90%);
   
-  max-inline-size: 20ch;
+  max-inline-size: min(25ch, 90vw);
   padding-block: .5ch;
   padding-inline: 1ch;
   border-radius: 3px;
