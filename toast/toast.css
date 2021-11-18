@@ -33,7 +33,7 @@
 
   @media (--dark) {
     color: white;
-    --_bg-lightness: 0%;
+    --_bg-lightness: 20%;
   }
 
   @media (--motionOK) {
