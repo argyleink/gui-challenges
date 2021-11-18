@@ -26,8 +26,3 @@ body {
     flex-direction: column;
   }
 }
-
-button {
-  font-size: 1.25rem;
-  touch-action: manipulation;
-}
