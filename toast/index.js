@@ -10,10 +10,6 @@ $('#actions').on('click', () => {
   Toast(randomAction())
 })
 
-$('#multiline').on('click', () => {
-  Toast("Let me tell you all about what I ate last week, you'll never believe it.")
-})
-
 const randomSpell = () => {
   const spells = ['Fire', 'Ice', 'Lit', 'Dark', 'Toast']
   const levels = ['','2','3','4','5']
@@ -21,7 +17,7 @@ const randomSpell = () => {
 }
 
 const randomAction = () => {
-  const actions = ['Saved', 'Added to cart', 'In cart', 'User removed', 'Timer set']
+  const actions = ['Saved', 'Added to cart', 'In cart', 'User removed', 'Timer set', `Multi-Line \n Support 👍`, 'This is just really long and completely unnecessary']
   return `${actions[getRandomInt(0, actions.length-1)]}`
 }
 
