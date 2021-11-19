@@ -10,7 +10,6 @@
   justify-content: center;
   gap: 1vh;
 
-  /* optimizations */
   pointer-events: none;
 }
 
@@ -28,8 +27,16 @@
   border-radius: 3px;
   font-size: 1rem;
 
-  will-change: transform;
-  animation: ToastShow var(--_duration) ease;
+  transition: opacity .3s ease;
+
+  &:not(.enter, .exit) {
+    opacity: 0;
+    transform: translateY(var(--_travel-distance));
+  }
+
+  &.exit {
+    opacity: 0;
+  }
 
   @media (--dark) {
     color: white;
@@ -38,19 +45,6 @@
 
   @media (--motionOK) {
     --_travel-distance: 5vh;
-  }
-}
-
-@keyframes ToastShow {
-  0% {
-    transform: translateY(var(--_travel-distance));
-    opacity: 0;
-  }
-  5%, 90% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
+    transition: opacity .3s ease, transform .3s ease;
   }
 }

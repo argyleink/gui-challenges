@@ -25,15 +25,30 @@ const addToast = toast => {
     : Toaster.appendChild(toast)
 }
 
-const Toast = text => {
-  let toast = createToast(text)
-  addToast(toast)
+const removeToast = toast => {
+  toast.classList.add('exit')
 
   return new Promise((resolve, reject) => {
-    toast.onanimationend = e => {
+    toast.ontransitionend = () => {
       Toaster.removeChild(toast)
       resolve()  
-    }
+    }  
+  })
+}
+
+const Toast = text => {
+  const toast = createToast(text)
+  addToast(toast)
+
+  requestAnimationFrame(() => {
+    toast.classList.add('enter')
+  })
+
+  return new Promise((resolve, reject) => {
+    setTimeout(async () => {
+      await removeToast(toast)
+      resolve()
+    }, 5000)
   })
 }
 
