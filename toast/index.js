@@ -12,12 +12,12 @@ $('#actions').on('click', () => {
 
 const randomSpell = () => {
   const spells = ['Fire', 'Ice', 'Lit', 'Dark', 'Toast']
-  const levels = ['','2','3','4','5']
-  return `${spells[getRandomInt(0, spells.length-1)]}${levels[getRandomInt(0, levels.length-1)]}`
+  const levels = ['I','II','III','IV','V']
+  return `${spells[getRandomInt(0, spells.length-1)]} ${levels[getRandomInt(0, levels.length-1)]}`
 }
 
 const randomAction = () => {
-  const actions = ['Saved', 'Added to cart', 'In cart', 'User removed', 'Timer set', `Multi-Line \n Support 👍`, 'This is just really long and completely unnecessary']
+  const actions = ['Saved', 'Added to cart', 'In cart', 'User removed', 'Timer set', 'Added to Favorites', `Multi-Line \n Support 👍`, 'This is just really long and completely unnecessary']
   return `${actions[getRandomInt(0, actions.length-1)]}`
 }
 
