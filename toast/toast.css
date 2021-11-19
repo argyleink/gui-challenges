@@ -15,7 +15,7 @@
 }
 
 .gui-toast {
-  --_duration: 5s;
+  --_duration: 3s;
   --_bg-lightness: 90%;
   --_travel-distance: 0;
 
@@ -29,7 +29,10 @@
   font-size: 1rem;
 
   will-change: transform;
-  animation: ToastShow var(--_duration) ease;
+  animation: 
+    fade-in .3s ease,
+    slide-in .3s ease,
+    fade-out .3s ease var(--_duration);
 
   @media (--dark) {
     color: white;
@@ -41,16 +44,14 @@
   }
 }
 
-@keyframes ToastShow {
-  0% {
-    transform: translateY(var(--_travel-distance));
-    opacity: 0;
-  }
-  5%, 90% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+@keyframes fade-in {
+  from { opacity: 0}
+}
+
+@keyframes fade-out {
+  to { opacity: 0}
+}
+
+@keyframes slide-in {
+  from { transform: translateY(10px) }
 }

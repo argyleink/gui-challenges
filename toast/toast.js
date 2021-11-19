@@ -29,48 +29,41 @@ const Toast = text => {
   let toast = createToast(text)
   addToast(toast)
 
-  return new Promise((resolve, reject) => {
-    toast.onanimationend = e => {
-      Toaster.removeChild(toast)
-      resolve()  
-    }
+  return new Promise(async (resolve, reject) => {
+    await Promise.allSettled(
+      toast.getAnimations().map(animation => 
+        animation.finished
+      )
+    )
+    Toaster.removeChild(toast)
+    resolve() 
   })
 }
 
 // https://aerotwist.com/blog/flip-your-animations/
 const flipToast = toast => {
-  const FLIPS = new Array()
-  const kids_to_move = Array.from(Toaster.children)
-
   // FIRST
-  kids_to_move.forEach((child, i) => {
-    FLIPS[i] = {
-      first: child.getBoundingClientRect()
-    }
-  })
+  const first = Toaster.offsetHeight
 
+  // add new child to change container size
   Toaster.appendChild(toast)
 
   // LAST
-  kids_to_move.forEach((child, i) => {
-    FLIPS[i].last = child.getBoundingClientRect()
+  const last = Toaster.offsetHeight
+
+  // INVERT
+  const invert = last - first
+
+  // PLAY
+  const animation = Toaster.animate([
+    { transform: `translateY(${invert}px)` },
+    { transform: 'translateY(0)' }
+  ], {
+    duration: 150,
+    easing: 'ease-out',
   })
 
-  kids_to_move.forEach((child, i) => {
-    let {first, last} = FLIPS[i]
-
-    // INVERT
-    let invert = first.top - last.top
-
-    // PLAY
-    child.animate([
-      { transform: `translateY(${invert}px)` },
-      { transform: 'translateY(0)' }
-    ], {
-      duration: 100,
-      easing: 'ease-out',
-    })
-  })
+  animation.startTime = document.timeline.currentTime
 }
 
 const Toaster = init()
