@@ -2,7 +2,7 @@ const init = () => {
   const node = document.createElement('section')
   node.classList.add('gui-toast-group')
 
-  document.body.prepend(node)
+  document.firstElementChild.insertBefore(node, document.body)
   return node
 }
 

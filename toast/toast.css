@@ -1,6 +1,6 @@
 .gui-toast-group {
   position: fixed;
-  z-index: 2147483647;
+  z-index: 1;
   inset-block-end: 0;
   inset-inline: 0;
   padding-block-end: 5vh;
@@ -19,6 +19,7 @@
   --_bg-lightness: 90%;
   --_travel-distance: 0;
 
+  font-family: system-ui, sans-serif;
   color: black;
   background: hsl(0 0% var(--_bg-lightness) / 90%);
   
