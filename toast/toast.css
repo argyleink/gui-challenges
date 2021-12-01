@@ -54,5 +54,5 @@
 }
 
 @keyframes slide-in {
-  from { transform: translateY(10px) }
+  from { transform: translateY(var(--_travel-distance, 10px)) }
 }
