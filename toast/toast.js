@@ -11,6 +11,7 @@ const createToast = text => {
   
   node.innerText = text
   node.classList.add('gui-toast')
+  node.setAttribute('role', 'status')
 
   return node
 }
