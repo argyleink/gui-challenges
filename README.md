@@ -54,5 +54,9 @@ and expand the diversity of our skills.**
   [`Article`](https://web.dev/building-a-multi-select-component/)  
 12. Game Menu 
   [`Demo`](https://gui-challenges.web.app/game-menu/dist/) 
+  [`YouTube`](https://www.youtube.com/watch?v=HCsV8u-KYUw)  
+  [`Article`](https://web.dev/building-a-game-menu-component/)
+13. Toast
+  [`Demo`](https://gui-challenges.web.app/toast/dist/) 
   [`YouTube`](#)  (coming soon)  
-  [`Article`](https://web.dev/building-a-game-menu-component/)  (coming soon)  
+  [`Article`](https://web.dev/building-a-toast-component/)  (coming soon)  
