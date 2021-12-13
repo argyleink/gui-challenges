@@ -1,6 +1,6 @@
 .theme-toggle {
-  --icon-fill: hsl(210deg 9% 31%);
-  --icon-fill-hover: hsl(210deg 11% 15%);
+  --icon-fill: hsl(210 9% 31%);
+  --icon-fill-hover: hsl(210 11% 15%);
 
   background: none;
   border: none;
@@ -26,7 +26,7 @@
   }
 }
 
-#moon, #sun {
+.theme-toggle--moon, .theme-toggle--sun {
   fill: var(--icon-fill);
   stroke: none;
 
@@ -35,14 +35,14 @@
   }
 }
 
-#sun {
+.theme-toggle--sun {
   transition: transform .5s var(--ease-4);
   transform-origin: center center;
-  /* transform: scale(.5); */
 }
 
-#sun-beams {
+.theme-toggle--sun-beams {
   --_opacity-dur: .5s;
+
   stroke: var(--icon-fill);
   stroke-width: 2px;
   transform-origin: center center;
@@ -55,16 +55,16 @@
   }
 }
 
-#moon > circle {
+.theme-toggle--moon > circle {
   transition: transform .5s var(--ease-out-3);
 }
 
 [data-theme="dark"] {
-  & #moon > circle {
+  & .theme-toggle--moon > circle {
     transform: translateX(-23px);
   }
 
-  & #sun-beams {
+  & .theme-toggle--sun-beams {
     --_opacity-dur: .15s;
     transform: rotateZ(-.25turn);
     opacity: 0;
