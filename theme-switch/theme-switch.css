@@ -1,0 +1,72 @@
+.theme-toggle {
+  --icon-fill: hsl(210deg 9% 31%);
+  --icon-fill-hover: hsl(210deg 11% 15%);
+
+  background: none;
+  border: none;
+
+  @nest [data-theme="dark"] & {
+    --icon-fill: hsl(210 11% 71%);
+    --icon-fill-hover: hsl(210 16% 93%);
+  }
+
+  & > svg {
+    stroke: currentColor;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}
+
+#moon, #sun {
+  fill: var(--icon-fill);
+  stroke: none;
+
+  @nest :hover > svg > & {
+    fill: var(--icon-fill-hover);
+  }
+}
+
+#sun {
+  transition: transform .5s var(--ease-4);
+  transform-origin: center center;
+}
+
+#sun-beams {
+  --_opacity-dur: .15s;
+  stroke: var(--icon-fill);
+  stroke-width: 2px;
+  transform-origin: center center;
+  transition: 
+    transform .5s var(--ease-elastic-4),
+    opacity var(--_opacity-dur) var(--ease-3);
+
+  @nest :hover > svg > & {
+    stroke: var(--icon-fill-hover);
+  }
+}
+
+#moon > circle {
+  transition: transform .5s var(--ease-out-3);
+}
+
+[data-theme="light"] {
+  & #sun {
+    transform: scale(.5);
+  }
+
+  & #sun-beams {
+    transform: rotateZ(.25turn);
+    --_opacity-dur: .5s;
+  }
+}
+
+[data-theme="dark"] {
+  & #moon > circle {
+    transform: translateX(-20px);
+  }
+
+  & #sun-beams {
+    opacity: 0;
+  }
+}
