@@ -1,4 +1,5 @@
 .theme-toggle {
+  --size: 2rem;
   --icon-fill: hsl(210 9% 31%);
   --icon-fill-hover: hsl(210 11% 15%);
 
@@ -6,10 +7,12 @@
   border: none;
   padding: 0;
 
-  display: flex;
-  place-items: center;
+  inline-size: var(--size);
+  block-size: var(--size);
+
   cursor: pointer;
   touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 
   outline-offset: 5px;
 
@@ -19,10 +22,16 @@
   }
 
   & > svg {
+    inline-size: 100%;
+    block-size: 100%;
     stroke: currentColor;
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
+  }
+
+  @media (hover: none) {
+    --size: 48px;
   }
 }
 
@@ -56,6 +65,7 @@
 }
 
 .theme-toggle--moon > circle {
+  will-change: transform;
   transition: transform .5s var(--ease-out-3);
 }
 
