@@ -4,6 +4,14 @@
 
   background: none;
   border: none;
+  padding: 0;
+
+  display: flex;
+  place-items: center;
+  cursor: pointer;
+  touch-action: manipulation;
+
+  outline-offset: 5px;
 
   @nest [data-theme="dark"] & {
     --icon-fill: hsl(210 11% 71%);
@@ -22,7 +30,7 @@
   fill: var(--icon-fill);
   stroke: none;
 
-  @nest :hover > svg > & {
+  @nest .theme-toggle:hover > svg > & {
     fill: var(--icon-fill-hover);
   }
 }
@@ -30,10 +38,11 @@
 #sun {
   transition: transform .5s var(--ease-4);
   transform-origin: center center;
+  /* transform: scale(.5); */
 }
 
 #sun-beams {
-  --_opacity-dur: .15s;
+  --_opacity-dur: .5s;
   stroke: var(--icon-fill);
   stroke-width: 2px;
   transform-origin: center center;
@@ -41,7 +50,7 @@
     transform .5s var(--ease-elastic-4),
     opacity var(--_opacity-dur) var(--ease-3);
 
-  @nest :hover > svg > & {
+  @nest .theme-toggle:hover > svg > & {
     stroke: var(--icon-fill-hover);
   }
 }
@@ -50,23 +59,14 @@
   transition: transform .5s var(--ease-out-3);
 }
 
-[data-theme="light"] {
-  & #sun {
-    transform: scale(.5);
-  }
-
-  & #sun-beams {
-    transform: rotateZ(.25turn);
-    --_opacity-dur: .5s;
-  }
-}
-
 [data-theme="dark"] {
   & #moon > circle {
-    transform: translateX(-20px);
+    transform: translateX(-23px);
   }
 
   & #sun-beams {
+    --_opacity-dur: .15s;
+    transform: rotateZ(-.25turn);
     opacity: 0;
   }
 }
