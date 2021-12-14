@@ -21,8 +21,6 @@ body {
   min-block-size: 100%;
   font-family: system-ui, sans-serif;
   
-  display: flex;
-  gap: 2ch;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-content: center;
 }
