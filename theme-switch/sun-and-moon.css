@@ -25,7 +25,7 @@
   @nest [data-theme="dark"] & {
     & > .sun {
       transition-timing-function: var(--ease-3);
-      transform: scale(2);
+      transform: scale(1.75);
     }
 
     & > .moon > circle {
