@@ -1,4 +1,3 @@
-// theme toggle
 const getColorPreference = () => {
   if (localStorage.getItem('theme-preference'))
     return localStorage.getItem('theme-preference')
