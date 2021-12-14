@@ -10,17 +10,11 @@
     }
   }
 
-  & > .sun {
-    transition: transform .5s var(--ease-4);
-    transform-origin: center center;
-  }
-
   & > .sun-beams {
     --_opacity-dur: .5s;
 
     stroke: var(--icon-fill);
     stroke-width: 2px;
-    transform-origin: center center;
     transition: opacity var(--_opacity-dur) var(--ease-3);
 
     @nest .theme-toggle:hover & {
@@ -29,6 +23,11 @@
   }
 
   @nest [data-theme="dark"] & {
+    & > .sun {
+      transition-timing-function: var(--ease-3);
+      transform: scale(2);
+    }
+
     & > .moon > circle {
       transform: translateX(-23px);
     }
@@ -44,10 +43,19 @@
   }
 
   @media (--motionOK) {
+    & > .sun {
+      will-change: transform;
+      transition: transform .5s var(--ease-elastic-3);
+      transform-origin: center center;
+    }
+
     & > .sun-beams {
+      will-change: transform;
       transition: 
         transform .5s var(--ease-elastic-4),
         opacity var(--_opacity-dur) var(--ease-3)
+      ;
+      transform-origin: center center;
     }
 
     & .moon > circle {
