@@ -1,0 +1,58 @@
+@import "https://unpkg.com/open-props/easings.min.css";
+
+.sun-and-moon {
+  & > :is(.moon, .sun) {
+    fill: var(--icon-fill);
+    stroke: none;
+
+    @nest .theme-toggle:hover > & {
+      fill: var(--icon-fill-hover);
+    }
+  }
+
+  & > .sun {
+    transition: transform .5s var(--ease-4);
+    transform-origin: center center;
+  }
+
+  & > .sun-beams {
+    --_opacity-dur: .5s;
+
+    stroke: var(--icon-fill);
+    stroke-width: 2px;
+    transform-origin: center center;
+    transition: opacity var(--_opacity-dur) var(--ease-3);
+
+    @nest .theme-toggle:hover & {
+      stroke: var(--icon-fill-hover);
+    }
+  }
+
+  @nest [data-theme="dark"] & {
+    & > .moon > circle {
+      transform: translateX(-23px);
+    }
+
+    & > .sun-beams {
+      --_opacity-dur: .15s;
+      opacity: 0;
+
+      @media (--motionOK) {
+        transform: rotateZ(-.25turn);
+      }
+    }
+  }
+
+  @media (--motionOK) {
+    & > .sun-beams {
+      transition: 
+        transform .5s var(--ease-elastic-4),
+        opacity var(--_opacity-dur) var(--ease-3)
+    }
+
+    & .moon > circle {
+      will-change: transform;
+      transition: transform .5s var(--ease-out-3);
+    }
+  }
+}

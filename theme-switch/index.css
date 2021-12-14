@@ -1,9 +1,7 @@
-@import "https://unpkg.com/open-props/easings.min.css";
-@import "theme-switch.css";
+@import "theme-toggle.css";
+@import "sun-and-moon.css";
 
 @custom-media --motionOK (prefers-reduced-motion: no-preference);
-@custom-media --OSdark (prefers-color-scheme: dark);
-@custom-media --OSlight (prefers-color-scheme: light);
 
 * {
   box-sizing: border-box;
