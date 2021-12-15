@@ -1,6 +1,17 @@
+const storageKey = 'theme-preference'
+
+const onClick = () => {
+  // flip current value
+  theme.value = theme.value === 'light'
+    ? 'dark'
+    : 'light'
+
+  setPreference()
+}
+
 const getColorPreference = () => {
-  if (localStorage.getItem('theme-preference'))
-    return localStorage.getItem('theme-preference')
+  if (localStorage.getItem(storageKey))
+    return localStorage.getItem(storageKey)
   else
     return window.matchMedia('(prefers-color-scheme: dark)').matches
       ? 'dark'
@@ -8,35 +19,37 @@ const getColorPreference = () => {
 }
 
 const setPreference = () => {
-  localStorage.setItem('theme-preference', theme.value)
+  localStorage.setItem(storageKey, theme.value)
   reflectPreference()
 }
 
 const reflectPreference = () => {
-  document.firstElementChild.setAttribute('data-theme', theme.value)
-  document.querySelector('#theme-toggle')?.setAttribute('aria-label', theme.value)
+  document.firstElementChild
+    .setAttribute('data-theme', theme.value)
+
+  document
+    .querySelector('#theme-toggle')
+    ?.setAttribute('aria-label', theme.value)
 }
 
 const theme = {
   value: getColorPreference(),
 }
 
-// set early so no page flashes
+// set early so no page flashes / CSS is made aware
 reflectPreference()
 
 window.onload = () => {
   // set on load so screen readers can see latest value on the button
   reflectPreference()
 
-  document.querySelector('#theme-toggle').addEventListener('click', e => {
-    theme.value = theme.value === 'light'
-      ? 'dark'
-      : 'light'
-
-    setPreference()
-  })
+  // now this script can find and listen for clicks on the control
+  document
+    .querySelector('#theme-toggle')
+    .addEventListener('click', onClick)
 }
 
+// sync with system changes
 window
   .matchMedia('(prefers-color-scheme: dark)')
   .addEventListener('change', ({matches:isDark}) => {
