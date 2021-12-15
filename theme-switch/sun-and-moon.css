@@ -3,7 +3,6 @@
 .sun-and-moon {
   & > :is(.moon, .sun) {
     fill: var(--icon-fill);
-    stroke: none;
 
     @nest .theme-toggle:hover > & {
       fill: var(--icon-fill-hover);
@@ -11,11 +10,9 @@
   }
 
   & > .sun-beams {
-    --_opacity-dur: .5s;
-
     stroke: var(--icon-fill);
     stroke-width: 2px;
-    transition: opacity var(--_opacity-dur) var(--ease-3);
+    transition: opacity .5s var(--ease-3);
 
     @nest .theme-toggle:hover & {
       stroke: var(--icon-fill-hover);
@@ -30,11 +27,11 @@
     }
 
     & > .sun-beams {
-      --_opacity-dur: .15s;
       opacity: 0;
+      transition-duration: .15s;
 
       @media (--motionOK) {
-        transform: rotateZ(-.25turn);
+        transform: rotateZ(-25deg);
       }
     }
 
@@ -54,7 +51,7 @@
     & > .sun-beams {
       transition: 
         transform .5s var(--ease-elastic-4),
-        opacity var(--_opacity-dur) var(--ease-3)
+        opacity .5s var(--ease-3)
       ;
       transform-origin: center center;
     }

@@ -1,7 +1,7 @@
 .theme-toggle {
   --size: 2rem;
-  --icon-fill: hsl(210 9% 31%);
-  --icon-fill-hover: hsl(210 11% 15%);
+  --icon-fill: hsl(210 10% 30%);
+  --icon-fill-hover: hsl(210 10% 15%);
 
   background: none;
   border: none;
@@ -18,18 +18,15 @@
 
   outline-offset: 5px;
 
-  @nest [data-theme="dark"] & {
-    --icon-fill: hsl(210 11% 71%);
-    --icon-fill-hover: hsl(210 16% 93%);
-  }
-
   & > svg {
     inline-size: 100%;
     block-size: 100%;
-    stroke: currentColor;
-    fill: none;
     stroke-linecap: round;
-    stroke-linejoin: round;
+  }
+
+  @nest [data-theme="dark"] & {
+    --icon-fill: hsl(210 10% 70%);
+    --icon-fill-hover: hsl(210 15% 90%);
   }
 
   @media (hover: none) {
