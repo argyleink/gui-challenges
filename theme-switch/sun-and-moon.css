@@ -24,13 +24,9 @@
 
   @nest [data-theme="dark"] & {
     & > .sun {
-      transition-timing-function: var(--ease-3);
       transform: scale(1.75);
-    }
-
-    & > .moon > circle {
-      transform: translateX(-7px);
-      transition-delay: .25s;
+      transition-timing-function: var(--ease-3);
+      transition-duration: .25s;
     }
 
     & > .sun-beams {
@@ -40,6 +36,12 @@
       @media (--motionOK) {
         transform: rotateZ(-.25turn);
       }
+    }
+
+    & > .moon > circle {
+      transform: translateX(-7px);
+      transition-delay: .25s;
+      transition-duration: .5s;
     }
   }
 
@@ -59,7 +61,7 @@
 
     & .moon > circle {
       will-change: transform;
-      transition: transform .5s var(--ease-out-5);
+      transition: transform .25s var(--ease-out-5);
     }
   }
 }
