@@ -45,13 +45,11 @@
 
   @media (--motionOK) {
     & > .sun {
-      will-change: transform;
       transition: transform .5s var(--ease-elastic-3);
       transform-origin: center center;
     }
 
     & > .sun-beams {
-      will-change: transform;
       transition: 
         transform .5s var(--ease-elastic-4),
         opacity var(--_opacity-dur) var(--ease-3)
