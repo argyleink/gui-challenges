@@ -29,7 +29,8 @@
     }
 
     & > .moon > circle {
-      transform: translateX(-23px);
+      transform: translateX(-7px);
+      transition-delay: .25s;
     }
 
     & > .sun-beams {
@@ -60,7 +61,7 @@
 
     & .moon > circle {
       will-change: transform;
-      transition: transform .5s var(--ease-out-3);
+      transition: transform .5s var(--ease-out-5);
     }
   }
 }
