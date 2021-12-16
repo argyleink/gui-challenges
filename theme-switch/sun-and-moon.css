@@ -39,6 +39,11 @@
       transform: translateX(-7px);
       transition-delay: .25s;
       transition-duration: .5s;
+
+      @supports (cx: 1) {
+        transform: translateX(0);
+        cx: 17;
+      }
     }
   }
 
@@ -59,6 +64,10 @@
     & .moon > circle {
       will-change: transform;
       transition: transform .25s var(--ease-out-5);
+
+      @supports (cx: 1) {
+        transition: cx .25s var(--ease-out-5);
+      }
     }
   }
 }
