@@ -1,5 +1,4 @@
 @import "theme-toggle.css";
-@import "sun-and-moon.css";
 
 @custom-media --motionOK (prefers-reduced-motion: no-preference);
 
