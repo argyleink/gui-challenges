@@ -60,3 +60,7 @@ and expand the diversity of our skills.**
   [`Demo`](https://gui-challenges.web.app/toast/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=R75ZVW4LW5o) 
   [`Article`](https://web.dev/building-a-toast-component/)  
+14. Theme Switch
+  [`Demo`](https://gui-challenges.web.app/theme-switch/dist/) 
+  [`YouTube`](#) (coming soon)
+  [`Article`](https://web.dev/building-a-theme-switch-component/) (coming soon) 

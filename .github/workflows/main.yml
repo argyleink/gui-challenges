@@ -52,6 +52,9 @@ jobs:
 
     - name: Build Toast
       run: cd toast && npm install && npm run build
+
+    - name: Build Theme Switch
+      run: cd theme-switch && npm install && npm run build
       
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
