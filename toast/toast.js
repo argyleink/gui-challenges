@@ -12,6 +12,7 @@ const createToast = text => {
   node.innerText = text
   node.classList.add('gui-toast')
   node.setAttribute('role', 'status')
+  node.setAttribute('aria-live', 'polite')
 
   return node
 }
