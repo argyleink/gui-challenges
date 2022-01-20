@@ -62,5 +62,5 @@ and expand the diversity of our skills.**
   [`Article`](https://web.dev/building-a-toast-component/)  
 14. Theme Switch
   [`Demo`](https://gui-challenges.web.app/theme-switch/dist/) 
-  [`YouTube`](#) (coming soon)
-  [`Article`](https://web.dev/building-a-theme-switch-component/) (coming soon) 
+  [`YouTube`](https://www.youtube.com/watch?v=kZiS1QStIWc) 
+  [`Article`](https://web.dev/building-a-theme-switch-component/) 
