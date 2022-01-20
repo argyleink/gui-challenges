@@ -1,7 +1,7 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/59a03ed4-bf70-4441-b65c-200bcd61c013/deploy-status)](https://app.netlify.com/sites/shortstax/deploys)
 
 ### CSS
-[PostCSS](https://postcss.org) to  **bundle**, **import from NPM, local or remote URLs**, handy [easings](https://easings.net), plus [postcss-preset-env](https://preset-env.cssdb.org/) for **latest CSS features**. 
+[PostCSS](https://postcss.org) to  **bundle**, **import from NPM, local or remote URLs**, handy [easings](https://easings.net), plus [postcss-preset-env](https://preset-env.netlify.app/) for **latest CSS features**. 
 
 ### JS
 [Rollup](https://rollupjs.org) to **bundle**, **treeshake**, **import from NPM, local or remote URLs**, **import processed CSS**, plus [babel-preset-env](https://babeljs.io/docs/en/babel-preset-env) for **latest JS features**. 
