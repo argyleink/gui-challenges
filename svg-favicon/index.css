@@ -29,15 +29,15 @@ body {
 }
 
 .github-corner {
-  fill: hotpink;
+  fill: deeppink;
   color: Canvas; 
   
   &:hover .octo-arm {
     animation: octocat-wave 560ms ease-in-out
   }
 
-  @nest [data-theme="dark"] & {
-    fill: indigo;
+  @media (--dark) {
+    fill: slateblue;
   }
 }
 
