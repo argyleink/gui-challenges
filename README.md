@@ -63,4 +63,8 @@ and expand the diversity of our skills.**
 14. Theme Switch
   [`Demo`](https://gui-challenges.web.app/theme-switch/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=kZiS1QStIWc) 
-  [`Article`](https://web.dev/building-a-theme-switch-component/) 
+  [`Article`](https://web.dev/building-a-theme-switch-component/)  
+14. SVG Favicon
+  [`Demo`](https://gui-challenges.web.app/svg-favicon/dist/) 
+  [`YouTube`](#)(coming soon) 
+  [`Article`](https://web.dev/building-an-adaptive-favicon/)(coming soon) 
