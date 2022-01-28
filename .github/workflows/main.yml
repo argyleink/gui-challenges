@@ -55,6 +55,9 @@ jobs:
 
     - name: Build Theme Switch
       run: cd theme-switch && npm install && npm run build
+
+    - name: Build SVG Favicon
+      run: cd svg-favicon && npm install && npm run build
       
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master

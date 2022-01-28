@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <title>SVG Favicon | GUI Challenges</title>
+    <meta name="description" content="🤓">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="Canvas">
+    <meta name="color-scheme" content="light dark">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <link rel="stylesheet" href="./index.css">
+  </head>
+  <body>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 447 428" width="400" height="400">
+      <style>
+        .favicon-stroke {
+          stroke-width: 8px;
+          stroke: #8929ff;
+        }
+        #skull-outline { fill: white }
+        #eyes-and-nose, #hat-outline { fill: #8929ff }
+        #hat-fill, #hat-bill { fill: #e662e6 }
+
+        @media (prefers-color-scheme: dark) {
+          .favicon-stroke { stroke: #343a40 }
+          #skull-outline { fill: #adb5bd }
+          #hat-outline { fill: #343a40 }
+          #eyes-and-nose { fill: #343a40 }
+        }
+      </style>
+      <g id="skull">
+        <path id="skull-outline" class="favicon-stroke" stroke-linejoin="round" d="M19.62 188.39A166.62 166.62 0 0 1 186.24 21.77c115.25 0 166.61 74.59 166.61 166.62 0 1.83-.08 3.64-.13 5.46h.13s.68 175.09.68 178.65c0 30.11-16.26 41.67-36.32 41.67-12.7 0-35.22-3.93-36.22-32.69h-.2c-1 28.76-16.81 32.69-36.22 32.69-18 0-32.87-6.78-35.77-32.53-2.9 25.75-17.8 32.53-35.8 32.53-20.06 0-36.32-11.56-36.32-41.67 0-2.48.36-24.88.36-24.88A166.68 166.68 0 0 1 19.62 188.39Z" />
+        <path id="eyes-and-nose" d="M180.77 205.76c0 23.64 12.84 42.81 28.68 42.81s28.68-19.17 28.68-42.81-12.84-42.82-28.68-42.82-28.68 19.17-28.68 42.82M275 205.76c0 23.64 12.84 42.81 28.68 42.81s28.68-19.17 28.68-42.81-12.84-42.82-28.68-42.82S275 182.11 275 205.76M264.51 276.85s-29.26 43.53-20.12 49.23c7.07 4.41 20.49-16.71 20.49-16.71s12.82 22.58 16.76 20c16.24-10.71-17.13-52.5-17.13-52.5"/>
+        <path id="jawline" class="favicon-stroke" fill="none" stroke-linecap="round" d="M114.92 284.33c22.54-1 22 7 22 62.48" />
+      </g>
+      <g id="hat">
+        <path id="hat-fill" d="m36.27 118.44 2-5.41c.37-1 9.25-24.14 33-47.53 21.83-21.56 60.88-47.26 122.91-47.26C258 18.24 294.8 44 314.46 65.65c21.38 23.52 27.49 46.82 27.74 47.8l1.27 5Z"/>
+        <path id="hat-outline" d="M194.17 22.24c120.68 0 144.15 92.2 144.15 92.2H42.05s34.67-92.2 152.12-92.2m0-8c-27.9 0-53.65 5.07-76.52 15.08a162.3 162.3 0 0 0-49.21 33.33c-24.31 24-33.5 48-33.88 49l-4.07 10.82h318.13l-2.54-10c-.26-1-6.62-25.26-28.66-49.51a140.29 140.29 0 0 0-46.52-33.6c-22.25-10-48.06-15.12-76.73-15.12"/>
+        <path id="hat-bill" class="favicon-stroke" stroke-linecap="square" d="M350.7 117.76c69.17 0 112.9-106.93 57.6-106.93-81 0-95.18 74.6-198.47 106.93M80.32 117.86h267.53"/>
+      </g>
+    </svg>
+
+    <a href="https://github.com/argyleink/gui-challenges" class="github-corner" aria-label="View source on GitHub">
+      <svg width="80" height="80" viewBox="0 0 250 250" style="position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+
+  </body>
+</html>

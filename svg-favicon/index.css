@@ -1,0 +1,54 @@
+@custom-media --motionOK (prefers-reduced-motion: no-preference);
+@custom-media --dark (prefers-color-scheme: dark);
+@custom-media --light (prefers-color-scheme: light);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  block-size: 100%;
+  color-scheme: light;
+
+  @media (--dark) {
+    color-scheme: dark;
+  }
+}
+
+svg {
+  max-inline-size: 75vw;
+}
+
+body {
+  min-block-size: 100%;
+  font-family: system-ui, sans-serif;
+  
+  display: grid;
+  place-content: center;
+}
+
+.github-corner {
+  fill: deeppink;
+  color: Canvas; 
+  
+  &:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+  }
+
+  @media (--dark) {
+    fill: slateblue;
+  }
+}
+
+@keyframes octocat-wave{
+  0%,100% {
+    transform: rotate(0)
+  }
+  20%,60% {
+    transform: rotate(-25deg)
+  }
+  40%,80% {
+    transform: rotate(10deg)
+  }
+}
