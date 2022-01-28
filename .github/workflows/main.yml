@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       
-    - name: Build Challenges
+    - name: Build Stories
       run: cd stories && npm install && npm run build
 
     - name: Build Centering
