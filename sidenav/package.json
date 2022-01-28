@@ -15,7 +15,7 @@
     "prod:server": "browser-sync dist --no-open --no-notify --no-ghost-mode",
     "build:pre:js": "rollup -c --environment NODE_ENV:production",
     "build:pre:css": "postcss app/css/index.css -o dist/bundle.css --env production",
-    "build:post:copy": "cp app/{index.html,favicon.ico,favicon.svg} dist/",
+    "build:post:copy": "cp app/index.html dist/ && cp app/favicon.ico dist/ && cp app/favicon.svg dist/",
     "build": "rm -rf dist && concurrently npm:build:pre:* && concurrently npm:build:post:*",
     "start": "concurrently --kill-others npm:dev:*",
     "production": "npm run build && npm run prod:server"
