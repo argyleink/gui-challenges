@@ -19,10 +19,15 @@
   </head>
   <body>
 
-    <main>
+    <main id="loading-zone" aria-busy="true">
       <label>
         Loading 
-        <progress indeterminate>30%</progress>
+        <progress 
+          indeterminate 
+          role="progressbar" 
+          aria-describedby="loading-zone"
+          tabindex="-1"
+        >unknown</progress>
       </label>
 
       <div class="button-group">
