@@ -20,6 +20,7 @@ main {
   display: grid;
   gap: var(--size-3);
   padding: var(--size-3);
+  max-inline-size: 80vw;
 }
 
 body {
