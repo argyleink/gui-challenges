@@ -21,6 +21,10 @@ progress {
   height: var(--_track-size);
   border-radius: var(--_radius);
   overflow: hidden;
+
+  &:focus-visible {
+    outline-color: var(--_progress);
+  }
   
   /*  Safari/Chromium  */
   &[value]::-webkit-progress-bar {
