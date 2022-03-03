@@ -22,6 +22,11 @@ progress {
   border-radius: var(--_radius);
   overflow: hidden;
 
+  @media (prefers-color-scheme: dark) {
+    --_track: hsl(228 20% 30%);
+    --_progress: hsl(228 100% 75%);
+  }
+
   &:focus-visible {
     outline-color: var(--_progress);
   }
@@ -72,23 +77,21 @@ progress {
   &:not([max])[value="1"]::before,
   &[max="100"][value="100"]::before {
     content: "✓";
+    
     position: absolute;
-    inset: 0 0 0 auto;
-    padding-inline-end: max(calc(var(--_track-size) / 4), 5px);
+    inset-block: 0;
+    inset-inline: auto 0;
+    display: flex;
+    align-items: center;
+    padding-inline-end: max(calc(var(--_track-size) / 4), 3px);
+
     color: white;
-    font-size: calc(var(--_track-size) / 1.5);
+    font-size: calc(var(--_track-size) / 1.25);
   }
 }
 
 @keyframes progress-loading {
   50% {
     background-position: left; 
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  progress {
-    --_track: hsl(228 20% 30%);
-    --_progress: hsl(228 100% 75%);
   }
 }
