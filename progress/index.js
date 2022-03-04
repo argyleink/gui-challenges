@@ -20,6 +20,7 @@ const setProgress = () => {
   if (state.val === null) {
     progress.attr('aria-valuenow', null)
     progress.attr('value', null)
+    progress[0].focus()
     return
   }
 
