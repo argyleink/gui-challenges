@@ -25,7 +25,7 @@ const setProgress = () => {
   }
 
   // round bad JS decimal math
-  const val = state.val.round(2)
+  const val = roundDecimals(state.val, 2)
   const valPercent = val * 100 + "%"
   
   // set value for screenreaders and element values
@@ -85,6 +85,5 @@ reset.on('click', e => {
   setProgress()
 })
 
-Number.prototype.round = function(places) {
-  return +(Math.round(this + "e+" + places)  + "e-" + places);
-}
+const roundDecimals = (val, places) =>
+  +(Math.round(val + "e+" + places)  + "e-" + places)
