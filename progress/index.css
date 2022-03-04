@@ -7,20 +7,53 @@
 .button-group {
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
   gap: var(--size-3);
+  padding: var(--size-4) var(--size-6);
+
+  & button {
+    text-shadow: none;
+  }
 }
 
 label {
-  display: flex;
-  align-items: baseline;
-  gap: 1ch;
+  display: grid;
+  place-items: center;
+
+  & > span {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+  }
 }
 
 main {
   display: grid;
   gap: var(--size-3);
-  padding: var(--size-3);
+  text-align: center;
+  min-block-size: 80vh;
+  place-content: center;
+}
+
+.card {
+  display: grid;
+  gap: var(--size-3);
+  padding: var(--size-4) var(--size-6);
   max-inline-size: 80vw;
+  background: var(--surface-2);
+  border-radius: var(--radius-round);
+  border: 1px solid var(--surface-3);
+  box-shadow: var(--shadow-5);
+  inline-size: var(--size-content-2);
+
+  & progress {
+    inline-size: 100%;
+  }
 }
 
 body {

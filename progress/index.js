@@ -8,7 +8,7 @@ const reset    = $('#reset')
 const zone     = $('#loading-zone')
 
 const state = {
-  val: .3
+  val: .1
 }
 
 const setProgress = () => {
@@ -39,6 +39,22 @@ const setProgress = () => {
 
 // on page load simulate partial completion
 setTimeout(_ => setProgress(), 2000)
+setTimeout(_ => {
+  state.val = .4
+  setProgress()
+}, 4000)
+setTimeout(_ => {
+  state.val = .6
+  setProgress()
+}, 5000)
+setTimeout(_ => {
+  state.val = .9
+  setProgress()
+}, 6000)
+setTimeout(_ => {
+  state.val = 1
+  setProgress()
+}, 8000)
 
 // DEMO EVENTS
 increase.on('click', e => {
