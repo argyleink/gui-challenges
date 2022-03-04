@@ -10,10 +10,6 @@
   justify-content: center;
   gap: var(--size-3);
   padding: var(--size-4) var(--size-6);
-
-  & button {
-    text-shadow: none;
-  }
 }
 
 label {
