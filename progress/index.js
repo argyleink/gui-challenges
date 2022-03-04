@@ -1,26 +1,23 @@
-import $ from 'blingblingjs'
-
-const progress = $('progress')
-const increase = $('#increase')
-const decrease = $('#decrease')
-const complete = $('#complete')
-const reset    = $('#reset')
-const zone     = $('#loading-zone')
+const progress = document.querySelector('progress')
+const zone     = document.querySelector('#loading-zone')
 
 const state = {
   val: .1
 }
 
+const roundDecimals = (val, places) =>
+  +(Math.round(val + "e+" + places)  + "e-" + places)
+
 const setProgress = () => {
   // set loading zone status
-  zone.attr('aria-busy', state.val < 1)
+  zone.setAttribute('aria-busy', state.val < 1)
 
   // clear attributes if no value to show
   // <progress> will show indeterminate state
   if (state.val === null) {
-    progress.attr('aria-valuenow', null)
-    progress.attr('value', null)
-    progress[0].focus()
+    progress.removeAttribute('aria-valuenow')
+    progress.removeAttribute('value')
+    progress.focus()
     return
   }
 
@@ -29,12 +26,12 @@ const setProgress = () => {
   const valPercent = val * 100 + "%"
   
   // set value for screenreaders and element values
-  progress[0].value = val
-  progress.attr('aria-valuenow', valPercent)
-  progress[0].innerText = valPercent
+  progress.value = val
+  progress.setAttribute('aria-valuenow', valPercent)
+  progress.innerText = valPercent
 
   // focus so screenreaders hear the announced value update
-  progress[0].focus()
+  progress.focus()
 }
 
 // on page load simulate partial completion
@@ -57,33 +54,30 @@ setTimeout(_ => {
 }, 8000)
 
 // DEMO EVENTS
-increase.on('click', e => {
+const increase = e => {
   state.val += .2
   
   if (state.val > 1)
     state.val = 1
   
   setProgress()
-})
+}
 
-decrease.on('click', e => {
+const decrease = e => {
   state.val -= .2
   
   if (state.val < 0)
     state.val = 0
   
   setProgress()
-})
+}
 
-complete.on('click', e => {
+const complete = e => {
   state.val = 1
   setProgress()
-})
+}
 
-reset.on('click', e => {
+const reset = e => {
   state.val = null
   setProgress()
-})
-
-const roundDecimals = (val, places) =>
-  +(Math.round(val + "e+" + places)  + "e-" + places)
+}
