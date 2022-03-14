@@ -54,7 +54,7 @@ setTimeout(_ => {
 }, 8000)
 
 // DEMO EVENTS
-const increase = e => {
+window.increase = e => {
   state.val += .2
   
   if (state.val > 1)
@@ -63,7 +63,7 @@ const increase = e => {
   setProgress()
 }
 
-const decrease = e => {
+window.decrease = e => {
   state.val -= .2
   
   if (state.val < 0)
@@ -72,12 +72,12 @@ const decrease = e => {
   setProgress()
 }
 
-const complete = e => {
+window.complete = e => {
   state.val = 1
   setProgress()
 }
 
-const reset = e => {
+window.reset = e => {
   state.val = null
   setProgress()
 }
