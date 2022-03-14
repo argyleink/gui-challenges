@@ -69,5 +69,9 @@ and expand the diversity of our skills.**
   [`Article`](https://web.dev/building-a-theme-switch-component/)  
 14. SVG Favicon
   [`Demo`](https://gui-challenges.web.app/svg-favicon/dist/) 
-  [`YouTube`](#)(coming soon) 
+  [`YouTube`](https://www.youtube.com/watch?v=4pJahmCR8kQ) 
   [`Article`](https://web.dev/building-an-adaptive-favicon/)(coming soon) 
+15. Loading Bar
+  [`Demo`](https://gui-challenges.web.app/progress/dist/) 
+  [`YouTube`](#)(coming soon) 
+  [`Article`](https://web.dev/building-a-loading-bar-component/)(coming soon) 
