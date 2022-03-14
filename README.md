@@ -70,7 +70,7 @@ and expand the diversity of our skills.**
 14. SVG Favicon
   [`Demo`](https://gui-challenges.web.app/svg-favicon/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=4pJahmCR8kQ) 
-  [`Article`](https://web.dev/building-an-adaptive-favicon/)(coming soon) 
+  [`Article`](https://web.dev/building-an-adaptive-favicon/) 
 15. Loading Bar
   [`Demo`](https://gui-challenges.web.app/progress/dist/) 
   [`YouTube`](#)(coming soon) 
