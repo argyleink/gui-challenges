@@ -1,0 +1,101 @@
+@import "open-props/style";
+@import "open-props/normalize";
+@import "open-props/buttons";
+
+@import "progress.css";
+
+.button-group {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: var(--size-3);
+  padding: var(--size-4) var(--size-6);
+}
+
+label {
+  display: grid;
+  place-items: center;
+}
+
+.sr-only {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+main {
+  display: grid;
+  gap: var(--size-3);
+  text-align: center;
+  min-block-size: 80vh;
+  place-content: center;
+}
+
+.card {
+  display: grid;
+  gap: var(--size-3);
+  padding: var(--size-4) var(--size-6);
+  max-inline-size: 80vw;
+  background: white;
+  border-radius: var(--radius-round);
+  border: 1px solid var(--surface-2);
+  box-shadow: var(--shadow-5);
+  inline-size: var(--size-content-2);
+
+  @media (prefers-color-scheme: dark) {
+    background: var(--surface-2);
+  }
+
+  & progress {
+    inline-size: 100%;
+  }
+}
+
+body {
+  display: grid;
+  place-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+.github-corner {
+  fill: var(--surface-4);
+  color: var(--surface-1); 
+  
+  &:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+  }
+
+  & > svg {
+    fill: inherit;
+    stroke: inherit;
+    position: absolute; 
+    top: 0; 
+    right: 0;
+  }
+}
+
+@keyframes octocat-wave{
+  0%,100% {
+    transform: rotate(0)
+  }
+  20%,60% {
+    transform: rotate(-25deg)
+  }
+  40%,80% {
+    transform: rotate(10deg)
+  }
+}
