@@ -44,7 +44,7 @@ const dialogClose = async ({target:dialog}) => {
   console.info('Dialog user action:', dialog.returnValue)
 
   const dialogFormData = new FormData(dialog.querySelector('form'))
-  console.info('Dialog form data', dialogFormData)
+  console.info('Dialog form data', Object.fromEntries(dialogFormData.entries()))
 
   await animationsComplete(dialog)
   console.log('Closed', dialog)

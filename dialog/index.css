@@ -12,12 +12,25 @@ body {
 }
 
 main {
-  display: grid;
+  display: flex;
   gap: var(--size-5);
-  justify-items: center;
 }
 
+.user {
+  inline-size: var(--size-10);
+  aspect-ratio: var(--ratio-square);
+  border-radius: var(--radius-round);
+  border: var(--border-size-1) solid var(--surface-4);
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  align-items: center;
+  justify-content: center;
+}
 
+input[type="text"] {
+  border: 1px solid var(--surface-3);
+}
 
 
 

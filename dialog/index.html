@@ -31,7 +31,10 @@
           </button>
         </header>
         <article>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, nesciunt alias. Tenetur, eos reiciendis deserunt possimus sit minus earum aspernatur?</p>
+          <section>
+            <label for="username">User's name</label>
+            <input id="username" name="username" type="text">
+          </section>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, nesciunt alias. Tenetur, eos reiciendis deserunt possimus sit minus earum aspernatur?</p>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, nesciunt alias. Tenetur, eos reiciendis deserunt possimus sit minus earum aspernatur?</p>
         </article>
@@ -45,15 +48,18 @@
     </dialog>
 
     <main>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium reiciendis eum illum voluptatum quos asperiores quaerat, aperiam nostrum doloribus sapiente harum beatae placeat autem sed quam voluptatem rerum iste eius?  </p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium reiciendis eum illum voluptatum quos asperiores quaerat, aperiam nostrum doloribus sapiente harum beatae placeat autem sed quam voluptatem rerum iste eius?  </p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium reiciendis eum illum voluptatum quos asperiores quaerat, aperiam nostrum doloribus sapiente harum beatae placeat autem sed quam voluptatem rerum iste eius?  </p>
-      <button onclick="GuiDialog.showModal()">Open Dialog</button>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium reiciendis eum illum voluptatum quos asperiores quaerat, aperiam nostrum doloribus sapiente harum beatae placeat autem sed quam voluptatem rerum iste eius?  </p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium reiciendis eum illum voluptatum quos asperiores quaerat, aperiam nostrum doloribus sapiente harum beatae placeat autem sed quam voluptatem rerum iste eius?  </p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium reiciendis eum illum voluptatum quos asperiores quaerat, aperiam nostrum doloribus sapiente harum beatae placeat autem sed quam voluptatem rerum iste eius?  </p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium reiciendis eum illum voluptatum quos asperiores quaerat, aperiam nostrum doloribus sapiente harum beatae placeat autem sed quam voluptatem rerum iste eius?  </p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium reiciendis eum illum voluptatum quos asperiores quaerat, aperiam nostrum doloribus sapiente harum beatae placeat autem sed quam voluptatem rerum iste eius?  </p>
+      <div class="user">
+        <img src="https://doodleipsum.com/700x700/avatar-5?i=e49dd48962488beade4c44491e56a5a9" alt="">
+      </div>
+      <div class="user">
+        <img src="https://doodleipsum.com/700x700/avatar-5?i=ca71b901f3ad2ce77d50ab296aff3f5f" alt="">
+      </div>
+      <button class="user" onclick="window.GuiDialog.showModal()">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+      </button>
     </main>
 
     <a href="https://github.com/argyleink/gui-challenges" class="github-corner" aria-label="View source on GitHub">
