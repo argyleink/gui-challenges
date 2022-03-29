@@ -1,0 +1,55 @@
+@import "open-props/style";
+@import "open-props/normalize";
+@import "open-props/media";
+@import "open-props/buttons";
+
+@import "dialog.css";
+
+body {
+  display: grid;
+  place-content: center;
+  padding-inline: var(--size-5);
+}
+
+main {
+  display: grid;
+  gap: var(--size-5);
+  justify-items: center;
+}
+
+
+
+
+
+
+
+
+
+.github-corner {
+  fill: var(--surface-4);
+  color: var(--surface-1); 
+  
+  &:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+  }
+
+  & > svg {
+    fill: inherit;
+    stroke: inherit;
+    position: absolute; 
+    top: 0; 
+    right: 0;
+  }
+}
+
+@keyframes octocat-wave{
+  0%,100% {
+    transform: rotate(0)
+  }
+  20%,60% {
+    transform: rotate(-25deg)
+  }
+  40%,80% {
+    transform: rotate(10deg)
+  }
+}
