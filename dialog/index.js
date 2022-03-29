@@ -1,8 +1,23 @@
+// custom events to be added to <dialog>
+const dialogClosingEvent = new Event('closing')
+const dialogClosedEvent  = new Event('closed')
+const dialogOpeningEvent = new Event('opening')
+const dialogOpenedEvent  = new Event('opened')
+const dialogRemovedEvent = new Event('removed')
+
 // track opening
 const dialogAttrObserver = new MutationObserver((mutations, observer) => {
-  mutations.forEach(mutation => {
-    if (mutation.attributeName === 'open')
-      dialogOpen(mutation)
+  mutations.forEach(async mutation => {
+    if (mutation.attributeName === 'open') {
+      const dialog = mutation.target
+
+      const isOpen = dialog.hasAttribute('open')
+      if (!isOpen) return
+
+      dialog.dispatchEvent(dialogOpeningEvent)
+      await animationsComplete(dialog)
+      dialog.dispatchEvent(dialogOpenedEvent)
+    }
   })
 })
 
@@ -11,7 +26,7 @@ const dialogDeleteObserver = new MutationObserver((mutations, observer) => {
   mutations.forEach(mutation => {
     mutation.removedNodes.forEach(removedNode => {
       if (removedNode.nodeName === 'DIALOG')
-        dialogDeleted(removedNode)
+        removedNode.dispatchEvent(dialogRemovedEvent)
     })
   })
 })
@@ -28,34 +43,48 @@ const lightDismiss = ({target:dialog}) => {
     dialog.close('dismiss')
 }
 
-// dialog opening handler
-const dialogOpen = async ({target:dialog}) => {
-  const isOpen = dialog.hasAttribute('open')
-  if (!isOpen) return
+// dialog close handler
+const dialogClose = async ({target:dialog}) => {
+  dialog.dispatchEvent(dialogClosingEvent)
 
-  console.log('Opening', dialog)
   await animationsComplete(dialog)
-  console.log('Opened', dialog)
+
+  dialog.dispatchEvent(dialogClosedEvent)
 }
 
-// dialog closing handler
-const dialogClose = async ({target:dialog}) => {
-  console.log('Closing', dialog)
+const dialogClosing = ({target:dialog}) => {
+  console.log('Dialog closing', dialog)
+}
+
+const dialogClosed = ({target:dialog}) => {
+  console.log('Dialog closed', dialog)
   console.info('Dialog user action:', dialog.returnValue)
 
   const dialogFormData = new FormData(dialog.querySelector('form'))
   console.info('Dialog form data', Object.fromEntries(dialogFormData.entries()))
 
-  await animationsComplete(dialog)
-  console.log('Closed', dialog)
-
   dialog.querySelector('form')?.reset()
 }
 
+// dialog open handler
+const dialogOpened = ({target:dialog}) => {
+  console.log('Dialog open', dialog)
+}
+
+// dialog opening handler
+const dialogOpening = ({target:dialog}) => {
+  console.log('Dialog opening', dialog)
+}
+
 // dialog deleted handler
-const dialogDeleted = dialog => {
+const dialogRemoved = ({target:dialog}) => {
   dialog.removeEventListener('click', lightDismiss)
   dialog.removeEventListener('close', dialogClose)
+  dialog.removeEventListener('closing', dialogClosing)
+  dialog.removeEventListener('closed', dialogClosed)
+  dialog.removeEventListener('opening', dialogOpening)
+  dialog.removeEventListener('opened', dialogOpened)
+  dialog.removeEventListener('removed', dialogRemoved)
   console.log('Dialog removed', dialog)
 }
 
@@ -63,6 +92,11 @@ const dialogDeleted = dialog => {
 document.querySelectorAll('dialog').forEach(async dialog => {
   dialog.addEventListener('click', lightDismiss)
   dialog.addEventListener('close', dialogClose)
+  dialog.addEventListener('closing', dialogClosing)
+  dialog.addEventListener('closed', dialogClosed)
+  dialog.addEventListener('opening', dialogOpening)
+  dialog.addEventListener('opened', dialogOpened)
+  dialog.addEventListener('removed', dialogRemoved)
 
   dialogAttrObserver.observe(dialog, { 
     attributes: true,
