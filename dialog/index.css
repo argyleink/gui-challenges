@@ -13,6 +13,8 @@ body {
 
 main {
   display: flex;
+  flex-wrap: wrap;
+  place-content: center;
   gap: var(--size-5);
 }
 
