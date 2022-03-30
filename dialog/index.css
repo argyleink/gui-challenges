@@ -26,6 +26,14 @@ main {
   justify-content: stretch;
   align-items: center;
   justify-content: center;
+
+  &.new:not(button) {
+    animation: 
+      var(--animation-fade-in) forwards,
+      var(--animation-slide-in-down);
+    animation-timing-function: var(--ease-squish-3);
+    animation-duration: .8s;
+  }
 }
 
 input[type="text"] {
