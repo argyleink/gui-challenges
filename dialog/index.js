@@ -16,7 +16,18 @@ const handleFile = form => {
     const avatar = document.createElement('img')
     avatar.src = e.target.result
 
+    const button = document.createElement('button')
+    button.title = 'Remove user'
+    button.innerHTML = `
+      <svg width="24" height="24" viewBox="0 0 24 24">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    `
+
     newuser.appendChild(avatar)
+    newuser.appendChild(button)
+
     main.appendChild(newuser)
     main.appendChild(main.querySelector('button.user'))
   }
@@ -60,7 +71,7 @@ const dialogRemoved = ({target:dialog}) => {
 }
 
 // SETUP
-document.querySelectorAll('dialog').forEach(dialog => {
+document.querySelectorAll('dialog[modal-mode="mega"]').forEach(dialog => {
   // sugar up <dialog> elements
   GuiDialog(dialog)
 
@@ -70,4 +81,33 @@ document.querySelectorAll('dialog').forEach(dialog => {
   dialog.addEventListener('opening', dialogOpening)
   dialog.addEventListener('opened', dialogOpened)
   dialog.addEventListener('removed', dialogRemoved)
+})
+
+// remove button
+document.querySelector('main').addEventListener('click', e => {
+  // filter event targets for the remove buttons
+  const removeButton = e.target.closest('button:not(.user)')
+  if (!removeButton) return
+
+  const bounds = removeButton.getBoundingClientRect()
+  const miniModalHeight = window.GuiMiniDialog.clientHeight - 15
+  const miniModalWidth = window.GuiMiniDialog.clientWidth / 2
+
+  window.GuiMiniDialog.style.marginBottom = bounds.top + miniModalHeight + 'px'
+  window.GuiMiniDialog.style.marginLeft = bounds.left - miniModalWidth + 'px'
+  window.GuiMiniDialog.showModal()
+
+  window.GuiMiniDialog.addEventListener('closing', ({target:dialog}) => {
+    if (dialog.returnValue === 'confirm') {
+      const user = removeButton.closest('.user')
+      user.style.animation = 'var(--animation-scale-down), var(--animation-fade-out)'
+      user.addEventListener('animationend', e => {
+        user.remove()
+      }, {once: true})
+    }
+  }, {once: true})
+})
+
+document.querySelectorAll('dialog[modal-mode="mini"]').forEach(dialog => {
+  GuiDialog(dialog)
 })
