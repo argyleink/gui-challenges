@@ -90,17 +90,17 @@ document.querySelector('main').addEventListener('click', e => {
   if (!removeButton) return
 
   const bounds = removeButton.getBoundingClientRect()
-  const miniModalHeight = window.GuiMiniDialog.clientHeight - 15
-  const miniModalWidth = window.GuiMiniDialog.clientWidth / 2
+  const miniModalHeight = window.MiniDialog.clientHeight - 15
+  const miniModalWidth = window.MiniDialog.clientWidth / 2
 
   let left = bounds.left - miniModalWidth
   if (left < 0) left = 10
 
-  window.GuiMiniDialog.style.marginBottom = bounds.top + miniModalHeight + 'px'
-  window.GuiMiniDialog.style.marginLeft = left + 'px'
-  window.GuiMiniDialog.showModal()
+  window.MiniDialog.style.marginBottom = bounds.top + miniModalHeight + 'px'
+  window.MiniDialog.style.marginLeft = left + 'px'
+  window.MiniDialog.showModal()
 
-  window.GuiMiniDialog.addEventListener('closing', ({target:dialog}) => {
+  window.MiniDialog.addEventListener('closing', ({target:dialog}) => {
     if (dialog.returnValue === 'confirm') {
       const user = removeButton.closest('.user')
       user.style.animation = 'var(--animation-scale-down), var(--animation-fade-out)'
