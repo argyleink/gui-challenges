@@ -22,6 +22,7 @@ main {
   inline-size: var(--size-10);
   aspect-ratio: var(--ratio-square);
   border-radius: var(--radius-round);
+  overflow: hidden;
   border: var(--border-size-1) solid var(--surface-4);
   display: flex;
   align-items: stretch;
