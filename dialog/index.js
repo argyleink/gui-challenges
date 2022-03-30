@@ -31,11 +31,13 @@ const dialogClosed = ({target:dialog}) => {
   console.log('Dialog closed', dialog)
   console.info('Dialog user action:', dialog.returnValue)
 
-  const dialogFormData = new FormData(dialog.querySelector('form'))
-  console.info('Dialog form data', Object.fromEntries(dialogFormData.entries()))
-  handleFile(dialogFormData)
+  if (dialog.returnValue === 'confirm') {
+    const dialogFormData = new FormData(dialog.querySelector('form'))
+    console.info('Dialog form data', Object.fromEntries(dialogFormData.entries()))
+    handleFile(dialogFormData)
 
-  dialog.querySelector('form')?.reset()
+    dialog.querySelector('form')?.reset()
+  }
 }
 
 const dialogOpened = ({target:dialog}) => {
