@@ -93,8 +93,11 @@ document.querySelector('main').addEventListener('click', e => {
   const miniModalHeight = window.GuiMiniDialog.clientHeight - 15
   const miniModalWidth = window.GuiMiniDialog.clientWidth / 2
 
+  let left = bounds.left - miniModalWidth
+  if (left < 0) left = 10
+
   window.GuiMiniDialog.style.marginBottom = bounds.top + miniModalHeight + 'px'
-  window.GuiMiniDialog.style.marginLeft = bounds.left - miniModalWidth + 'px'
+  window.GuiMiniDialog.style.marginLeft = left + 'px'
   window.GuiMiniDialog.showModal()
 
   window.GuiMiniDialog.addEventListener('closing', ({target:dialog}) => {
