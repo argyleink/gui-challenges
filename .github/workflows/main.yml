@@ -61,6 +61,9 @@ jobs:
 
     - name: Build Loading Bar
       run: cd progress && npm install && npm run build
+
+    - name: Build Dialog
+      run: cd dialog && npm install && npm run build
       
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
