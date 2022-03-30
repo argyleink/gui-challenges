@@ -30,6 +30,10 @@ main {
   align-items: center;
   justify-content: center;
 
+  &button > svg {
+    --_icon-size: var(--size-fluid-4);
+  }
+
   &.new:not(button) {
     animation: 
       var(--animation-slide-in-down),
@@ -38,10 +42,6 @@ main {
       var(--ease-elastic-3),
       var(--ease-3);
   }
-}
-
-input[type="text"] {
-  border: 1px solid var(--surface-3);
 }
 
 
