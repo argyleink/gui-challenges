@@ -29,10 +29,11 @@ main {
 
   &.new:not(button) {
     animation: 
-      var(--animation-fade-in) forwards,
-      var(--animation-slide-in-down);
-    animation-timing-function: var(--ease-squish-3);
-    animation-duration: .8s;
+      var(--animation-slide-in-down),
+      var(--animation-fade-in) forwards;
+    animation-timing-function: 
+      var(--ease-elastic-3),
+      var(--ease-3);
   }
 }
 
