@@ -57,7 +57,7 @@ dialog {
       animation: var(--animation-slide-in-up) forwards;
     }
 
-    &::backdrop {
+    &:not(modal-mode="mini")::backdrop {
       backdrop-filter: blur(5px);
     }
   }
@@ -79,7 +79,7 @@ dialog {
       box-shadow: var(--shadow-2);
       z-index: var(--layer-1);
       padding-inline: var(--size-5);
-      padding-block: var(--size-3) var(--size-5);
+      padding-block: var(--size-3);
 
       @media (--OSdark) {
         border-block-start: var(--border-size-1) solid var(--surface-3);
