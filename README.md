@@ -73,5 +73,9 @@ and expand the diversity of our skills.**
   [`Article`](https://web.dev/building-an-adaptive-favicon/) 
 15. Loading Bar
   [`Demo`](https://gui-challenges.web.app/progress/dist/) 
+  [`YouTube`](https://www.youtube.com/watch?v=TD1QxlGgIPk) 
+  [`Article`](https://web.dev/building-a-loading-bar-component/) 
+15. Dialog
+  [`Demo`](https://gui-challenges.web.app/dialog/dist/) 
   [`YouTube`](#)(coming soon) 
-  [`Article`](https://web.dev/building-a-loading-bar-component/)(coming soon) 
+  [`Article`](https://web.dev/building-a-dialog-component/)(coming soon) 
