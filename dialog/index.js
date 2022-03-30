@@ -1,57 +1,28 @@
-// custom events to be added to <dialog>
-const dialogClosingEvent = new Event('closing')
-const dialogClosedEvent  = new Event('closed')
-const dialogOpeningEvent = new Event('opening')
-const dialogOpenedEvent  = new Event('opened')
-const dialogRemovedEvent = new Event('removed')
+import GuiDialog from './dialog.js'
 
-// track opening
-const dialogAttrObserver = new MutationObserver((mutations, observer) => {
-  mutations.forEach(async mutation => {
-    if (mutation.attributeName === 'open') {
-      const dialog = mutation.target
+const handleFile = form => {
+  const file = form.get('userimage')
+  if (!file.size) return
 
-      const isOpen = dialog.hasAttribute('open')
-      if (!isOpen) return
+  const reader = new FileReader()
+  reader.readAsDataURL(file)
 
-      dialog.dispatchEvent(dialogOpeningEvent)
-      await animationsComplete(dialog)
-      dialog.dispatchEvent(dialogOpenedEvent)
-    }
-  })
-})
+  reader.onload = e => {
+    const main = document.querySelector('main')
+    
+    const newuser = document.createElement('div')
+    newuser.className = 'new user'
+    
+    const avatar = document.createElement('img')
+    avatar.src = e.target.result
 
-// track deletion
-const dialogDeleteObserver = new MutationObserver((mutations, observer) => {
-  mutations.forEach(mutation => {
-    mutation.removedNodes.forEach(removedNode => {
-      if (removedNode.nodeName === 'DIALOG')
-        removedNode.dispatchEvent(dialogRemovedEvent)
-    })
-  })
-})
-
-// wait for all dialog animations to complete their promises
-const animationsComplete = element =>
-  Promise.allSettled(
-    element.getAnimations().map(animation => 
-      animation.finished))
-
-// click outside the dialog handler
-const lightDismiss = ({target:dialog}) => {
-  if (dialog.nodeName === 'DIALOG')
-    dialog.close('dismiss')
+    newuser.appendChild(avatar)
+    main.appendChild(newuser)
+    main.appendChild(main.querySelector('button.user'))
+  }
 }
 
-// dialog close handler
-const dialogClose = async ({target:dialog}) => {
-  dialog.dispatchEvent(dialogClosingEvent)
-
-  await animationsComplete(dialog)
-
-  dialog.dispatchEvent(dialogClosedEvent)
-}
-
+// new events
 const dialogClosing = ({target:dialog}) => {
   console.log('Dialog closing', dialog)
 }
@@ -62,54 +33,39 @@ const dialogClosed = ({target:dialog}) => {
 
   const dialogFormData = new FormData(dialog.querySelector('form'))
   console.info('Dialog form data', Object.fromEntries(dialogFormData.entries()))
+  handleFile(dialogFormData)
 
   dialog.querySelector('form')?.reset()
 }
 
-// dialog open handler
 const dialogOpened = ({target:dialog}) => {
   console.log('Dialog open', dialog)
 }
 
-// dialog opening handler
 const dialogOpening = ({target:dialog}) => {
   console.log('Dialog opening', dialog)
 }
 
-// dialog deleted handler
 const dialogRemoved = ({target:dialog}) => {
-  dialog.removeEventListener('click', lightDismiss)
-  dialog.removeEventListener('close', dialogClose)
+  // cleanup new/optional <dialog> events
   dialog.removeEventListener('closing', dialogClosing)
   dialog.removeEventListener('closed', dialogClosed)
   dialog.removeEventListener('opening', dialogOpening)
   dialog.removeEventListener('opened', dialogOpened)
   dialog.removeEventListener('removed', dialogRemoved)
+
   console.log('Dialog removed', dialog)
 }
 
-// page load dialogs setup
-document.querySelectorAll('dialog').forEach(async dialog => {
-  dialog.addEventListener('click', lightDismiss)
-  dialog.addEventListener('close', dialogClose)
+// SETUP
+document.querySelectorAll('dialog').forEach(dialog => {
+  // sugar up <dialog> elements
+  GuiDialog(dialog)
+
+  // new/optional <dialog> events to choose from
   dialog.addEventListener('closing', dialogClosing)
   dialog.addEventListener('closed', dialogClosed)
   dialog.addEventListener('opening', dialogOpening)
   dialog.addEventListener('opened', dialogOpened)
   dialog.addEventListener('removed', dialogRemoved)
-
-  dialogAttrObserver.observe(dialog, { 
-    attributes: true,
-  })
-
-  dialogDeleteObserver.observe(document.body, {
-    attributes: false,
-    subtree: false,
-    childList: true,
-  })
-
-  // remove loading attribute
-  // prevent page load @keyframes playing
-  await animationsComplete(dialog)
-  dialog.removeAttribute('loading')
 })
