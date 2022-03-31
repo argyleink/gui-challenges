@@ -31,10 +31,11 @@
           </button>
         </header>
         <article>
-          <section>
+          <section class="labelled-input">
+            <label for="userimage">Upload an image</label>
             <input id="userimage" name="userimage" type="file">
           </section>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, nesciunt alias. Tenetur, eos reiciendis deserunt possimus sit minus earum aspernatur?</p>
+          <p><b>*</b> Maximum upload 1mb. Lorem ipsum dolor, sit amet consectetur adipisicing voluptas elit.</p>
         </article>
         <footer>
           <menu>
@@ -48,7 +49,14 @@
     <dialog id="MiniDialog" loading modal-mode="mini"> 
       <form method="dialog">
         <article>
-          <p>Are you sure you want to remove this user?</p>
+          <section class="warning-message">
+            <svg width="24" height="24" viewBox="0 0 24 24" >
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+              <line x1="12" y1="9" x2="12" y2="13"></line>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            <p>Are you sure you want to remove this user?</p>
+          </section>
         </article>
         <footer>
           <menu>

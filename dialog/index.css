@@ -58,6 +58,31 @@ main {
   }
 }
 
+.labelled-input {
+  display: flex;
+  gap: var(--size-3);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.warning-message {
+  display: grid;
+  grid-template-columns: var(--size-fluid-4) 1fr;
+  gap: var(--size-3);
+  align-items: center;
+
+  & > svg {
+    inline-size: 100%;
+    stroke: var(--orange-3);
+  }
+}
+
+input[type="file"] {
+  max-inline-size: 100%;
+  flex-basis: 27ch;
+  inline-size: 100%;
+}
+
 
 
 
