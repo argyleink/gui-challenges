@@ -120,6 +120,7 @@ dialog {
         display: flex;
         flex-wrap: wrap;
         gap: var(--size-3);
+        padding-inline-start: 0;
       }
     }
 
