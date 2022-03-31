@@ -1,4 +1,4 @@
-html:has(dialog[open]) {
+html:has(dialog[open][modal-mode="mega"]) {
   overflow: hidden;
 }
 
