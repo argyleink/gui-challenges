@@ -11,6 +11,7 @@ dialog {
   max-block-size: min(80dvb, 100%);
   margin: auto;
   padding: 0;
+  position: fixed;
   inset: 0;
   border-radius: var(--radius-3);
   box-shadow: var(--shadow-6);
