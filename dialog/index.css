@@ -77,6 +77,17 @@ main {
   }
 }
 
+.icon-headline {
+  display: flex;
+  gap: var(--size-3);
+  align-items: center;
+
+  & > svg {
+    inline-size: 2em;
+    stroke: var(--text-2);
+  }
+}
+
 input[type="file"] {
   max-inline-size: 100%;
   flex-basis: 27ch;
