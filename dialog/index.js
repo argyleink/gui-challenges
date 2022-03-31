@@ -96,8 +96,10 @@ document.querySelector('main').addEventListener('click', e => {
   let left = bounds.left - miniModalWidth
   if (left < 0) left = 10
 
-  window.MiniDialog.style.marginBottom = bounds.top + miniModalHeight + 'px'
-  window.MiniDialog.style.marginLeft = left + 'px'
+  window.MiniDialog.style.marginTop = bounds.y - miniModalHeight + 'px'
+  window.MiniDialog.style.marginLeft = null
+  if (window.innerWidth >= 768)
+    window.MiniDialog.style.marginLeft = left + 'px'
   window.MiniDialog.showModal()
 
   window.MiniDialog.addEventListener('closing', ({target:dialog}) => {
