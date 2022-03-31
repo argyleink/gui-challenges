@@ -14,6 +14,14 @@ const dialogAttrObserver = new MutationObserver((mutations, observer) => {
       const isOpen = dialog.hasAttribute('open')
       if (!isOpen) return
 
+      dialog.removeAttribute('inert')
+
+      // set focus
+      const focusTarget = dialog.querySelector('[autofocus]')
+      focusTarget
+        ? focusTarget.focus()
+        : dialog.querySelector('button').focus()
+
       dialog.dispatchEvent(dialogOpeningEvent)
       await animationsComplete(dialog)
       dialog.dispatchEvent(dialogOpenedEvent)
@@ -47,6 +55,7 @@ const lightDismiss = ({target:dialog}) => {
 }
 
 const dialogClose = async ({target:dialog}) => {
+  dialog.setAttribute('inert', '')
   dialog.dispatchEvent(dialogClosingEvent)
 
   await animationsComplete(dialog)
