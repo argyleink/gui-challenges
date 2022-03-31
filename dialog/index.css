@@ -52,6 +52,10 @@ main {
       var(--ease-elastic-3),
       var(--ease-3);
   }
+
+  & img {
+    border-radius: inherit;
+  }
 }
 
 
