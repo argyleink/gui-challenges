@@ -4,7 +4,7 @@ html:has(dialog[open][modal-mode="mega"]) {
 
 dialog {
   display: grid;
-  background: var(--surface-1);
+  background: var(--surface-2);
   color: inherit; /* safari */
   max-inline-size: min(90vw, var(--size-content-3));
   max-block-size: min(80vh, 100%);
@@ -25,7 +25,7 @@ dialog {
   }
 
   @media (--OSdark) {
-    background: var(--surface-2);
+    background: var(--surface-1);
     border-block-start: var(--border-size-1) solid var(--surface-3);
   }
 
@@ -81,10 +81,12 @@ dialog {
       gap: var(--size-3);
       box-shadow: var(--shadow-2);
       z-index: var(--layer-1);
+      background: var(--surface-1);
       padding-inline: var(--size-5);
       padding-block: var(--size-3);
 
       @media (--OSdark) {
+        background: var(--surface-2);
         border-block-start: var(--border-size-1) solid var(--surface-3);
       }
     }
@@ -94,7 +96,6 @@ dialog {
       gap: var(--size-3);
       justify-content: space-between;
       align-items: flex-start;
-      background: var(--surface-2);
       padding-block: var(--size-3);
       padding-inline: var(--size-5);
 
@@ -110,7 +111,6 @@ dialog {
     }
 
     & > footer {
-      background: var(--surface-2);
       display: flex;
       justify-content: flex-end;
       padding-inline: var(--size-5);
@@ -121,12 +121,6 @@ dialog {
         flex-wrap: wrap;
         gap: var(--size-3);
         padding-inline-start: 0;
-      }
-    }
-
-    @media (--OSdark) {
-      & > :is(header,footer) {
-        background: var(--surface-1);
       }
     }
   }
