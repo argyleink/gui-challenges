@@ -117,7 +117,10 @@ dialog {
 
     & > footer {
       display: flex;
+      flex-wrap: wrap;
+      gap: var(--size-3);
       justify-content: space-between;
+      align-items: flex-start;
       padding-inline: var(--size-5);
       padding-block: var(--size-3);
 
