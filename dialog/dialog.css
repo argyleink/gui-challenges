@@ -17,8 +17,6 @@ dialog {
   box-shadow: var(--shadow-6);
   z-index: var(--layer-important);
   overflow: hidden;
-  pointer-events: none;
-  opacity: 0;
   transition: opacity .5s var(--ease-3);
   
   @media (--motionOK) {
@@ -52,10 +50,12 @@ dialog {
     visibility: hidden;
   }
 
-  &[open] {
-    pointer-events: auto;
-    opacity: 1;
+  &:not([open]) {
+    pointer-events: none;
+    opacity: 0;
+  }
 
+  &[open] {
     @media (--motionOK) {
       animation: var(--animation-slide-in-up) forwards;
     }
