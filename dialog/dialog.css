@@ -112,7 +112,7 @@ dialog {
 
     & > footer {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       padding-inline: var(--size-5);
       padding-block: var(--size-3);
 
@@ -121,6 +121,12 @@ dialog {
         flex-wrap: wrap;
         gap: var(--size-3);
         padding-inline-start: 0;
+
+        &:only-child {
+          margin-inline-start: auto;
+        }
+      }
+    }
       }
     }
   }

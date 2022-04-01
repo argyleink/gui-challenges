@@ -43,11 +43,14 @@
             <label for="userimage">Upload an image</label>
             <input id="userimage" name="userimage" type="file">
           </section>
-          <p><b>*</b> Maximum upload 1mb. Lorem ipsum dolor, sit amet consectetur adipi sicing voluptas elit.</p>
+          <small><b>*</b> Maximum upload 1mb</small>
         </article>
         <footer>
           <menu>
-            <button autofocus type="reset" onclick="this.closest('dialog').close('cancel')">Cancel</button>
+            <button type="reset" value="clear">Clear</button>
+          </menu>
+          <menu>
+            <button autofocus type="button" onclick="this.closest('dialog').close('cancel')">Cancel</button>
             <button type="submit" value="confirm">Confirm</button>
           </menu>
         </footer>
