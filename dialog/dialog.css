@@ -55,13 +55,17 @@ dialog {
     opacity: 0;
   }
 
+  &[modal-mode="mega"]::backdrop {
+    backdrop-filter: blur(25px);
+  }
+
+  &[modal-mode="mini"]::backdrop {
+    backdrop-filter: none;
+  }
+
   &[open] {
     @media (--motionOK) {
       animation: var(--animation-slide-in-up) forwards;
-    }
-
-    &[modal-mode="mega"]::backdrop {
-      backdrop-filter: blur(25px);
     }
   }
 
