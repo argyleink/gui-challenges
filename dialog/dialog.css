@@ -41,14 +41,6 @@ dialog {
     }
   }
 
-  &::backdrop {
-    transition: backdrop-filter .5s ease;
-  }
-
-  &[loading] {
-    visibility: hidden;
-  }
-
   &:not([open]) {
     pointer-events: none;
     opacity: 0;
@@ -60,6 +52,14 @@ dialog {
 
   &[modal-mode="mini"]::backdrop {
     backdrop-filter: none;
+  }
+
+  &::backdrop {
+    transition: backdrop-filter .5s ease;
+  }
+
+  &[loading] {
+    visibility: hidden;
   }
 
   &[open] {
