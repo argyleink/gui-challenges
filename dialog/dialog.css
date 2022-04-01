@@ -25,7 +25,6 @@ dialog {
   }
 
   @media (--OSdark) {
-    background: var(--surface-1);
     border-block-start: var(--border-size-1) solid var(--surface-3);
   }
 
@@ -85,12 +84,14 @@ dialog {
       gap: var(--size-3);
       box-shadow: var(--shadow-2);
       z-index: var(--layer-1);
-      background: var(--surface-1);
       padding-inline: var(--size-5);
       padding-block: var(--size-3);
 
+      @media (--OSlight) {
+        background: var(--surface-1);
+      }
+
       @media (--OSdark) {
-        background: var(--surface-2);
         border-block-start: var(--border-size-1) solid var(--surface-3);
       }
     }
@@ -131,6 +132,12 @@ dialog {
         }
       }
     }
+
+    & > :is(header, footer) {
+      background-color: var(--surface-2);
+
+      @media (--OSdark) {
+        background-color: var(--surface-1);
       }
     }
   }
