@@ -5,7 +5,7 @@ html:has(dialog[open][modal-mode="mega"]) {
 dialog {
   display: grid;
   background: var(--surface-2);
-  color: inherit; /* safari */
+  color: var(--text-1);
   max-inline-size: min(90vw, var(--size-content-3));
   max-block-size: min(80vh, 100%);
   max-block-size: min(80dvb, 100%);
