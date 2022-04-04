@@ -133,6 +133,12 @@ dialog {
         &:only-child {
           margin-inline-start: auto;
         }
+
+        @media (max-width: 400px) {
+          & button[type="reset"] {
+            display: none;
+          }
+        }
       }
     }
 
