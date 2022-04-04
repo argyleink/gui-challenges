@@ -88,10 +88,10 @@ main {
   }
 }
 
-input[type="file"] {
-  max-inline-size: 100%;
-  flex-basis: 27ch;
-  inline-size: 100%;
+@media (--md-n-below) {
+  input[type="file"] {
+    inline-size: 100%;
+  }
 }
 
 
