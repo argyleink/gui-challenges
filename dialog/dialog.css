@@ -134,7 +134,7 @@ dialog {
           margin-inline-start: auto;
         }
 
-        @media (max-width: 400px) {
+        @media (max-width: 410px) {
           & button[type="reset"] {
             display: none;
           }
