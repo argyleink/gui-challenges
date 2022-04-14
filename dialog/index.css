@@ -98,6 +98,7 @@ main {
   position: absolute;
   right: 4px;
   width: 80px;
+  height: 80px;
   fill: var(--surface-4);
   color: var(--surface-1);
   
