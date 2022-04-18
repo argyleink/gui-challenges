@@ -72,11 +72,6 @@
   & > button {
     border-radius: var(--radius) 0 0 var(--radius);
 
-    & > svg {
-      fill: none;
-      stroke: var(--ontheme);
-    }
-  
     @supports (border-start-start-radius: 1px) {
       border-end-start-radius: var(--radius);
       border-start-start-radius: var(--radius);
