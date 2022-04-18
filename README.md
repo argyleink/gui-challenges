@@ -77,5 +77,5 @@ and expand the diversity of our skills.**
   [`Article`](https://web.dev/building-a-loading-bar-component/) 
 15. Dialog
   [`Demo`](https://gui-challenges.web.app/dialog/dist/) 
-  [`YouTube`](#)(coming soon) 
-  [`Article`](https://web.dev/building-a-dialog-component/)(coming soon) 
+  [`YouTube`](https://www.youtube.com/watch?v=GDzzIlRhEzM) 
+  [`Article`](https://web.dev/building-a-dialog-component/)
