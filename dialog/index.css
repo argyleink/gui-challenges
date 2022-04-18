@@ -94,15 +94,13 @@ main {
   }
 }
 
-
-
-
-
-
-
 .github-corner {
+  position: absolute;
+  right: 4px;
+  width: 80px;
+  height: 80px;
   fill: var(--surface-4);
-  color: var(--surface-1); 
+  color: var(--surface-1);
   
   &:hover .octo-arm {
     animation: octocat-wave 560ms ease-in-out
