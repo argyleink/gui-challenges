@@ -47,17 +47,13 @@ dialog {
   }
 
   &[modal-mode="mega"]::backdrop {
-    /* backdrop-filter: blur(25px); */ /* is this line need with the usage of animation? */
     animation: backdrop-blur .5s ease;
   }
   
   &[modal-mode="mini"]::backdrop {
     backdrop-filter: none;
   }
-  /* this line doesn't work check issue #111 */
-  /* &::backdrop {
-    transition: backdrop-filter .5s ease;
-  } */
+  
 
   &[loading] {
     visibility: hidden;
