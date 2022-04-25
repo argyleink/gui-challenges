@@ -23,7 +23,7 @@ body {
   padding: 5vmin;
 }
 
-h2,h4,p {
+h2,p {
   margin: 0;
 }
 
@@ -51,6 +51,10 @@ section {
   display: grid;
   gap: 1ch;
   text-align: center;
+}
+
+.red-squigly {
+  text-decoration: red underline wavy;
 }
 
 .github-corner {

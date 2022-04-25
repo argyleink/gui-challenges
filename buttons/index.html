@@ -27,7 +27,7 @@
       <button>Default</button>
       <input type="button" value="<input>"/>
       <button>
-        <svg viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
+        <svg viewBox="0 0 24 24" stroke="currentColor" width="24" height="24" aria-hidden="true">
           <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
         </svg>
         Icon
@@ -41,18 +41,20 @@
     </article>
 
     <section>
-      <h4>When inside a <code>&#60;form&#62;</code></h4>
+      <h2>When inside a <code>&#60;form&#62;</code></h2>
       <p><span class="red-squigly">Untyped buttons</span> visually match their new contextual default of type submit.</p>
     </section>
 
     <form action="" class="fluid-flex">
-      <button>Default <span data-icon="cloud"></span></button>
+      <button>Default</button>
       <input type="button" value="<input>"/>
+      <button>Icon <span data-icon="cloud"></span></button>
       <button type="submit">Submit</button>
       <button type="button">Type Button</button>
       <button type="reset">Reset</button>
       <button disabled>Disabled</button>
       <button class="btn-custom btn-large" type="button">Large Custom</button>
+      <input type="file">
     </form>
 
     <script src="./index.js" type="module"></script>
