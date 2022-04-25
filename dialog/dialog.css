@@ -46,7 +46,7 @@ dialog {
     opacity: 0;
   }
 
-  &[modal-mode="mega"]::backdrop {
+  &[open][modal-mode="mega"]::backdrop {
     animation: backdrop-blur .5s ease;
   }
   
