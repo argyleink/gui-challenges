@@ -62,14 +62,11 @@
   --_shadow-depth-dark: hsl(210 9% 31%);
   --_shadow-depth: var(--_shadow-depth-light);
 
-  --_transition-border-color: border-color .5s ease 3s;
   --_transition-box-shadow: box-shadow 145ms ease;
   --_transition-outline-offset: outline-offset 145ms ease;
 
-  --_transition-motion-reduce:
-    var(--_transition-border-color);
+  --_transition-motion-reduce: ;
   --_transition-motion-ok:
-    var(--_transition-border-color),
     var(--_transition-box-shadow),
     var(--_transition-outline-offset);
   --_transition: var(--_transition-motion-reduce);
