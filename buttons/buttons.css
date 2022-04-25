@@ -176,7 +176,10 @@
 }
 
 /* adaptive indigo text */
-:where([type="submit"], form button:not([type],[disabled])) {
+:where(
+  [type="submit"], 
+  form button:not([type],[disabled])
+) {
   --_text: var(--_accent);
 } 
 
@@ -214,10 +217,12 @@
 
 /* special dark theme styles */
 @media (--OSdark) {
-  :where([type="submit"]),
-  :where(form button:not([type="button"])),
-  :where([type="reset"]), 
-  :where([disabled]) {
+  :where(
+    [type="submit"],
+    [type="reset"],
+    [disabled],
+    form button:not([type="button"])
+  ) {
     --_bg: var(--_input-well);
   }
 }
