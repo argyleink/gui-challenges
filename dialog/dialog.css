@@ -55,7 +55,8 @@ dialog {
   }
   
   &[open][modal-mode="mega"]::backdrop {
-    animation: backdrop-blur .5s ease forwards;
+    backdrop-filter: blur(25px);
+    animation: fade-in .5s ease forwards;
   }
   
 
@@ -158,12 +159,5 @@ dialog {
         background-color: var(--surface-1);
       }
     }
-  }
-}
-
-@keyframes backdrop-blur {
-  to {
-    opacity: 1;
-    backdrop-filter: blur(25px)
   }
 }
