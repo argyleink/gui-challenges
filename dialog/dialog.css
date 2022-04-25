@@ -49,6 +49,10 @@ dialog {
   &::backdrop {
     backdrop-filter: none;
   }
+
+  &[modal-mode="mega"]::backdrop {
+    opacity: 0;
+  }
   
   &[open][modal-mode="mega"]::backdrop {
     animation: backdrop-blur .5s ease forwards;
@@ -158,15 +162,8 @@ dialog {
 }
 
 @keyframes backdrop-blur {
-  0%   {
-    backdrop-filter: blur(5px);
-  }
-  
-  50%  {
-    backdrop-filter: blur(15px)
-  }
-
-  100% {
+  to {
+    opacity: 1;
     backdrop-filter: blur(25px)
   }
 }
