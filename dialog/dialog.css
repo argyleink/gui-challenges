@@ -46,12 +46,12 @@ dialog {
     opacity: 0;
   }
 
-  &[open][modal-mode="mega"]::backdrop {
-    animation: backdrop-blur .5s ease;
+  &::backdrop {
+    backdrop-filter: none;
   }
   
-  &[modal-mode="mini"]::backdrop {
-    backdrop-filter: none;
+  &[open][modal-mode="mega"]::backdrop {
+    animation: backdrop-blur .5s ease;
   }
   
 
