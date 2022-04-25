@@ -51,7 +51,7 @@ dialog {
   }
   
   &[open][modal-mode="mega"]::backdrop {
-    animation: backdrop-blur .5s ease;
+    animation: backdrop-blur .5s ease forwards;
   }
   
 
