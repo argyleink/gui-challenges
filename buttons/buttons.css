@@ -62,13 +62,11 @@
   --_shadow-depth-dark: hsl(210 9% 31%);
   --_shadow-depth: var(--_shadow-depth-light);
 
-  --_transition-box-shadow: box-shadow 145ms ease;
-  --_transition-outline-offset: outline-offset 145ms ease;
-
   --_transition-motion-reduce: ;
   --_transition-motion-ok:
-    var(--_transition-box-shadow),
-    var(--_transition-outline-offset);
+    box-shadow 145ms ease,
+    outline-offset 145ms ease
+  ;
   --_transition: var(--_transition-motion-reduce);
 
   font: inherit;
@@ -160,12 +158,7 @@
 
   /* pressing */
   &:where(:not(:active):hover) {
-    /* the shadow grow highlight effect */
     --_highlight-size: .5rem;
-
-    /* exit faster than it entered */
-    transition-delay: 0s;
-    transition-duration: .25s;
   }
 
   /* icons */
