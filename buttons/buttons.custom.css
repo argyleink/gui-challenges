@@ -1,0 +1,19 @@
+.btn-custom {
+  --_bg: linear-gradient(hsl(228deg 94% 67%), hsl(228deg 81% 59%));
+  --_border: hsl(228deg 89% 63%);
+  --_text: white;
+  --_ink-shadow: 0 1px 0 hsl(230deg 57% 50%);
+}
+
+.btn-large {
+  --_size: 1.5rem;
+}
+
+[data-icon="cloud"] {
+  --icon-cloud: url("https://api.iconify.design/mdi:apple-icloud.svg") center / contain no-repeat;
+  -webkit-mask: var(--icon-cloud);
+  background: linear-gradient(to bottom, lightblue, blue);
+  inline-size: 2ch;
+  block-size: 2ch;
+  filter: drop-shadow(var(--_ink-shadow));
+}
