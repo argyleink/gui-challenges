@@ -31,7 +31,6 @@ form {
   background: hsl(210deg 16% 93%);
   border: 1px solid hsl(210deg 14% 89%);
   border-radius: .5ch;
-  box-shadow: 0 1px 4px hsl(0 0% 0% / 20%);
 
   @media (--OSdark) {
     background: hsl(210deg 10% 23%);

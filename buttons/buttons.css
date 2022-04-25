@@ -1,40 +1,117 @@
 @custom-media --OSdark (prefers-color-scheme: dark);
 @custom-media --motionOK (prefers-reduced-motion: no-preference);
 
-:where(button,button[type],input[type="button"],input[type="submit"],input[type="reset"]),
+:where(
+  button,
+  button[type],
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  input[type="file"]
+),
 :where(input[type="file"])::-webkit-file-upload-button,
 :where(input[type="file"])::file-selector-button {
-  --_accent: initial /* your color */;
-  --_text: initial /* your text color */;
   --_size: initial /* your size */;
+
+  --_accent-light: hsl(210 100% 40%);
+  --_accent-dark: hsl(210 50% 70%);
+  --_accent: var(--_accent-light);
+
+  --_text-light: hsl(210 10% 30%);
+  --_text-dark: hsl(210 5% 95%);
+  --_text: var(--_text-light);
   
-  --_bg-light: hsl(0deg 0% 100%);
-  --_bg-dark: hsl(210deg 9% 31%);
+  --_bg-light: hsl(0 0% 100%);
+  --_bg-dark: hsl(210 9% 31%);
   --_bg: var(--_bg-light);
+
+  --_input-well-light: hsl(210 16% 93%);
+  --_input-well-dark: hsl(204deg 10% 10%);
+  --_input-well: var(--_input-well-light);
+
+  --_padding-inline: 1.75ch;
+  --_padding-block: .75ch;
   
-  --_border: hsl(210deg 14% 89%);
+  --_border-radius: .5ch;
+  --_border-light: hsl(210 14% 89%);
+  --_border-dark: hsl(210 9% 31%);
+  --_border: var(--_border-light);
   
   --_highlight-size: 0;
   --_highlight-light: hsl(210 10% 71% / 25%);
   --_highlight-dark: hsl(210 10% 5% / 25%);
   --_highlight: var(--_highlight-light);
   
-  --_ink-shadow-light: 0 1px 0 hsl(210deg 14% 89%);
-  --_ink-shadow-dark: 0 1px 0 hsl(210deg 11% 15%);
+  --_ink-shadow-light: 0 1px 0 hsl(210 14% 89%);
+  --_ink-shadow-dark: 0 1px 0 hsl(210 11% 15%);
   --_ink-shadow: var(--_ink-shadow-light);
   
   --_icon-size: 2ch;
-  --_icon-color: var(--accent, blue);
+  --_icon-color-light: var(--_accent-light);
+  --_icon-color-dark: var(--_accent-dark);
+  --_icon-color: var(--accent, var(--_icon-color-light));
 
-  --shadow-color: 220 3% 15%;
-  --shadow-strength: 1%;
-  --_shadow-1: 0 1px 2px -1px hsl(var(--shadow-color)/calc(var(--shadow-strength) + 9%));
-  --_shadow-2: 0 3px 5px -2px hsl(var(--shadow-color)/calc(var(--shadow-strength) + 3%)),0 7px 14px -5px hsl(var(--shadow-color)/calc(var(--shadow-strength) + 5%));
+  --_shadow-color-light: 220 3% 15%;
+  --_shadow-color-dark: 220 40% 2%;
+  --_shadow-color: var(--_shadow-color-light);
+  --_shadow-strength-light: 1%;
+  --_shadow-strength-dark: 25%;
+  --_shadow-strength: var(--_shadow-strength-light);
+  --_shadow-1: 0 1px 2px -1px hsl(var(--_shadow-color)/calc(var(--_shadow-strength) + 9%));
+  --_shadow-2: 0 3px 5px -2px hsl(var(--_shadow-color)/calc(var(--_shadow-strength) + 3%)),0 7px 14px -5px hsl(var(--_shadow-color)/calc(var(--_shadow-strength) + 5%));
   
-  --_shadow-depth-light: hsl(210deg 14% 89%);
-  --_shadow-depth-dark: hsl(210deg 9% 31%);
+  --_shadow-depth-light: hsl(210 14% 89%);
+  --_shadow-depth-dark: hsl(210 9% 31%);
   --_shadow-depth: var(--_shadow-depth-light);
 
+  --_transition-border-color: border-color .5s ease 3s;
+  --_transition-box-shadow: box-shadow 145ms ease;
+  --_transition-outline-offset: outline-offset 145ms ease;
+
+  --_transition-motion-reduce:
+    var(--_transition-border-color);
+  --_transition-motion-ok:
+    var(--_transition-border-color),
+    var(--_transition-box-shadow),
+    var(--_transition-outline-offset);
+  --_transition: var(--_transition-motion-reduce);
+
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: 1.5;
+
+  &:where(:not(:active)):focus-visible {
+    outline-offset: 5px;
+  }
+
+  @media (--OSdark) {
+    --_bg: var(--_bg-dark);
+    --_text: var(--_text-dark);
+    --_border: var(--_border-dark);
+    --_accent: var(--_accent-dark);
+    --_highlight: var(--_highlight-dark);
+    --_icon-color: var(--_icon-color-dark);
+    --_input-well: var(--_input-well-dark);
+    --_ink-shadow: var(--_ink-shadow-dark);
+    --_shadow-depth: var(--_shadow-depth-dark);
+    --_shadow-color: var(--_shadow-color-dark);
+    --_shadow-strength: var(--_shadow-strength-dark);
+  }
+
+  @media (--motionOK) {
+    --_transition: var(--_transition-motion-ok);
+  }
+}
+
+:where(
+  button,
+  button[type],
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"]
+),
+:where(input[type="file"])::-webkit-file-upload-button,
+:where(input[type="file"])::file-selector-button {
   font: inherit;
   letter-spacing: inherit;
   line-height: 1.5;
@@ -51,6 +128,7 @@
     0 0 0 var(--_highlight-size) var(--_highlight)
   ;
   text-shadow: var(--_ink-shadow);
+  transition: var(--_transition);
   
   display: inline-flex;
   justify-content: center;
@@ -59,124 +137,95 @@
   gap: 1ch;
   
   font-weight: 700;
-  border-radius: .5ch;
-  padding-block: .75ch;
-  padding-inline: 1.75ch;
+  border-radius: var(--_border-radius);
+  padding-block: var(--_padding-block);
+  padding-inline: var(--_padding-inline);
 
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
-  
-  transition: border-color .5s var(--ease-3) 3s;
 
-  @media (--OSdark) {
-    --_highlight: var(--_highlight-dark);
-    --_ink-shadow: var(--_ink-shadow-dark);
-    --_shadow-depth: var(--_shadow-depth-dark);
-    --_bg: var(--_bg-dark);
-    --shadow-color: 220 40% 2%;
-    --shadow-strength: 25%;
-    --_border: hsl(210deg 9% 31%);
-  }
-
-  @media (--motionOK) {
-    transition: 
-      border-color .5s ease 3s,
-      box-shadow 145ms ease;
+  &:where(:not(:active)):focus-visible {
+    outline-offset: 5px;
   }
 }
 
-:where(button,button[type],input[type="button"],input[type="submit"],input[type="reset"]) {
+:where(
+  button,
+  button[type],
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"]
+) {
   /* disabled */
   &[disabled] {
     --_bg: none;
-    --_text: hsl(210deg 7% 56%);
+    --_text-light: hsl(210 7% 56%);
+    --_text-dark: hsl(210 11% 71%);
+
     cursor: not-allowed;
     box-shadow: var(--_shadow-1);
-
-    @media (--OSdark) {
-      --_text: hsl(210deg 11% 71%);
-    }
   }
 
   /* pressing */
   &:where(:not(:active):hover) {
+    /* the shadow grow highlight effect */
     --_highlight-size: .5rem;
+
+    /* exit faster than it entered */
     transition-delay: 0s;
     transition-duration: .25s;
   }
 
   /* icons */
-  & > :where(svg) {
-    flex-shrink: 0;
-    filter: drop-shadow(var(--_ink-shadow));
+  & > :where(svg, [data-icon]) {
     block-size: var(--_icon-size);
     inline-size: var(--_icon-size);
+    stroke: var(--_icon-color);
+    filter: drop-shadow(var(--_ink-shadow));
 
-    stroke: currentColor;
+    flex-shrink: 0;
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
-  }
-
-  & > :where(svg > *) {
-    stroke: var(--_icon-color);
-    stroke-width: 2px;
   }
 }
 
 /* adaptive indigo text */
 :where([type="submit"], form button:not([type],[disabled])) {
-  --_text: var(--accent, blue);
-
-  @media (--OSdark) {
-    --_text: var(--accent, lightblue);    
-  }
+  --_text: var(--_accent);
 } 
 
 /* red reset */
 :where([type="reset"]) {
-  --_text: hsl(0deg 94% 65%);
-  --_border: hsl(0deg 100% 83%);
+  --_reset-light: hsl(0deg 94% 65%);
+  --_reset-dark: hsl(0deg 100% 89%);
+  --_reset-border-light: hsl(0deg 100% 83%);
+  --_reset-border-dark: hsl(210 9% 31%);
+
+  --_text: var(--_reset-light);
+  --_border: var(--_reset-border-light);
 
   &:focus-visible {
-    outline-color: hsl(0deg 94% 65%);
+    outline-color: var(--_reset-light);
   }
 
   @media (--OSdark) {
-    --_text: hsl(0deg 100% 89%);
-    --_border: hsl(210deg 9% 31%);
+    --_text: var(--_reset-dark-dark);
+    --_border: var(--_reset-border-dark);
   }
-}
-
-/* submit, form > button, reset matching hover border color */
-:where([type="submit"], [type="reset"], form button:not([type])):is(:hover, :focus-visible):not([disabled]) {
-  --_border: currentColor;
 }
 
 /* file input */
 :where(input[type="file"]) {
-  font: inherit;
   max-inline-size: 100%;
-  padding: 0;
-  cursor: initial;
-  align-self: flex-start;
-  background-color: hsl(210deg 16% 93%);
-  border-radius: .5ch;
-  border: none; 
-
-  @media (--OSdark) {
-    background-color: hsl(204deg 10% 10%);
-    border: 1px solid hsl(210deg 10% 23%); 
-  }
+  background-color: var(--_input-well);
+  border-radius: var(--_border-radius);
 }
 
 :where(input[type="file"])::-webkit-file-upload-button,
 :where(input[type="file"])::file-selector-button {
-  margin-inline-end: 1.75ch;
-  cursor: pointer;
-  padding-block: .75ch;
-  padding-inline: 1.75ch;
+  margin-inline-end: var(--_padding-inline);
 }
 
 /* special dark theme styles */
@@ -185,6 +234,6 @@
   :where(form button:not([type="button"])),
   :where([type="reset"]), 
   :where([disabled]) {
-    --_bg: hsl(210deg 11% 15%);
+    --_bg: var(--_input-well);
   }
 }
