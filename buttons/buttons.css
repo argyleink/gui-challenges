@@ -11,8 +11,6 @@
 ),
 :where(input[type="file"])::-webkit-file-upload-button,
 :where(input[type="file"])::file-selector-button {
-  --_size: initial /* your size */;
-
   --_accent-light: hsl(210 100% 40%);
   --_accent-dark: hsl(210 50% 70%);
   --_accent: var(--_accent-light);
