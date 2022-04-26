@@ -3,6 +3,7 @@
   --_border: hsl(228 89% 63%);
   --_text: hsl(228 89% 100%);
   --_ink-shadow: 0 1px 0 hsl(228 57% 50%);
+  --_highlight: hsl(228 94% 67% / 20%);
 }
 
 .btn-large {
