@@ -24,7 +24,7 @@
   --_bg: var(--_bg-light);
 
   --_input-well-light: hsl(210 16% 93%);
-  --_input-well-dark: hsl(204deg 10% 10%);
+  --_input-well-dark: hsl(204 10% 10%);
   --_input-well: var(--_input-well-light);
 
   --_padding-inline: 1.75ch;
@@ -185,10 +185,11 @@
 
 /* red reset */
 :where([type="reset"]) {
-  --_reset-light: hsl(0deg 94% 65%);
-  --_reset-dark: hsl(0deg 100% 89%);
-  --_reset-border-light: hsl(0deg 100% 83%);
+  --_reset-light: hsl(0 94% 65%);
+  --_reset-dark: hsl(0 100% 89%);
+  --_reset-border-light: hsl(0 100% 83%);
   --_reset-border-dark: hsl(210 9% 31%);
+  --_highlight-light: hsl(0 100% 89% / 20%);
 
   --_text: var(--_reset-light);
   --_border: var(--_reset-border-light);
