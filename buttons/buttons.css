@@ -199,7 +199,7 @@
   }
 
   @media (--OSdark) {
-    --_text: var(--_reset-dark-dark);
+    --_text: var(--_reset-dark);
     --_border: var(--_reset-border-dark);
   }
 }
