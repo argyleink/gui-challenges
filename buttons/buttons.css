@@ -23,7 +23,7 @@
   --_bg-dark: hsl(210 9% 31%);
   --_bg: var(--_bg-light);
 
-  --_input-well-light: hsl(210 16% 93%);
+  --_input-well-light: hsl(210 16% 87%);
   --_input-well-dark: hsl(204 10% 10%);
   --_input-well: var(--_input-well-light);
 
