@@ -27,7 +27,7 @@
   
   --_border-radius: .5ch;
   --_border-light: hsl(210 14% 89%);
-  --_border-dark: hsl(210 9% 31%);
+  --_border-dark: var(--_bg-dark);
   --_border: var(--_border-light);
   
   --_highlight-size: 0;
@@ -54,7 +54,7 @@
   --_shadow-2: 0 3px 5px -2px hsl(var(--_shadow-color)/calc(var(--_shadow-strength) + 3%)),0 7px 14px -5px hsl(var(--_shadow-color)/calc(var(--_shadow-strength) + 5%));
   
   --_shadow-depth-light: hsl(210 14% 89%);
-  --_shadow-depth-dark: hsl(210 9% 31%);
+  --_shadow-depth-dark: var(--_bg-dark);
   --_shadow-depth: var(--_shadow-depth-light);
 
   --_transition-motion-reduce: ;
@@ -206,7 +206,7 @@
   --_reset-light: hsl(0 80% 50%);
   --_reset-dark: hsl(0 100% 89%);
   --_reset-border-light: hsl(0 100% 83%);
-  --_reset-border-dark: hsl(210 9% 31%);
+  --_reset-border-dark: var(--_bg-dark);
   --_highlight-light: hsl(0 100% 89% / 20%);
 
   --_text: var(--_reset-light);
