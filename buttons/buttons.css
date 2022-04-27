@@ -51,8 +51,8 @@
   --_shadow-1: 0 1px 2px -1px hsl(var(--_shadow-color)/calc(var(--_shadow-strength) + 9%));
   --_shadow-2: 0 3px 5px -2px hsl(var(--_shadow-color)/calc(var(--_shadow-strength) + 3%)),0 7px 14px -5px hsl(var(--_shadow-color)/calc(var(--_shadow-strength) + 5%));
   
-  --_shadow-depth-light: var(--_border-light);
-  --_shadow-depth-dark: var(--_bg-dark);
+  --_shadow-depth-light: 0 1px var(--_border-light);
+  --_shadow-depth-dark: 0 1px var(--_bg-dark);
   --_shadow-depth: var(--_shadow-depth-light);
 
   --_transition-motion-reduce: ;
@@ -125,7 +125,7 @@
   border: 2px solid var(--_border);
   box-shadow: 
     var(--_shadow-2),
-    0 1px var(--_shadow-depth),
+    var(--_shadow-depth),
     0 0 0 var(--_highlight-size) var(--_highlight)
   ;
   text-shadow: var(--_ink-shadow);
