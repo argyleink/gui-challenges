@@ -193,7 +193,7 @@
   input[type="reset"]
 )[disabled] {
   --_bg: none;
-  --_text-light: hsl(210 7% 56%);
+  --_text-light: hsl(210 7% 40%);
   --_text-dark: hsl(210 11% 71%);
 
   cursor: not-allowed;
@@ -210,7 +210,7 @@
 
 /* red reset */
 :where([type="reset"]) {
-  --_reset-light: hsl(0 94% 65%);
+  --_reset-light: hsl(0 80% 50%);
   --_reset-dark: hsl(0 100% 89%);
   --_reset-border-light: hsl(0 100% 83%);
   --_reset-border-dark: hsl(210 9% 31%);
