@@ -40,9 +40,7 @@
   --_ink-shadow: var(--_ink-shadow-light);
   
   --_icon-size: 2ch;
-  --_icon-color-light: var(--_accent-light);
-  --_icon-color-dark: var(--_accent-dark);
-  --_icon-color: var(--accent, var(--_icon-color-light));
+  --_icon-color: var(--_accent);
 
   --_shadow-color-light: 220 3% 15%;
   --_shadow-color-dark: 220 40% 2%;
@@ -83,7 +81,6 @@
     --_border: var(--_border-dark);
     --_accent: var(--_accent-dark);
     --_highlight: var(--_highlight-dark);
-    --_icon-color: var(--_icon-color-dark);
     --_input-well: var(--_input-well-dark);
     --_ink-shadow: var(--_ink-shadow-dark);
     --_shadow-depth: var(--_shadow-depth-dark);
