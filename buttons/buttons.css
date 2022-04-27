@@ -1,6 +1,5 @@
 :where(
   button,
-  button[type],
   input[type="button"],
   input[type="submit"],
   input[type="reset"],
@@ -73,7 +72,6 @@
 @media (prefers-color-scheme: dark) {
   :where(
     button,
-    button[type],
     input[type="button"],
     input[type="submit"],
     input[type="reset"],
@@ -97,7 +95,6 @@
 @media (prefers-reduced-motion: no-preference) {
   :where(
     button,
-    button[type],
     input[type="button"],
     input[type="submit"],
     input[type="reset"],
@@ -114,7 +111,6 @@
 
 :where(
   button,
-  button[type],
   input[type="button"],
   input[type="submit"],
   input[type="reset"]
@@ -157,7 +153,6 @@
 /* icons */
 :where(
   button,
-  button[type],
   input[type="button"],
   input[type="submit"],
   input[type="reset"]
@@ -176,7 +171,6 @@
 /* pressing */
 :where(
   button,
-  button[type],
   input[type="button"],
   input[type="submit"],
   input[type="reset"]
@@ -187,7 +181,6 @@
 /* disabled */
 :where(
   button,
-  button[type],
   input[type="button"],
   input[type="submit"],
   input[type="reset"]
