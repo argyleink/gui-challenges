@@ -113,9 +113,6 @@
   input[type="reset"]
 ),
 :where(input[type="file"])::file-selector-button {
-  font: inherit;
-  letter-spacing: inherit;
-  line-height: 1.5;
   cursor: pointer;
   touch-action: manipulation;
 
