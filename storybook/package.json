@@ -1,0 +1,25 @@
+{
+  "name": "gui-book",
+  "version": "0.0.1",
+  "module": true,
+  "scripts": {
+    "start": "npm run storybook",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "author": "@argyleink",
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@storybook/addon-actions": "^6.4.22",
+    "@storybook/addon-essentials": "^6.4.22",
+    "@storybook/addon-links": "^6.4.22",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/addons": "^6.4.22",
+    "@storybook/html": "^6.4.22",
+    "@storybook/theming": "^6.4.22",
+    "babel-loader": "^8.2.5",
+    "postcss": "^8.4.12",
+    "postcss-preset-env": "^7.4.4",
+    "storybook-dark-mode": "^1.1.0"
+  }
+}
