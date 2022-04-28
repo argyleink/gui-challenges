@@ -228,7 +228,6 @@
 
 :where(input[type="file"])::file-selector-button {
   margin-inline-end: var(--_padding-inline);
-  appearance: none;
 }
 
 :where(input[type="file"])::file-selector-button,
