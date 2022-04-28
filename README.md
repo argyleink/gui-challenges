@@ -63,19 +63,23 @@ and expand the diversity of our skills.**
   [`Demo`](https://gui-challenges.web.app/toast/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=R75ZVW4LW5o) 
   [`Article`](https://web.dev/building-a-toast-component/)  
-14. Theme Switch
+15. Theme Switch
   [`Demo`](https://gui-challenges.web.app/theme-switch/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=kZiS1QStIWc) 
   [`Article`](https://web.dev/building-a-theme-switch-component/)  
-14. SVG Favicon
+16. SVG Favicon
   [`Demo`](https://gui-challenges.web.app/svg-favicon/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=4pJahmCR8kQ) 
   [`Article`](https://web.dev/building-an-adaptive-favicon/) 
-15. Loading Bar
+17. Loading Bar
   [`Demo`](https://gui-challenges.web.app/progress/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=TD1QxlGgIPk) 
   [`Article`](https://web.dev/building-a-loading-bar-component/) 
-15. Dialog
+18. Dialog
   [`Demo`](https://gui-challenges.web.app/dialog/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=GDzzIlRhEzM) 
   [`Article`](https://web.dev/building-a-dialog-component/)
+19. Dialog
+  [`Demo`](https://gui-challenges.web.app/buttons/dist/) 
+  [`YouTube`](#)(coming soon) 
+  [`Article`](https://web.dev/building-a-button-component/)(coming soon)
