@@ -198,25 +198,14 @@
 
 /* red reset */
 :where([type="reset"]) {
-  --_reset-light: hsl(0 80% 50%);
-  --_reset-dark: hsl(0 100% 89%);
-  --_reset-border-light: hsl(0 100% 83%);
-  --_reset-border-dark: var(--_bg-dark);
+  --_border-light: hsl(0 100% 83%);
   --_highlight-light: hsl(0 100% 89% / 20%);
-
-  --_text: var(--_reset-light);
-  --_border: var(--_reset-border-light);
-}
-
-@media (prefers-color-scheme: dark) {
-  :where([type="reset"]) {
-    --_text: var(--_reset-dark);
-    --_border: var(--_reset-border-dark);
-  }
+  --_text-light: hsl(0 80% 50%);
+  --_text-dark: hsl(0 100% 89%);
 }
 
 :where([type="reset"]):focus-visible {
-  outline-color: var(--_reset-light);
+  outline-color: currentColor;
 }
 
 /* file input */
