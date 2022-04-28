@@ -76,7 +76,7 @@ dialog {
     max-block-size: 80dvb;
 
     & > article {
-      overflow-y: scroll; 
+      overflow-y: auto; 
       max-block-size: 100%; /* safari */
       overscroll-behavior-y: contain;
       display: grid;
@@ -84,12 +84,8 @@ dialog {
       gap: var(--size-3);
       box-shadow: var(--shadow-2);
       z-index: var(--layer-1);
-      padding-inline: var(--size-5) var(--size-3);
+      padding-inline: var(--size-5);
       padding-block: var(--size-3);
-
-      &::-webkit-scrollbar {
-        background: var(--surface-2);
-      }
 
       @media (--OSlight) {
         background: var(--surface-1);
