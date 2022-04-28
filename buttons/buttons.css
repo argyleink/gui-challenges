@@ -65,6 +65,7 @@
   font: inherit;
   letter-spacing: inherit;
   line-height: 1.5;
+  border-radius: var(--_border-radius);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -131,7 +132,6 @@
   gap: 1ch;
   
   font-weight: 700;
-  border-radius: var(--_border-radius);
   padding-block: var(--_padding-block);
   padding-inline: var(--_padding-inline);
 
@@ -223,7 +223,6 @@
 :where(input[type="file"]) {
   max-inline-size: 100%;
   background-color: var(--_input-well);
-  border-radius: var(--_border-radius);
 }
 
 :where(input[type="file"])::file-selector-button {
