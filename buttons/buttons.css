@@ -227,12 +227,8 @@
 }
 
 :where(input[type="file"])::file-selector-button {
-  margin-inline-end: var(--_padding-inline);
-}
-
-:where(input[type="file"])::file-selector-button,
-:where(input[type="button"]) {
   appearance: none;
+  margin-inline-end: var(--_padding-inline);
 }
 
 /* special dark theme styles */
