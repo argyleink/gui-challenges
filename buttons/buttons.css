@@ -102,10 +102,6 @@
   }
 }
 
-:where(button, input):where(:not(:active)):focus-visible {
-  outline-offset: 5px;
-}
-
 :where(
   button,
   input[type="button"],
@@ -160,6 +156,11 @@
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+/* focus */
+:where(button, input):where(:not(:active)):focus-visible {
+  outline-offset: 5px;
 }
 
 /* pressing */
