@@ -1,8 +1,5 @@
-const stories = document.querySelector('.stories')
-const median = stories.offsetLeft + (stories.clientWidth / 2)
-
 const state = {
-  current_story: stories.firstElementChild.lastElementChild
+  current_story: null
 }
 
 const navigateStories = direction => {
@@ -42,15 +39,20 @@ const navigateStories = direction => {
   }
 }
 
-stories.addEventListener('click', e => {
-  if (e.target.nodeName !== 'ARTICLE') 
-    return
-  
-  navigateStories(
-    e.clientX > median 
-      ? 'next' 
-      : 'prev')
-})
+export const Story = stories => {
+  const median = stories.offsetLeft + (stories.clientWidth / 2)
+  state.current_story = stories.firstElementChild.lastElementChild
+
+  stories.addEventListener('click', e => {
+    if (e.target.nodeName !== 'ARTICLE') 
+      return
+    
+    navigateStories(
+      e.clientX > median 
+        ? 'next' 
+        : 'prev')
+  })
+}
 
 // left & right are free with snap points 👍
 document.addEventListener('keydown', ({key}) => {

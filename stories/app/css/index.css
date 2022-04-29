@@ -7,7 +7,7 @@ body {
   background: hsl(200 15% 93%);
 
   /* parent owned aspects of the responsive stories */
-  & > .stories {
+  & .stories {
     inline-size: 100vw;
     block-size: 100vh;
 
@@ -60,6 +60,7 @@ body {
 
 .story {
   grid-area: story;
+  block-size: 100%;
 
   background-size: cover;
   background-image: 
