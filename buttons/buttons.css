@@ -210,7 +210,8 @@
 
 /* file input */
 :where(input[type="file"]) {
-  max-inline-size: 100%;
+  inline-size: 100%;
+  max-inline-size: max-content;
   background-color: var(--_input-well);
 }
 
