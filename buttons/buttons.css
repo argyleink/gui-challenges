@@ -214,8 +214,12 @@
   background-color: var(--_input-well);
 }
 
+:where(input[type="button"]),
 :where(input[type="file"])::file-selector-button {
   appearance: none;
+}
+
+:where(input[type="file"])::file-selector-button {
   margin-inline-end: var(--_padding-inline);
 }
 
