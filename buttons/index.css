@@ -20,10 +20,14 @@ body {
   align-items: center;
   justify-content: center;
   gap: 5vmin;
-  padding: 5vmin;
+  padding-inline: 5vmin;
+
+  @media (width <= 720px) {
+    padding-block: 10vmin;
+  }
 }
 
-h2,p {
+body, h2, p {
   margin: 0;
 }
 
