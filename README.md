@@ -79,7 +79,7 @@ and expand the diversity of our skills.**
   [`Demo`](https://gui-challenges.web.app/dialog/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=GDzzIlRhEzM) 
   [`Article`](https://web.dev/building-a-dialog-component/)
-19. Dialog
+19. Buttons
   [`Demo`](https://gui-challenges.web.app/buttons/dist/) 
   [`YouTube`](#)(coming soon) 
   [`Article`](https://web.dev/building-a-button-component/)(coming soon)
