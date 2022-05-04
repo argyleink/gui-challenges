@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Buttons | GUI Challenges</title>
+    <meta name="description" content="🤓">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="Canvas">
+    <meta name="color-scheme" content="light dark">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <link rel="stylesheet" href="./index.css">
+  </head>
+  <body>
+
+    <section>
+      <h2>9 button types</h2>
+      <p>Unified modern style, visual differences reinforce purpose.</p>
+    </section>
+
+    <article class="fluid-flex">
+      <button>Default</button>
+      <input type="button" value="<input>"/>
+      <button>
+        <svg viewBox="0 0 24 24" stroke="currentColor" width="24" height="24" aria-hidden="true">
+          <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        Icon
+      </button>
+      <button type="submit">Submit</button>
+      <button type="button">Type Button</button>
+      <button type="reset">Reset</button>
+      <button disabled>Disabled</button>
+      <button class="btn-custom">Custom</button>
+      <input type="file">
+    </article>
+
+    <section>
+      <h2>When inside a <code>&#60;form&#62;</code></h2>
+      <p><span class="red-squigly">Untyped buttons</span> visually match their new contextual default of type submit.</p>
+    </section>
+
+    <form action="" class="fluid-flex">
+      <button>Default</button>
+      <input type="button" value="<input>"/>
+      <button>Icon <span data-icon="cloud"></span></button>
+      <button type="submit">Submit</button>
+      <button type="button">Type Button</button>
+      <button type="reset">Reset</button>
+      <button disabled>Disabled</button>
+      <button class="btn-custom btn-large" type="button">Large Custom</button>
+      <input type="file">
+    </form>
+
+    <script src="./index.js" type="module"></script>
+
+  </body>
+</html>

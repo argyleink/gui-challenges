@@ -1,0 +1,95 @@
+@import "buttons.css";
+@import "buttons.custom.css";
+
+@custom-media --OSdark (prefers-color-scheme: dark);
+
+html {
+  block-size: 100%;
+  font-family: system-ui, sans-serif;
+  background-color: hsl(210deg 17% 98%);
+
+  @media (--OSdark) {
+    background-color: hsl(210deg 11% 15%);
+  }
+}
+
+body {
+  min-block-size: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5vmin;
+  padding-inline: 5vmin;
+
+  @media (width <= 720px) {
+    padding-block: 10vmin;
+  }
+}
+
+body, h2, p {
+  margin: 0;
+}
+
+form {
+  background: hsl(210deg 16% 93%);
+  border: 1px solid hsl(210deg 14% 89%);
+  border-radius: .5ch;
+
+  @media (--OSdark) {
+    background: hsl(210deg 10% 23%);
+    border: 1px solid hsl(210deg 9% 31%);
+  }
+}
+
+.fluid-flex {
+  display: flex;
+  flex-wrap: wrap;
+  place-content: center;
+  align-items: flex-start;
+  padding: 2ch;
+  gap: 2ch;
+}
+
+section {
+  display: grid;
+  gap: 1ch;
+  text-align: center;
+}
+
+.red-squigly {
+  text-decoration: red underline wavy;
+}
+
+.github-corner {
+  position: absolute;
+  right: 4px;
+  width: 80px;
+  height: 80px;
+  fill: var(--surface-4);
+  color: var(--surface-1);
+  
+  &:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+  }
+
+  & > svg {
+    fill: inherit;
+    stroke: inherit;
+    position: absolute; 
+    top: 0; 
+    right: 0;
+  }
+}
+
+@keyframes octocat-wave{
+  0%,100% {
+    transform: rotate(0)
+  }
+  20%,60% {
+    transform: rotate(-25deg)
+  }
+  40%,80% {
+    transform: rotate(10deg)
+  }
+}
