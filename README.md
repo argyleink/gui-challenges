@@ -58,7 +58,7 @@ and expand the diversity of our skills.**
 13. Game Menu 
   [`Demo`](https://gui-challenges.web.app/game-menu/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=HCsV8u-KYUw)
-  [`Article`](https://web.dev/building-a-game-menu-component/)
+  [`Article`](https://web.dev/building-a-3d-game-menu-component/)
 14. Toast
   [`Demo`](https://gui-challenges.web.app/toast/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=R75ZVW4LW5o) 
