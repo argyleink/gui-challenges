@@ -81,5 +81,5 @@ and expand the diversity of our skills.**
   [`Article`](https://web.dev/building-a-dialog-component/)
 19. Buttons
   [`Demo`](https://gui-challenges.web.app/buttons/dist/) 
-  [`YouTube`](#)(coming soon) 
-  [`Article`](https://web.dev/building-a-button-component/)(coming soon)
+  [`YouTube`](https://www.youtube.com/watch?v=aJNq-b1zlog) 
+  [`Article`](https://web.dev/building-a-button-component/)
