@@ -86,6 +86,10 @@
     }
   }
 
+  &:not(:first-of-type) {
+    z-index: -1;
+  }
+
   &[data-icon="plus"]:hover > svg {
     transform: rotateZ(.25turn);
   }
