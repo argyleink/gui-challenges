@@ -1,5 +1,5 @@
 .fabs {
-  --_viewport-margin: min(1.5rem, 2.5vmin);
+  --_viewport-margin: 2.5vmin;
 
   position: fixed;
   z-index: var(--layer-1);
