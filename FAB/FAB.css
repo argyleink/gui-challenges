@@ -3,7 +3,8 @@
 
   position: fixed;
   z-index: var(--layer-1);
-  display: grid;
+  display: flex;
+  flex-direction: column-reverse;
   place-items: center;
   gap: var(--_viewport-margin);
 
