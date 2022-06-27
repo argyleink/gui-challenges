@@ -1,0 +1,96 @@
+.fabs {
+  --_viewport-margin: 2.5vmin;
+
+  position: fixed;
+  z-index: var(--layer-1);
+  display: flex;
+  flex-direction: column-reverse;
+  place-items: center;
+  gap: var(--_viewport-margin);
+
+  inset-block: auto var(--_viewport-margin);
+  inset-inline: auto var(--_viewport-margin);
+}
+
+.fab {
+  --_size: 2rem;
+
+  --_light-bg: var(--pink-6);
+  --_light-bg-hover: var(--pink-7);
+  --_dark-bg: var(--pink-4);
+  --_dark-bg-hover: var(--pink-3);
+  --_bg: var(--_light-bg);
+
+  --_light-fg: white;
+  --_dark-fg: black;
+  --_fg: var(--_light-fg);
+  
+  padding: calc(var(--_size) / 2);
+
+  border-radius: var(--radius-round);
+  aspect-ratio: 1;
+
+  background: var(--_bg);
+  color: var(--_fg);
+  box-shadow: var(--shadow-4);
+
+  -webkit-tap-highlight-color: transparent;
+
+  --_motion-reduced: 
+    box-shadow .2s var(--ease-3),
+    background-color .3s var(--ease-3);
+  --_motion-ok: 
+    var(--_motion-reduced),
+    transform .2s var(--ease-3),
+    outline-offset 145ms var(--ease-2);
+  --_transition: var(--_motion-reduced);
+  transition: var(--_transition);
+
+  @media (--motionOK) {
+    --_transition: var(--_motion-ok);
+  }
+
+  @media (--OSdark) {
+    --_bg: var(--_dark-bg);
+    --_fg: var(--_dark-fg);
+  }
+
+  &.mini {
+    --_size: 1.25rem;
+  }
+
+  & > svg {
+    inline-size: var(--_size);
+    block-size: var(--_size);
+    stroke-width: 3px;
+    
+    @media (--motionOK) {
+      will-change: transform;
+      transition: transform .5s var(--ease-squish-3);
+    }
+  }
+
+  &:active {
+    box-shadow: var(--shadow-2);
+    
+    @media (--motionOK) {
+      transform: translateY(2%);
+    }
+  }
+
+  &:is(:active, :hover, :focus-visible) {
+    --_bg: var(--_light-bg-hover);
+
+    @media (--OSdark) {
+      --_bg: var(--_dark-bg-hover);      
+    }
+  }
+
+  &:not(:first-of-type) {
+    z-index: -1;
+  }
+
+  &[data-icon="plus"]:hover > svg {
+    transform: rotateZ(.25turn);
+  }
+}
