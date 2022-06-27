@@ -84,5 +84,5 @@ and expand the diversity of our skills.**
   [`YouTube`](https://www.youtube.com/watch?v=aJNq-b1zlog) 
   [`Article`](https://web.dev/building-a-button-component/)
 19. FABs
-  [`Demo`](https://gui-challenges.web.app/fabs/dist/) 
+  [`Demo`](https://gui-challenges.web.app/FAB/dist/) 
   [`YouTube`](#coming-soon) 
