@@ -47,7 +47,7 @@ NICE TO HAVE:
   grid-column: 1/-1;
   
   display: grid;
-  grid-auto-columns: 80vw;
+  grid-auto-columns: var(--_carousel-item-size);
   grid-auto-flow: column;
   align-items: center;
   gap: var(--_carousel-gutters);
