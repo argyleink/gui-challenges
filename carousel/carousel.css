@@ -1,12 +1,17 @@
 /* 
 TODO: 
 - map overflow handling (lots of dots or images)
-- add next/previous buttons handlers for beginning or end skipping
-- improve xl/xs screen layout?
+- allow spamming next/prev without hiccups
+- option for cyclical cycling
+- improve xl/xs screen layout
+- improve non-full viewport layout
 - updated scrollend
 - pagination type (paged vs items)
 - container queries for when arrows are cramped?
 - javascript disabled should hide arrows
+- dimmed controls should be inert?
+- finish captions and item names
+- if no pagination then don't observe?
 
 NICE TO HAVE:
 - easier custom layout config
@@ -16,6 +21,9 @@ NICE TO HAVE:
 - testimonial demo
 - paged demo instead of item by item
 - example where it's not full width
+- arrow placement options
+- dynamic slide handling (mutation observer)
+- web component with slots
 */
 
 .gui-carousel {
@@ -29,11 +37,11 @@ NICE TO HAVE:
   grid-template-rows: [carousel-scroller] 1fr [carousel-pagination] var(--_carousel-map-size);
 
   /* configuration handlers */
-  &[map-type="gallery"] {
+  &[carousel-pagination="gallery"] {
     --_carousel-map-size: var(--size-fluid-6);
   }
 
-  &[map-type="none"] .gui-carousel--map {
+  &[carousel-pagination="none"] .gui-carousel--map {
     display: none;
   }
 
@@ -53,7 +61,6 @@ NICE TO HAVE:
   gap: var(--_carousel-gutters);
   
   padding-block: var(--size-2) var(--_carousel-scrollbar-gutter);
-  max-inline-size: 100vw;
   overflow-x: auto;
   overscroll-behavior-x: contain;
   
@@ -201,7 +208,7 @@ NICE TO HAVE:
   grid-auto-flow: column;
   gap: var(--size-2);
 
-  @nest [map-type="gallery"] & {
+  @nest [carousel-pagination="gallery"] & {
     margin-block-end: 0;
   }
 
