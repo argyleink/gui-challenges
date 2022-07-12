@@ -1,0 +1,226 @@
+/* 
+TODO: 
+- map-type=none 
+- controls=none
+- map overflow handling (lots of dots or images)
+- reduced motion hover/interactions
+- add next/previous buttons handlers for beginning or end skipping
+- improve xl/xs screen layout?
+- updated scrollend
+- pagination type (paged vs items)
+- container queries for when arrows are cramped?
+- javascript disabled should hide arrows
+
+NICE TO HAVE:
+- easier custom layout config
+- slider demo (just arrows no dots)
+- ecommerce demo (product images)
+- gallery demo (image gallery)
+- testimonial demo
+- paged demo instead of item by item
+- example where it's not full width
+*/
+
+.gui-carousel {
+  --_carousel-item-size: 80vw;
+  --_carousel-gutters: calc((100vw - var(--_carousel-item-size)) / 2);
+  --_carousel-scrollbar-gutter: var(--size-6);
+  --_carousel-map-size: var(--size-8);
+  
+  display: grid;
+  grid-template-columns: var(--_carousel-gutters) 1fr var(--_carousel-gutters);
+  grid-template-rows: [carousel-scroller] 1fr [carousel-map] var(--_carousel-map-size);
+
+  &[map-type="gallery"] {
+    --_carousel-map-size: var(--size-fluid-6);
+  }
+}
+
+.gui-carousel--scroller {
+  grid-row: 1;
+  grid-column: 1/-1;
+  
+  display: grid;
+  grid-auto-columns: 80vw;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: var(--_carousel-gutters);
+  
+  padding-block: var(--size-2) var(--_carousel-scrollbar-gutter);
+  max-inline-size: 100vw;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--_carousel-gutters);
+  padding-inline: var(--_carousel-gutters);
+
+  @media (--motionOK) {
+    scroll-behavior: smooth;
+  }
+}
+
+.gui-carousel--scroll-item {
+  flex-shrink: 0;
+  scroll-snap-align: center;
+  
+  display: grid;
+  grid: [stack] 1fr / [stack] var(--_carousel-item-size);
+  align-items: end;
+  
+  cursor: auto; /* open props correction */
+  box-shadow: var(--shadow-4);
+  border-radius: var(--radius-4);
+  overflow: hidden;
+
+  & > * {
+    grid-area: stack;
+  }
+
+  & > figcaption {
+    max-inline-size: initial; /* open props correction */
+    background: linear-gradient(to top, #000e, 75%, #0000);
+    justify-self: stretch;
+    text-align: center;
+    padding-block: var(--size-9) var(--size-3);
+    padding-inline: var(--size-3);
+
+    & > a {
+      color: white;
+      text-shadow: 0 1px 1px #000e;
+    }
+  }
+
+  & > img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    background-color: var(--surface-3);
+    box-shadow: var(--inner-shadow-1);
+  }
+
+  @media (--motionOK) {
+    & {
+      transition: transform .3s ease;
+    }
+
+    &:not(.--in-view) {
+      transform: scale(.9);
+      box-shadow: var(--shadow-3);
+    }
+  }
+}
+
+.gui-carousel--controls {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: var(--_carousel-gutters);
+  display: contents;
+
+  & > .gui-carousel--control {
+    margin-block-end: var(--_carousel-scrollbar-gutter);
+
+    &:not([aria-disabled="true"]):active {
+      transform: scale(.95);
+    }
+  }
+}
+
+.gui-carousel--control {
+  grid-row: 1;
+  place-self: center;
+  background: var(--surface-1);
+  color: var(--text-2);
+  inline-size: var(--size-8);
+  aspect-ratio: var(--ratio-square);
+  border-radius: var(--radius-round);
+  text-indent: 10ch;
+  overflow: hidden;
+  z-index: var(--layer-1);
+  /*  todo: reduced motion  */
+  transition: 
+    opacity .5s var(--ease-2) .5s, 
+    transform .2s var(--ease-elastic-4),
+    outline-offset 145ms var(--ease-2)
+  ;
+
+  &.--previous {
+    grid-column: 1;
+  }
+
+  &.--next {
+    grid-column: 3;
+  }
+
+  &[aria-disabled="true"] {
+    opacity: 0;
+    pointer-events: none;
+    cursor: not-allowed;
+    transition-delay: 0s;
+    box-shadow: var(--shadow-1);
+  }
+
+  &:not([aria-disabled="true"]):is(:hover, :focus-visible) {
+    color: var(--link);
+    border: var(--border-size-1) solid var(--link);
+  }
+
+  &:not([aria-disabled="true"]) svg > path {
+    --_transform: translateX(var(--_x)) scale(.95);
+    transition: transform .5s var(--ease-squish-3);
+    transform-origin: center center;
+  }
+
+  &[aria-label="Next Item"]:not([aria-disabled="true"]):is(:hover, :focus-visible) svg > path {
+    --_x: 2px;
+    transform: var(--_transform);
+  }
+
+  &[aria-label="Previous Item"]:not([aria-disabled="true"]):is(:hover, :focus-visible) svg > path {
+    --_x: -2px;
+    transform: var(--_transform);
+  }
+}
+
+.gui-carousel--map {
+  grid-column: 2;
+  place-self: center;
+  
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--size-2);
+
+  @nest [map-type="gallery"] & {
+    margin-block-end: 0;
+  }
+
+  & > [aria-selected="true"] {
+    background: var(--link);
+    border-color: var(--link);
+  }
+
+  & > [aria-selected="false"] {
+    transform: scale(.75);
+  }
+
+  & > button {
+    inline-size: var(--size-3);
+    padding: 0;
+    background-color: var(--surface-4);
+    border: var(--border-size-1) solid var(--surface-4);
+    /*  todo: reduced motion  */
+    transition: 
+      outline-offset 145ms var(--ease-2),
+      background-color .3s var(--ease-3),
+      transform .4s var(--ease-elastic-4)
+    ;
+
+    &.--gallery {
+      inline-size: var(--size-fluid-5);
+      border-radius: var(--radius-2);
+      border-color: transparent;
+      background-origin: border-box;
+      background-size: cover;
+    }
+  }
+}
