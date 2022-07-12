@@ -1,5 +1,6 @@
 /* 
 TODO: 
+- intersecting element != current
 - map overflow handling (lots of dots or images)
 - allow spamming next/prev without hiccups
 - option for cyclical cycling
@@ -15,15 +16,20 @@ TODO:
 
 NICE TO HAVE:
 - easier custom layout config
+- scroll-start / default item != 0
+- hide scrollbar option?
 - slider demo (just arrows no dots)
 - ecommerce demo (product images)
 - gallery demo (image gallery)
 - testimonial demo
 - paged demo instead of item by item
+- variable sized items demo
 - example where it's not full width
 - arrow placement options
 - dynamic slide handling (mutation observer)
-- web component with slots
+- web component
+  - slots
+  - async initialization
 */
 
 .gui-carousel {
