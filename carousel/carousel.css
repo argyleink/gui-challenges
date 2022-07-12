@@ -1,9 +1,6 @@
 /* 
 TODO: 
-- map-type=none 
-- controls=none
 - map overflow handling (lots of dots or images)
-- reduced motion hover/interactions
 - add next/previous buttons handlers for beginning or end skipping
 - improve xl/xs screen layout?
 - updated scrollend
@@ -28,11 +25,20 @@ NICE TO HAVE:
   --_carousel-map-size: var(--size-8);
   
   display: grid;
-  grid-template-columns: var(--_carousel-gutters) 1fr var(--_carousel-gutters);
-  grid-template-rows: [carousel-scroller] 1fr [carousel-map] var(--_carousel-map-size);
+  grid-template-columns: [carousel-gutter] var(--_carousel-gutters) 1fr [carousel-gutter] var(--_carousel-gutters);
+  grid-template-rows: [carousel-scroller] 1fr [carousel-pagination] var(--_carousel-map-size);
 
+  /* configuration handlers */
   &[map-type="gallery"] {
     --_carousel-map-size: var(--size-fluid-6);
+  }
+
+  &[map-type="none"] .gui-carousel--map {
+    display: none;
+  }
+
+  &[carousel-controls="none"] .gui-carousel--controls {
+    display: none;
   }
 }
 
@@ -137,12 +143,15 @@ NICE TO HAVE:
   text-indent: 10ch;
   overflow: hidden;
   z-index: var(--layer-1);
-  /*  todo: reduced motion  */
-  transition: 
-    opacity .5s var(--ease-2) .5s, 
-    transform .2s var(--ease-elastic-4),
-    outline-offset 145ms var(--ease-2)
-  ;
+  transition: opacity .5s var(--ease-2) .5s;
+
+  @media (--motionOK) {
+    transition: 
+      opacity .5s var(--ease-2) .5s, 
+      transform .2s var(--ease-elastic-4),
+      outline-offset 145ms var(--ease-2)
+    ;
+  }
 
   &.--previous {
     grid-column: 1;
@@ -166,9 +175,11 @@ NICE TO HAVE:
   }
 
   &:not([aria-disabled="true"]) svg > path {
-    --_transform: translateX(var(--_x)) scale(.95);
-    transition: transform .5s var(--ease-squish-3);
-    transform-origin: center center;
+    @media (--motionOK) {
+      --_transform: translateX(var(--_x)) scale(.95);
+      transition: transform .5s var(--ease-squish-3);
+      transform-origin: center center;
+    }
   }
 
   &[aria-label="Next Item"]:not([aria-disabled="true"]):is(:hover, :focus-visible) svg > path {
@@ -208,12 +219,15 @@ NICE TO HAVE:
     padding: 0;
     background-color: var(--surface-4);
     border: var(--border-size-1) solid var(--surface-4);
-    /*  todo: reduced motion  */
-    transition: 
-      outline-offset 145ms var(--ease-2),
-      background-color .3s var(--ease-3),
-      transform .4s var(--ease-elastic-4)
-    ;
+    transition: background-color .3s var(--ease-3);
+
+    @media (--motionOK) {
+      transition: 
+        outline-offset 145ms var(--ease-2),
+        background-color .3s var(--ease-3),
+        transform .4s var(--ease-elastic-4)
+      ;
+    }
 
     &.--gallery {
       inline-size: var(--size-fluid-5);
