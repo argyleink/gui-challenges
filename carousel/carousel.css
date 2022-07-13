@@ -1,3 +1,7 @@
+@import "open-props/style";
+@import "open-props/normalize";
+@import "open-props/media";
+
 /* 
 TODO: 
 - intersecting element != current
@@ -241,18 +245,29 @@ NICE TO HAVE:
   }
 
   & > button {
+    --_shadow-size: 0;
+
     inline-size: var(--size-3);
     padding: 0;
     background-color: var(--surface-4);
     border: var(--border-size-1) solid var(--surface-4);
-    transition: background-color .3s var(--ease-3);
+    box-shadow: 0 0 0 var(--_shadow-size) hsl(0 0% 50% / 25%);
+
+    transition: 
+      background-color .3s var(--ease-3),
+      box-shadow .3s var(--ease-3);
 
     @media (--motionOK) {
       transition: 
         outline-offset 145ms var(--ease-2),
         background-color .3s var(--ease-3),
+        box-shadow .2s var(--ease-4),
         transform .4s var(--ease-elastic-4)
       ;
+    }
+
+    &:hover {
+      --_shadow-size: var(--size-2);
     }
 
     &.--gallery {
