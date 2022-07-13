@@ -6,7 +6,6 @@
 TODO: 
 - intersecting element != current
 - map overflow handling (lots of dots or images)
-- ween off of viewport units (go all relative)
 - option for cyclical cycling
 - improve xl/xs screen layout
 - improve non-full viewport layout
@@ -94,7 +93,7 @@ NICE TO HAVE:
 
 .gui-carousel--scroll-item {
   display: grid;
-  grid: [stack] 1fr / [stack] 1fr;
+  grid: [stack] 100% / [stack] 100%;
   align-items: end;
   
   box-shadow: var(--shadow-4);
@@ -109,7 +108,7 @@ NICE TO HAVE:
   }
 
   & > figcaption {
-    max-inline-size: initial; /* open props correction */
+    max-inline-size: 100%;
     background: linear-gradient(to top, #000e, 75%, #0000);
     justify-self: stretch;
     text-align: center;
@@ -123,8 +122,6 @@ NICE TO HAVE:
   }
 
   & > img {
-    inline-size: 100%;
-    block-size: 100%;
     object-fit: cover;
     background-color: var(--surface-3);
     box-shadow: var(--inner-shadow-1);
