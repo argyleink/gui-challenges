@@ -11,12 +11,13 @@ const getElementIndex = node => {
 // state and selectors
 const carousel = {
   elements: { 
-    root: document.querySelector('.gui-carousel'),
+    root:     document.querySelector('.gui-carousel'),
     scroller: document.querySelector('.gui-carousel--scroller'),
-    items: document.querySelectorAll('.gui-carousel--scroll-item'),
+    items:    document.querySelectorAll('.gui-carousel--scroll-item'),
+    snaps:    document.querySelectorAll('.gui-carousel--snap'),
     previous: document.querySelector('.gui-carousel--control.--previous'),
-    next: document.querySelector('.gui-carousel--control.--next'),
-    minimap: document.querySelector('.gui-carousel--map'),
+    next:     document.querySelector('.gui-carousel--control.--next'),
+    minimap:  document.querySelector('.gui-carousel--map'),
   },
   current: undefined,
   hasIntersected: new Set(),
@@ -53,14 +54,29 @@ const synchronize = () => {
       carousel.current = observation.target
   }
   
-  let {lastElementChild:last, firstElementChild:first} = carousel.elements.scroller
-  carousel.elements.next.setAttribute('aria-disabled', carousel.current === last)
-  carousel.elements.previous.setAttribute('aria-disabled', carousel.current === first)
+  toggleControlsDisability()
 
   carousel.hasIntersected.clear()
 }
 
-for (let item of carousel.elements.items)
+const toggleControlsDisability = () => {
+  let {lastElementChild:last, firstElementChild:first} = carousel.elements.scroller
+  
+  let isAtEnd =   carousel.current === last
+  let isAtStart = carousel.current === first
+
+  // before we possibly disable a button
+  // shift the focus to the complimentary button
+  if (document.activeElement === carousel.elements.next && isAtEnd)
+    carousel.elements.previous.focus()
+  else if (document.activeElement === carousel.elements.previous && isAtStart)
+    carousel.elements.next.focus()
+
+  carousel.elements.next.toggleAttribute('disabled', isAtEnd)
+  carousel.elements.previous.toggleAttribute('disabled', isAtStart)
+}
+
+for (let item of carousel.elements.snaps)
   carousel_observer.observe(item)
 
 carousel.elements.scroller.addEventListener('scrollend', () => {
@@ -68,7 +84,6 @@ carousel.elements.scroller.addEventListener('scrollend', () => {
 })
 
 // next and previous click events
-// TODO: don't use dom state so that multiple calls stack
 const goNext = () => {
   const next = carousel.current?.nextElementSibling
 
@@ -76,7 +91,8 @@ const goNext = () => {
     return
 
   if (next) {
-    next.scrollIntoView({block: 'nearest', inline: 'nearest'})
+    carousel.elements.scroller.scrollBy(20, 0)
+    // next.scrollIntoView({block: 'nearest', inline: 'nearest'})
     carousel.current = next
   }
   else {
@@ -91,7 +107,8 @@ const goPrev = () => {
     return
 
   if (previous) {
-    previous.scrollIntoView({block: 'nearest', inline: 'nearest'})
+    carousel.elements.scroller.scrollBy(-20, 0)
+    // previous.scrollIntoView({block: 'nearest', inline: 'nearest'})
     carousel.current = previous
   }
   else {
@@ -107,10 +124,10 @@ carousel.elements.minimap.addEventListener('click', e => {
   e.target.setAttribute('aria-selected', true)
   carousel.elements
     .items[getElementIndex(e.target)]
-    .scrollIntoView()
+    .scrollIntoView({block: 'nearest', inline: 'nearest'})
 })
 
-carousel.elements.root.addEventListener('keyup', e => {  
+carousel.elements.root.addEventListener('keydown', e => {
   switch (e.key) {
     case 'ArrowRight':
       if (e.target.closest('.gui-carousel--map'))
@@ -119,11 +136,10 @@ carousel.elements.root.addEventListener('keyup', e => {
           ?.focus()
       else {
         if (document.activeElement === carousel.elements.next) {
-          carousel.elements.next.animate([
-            { outlineOffset: '5px' },
-            { outlineOffset: '0' },
-            { outlineOffset: '5px' },
-          ], { duration: 145 }) 
+          carousel.elements.next.style.animation = 'gui-carousel--control-keypress 145ms var(--ease-2)'
+          carousel.elements.next.addEventListener('animationend', e => {
+            carousel.elements.next.style.animation = null
+          }, {once: true})
         }
         carousel.elements.next.focus()  
       }
@@ -136,15 +152,13 @@ carousel.elements.root.addEventListener('keyup', e => {
           ?.focus()
       else {
         if (document.activeElement === carousel.elements.previous) {
-          carousel.elements.previous.animate([
-            { outlineOffset: '5px' },
-            { outlineOffset: '0' },
-            { outlineOffset: '5px' },
-          ], { duration: 145 })
+          carousel.elements.previous.style.animation = 'gui-carousel--control-keypress 145ms var(--ease-2)'
+          carousel.elements.previous.addEventListener('animationend', e => {
+            carousel.elements.previous.style.animation = null
+          }, {once: true})
         }
         carousel.elements.previous.focus()
       }
-      
       goPrev()
       break
   }
@@ -179,8 +193,8 @@ const createMarkerGallery = ({index, type, item}) => {
 }
 
 const createMarker = (item, index) => {
-  const markerType = carousel.elements.root.getAttribute('map-type')
-  index++ // so list doesnt start at 0
+  const markerType = carousel.elements.root.getAttribute('carousel-pagination')
+  index++ // user facing index shouldnt start at 0
   
   if (markerType == 'gallery')
     return createMarkerGallery({index, type: markerType, item})
@@ -189,7 +203,8 @@ const createMarker = (item, index) => {
 }
 
 // kickoff matching state to DOM
-carousel.elements.items.forEach((item, index) => {
+// TODO: match all carousels
+carousel.elements.snaps.forEach((item, index) => {
   carousel.hasIntersected.add({
     isIntersecting: index === 0,
     target: item,
@@ -201,4 +216,5 @@ carousel.elements.items.forEach((item, index) => {
   if (index === 0)
     carousel.current = item
 })
+
 synchronize()

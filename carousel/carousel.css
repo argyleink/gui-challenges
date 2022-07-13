@@ -2,19 +2,20 @@
 TODO: 
 - intersecting element != current
 - map overflow handling (lots of dots or images)
+- ween off of viewport units (go all relative)
 - option for cyclical cycling
 - improve xl/xs screen layout
 - improve non-full viewport layout
 - pagination type (paged vs items)
+- pagination = none needs grid layout update too
 - container queries for when arrows are cramped?
 - javascript disabled should hide arrows
-- dimmed controls should be inert?
 - if no pagination then don't observe?
+- hide scrollbar attribute
 
 NICE TO HAVE:
 - easier custom layout config
 - scroll-start / default item != 0
-- hide scrollbar option?
 - slider demo (just arrows no dots)
 - ecommerce demo (product images)
 - gallery demo (image gallery)
@@ -38,6 +39,10 @@ NICE TO HAVE:
   display: grid;
   grid-template-columns: [carousel-gutter] var(--_carousel-gutters) 1fr [carousel-gutter] var(--_carousel-gutters);
   grid-template-rows: [carousel-scroller] 1fr [carousel-pagination] var(--_carousel-map-size);
+
+  &:focus-visible {
+    outline-offset: 0;
+  }
 
   /* configuration handlers */
   &[carousel-pagination="gallery"] {
@@ -76,10 +81,11 @@ NICE TO HAVE:
   }
 }
 
-.gui-carousel--scroll-item {
-  flex-shrink: 0;
+.gui-carousel--snap {
   scroll-snap-align: center;
-  
+}
+
+.gui-carousel--scroll-item {
   display: grid;
   grid: [stack] 1fr / [stack] var(--_carousel-item-size);
   align-items: end;
@@ -88,6 +94,9 @@ NICE TO HAVE:
   box-shadow: var(--shadow-4);
   border-radius: var(--radius-4);
   overflow: hidden;
+
+  contain-intrinsic-inline-size: var(--_carousel-item-size);
+  content-visibility: auto;
 
   & > * {
     grid-area: stack;
@@ -120,7 +129,7 @@ NICE TO HAVE:
       transition: transform .3s ease;
     }
 
-    &:not(.--in-view) {
+    @nest .gui-carousel--snap:not(.--in-view) > & {
       transform: scale(.9);
       box-shadow: var(--shadow-3);
     }
@@ -136,7 +145,7 @@ NICE TO HAVE:
   & > .gui-carousel--control {
     margin-block-end: var(--_carousel-scrollbar-gutter);
 
-    &:not([aria-disabled="true"]):active {
+    &:not([disabled="true"]):active {
       transform: scale(.95);
     }
   }
@@ -171,20 +180,22 @@ NICE TO HAVE:
     grid-column: 3;
   }
 
-  &[aria-disabled="true"] {
-    opacity: 0;
-    pointer-events: none;
+  &[disabled] {
     cursor: not-allowed;
     transition-delay: 0s;
     box-shadow: var(--shadow-1);
+
+    & > svg {
+      opacity: .25;
+    }
   }
 
-  &:not([aria-disabled="true"]):is(:hover, :focus-visible) {
+  &:not([disabled]):is(:hover, :focus-visible) {
     color: var(--link);
     border: var(--border-size-1) solid var(--link);
   }
 
-  &:not([aria-disabled="true"]) svg > path {
+  &:not([disabled]) svg > path {
     @media (--motionOK) {
       --_transform: translateX(var(--_x)) scale(.95);
       transition: transform .5s var(--ease-squish-3);
@@ -192,15 +203,20 @@ NICE TO HAVE:
     }
   }
 
-  &[aria-label="Next Item"]:not([aria-disabled="true"]):is(:hover, :focus-visible) svg > path {
+  &[aria-label="Next Item"]:not([disabled]):is(:hover, :focus-visible) svg > path {
     --_x: 2px;
     transform: var(--_transform);
   }
 
-  &[aria-label="Previous Item"]:not([aria-disabled="true"]):is(:hover, :focus-visible) svg > path {
+  &[aria-label="Previous Item"]:not([disabled]):is(:hover, :focus-visible) svg > path {
     --_x: -2px;
     transform: var(--_transform);
   }
+}
+
+@keyframes gui-carousel--control-keypress {
+  0%  { outline-offset: 5px }
+  50% { outline-offset: 0; }
 }
 
 .gui-carousel--map {
