@@ -157,6 +157,11 @@ NICE TO HAVE:
 }
 
 .gui-carousel--control {
+  --_shadow-size: 0;
+  --_shadow-highlight-light: hsl(0 0% 50% / 10%);
+  --_shadow-highlight-dark: hsl(0 0% 100% / 20%);
+  --_shadow-highlight: var(--_shadow-highlight-light);
+
   grid-row: 1;
   place-self: center;
   background: var(--surface-1);
@@ -164,6 +169,7 @@ NICE TO HAVE:
   inline-size: var(--size-8);
   aspect-ratio: var(--ratio-square);
   border-radius: var(--radius-round);
+  box-shadow: 0 0 0 var(--_shadow-size) var(--_shadow-highlight);
   text-indent: 10ch;
   overflow: hidden;
   z-index: var(--layer-1);
@@ -173,8 +179,17 @@ NICE TO HAVE:
     transition: 
       opacity .5s var(--ease-2) .5s, 
       transform .2s var(--ease-elastic-4),
+      box-shadow .2s var(--ease-4),
       outline-offset 145ms var(--ease-2)
     ;
+  }
+
+  @media (--OSdark) {
+    --_shadow-highlight: var(--_shadow-highlight-dark);
+  }
+
+  &:hover {
+    --_shadow-size: 6px;
   }
 
   &.--previous {
@@ -197,7 +212,6 @@ NICE TO HAVE:
 
   &:not([disabled]):is(:hover, :focus-visible) {
     color: var(--link);
-    border: var(--border-size-1) solid var(--link);
   }
 
   &:not([disabled]) svg > path {
@@ -238,7 +252,6 @@ NICE TO HAVE:
 
   & > [aria-selected="true"] {
     background: var(--link);
-    border-color: var(--link);
   }
 
   & > [aria-selected="false"] {
@@ -246,30 +259,10 @@ NICE TO HAVE:
   }
 
   & > button {
-    --_shadow-size: 0;
-
     inline-size: var(--size-3);
     padding: 0;
     background-color: var(--surface-4);
     border: var(--border-size-1) solid var(--surface-4);
-    box-shadow: 0 0 0 var(--_shadow-size) hsl(0 0% 50% / 25%);
-
-    transition: 
-      background-color .3s var(--ease-3),
-      box-shadow .3s var(--ease-3);
-
-    @media (--motionOK) {
-      transition: 
-        outline-offset 145ms var(--ease-2),
-        background-color .3s var(--ease-3),
-        box-shadow .2s var(--ease-4),
-        transform .4s var(--ease-elastic-4)
-      ;
-    }
-
-    &:hover {
-      --_shadow-size: var(--size-2);
-    }
 
     &.--gallery {
       inline-size: var(--size-fluid-5);
