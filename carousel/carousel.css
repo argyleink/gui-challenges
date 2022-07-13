@@ -5,12 +5,10 @@ TODO:
 - option for cyclical cycling
 - improve xl/xs screen layout
 - improve non-full viewport layout
-- updated scrollend
 - pagination type (paged vs items)
 - container queries for when arrows are cramped?
 - javascript disabled should hide arrows
 - dimmed controls should be inert?
-- finish captions and item names
 - if no pagination then don't observe?
 
 NICE TO HAVE:

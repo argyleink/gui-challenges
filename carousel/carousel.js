@@ -143,14 +143,15 @@ carousel.elements.root.addEventListener('keyup', e => {
 })
 
 // marker factory
-const createMarkerDot = ({index, type}) => {
+const createMarkerDot = ({index, type, item}) => {
   // <button class="gui-carousel--control" type="button" role="tab" aria-label="Item 1" title="Item 1" aria-controls="carousel-item-1"></button>
   const marker = document.createElement('button')
+  const img = item.querySelector('img')
   marker.className = 'gui-carousel--control'
   marker.type = 'button'
   marker.role = 'tab'
-  marker.title = `Item ${index}`
-  marker.setAttribute('aria-label', `Item ${index}`)
+  marker.title = `Item ${index}: ${img.alt}`
+  marker.setAttribute('aria-label', `Item ${index}: ${img.alt}`)
   marker.setAttribute('aria-controls', `carousel-item-${index}`)
   return marker
 }
@@ -158,23 +159,25 @@ const createMarkerDot = ({index, type}) => {
 const createMarkerGallery = ({index, type, item}) => {
   // <button class="gui-carousel--control --gallery" type="button" role="tab" aria-label="Item 1" title="Item 1" aria-controls="carousel-item-1"></button>
   const marker = document.createElement('button')
-  marker.style.backgroundImage = `url(${item.querySelector('img').src})`
+  const img = item.querySelector('img')
+  marker.style.backgroundImage = `url(${img.src})`
   marker.className = 'gui-carousel--control --gallery'
   marker.type = 'button'
   marker.role = 'tab'
-  marker.title = `Item ${index}`
-  marker.setAttribute('aria-label', `Item ${index}`)
+  marker.title = `Item ${index}: ${img.alt}`
+  marker.setAttribute('aria-label', `Item ${index}: ${img.alt}`)
   marker.setAttribute('aria-controls', `carousel-item-${index}`)
   return marker
 }
 
 const createMarker = (item, index) => {
   const markerType = carousel.elements.root.getAttribute('map-type')
+  index++ // so list doesnt start at 0
   
   if (markerType == 'gallery')
     return createMarkerGallery({index, type: markerType, item})
   else
-    return createMarkerDot({index, type: markerType})
+    return createMarkerDot({index, type: markerType, item})
 }
 
 // kickoff matching state to DOM
