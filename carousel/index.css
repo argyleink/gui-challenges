@@ -6,9 +6,14 @@
 
 body {
   display: grid;
+  gap: 10vh;
   place-content: center;
   overflow-x: hidden;
   max-inline-size: 100vw;
+
+  & > *:first-child {
+    margin-block-start: 10vh;
+  }
 }
 
 .github-corner {
