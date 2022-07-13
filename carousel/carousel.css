@@ -44,6 +44,8 @@ NICE TO HAVE:
   grid-template-columns: [carousel-gutter] var(--_carousel-gutters) 1fr [carousel-gutter] var(--_carousel-gutters);
   grid-template-rows: [carousel-scroller] 1fr [carousel-pagination] var(--_carousel-map-size);
 
+  cursor: auto;
+
   &:focus-visible {
     outline-offset: 0;
   }
@@ -94,7 +96,6 @@ NICE TO HAVE:
   grid: [stack] 1fr / [stack] var(--_carousel-item-size);
   align-items: end;
   
-  cursor: auto; /* open props correction */
   box-shadow: var(--shadow-4);
   border-radius: var(--radius-4);
   overflow: hidden;

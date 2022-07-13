@@ -121,6 +121,9 @@ carousel.elements.previous.addEventListener('click', e => goPrev())
 
 // pagination handlers
 carousel.elements.minimap.addEventListener('click', e => {
+  if (e.target.classList.contains('gui-carousel--map'))
+    return
+  
   e.target.setAttribute('aria-selected', true)
   carousel.elements
     .items[getElementIndex(e.target)]
