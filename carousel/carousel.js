@@ -70,9 +70,13 @@ carousel.elements.scroller.addEventListener('scrollend', () => {
 // next and previous click events
 // TODO: don't use dom state so that multiple calls stack
 const goNext = () => {
-  if (carousel.current?.nextElementSibling) {
-    let next = carousel.current.nextElementSibling
-    next?.scrollIntoView({block: 'nearest', inline: 'nearest'})
+  const next = carousel.current?.nextElementSibling
+
+  if (carousel.current === next)
+    return
+
+  if (next) {
+    next.scrollIntoView({block: 'nearest', inline: 'nearest'})
     carousel.current = next
   }
   else {
@@ -81,10 +85,14 @@ const goNext = () => {
 }
 
 const goPrev = () => {
-  if (carousel.current?.previousElementSibling) {
-    let prev = carousel.current.previousElementSibling
-    prev?.scrollIntoView({block: 'nearest', inline: 'nearest'})
-    carousel.current = prev
+  const previous = carousel.current?.previousElementSibling
+
+  if (carousel.current === previous)
+    return
+
+  if (previous) {
+    previous.scrollIntoView({block: 'nearest', inline: 'nearest'})
+    carousel.current = previous
   }
   else {
     console.log('at the beginning')
