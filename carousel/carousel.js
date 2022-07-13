@@ -48,6 +48,7 @@ const synchronize = () => {
     dot.setAttribute('tabindex', !observation.isIntersecting ? '-1' : '0')
 
     // stash the intersecting element
+    // TODO: intersecting element isnt always the current
     if (observation.isIntersecting)
       carousel.current = observation.target
   }
@@ -69,13 +70,25 @@ carousel.elements.scroller.addEventListener('scrollend', () => {
 // next and previous click events
 // TODO: don't use dom state so that multiple calls stack
 const goNext = () => {
-  let next = carousel.current?.nextElementSibling
-  next?.f({block: 'nearest', inline: 'nearest'})
+  if (carousel.current?.nextElementSibling) {
+    let next = carousel.current.nextElementSibling
+    next?.scrollIntoView({block: 'nearest', inline: 'nearest'})
+    carousel.current = next
+  }
+  else {
+    console.log('at the end')
+  }
 }
 
 const goPrev = () => {
-  let prev = carousel.current?.previousElementSibling
-  prev?.scrollIntoView({block: 'nearest', inline: 'nearest'})
+  if (carousel.current?.previousElementSibling) {
+    let prev = carousel.current.previousElementSibling
+    prev?.scrollIntoView({block: 'nearest', inline: 'nearest'})
+    carousel.current = prev
+  }
+  else {
+    console.log('at the beginning')
+  }
 }
  
 carousel.elements.next.addEventListener('click', e => goNext())
