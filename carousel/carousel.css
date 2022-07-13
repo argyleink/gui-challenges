@@ -12,6 +12,7 @@ TODO:
 - improve non-full viewport layout
 - pagination type (paged vs items)
 - pagination = none needs grid layout update too
+- no controls = needs grid layout update
 - container queries for when arrows are cramped?
 - javascript disabled should hide arrows
 - if no pagination then don't observe?
@@ -35,8 +36,8 @@ NICE TO HAVE:
 */
 
 .gui-carousel {
-  --_carousel-item-size: 80vw;
-  --_carousel-gutters: calc((100vw - var(--_carousel-item-size)) / 2);
+  --_carousel-item-size: 80%;
+  --_carousel-gutters: calc((100% - var(--_carousel-item-size)) / 2);
   --_carousel-scrollbar-gutter: var(--size-6);
   --_carousel-map-size: var(--size-8);
   
@@ -69,7 +70,7 @@ NICE TO HAVE:
   grid-column: 1/-1;
   
   display: grid;
-  grid-auto-columns: var(--_carousel-item-size);
+  grid-auto-columns: 100%;
   grid-auto-flow: column;
   align-items: center;
   gap: var(--_carousel-gutters);
@@ -93,7 +94,7 @@ NICE TO HAVE:
 
 .gui-carousel--scroll-item {
   display: grid;
-  grid: [stack] 1fr / [stack] var(--_carousel-item-size);
+  grid: [stack] 1fr / [stack] 1fr;
   align-items: end;
   
   box-shadow: var(--shadow-4);
