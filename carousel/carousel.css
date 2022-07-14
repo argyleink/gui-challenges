@@ -10,10 +10,7 @@ TODO:
 - improve xl/xs screen layout
 - improve non-full viewport layout
 - pagination type (paged vs items)
-- pagination = none needs grid layout update too
-- no controls = needs grid layout update
 - container queries for when arrows are cramped?
-- javascript disabled should hide arrows
 - if no pagination then don't observe?
 - hide scrollbar attribute
 
