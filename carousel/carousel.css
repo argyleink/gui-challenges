@@ -191,6 +191,7 @@ NICE TO HAVE:
   border-radius: var(--radius-round);
   box-shadow: 0 0 0 var(--_shadow-size) var(--_shadow-highlight);
   text-indent: 10ch;
+  padding: 0;
   overflow: hidden;
   z-index: var(--layer-1);
   transition: opacity .5s var(--ease-2) .5s;
@@ -280,7 +281,6 @@ NICE TO HAVE:
 
   & > button {
     inline-size: var(--size-3);
-    padding: 0;
     background-color: var(--surface-4);
     border: var(--border-size-1) solid var(--surface-4);
 
