@@ -12,7 +12,6 @@ TODO:
 - pagination type (paged vs items)
 - container queries for when arrows are cramped?
 - if no pagination then don't observe?
-- hide scrollbar attribute
 
 NICE TO HAVE:
 - easier custom layout config
@@ -65,6 +64,18 @@ NICE TO HAVE:
 
     & > .gui-carousel--controls {
       display: none;
+    }
+  }
+
+  &[carousel-scrollbar="none"] {
+    --_carousel-map-size: var(--size-4);
+
+    & > .gui-carousel--scroller {
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 }
