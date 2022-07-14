@@ -68,7 +68,7 @@ NICE TO HAVE:
   }
 
   &[carousel-scrollbar="none"] {
-    --_carousel-map-size: var(--size-4);
+    --_carousel-map-size: var(--size-5);
 
     & > .gui-carousel--scroller {
       scrollbar-width: none;
@@ -76,6 +76,10 @@ NICE TO HAVE:
       &::-webkit-scrollbar {
         display: none;
       }
+    }
+
+    & > .gui-carousel--map {
+      place-self: start center;
     }
   }
 }
