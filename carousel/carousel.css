@@ -47,7 +47,7 @@ NICE TO HAVE:
   cursor: auto;
 
   &:focus-visible {
-    outline-offset: 0;
+    outline-offset: -5px;
   }
 
   /* configuration handlers */
@@ -55,12 +55,20 @@ NICE TO HAVE:
     --_carousel-map-size: var(--size-fluid-6);
   }
 
-  &[carousel-pagination="none"] .gui-carousel--map {
-    display: none;
+  &[carousel-pagination="none"] {
+    grid-template-rows: [carousel-scroller] 1fr;
+
+    & > .gui-carousel--map {
+      display: none;
+    }
   }
 
-  &[carousel-controls="none"] .gui-carousel--controls {
-    display: none;
+  &[carousel-controls="none"] {
+    grid-template-columns: 0 1fr 0;
+
+    & > .gui-carousel--controls {
+      display: none;
+    }
   }
 }
 
