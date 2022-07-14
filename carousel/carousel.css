@@ -11,10 +11,9 @@ TODO:
 - improve non-full viewport layout
 - pagination type (paged vs items)
 - container queries for when arrows are cramped?
-- if no pagination then don't observe?
 
 NICE TO HAVE:
-- easier custom layout config
+- custom layouts
 - scroll-start / default item != 0
 - slider demo (just arrows no dots)
 - ecommerce demo (product images)
@@ -22,12 +21,15 @@ NICE TO HAVE:
 - testimonial demo
 - paged demo instead of item by item
 - variable sized items demo
+- win8 style
 - example where it's not full width
 - arrow placement options
-- dynamic slide handling (mutation observer)
+- dynamic add/remove slide handling
+- attribute change update handling
 - web component
   - slots
   - async initialization
+- js api
 */
 
 .gui-carousel {
