@@ -123,7 +123,7 @@ carousel.elements.previous.addEventListener('click', e => goPrev())
 carousel.elements.minimap.addEventListener('click', e => {
   if (e.target.classList.contains('gui-carousel--map'))
     return
-  
+
   e.target.setAttribute('aria-selected', true)
   carousel.elements
     .items[getElementIndex(e.target)]
@@ -169,20 +169,20 @@ carousel.elements.root.addEventListener('keydown', e => {
 
 // marker factory
 const createMarkerDot = ({index, type, item}) => {
-  // <button class="gui-carousel--control" type="button" role="tab" aria-label="Item 1" title="Item 1" aria-controls="carousel-item-1"></button>
   const marker = document.createElement('button')
   const img = item.querySelector('img')
   marker.className = 'gui-carousel--control'
   marker.type = 'button'
   marker.role = 'tab'
   marker.title = `Item ${index}: ${img.alt}`
-  marker.setAttribute('aria-label', `Item ${index}: ${img.alt}`)
+  marker.setAttribute('aria-label', img.alt)
+  marker.setAttribute('aria-setsize', carousel.elements.items.length)
+  marker.setAttribute('aria-posinset', index)
   marker.setAttribute('aria-controls', `carousel-item-${index}`)
   return marker
 }
 
 const createMarkerGallery = ({index, type, item}) => {
-  // <button class="gui-carousel--control --gallery" type="button" role="tab" aria-label="Item 1" title="Item 1" aria-controls="carousel-item-1"></button>
   const marker = document.createElement('button')
   const img = item.querySelector('img')
   marker.style.backgroundImage = `url(${img.src})`
@@ -190,7 +190,9 @@ const createMarkerGallery = ({index, type, item}) => {
   marker.type = 'button'
   marker.role = 'tab'
   marker.title = `Item ${index}: ${img.alt}`
-  marker.setAttribute('aria-label', `Item ${index}: ${img.alt}`)
+  marker.setAttribute('aria-label', img.alt)
+  marker.setAttribute('aria-setsize', carousel.elements.items.length)
+  marker.setAttribute('aria-posinset', index)
   marker.setAttribute('aria-controls', `carousel-item-${index}`)
   return marker
 }
