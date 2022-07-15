@@ -92,7 +92,8 @@ const goNext = () => {
     return
 
   if (next) {
-    carousel.elements.scroller.scrollBy(20, 0)
+    // carousel.elements.scroller.scrollBy(20, 0)
+    next.scrollIntoView({block: 'nearest', inline: 'nearest'})
     carousel.current = next
   }
   else {
@@ -107,7 +108,8 @@ const goPrev = () => {
     return
 
   if (previous) {
-    carousel.elements.scroller.scrollBy(-20, 0)
+    // carousel.elements.scroller.scrollBy(-20, 0)
+    previous.scrollIntoView({block: 'nearest', inline: 'nearest'})
     carousel.current = previous
   }
   else {
