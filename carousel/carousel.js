@@ -48,8 +48,7 @@ const synchronize = () => {
     dot.setAttribute('aria-selected', observation.isIntersecting)
     dot.setAttribute('tabindex', !observation.isIntersecting ? '-1' : '0')
 
-    // stash the intersecting element
-    // TODO: intersecting element isnt always the current
+    // stash the intersecting snap element
     if (observation.isIntersecting)
       carousel.current = observation.target
   }
@@ -76,9 +75,11 @@ const toggleControlsDisability = () => {
   carousel.elements.previous.toggleAttribute('disabled', isAtStart)
 }
 
+// observe children intersection
 for (let item of carousel.elements.snaps)
   carousel_observer.observe(item)
 
+// scrollend listener for sync
 carousel.elements.scroller.addEventListener('scrollend', () => {
   synchronize()
 })
@@ -92,7 +93,6 @@ const goNext = () => {
 
   if (next) {
     carousel.elements.scroller.scrollBy(20, 0)
-    // next.scrollIntoView({block: 'nearest', inline: 'nearest'})
     carousel.current = next
   }
   else {
@@ -108,7 +108,6 @@ const goPrev = () => {
 
   if (previous) {
     carousel.elements.scroller.scrollBy(-20, 0)
-    // previous.scrollIntoView({block: 'nearest', inline: 'nearest'})
     carousel.current = previous
   }
   else {
