@@ -4,12 +4,10 @@
 
 /* 
 TODO: 
-- intersecting element != current
 - map overflow handling (lots of dots or images)
 - option for cyclical cycling
 - improve xl/xs screen layout
 - improve non-full viewport layout
-- pagination type (paged vs items)
 - container queries for when arrows are cramped?
 
 NICE TO HAVE:
@@ -94,7 +92,7 @@ NICE TO HAVE:
   grid-auto-columns: 100%;
   grid-auto-flow: column;
   align-items: center;
-  gap: var(--_carousel-gutters);
+  gap: calc((100% - var(--_carousel-item-size)) / 1.5);
   
   padding-block: var(--size-2) var(--_carousel-scrollbar-gutter);
   overflow-x: auto;
