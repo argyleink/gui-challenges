@@ -4,8 +4,8 @@
 
 /* 
 TODO: 
-- map overflow handling (lots of dots or images)
 - option for cyclical cycling
+- option for scroll-snap-stop: always?
 - improve xl/xs screen layout
 - improve non-full viewport layout
 - container queries for when arrows are cramped?
@@ -45,7 +45,7 @@ NICE TO HAVE:
 
   /* configuration handlers */
   &[carousel-pagination="gallery"] {
-    --_carousel-map-size: var(--size-fluid-6);
+    --_carousel-map-size: auto;
   }
 
   &[carousel-pagination="none"] {
@@ -263,6 +263,16 @@ NICE TO HAVE:
   display: grid;
   grid-auto-flow: column;
   gap: var(--size-2);
+
+  max-inline-size: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  padding-block: var(--size-2) var(--_carousel-scrollbar-gutter);
+  padding-inline: var(--size-2);
+
+  @media (--motionOK) {
+    scroll-behavior: smooth;
+  }
 
   @nest [carousel-pagination="gallery"] & {
     margin-block-end: 0;
