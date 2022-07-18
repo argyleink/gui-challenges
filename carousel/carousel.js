@@ -59,16 +59,16 @@ export default class Carousel {
         .children[this.#getElementIndex(observation.target)]
       
       dot.setAttribute('aria-selected', observation.isIntersecting)
-      observation.isIntersecting && dot.scrollIntoView({inline: 'center', block: 'nearest'})
       dot.setAttribute('tabindex', !observation.isIntersecting ? '-1' : '0')
 
       // stash the intersecting snap element
-      if (observation.isIntersecting)
+      if (observation.isIntersecting) {
         this.current = observation.target
+        dot.scrollIntoView({inline: 'center', block: 'nearest'})
+      }
     }
     
     this.toggleControlsDisability()
-
     this.hasIntersected.clear()
   }
 
