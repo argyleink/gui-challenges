@@ -40,8 +40,6 @@ NICE TO HAVE:
   grid-template-columns: [carousel-gutter] var(--_carousel-gutters) 1fr [carousel-gutter] var(--_carousel-gutters);
   grid-template-rows: [carousel-scroller] 1fr [carousel-pagination] var(--_carousel-map-size);
 
-  cursor: auto;
-
   &:focus-visible {
     outline-offset: -5px;
   }
