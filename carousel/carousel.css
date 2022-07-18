@@ -4,8 +4,11 @@
 
 /* 
 TODO: 
+- add map container dynamically too
+- add arrows with js?
 - option for cyclical cycling
 - option for scroll-snap-stop: always?
+- spamming is losing focus to complimentary button
 - improve xl/xs screen layout
 - improve non-full viewport layout
 - container queries for when arrows are cramped?
