@@ -32,6 +32,10 @@ export default class Carousel {
       
       this.elements.minimap
         .appendChild(this.#createMarker(item, index))
+
+      item
+        .querySelector('.gui-carousel--scroll-item')
+        .setAttribute('aria-label', `${index+1} of ${this.elements.items.length}`)
       
       if (index === 0)
         this.current = item
