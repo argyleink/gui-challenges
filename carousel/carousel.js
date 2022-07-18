@@ -22,6 +22,7 @@ export default class Carousel {
     })
 
     this.#listen()
+    // todo: observe this element being removed from DOM and #unlisten
 
     this.elements.snaps.forEach((item, index) => {
       this.hasIntersected.add({
