@@ -3,13 +3,13 @@ import 'https://cdn.jsdelivr.net/gh/argyleink/scrollyfills@latest/dist/scrollyfi
 export default class Carousel {
   constructor(element) {
     this.elements = { 
-      root:     document.querySelector('.gui-carousel'),
-      scroller: document.querySelector('.gui-carousel--scroller'),
-      items:    document.querySelectorAll('.gui-carousel--scroll-item'),
-      snaps:    document.querySelectorAll('.gui-carousel--snap'),
-      previous: document.querySelector('.gui-carousel--control.--previous'),
-      next:     document.querySelector('.gui-carousel--control.--next'),
-      minimap:  document.querySelector('.gui-carousel--map'),
+      root:     element,
+      scroller: element.querySelector('.gui-carousel--scroller'),
+      items:    element.querySelectorAll('.gui-carousel--scroll-item'),
+      snaps:    element.querySelectorAll('.gui-carousel--snap'),
+      previous: element.querySelector('.gui-carousel--control.--previous'),
+      next:     element.querySelector('.gui-carousel--control.--next'),
+      minimap:  element.querySelector('.gui-carousel--map'),
     }
     this.current = undefined
     this.hasIntersected = new Set()
@@ -21,62 +21,7 @@ export default class Carousel {
       root: this.elements.scroller
     })
 
-    // observe children intersection
-    for (let item of this.elements.snaps)
-      this.carousel_observer.observe(item)
-
-    // scrollend listener for sync
-    this.elements.scroller.addEventListener('scrollend', () => {
-      this.synchronize()
-    })
-
-    this.elements.next.addEventListener('click', e => this.goNext())
-    this.elements.previous.addEventListener('click', e => this.goPrev())
-    this.elements.minimap.addEventListener('click', e => {
-      if (e.target.classList.contains('gui-carousel--map'))
-        return
-
-      e.target.setAttribute('aria-selected', true)
-      this.elements
-        .items[this.#getElementIndex(e.target)]
-        .scrollIntoView({block: 'nearest', inline: 'nearest'})
-    })
-    this.elements.root.addEventListener('keydown', e => {
-      switch (e.key) {
-        case 'ArrowRight':
-          if (e.target.closest('.gui-carousel--map'))
-            this.elements
-              .minimap.children[this.#getElementIndex(e.target) + 1]
-              ?.focus()
-          else {
-            if (document.activeElement === this.elements.next) {
-              this.elements.next.style.animation = 'gui-carousel--control-keypress 145ms var(--ease-2)'
-              this.elements.next.addEventListener('animationend', e => {
-                this.elements.next.style.animation = null
-              }, {once: true})
-            }
-            this.elements.next.focus()  
-          }
-          this.goNext()
-          break
-        case 'ArrowLeft':
-          if (e.target.closest('.gui-carousel--map'))
-            this.elements
-              .minimap.children[this.#getElementIndex(e.target) - 1]
-              ?.focus()
-          else {
-            if (document.activeElement === this.elements.previous) {
-              this.elements.previous.style.animation = 'gui-carousel--control-keypress 145ms var(--ease-2)'
-              this.elements.previous.addEventListener('animationend', e => {
-                this.elements.previous.style.animation = null
-              }, {once: true})
-            }
-            this.elements.previous.focus()
-          }
-          this.goPrev()
-          break
-      }
-    })
+    this.#listen()
 
     this.elements.snaps.forEach((item, index) => {
       this.hasIntersected.add({
@@ -176,11 +121,11 @@ export default class Carousel {
       this.carousel_observer.observe(item)
 
     // scrollend listener for sync
-    this.elements.scroller.addEventListener('scrollend', this.synchronize)
-    this.elements.next.addEventListener('click', this.goNext)
-    this.elements.previous.addEventListener('click', this.goPrev)
-    this.elements.minimap.addEventListener('click', this.#handlePaginate)
-    this.elements.root.addEventListener('keydown', this.#handleKeydown)
+    this.elements.scroller.addEventListener('scrollend', this.synchronize.bind(this))
+    this.elements.next.addEventListener('click', this.goNext.bind(this))
+    this.elements.previous.addEventListener('click', this.goPrev.bind(this))
+    this.elements.minimap.addEventListener('click', this.#handlePaginate.bind(this))
+    this.elements.root.addEventListener('keydown', this.#handleKeydown.bind(this))
   }
 
   #unlisten() {
