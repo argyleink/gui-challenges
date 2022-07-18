@@ -67,7 +67,8 @@ NICE TO HAVE:
   &[carousel-scrollbar="none"] {
     --_carousel-map-size: var(--size-5);
 
-    & > .gui-carousel--scroller {
+    & > .gui-carousel--scroller,
+    & > .gui-carousel--map {
       scrollbar-width: none;
 
       &::-webkit-scrollbar {
