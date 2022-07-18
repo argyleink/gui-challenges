@@ -41,10 +41,10 @@ export default class Carousel {
         this.current = item
     })
 
-    this.synchronize()
+    this.synchronize({scrollPaginationIn: false})
   }
 
-  synchronize() {
+  synchronize({scrollPaginationIn = true}) {
     for (let observation of this.hasIntersected) {
       // toggle class based on if it's currently intersecting
       observation.target.classList
@@ -64,7 +64,8 @@ export default class Carousel {
       // stash the intersecting snap element
       if (observation.isIntersecting) {
         this.current = observation.target
-        dot.scrollIntoView({inline: 'center', block: 'nearest'})
+        if (scrollPaginationIn)
+          dot.scrollIntoView({inline: 'center', block: 'nearest'})
       }
     }
     
