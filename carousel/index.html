@@ -17,74 +17,366 @@
     <link rel="stylesheet" href="./index.css">
   </head>
   <body>
-    <div 
-      class="gui-carousel" 
+    
+    <section>
+      <h2>Default</h2>
+      <div 
+        class="gui-carousel" 
 
-      carousel-pagination="dots" 
-      carousel-controls="auto" 
-      carousel-scrollbar="auto"
+        carousel-pagination="dots" 
+        carousel-controls="auto" 
+        carousel-scrollbar="auto"
 
-      aria-roledescription="carousel" 
-      aria-label="Featured Items Carousel" 
-      tabindex="-1"
-    >
-      
-      <!--  CONTROLS  -->
-      <div class="gui-carousel--controls">
-        <noscript>
-          <style>
-            .gui-carousel--controls {
-              display: none;
-            }
-          </style>
-        </noscript>
-        <button type="button" class="gui-carousel--control --previous" aria-controls="gui-carousel-controls" aria-label="Previous Item" title="Previous Item">
-          <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
-          </svg>
-        </button>
-        <button type="button" class="gui-carousel--control --next" aria-controls="gui-carousel-controls" aria-label="Next Item" title="Next Item">
-          <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-          </svg>
-        </button>
+        aria-roledescription="carousel" 
+        aria-label="Featured Items Carousel" 
+        tabindex="-1"
+      >
+        
+        <!--  CONTROLS  -->
+        <div class="gui-carousel--controls">
+          <noscript>
+            <style>
+              .gui-carousel--controls {
+                display: none;
+              }
+            </style>
+          </noscript>
+          <button type="button" class="gui-carousel--control --previous" aria-controls="gui-carousel-controls" aria-label="Previous Item" title="Previous Item">
+            <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+          </button>
+          <button type="button" class="gui-carousel--control --next" aria-controls="gui-carousel-controls" aria-label="Next Item" title="Next Item">
+            <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+        
+        <!--  SCROLLER  -->
+        <div class="gui-carousel--scroller" aria-live="polite" role="group" aria-label="Items Scroller">
+          
+          <div class="gui-carousel--snap">
+            <figure class="gui-carousel--scroll-item" aria-roledescription="item" aria-label="1 of 3">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/this/1280/720.webp" alt="Blue ocean with a large wave">
+              <figcaption>
+                <a href="#">Learn more about large ocean waves</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="gui-carousel--scroll-item" aria-roledescription="item" aria-label="2 of 3">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/is/1280/720.webp" alt="Frosty orange desert sunset">
+              <figcaption>
+                <a href="#">Learn more about warm deserts</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="gui-carousel--scroll-item" aria-roledescription="item" aria-label="3 of 3">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/a/1280/720.webp" alt="African sahara with a giraffe">
+              <figcaption>
+                <a href="#">Learn more about giraffe's</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+        </div>
+        
+        <!--  MINIMAP  -->
+        <nav class="gui-carousel--map"></nav>
       </div>
-      
-      <!--  SCROLLER  -->
-      <div class="gui-carousel--scroller" aria-live="polite" role="group" aria-label="Items Scroller">
+    </section>
+
+    <section>
+      <h2>Thumbnail pagination</h2>
+      <div 
+        class="gui-carousel" 
+
+        carousel-pagination="gallery" 
+        carousel-controls="auto" 
+        carousel-scrollbar="auto"
+
+        aria-roledescription="carousel" 
+        aria-label="Featured Items Carousel" 
+        tabindex="-1"
+      >
         
-        <div class="gui-carousel--snap">
-          <figure class="gui-carousel--scroll-item" aria-roledescription="item" aria-label="1 of 3">
-            <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/this/1280/720.webp" alt="Blue ocean with a large wave">
-            <figcaption>
-              <a href="#">Learn more about large ocean waves</a>
-            </figcaption>
-          </figure>
+        <!--  CONTROLS  -->
+        <div class="gui-carousel--controls">
+          <noscript>
+            <style>
+              .gui-carousel--controls {
+                display: none;
+              }
+            </style>
+          </noscript>
+          <button type="button" class="gui-carousel--control --previous" aria-controls="gui-carousel-controls" aria-label="Previous Item" title="Previous Item">
+            <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+          </button>
+          <button type="button" class="gui-carousel--control --next" aria-controls="gui-carousel-controls" aria-label="Next Item" title="Next Item">
+            <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+          </button>
         </div>
         
-        <div class="gui-carousel--snap">
-          <figure class="gui-carousel--scroll-item" aria-roledescription="item" aria-label="2 of 3">
-            <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/is/1280/720.webp" alt="Frosty orange desert sunset">
-            <figcaption>
-              <a href="#">Learn more about warm deserts</a>
-            </figcaption>
-          </figure>
+        <!--  SCROLLER  -->
+        <div class="gui-carousel--scroller" aria-live="polite" role="group" aria-label="Items Scroller">
+          
+          <div class="gui-carousel--snap">
+            <figure class="gui-carousel--scroll-item" aria-roledescription="item" aria-label="1 of 3">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/this/1280/720.webp" alt="Blue ocean with a large wave">
+              <figcaption>
+                <a href="#">Learn more about large ocean waves</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="gui-carousel--scroll-item" aria-roledescription="item" aria-label="2 of 3">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/is/1280/720.webp" alt="Frosty orange desert sunset">
+              <figcaption>
+                <a href="#">Learn more about warm deserts</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="gui-carousel--scroll-item" aria-roledescription="item" aria-label="3 of 3">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/a/1280/720.webp" alt="African sahara with a giraffe">
+              <figcaption>
+                <a href="#">Learn more about giraffe's</a>
+              </figcaption>
+            </figure>
+          </div>
+          
         </div>
         
-        <div class="gui-carousel--snap">
-          <figure class="gui-carousel--scroll-item" aria-roledescription="item" aria-label="3 of 3">
-            <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/a/1280/720.webp" alt="African sahara with a giraffe">
-            <figcaption>
-              <a href="#">Learn more about giraffe's</a>
-            </figcaption>
-          </figure>
-        </div>
-        
+        <!--  MINIMAP  -->
+        <nav class="gui-carousel--map"></nav>
       </div>
-      
-      <!--  MINIMAP  -->
-      <nav class="gui-carousel--map"></nav>
-    </div>
+    </section>
+
+    <section>
+      <h2>No pagination</h2>
+      <div 
+        class="gui-carousel" 
+
+        carousel-pagination="none" 
+        carousel-controls="auto" 
+        carousel-scrollbar="auto"
+
+        aria-roledescription="carousel" 
+        aria-label="Featured Items Carousel" 
+        tabindex="-1"
+      >
+        
+        <!--  CONTROLS  -->
+        <div class="gui-carousel--controls">
+          <noscript>
+            <style>
+              .gui-carousel--controls {
+                display: none;
+              }
+            </style>
+          </noscript>
+          <button type="button" class="gui-carousel--control --previous" aria-controls="gui-carousel-controls" aria-label="Previous Item" title="Previous Item">
+            <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+          </button>
+          <button type="button" class="gui-carousel--control --next" aria-controls="gui-carousel-controls" aria-label="Next Item" title="Next Item">
+            <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+        
+        <!--  SCROLLER  -->
+        <div class="gui-carousel--scroller" aria-live="polite" role="group" aria-label="Items Scroller">
+          
+          <div class="gui-carousel--snap">
+            <figure class="gui-carousel--scroll-item" aria-roledescription="item" aria-label="1 of 3">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/this/1280/720.webp" alt="Blue ocean with a large wave">
+              <figcaption>
+                <a href="#">Learn more about large ocean waves</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="gui-carousel--scroll-item" aria-roledescription="item" aria-label="2 of 3">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/is/1280/720.webp" alt="Frosty orange desert sunset">
+              <figcaption>
+                <a href="#">Learn more about warm deserts</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="gui-carousel--scroll-item" aria-roledescription="item" aria-label="3 of 3">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/a/1280/720.webp" alt="African sahara with a giraffe">
+              <figcaption>
+                <a href="#">Learn more about giraffe's</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+        </div>
+        
+        <!--  MINIMAP  -->
+        <nav class="gui-carousel--map"></nav>
+      </div>
+    </section>
+
+    <section>
+      <h2>No arrows</h2>
+      <div 
+        class="gui-carousel" 
+
+        carousel-pagination="dots" 
+        carousel-controls="none" 
+        carousel-scrollbar="auto"
+
+        aria-roledescription="carousel" 
+        aria-label="Featured Items Carousel" 
+        tabindex="-1"
+      >
+        
+        <!--  CONTROLS  -->
+        <div class="gui-carousel--controls">
+          <noscript>
+            <style>
+              .gui-carousel--controls {
+                display: none;
+              }
+            </style>
+          </noscript>
+          <button type="button" class="gui-carousel--control --previous" aria-controls="gui-carousel-controls" aria-label="Previous Item" title="Previous Item">
+            <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+          </button>
+          <button type="button" class="gui-carousel--control --next" aria-controls="gui-carousel-controls" aria-label="Next Item" title="Next Item">
+            <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+        
+        <!--  SCROLLER  -->
+        <div class="gui-carousel--scroller" aria-live="polite" role="group" aria-label="Items Scroller">
+          
+          <div class="gui-carousel--snap">
+            <figure class="gui-carousel--scroll-item" aria-roledescription="item" aria-label="1 of 3">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/this/1280/720.webp" alt="Blue ocean with a large wave">
+              <figcaption>
+                <a href="#">Learn more about large ocean waves</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="gui-carousel--scroll-item" aria-roledescription="item" aria-label="2 of 3">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/is/1280/720.webp" alt="Frosty orange desert sunset">
+              <figcaption>
+                <a href="#">Learn more about warm deserts</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="gui-carousel--scroll-item" aria-roledescription="item" aria-label="3 of 3">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/a/1280/720.webp" alt="African sahara with a giraffe">
+              <figcaption>
+                <a href="#">Learn more about giraffe's</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+        </div>
+        
+        <!--  MINIMAP  -->
+        <nav class="gui-carousel--map"></nav>
+      </div>
+    </section>
+
+    <section>
+      <h2>No scrollbar</h2>
+      <div 
+        class="gui-carousel" 
+
+        carousel-pagination="dots" 
+        carousel-controls="auto" 
+        carousel-scrollbar="none"
+
+        aria-roledescription="carousel" 
+        aria-label="Featured Items Carousel" 
+        tabindex="-1"
+      >
+        
+        <!--  CONTROLS  -->
+        <div class="gui-carousel--controls">
+          <noscript>
+            <style>
+              .gui-carousel--controls {
+                display: none;
+              }
+            </style>
+          </noscript>
+          <button type="button" class="gui-carousel--control --previous" aria-controls="gui-carousel-controls" aria-label="Previous Item" title="Previous Item">
+            <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+          </button>
+          <button type="button" class="gui-carousel--control --next" aria-controls="gui-carousel-controls" aria-label="Next Item" title="Next Item">
+            <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+        
+        <!--  SCROLLER  -->
+        <div class="gui-carousel--scroller" aria-live="polite" role="group" aria-label="Items Scroller">
+          
+          <div class="gui-carousel--snap">
+            <figure class="gui-carousel--scroll-item" aria-roledescription="item" aria-label="1 of 3">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/this/1280/720.webp" alt="Blue ocean with a large wave">
+              <figcaption>
+                <a href="#">Learn more about large ocean waves</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="gui-carousel--scroll-item" aria-roledescription="item" aria-label="2 of 3">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/is/1280/720.webp" alt="Frosty orange desert sunset">
+              <figcaption>
+                <a href="#">Learn more about warm deserts</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="gui-carousel--scroll-item" aria-roledescription="item" aria-label="3 of 3">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/a/1280/720.webp" alt="African sahara with a giraffe">
+              <figcaption>
+                <a href="#">Learn more about giraffe's</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+        </div>
+        
+        <!--  MINIMAP  -->
+        <nav class="gui-carousel--map"></nav>
+      </div>
+    </section>
 
     <a href="https://github.com/argyleink/gui-challenges" class="github-corner" aria-label="View source on GitHub">
       <svg width="80" height="80" viewBox="0 0 250 250" style="position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">

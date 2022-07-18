@@ -7,8 +7,22 @@ body {
   overflow-x: hidden;
   max-inline-size: 100vw;
 
-  & > *:first-child {
+  & > section:first-of-type {
     margin-block-start: 10vh;
+  }
+  & > section:last-of-type {
+    margin-block-end: 10vh;
+  }
+}
+
+section {
+  display: grid;
+  gap: 2vh;
+
+  & > h2 {
+    max-inline-size: 100%;
+    text-align: center;
+    margin-inline: 10vmin;
   }
 }
 
