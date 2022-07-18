@@ -120,8 +120,10 @@ NICE TO HAVE:
   border-radius: var(--radius-4);
   overflow: hidden;
 
-  contain-intrinsic-inline-size: var(--_carousel-item-size);
-  content-visibility: auto;
+  &:not(:first-of-type) {
+    contain-intrinsic-inline-size: var(--_carousel-item-size);
+    content-visibility: auto;
+  }
 
   & > * {
     grid-area: stack;
