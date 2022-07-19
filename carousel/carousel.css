@@ -5,10 +5,7 @@
 /* 
 TODO: 
 - option for cyclical cycling
-- option for scroll-snap-stop: always?
-- spamming is losing focus to complimentary button
-- improve xl/xs screen layout
-- improve non-full viewport layout
+- improve xs screen layout
 - container queries for when arrows are cramped?
 
 NICE TO HAVE:
@@ -81,6 +78,10 @@ NICE TO HAVE:
     & > .gui-carousel--map {
       place-self: start center;
     }
+  }
+
+  &[carousel-snapstop="always"] .gui-carousel--snap {
+    scroll-snap-stop: always;
   }
 }
 
