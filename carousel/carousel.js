@@ -7,9 +7,9 @@ export default class Carousel {
       scroller: element.querySelector('.gui-carousel--scroller'),
       items:    element.querySelectorAll('.gui-carousel--scroll-item'),
       snaps:    element.querySelectorAll('.gui-carousel--snap'),
-      previous: element.querySelector('.gui-carousel--control.--previous'),
-      next:     element.querySelector('.gui-carousel--control.--next'),
-      minimap:  element.querySelector('.gui-carousel--map'),
+      previous: null,
+      next:     null,
+      minimap:  null,
     }
     this.current = undefined
     this.hasIntersected = new Set()
@@ -21,8 +21,8 @@ export default class Carousel {
       root: this.elements.scroller
     })
 
-    this.#listen()
-    // todo: observe this element being removed from DOM and #unlisten
+    this.#createPagination()
+    this.#createControls()
 
     this.elements.snaps.forEach((item, index) => {
       this.hasIntersected.add({
@@ -41,6 +41,8 @@ export default class Carousel {
         this.current = item
     })
 
+    this.#listen()
+    // todo: observe this element being removed from DOM and #unlisten
     this.synchronize({scrollPaginationIn: false})
   }
 
@@ -200,6 +202,14 @@ export default class Carousel {
     return index
   }
 
+  #createPagination() {
+    let nav = document.createElement('nav')
+    nav.className = 'gui-carousel--map'
+    this.elements.root.appendChild(nav)
+    
+    this.elements.minimap = nav
+  }
+
   #createMarker(item, index) {
     const markerType = this.elements.root.getAttribute('carousel-pagination')
     index++ // user facing index shouldnt start at 0
@@ -237,5 +247,50 @@ export default class Carousel {
     marker.setAttribute('aria-posinset', index)
     marker.setAttribute('aria-controls', `carousel-item-${index}`)
     return marker
+  }
+
+  #createControls() {
+    let controls = document.createElement('div')
+    controls.className = 'gui-carousel--controls'
+
+    let prevBtn = this.#createControl('previous')
+    let nextBtn = this.#createControl('next')
+
+    controls.appendChild(prevBtn)
+    controls.appendChild(nextBtn)
+
+    this.elements.previous = prevBtn
+    this.elements.next = nextBtn
+    this.elements.root.prepend(controls)
+  }
+
+  #createControl(btnType) {
+    let control = document.createElement('button')
+    let userFacingText = `${btnType.charAt(0).toUpperCase() + btnType.slice(1)} Item`
+
+    control.type = 'button'
+    control.title = userFacingText
+    control.className = `gui-carousel--control --${btnType}`
+    control.setAttribute('aria-controls', 'gui-carousel--controls')
+    control.setAttribute('aria-label', userFacingText)
+
+    let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+    svg.setAttribute('aria-hidden', 'true')
+    svg.setAttribute('viewBox', '0 0 20 20')
+    svg.setAttribute('fill', 'currentColor')
+
+    let path = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+    path.setAttribute('fill-rule', 'evenodd')
+    path.setAttribute('clip-rule', 'evenodd')
+
+    let previousPath = 'M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z'
+    let nextPath = 'M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z'
+
+    path.setAttribute('d', btnType === 'next' ? nextPath : previousPath)
+
+    svg.appendChild(path)
+    control.appendChild(svg)
+
+    return control
   }
 }
