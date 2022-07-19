@@ -80,8 +80,7 @@ export default class Carousel {
       return
 
     if (next) {
-      // this.elements.scroller.scrollBy(20, 0)
-      next.scrollIntoView({block: 'nearest', inline: 'nearest'})
+      next.scrollIntoView({block: 'nearest', inline: 'center'})
       this.current = next
     }
     else {
@@ -96,8 +95,7 @@ export default class Carousel {
       return
 
     if (previous) {
-      // this.elements.scroller.scrollBy(-20, 0)
-      previous.scrollIntoView({block: 'nearest', inline: 'nearest'})
+      previous.scrollIntoView({block: 'nearest', inline: 'center'})
       this.current = previous
     }
     else {
@@ -153,7 +151,7 @@ export default class Carousel {
     e.target.setAttribute('aria-selected', true)
     this.elements
       .items[this.#getElementIndex(e.target)]
-      .scrollIntoView({block: 'nearest', inline: 'nearest'})
+      .scrollIntoView({block: 'nearest', inline: 'center'})
   }
 
   #handleKeydown(e) {
