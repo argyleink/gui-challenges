@@ -47,7 +47,7 @@ NICE TO HAVE:
 
   /* configuration handlers */
   &[carousel-pagination="gallery"] {
-    --_carousel-map-size: auto;
+    --_carousel-map-size: var(--size-10);
   }
 
   &[carousel-pagination="none"] {
