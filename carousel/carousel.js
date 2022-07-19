@@ -11,8 +11,16 @@ export default class Carousel {
       next:     null,
       minimap:  null,
     }
+
     this.current = undefined
     this.hasIntersected = new Set()
+
+    this.elements.root.setAttribute('tabindex', -1)
+    this.elements.root.setAttribute('aria-roledescription', 'carousel')
+
+    this.elements.scroller.setAttribute('role', 'group')
+    this.elements.scroller.setAttribute('aria-label', 'Items Scroller')
+    this.elements.scroller.setAttribute('aria-live', 'Polite')
 
     this.carousel_observer = new IntersectionObserver(observations => {
       for (let node of observations)
@@ -24,21 +32,21 @@ export default class Carousel {
     this.#createPagination()
     this.#createControls()
 
-    this.elements.snaps.forEach((item, index) => {
+    this.elements.snaps.forEach((snapChild, index) => {
       this.hasIntersected.add({
         isIntersecting: index === 0,
-        target: item,
+        target: snapChild,
       })
       
       this.elements.minimap
-        .appendChild(this.#createMarker(item, index))
+        .appendChild(this.#createMarker(snapChild, index))
 
-      item
-        .querySelector('.gui-carousel--scroll-item')
-        .setAttribute('aria-label', `${index+1} of ${this.elements.items.length}`)
+      let item = snapChild.querySelector('.gui-carousel--scroll-item')
+      item.setAttribute('aria-label', `${index+1} of ${this.elements.items.length}`)
+      item.setAttribute('aria-roledescription', 'item')
       
       if (index === 0)
-        this.current = item
+        this.current = snapChild
     })
 
     this.#listen()
