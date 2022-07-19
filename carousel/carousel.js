@@ -1,4 +1,4 @@
-import 'https://cdn.jsdelivr.net/gh/argyleink/scrollyfills@latest/dist/scrollyfills.modern.js'
+import {scrollend} from 'https://cdn.jsdelivr.net/gh/argyleink/scrollyfills@latest/dist/scrollyfills.modern.js'
 
 export default class Carousel {
   constructor(element) {
@@ -302,3 +302,7 @@ export default class Carousel {
     return control
   }
 }
+
+document.querySelectorAll('.gui-carousel').forEach(element => {
+  new Carousel(element)
+})
