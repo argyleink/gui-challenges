@@ -48,6 +48,10 @@ NICE TO HAVE:
   /* configuration handlers */
   &[carousel-pagination="gallery"] {
     --_carousel-map-size: var(--size-10);
+
+    & > .gui-carousel--map {
+      -webkit-mask-image: linear-gradient(to right, #0000 0%, #000 5%, 95%, #000, #0000);
+    }
   }
 
   &[carousel-pagination="none"] {
