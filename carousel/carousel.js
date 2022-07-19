@@ -231,11 +231,12 @@ export default class Carousel {
   #createMarkerDot({index, type, item}) {
     const marker = document.createElement('button')
     const img = item.querySelector('img')
+    const caption = item.querySelector('figcaption')
     marker.className = 'gui-carousel--control'
     marker.type = 'button'
     marker.role = 'tab'
-    marker.title = `Item ${index}: ${img.alt}`
-    marker.setAttribute('aria-label', img.alt)
+    marker.title = `Item ${index}: ${img?.alt || caption?.innerText}`
+    marker.setAttribute('aria-label', img?.alt || caption?.innerText)
     marker.setAttribute('aria-setsize', this.elements.items.length)
     marker.setAttribute('aria-posinset', index)
     marker.setAttribute('aria-controls', `carousel-item-${index}`)
