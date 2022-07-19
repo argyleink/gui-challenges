@@ -173,6 +173,7 @@ export default class Carousel {
           this.elements.next.focus()  
         }
         this.goNext()
+        e.preventDefault()
         break
       case 'ArrowLeft':
         if (e.target.closest('.gui-carousel--map'))
@@ -189,6 +190,7 @@ export default class Carousel {
           this.elements.previous.focus()
         }
         this.goPrev()
+        e.preventDefault()
         break
     }
   }
