@@ -13,7 +13,6 @@ NICE TO HAVE:
 - wrap in :where()
 - scroll-start / default item != 0
 - ecommerce demo (product images)
-- testimonial demo
 - paged demo instead of item by item (win8 style?)
 - variable sized items demo
 - example where it's not full width
@@ -114,10 +113,6 @@ NICE TO HAVE:
 }
 
 .gui-carousel--scroll-item {
-  display: grid;
-  grid: [stack] 100% / [stack] 100%;
-  align-items: end;
-
   max-inline-size: max-content;
   margin-inline: auto;
 

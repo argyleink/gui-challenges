@@ -1,4 +1,8 @@
 .captioned-image {
+  display: grid;
+  grid: [stack] 100% / [stack] 100%;
+  align-items: end;
+
   box-shadow: var(--shadow-4);
   border-radius: var(--radius-4);
   overflow: hidden;
@@ -30,4 +34,18 @@
 
 .testimonial {
 
+  & > blockquote {
+    border-inline-start: none;
+
+    & > p {
+      font-size: var(--font-size-5);
+      font-weight: var(--font-weight-2);
+      line-height: var(--font-lineheight-0);
+      text-align: center;
+    }
+  }
+
+  & cite {
+    border-inline-start: none;
+  }
 }
