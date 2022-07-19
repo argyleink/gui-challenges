@@ -10,6 +10,7 @@ TODO:
 
 NICE TO HAVE:
 - custom layouts
+- wrap in :where()
 - scroll-start / default item != 0
 - ecommerce demo (product images)
 - testimonial demo
@@ -119,38 +120,10 @@ NICE TO HAVE:
 
   max-inline-size: max-content;
   margin-inline: auto;
-  
-  box-shadow: var(--shadow-4);
-  border-radius: var(--radius-4);
-  overflow: hidden;
 
   &:not(:first-of-type) {
     contain-intrinsic-inline-size: var(--_carousel-item-size);
     content-visibility: auto;
-  }
-
-  & > * {
-    grid-area: stack;
-  }
-
-  & > figcaption {
-    max-inline-size: 100%;
-    background: linear-gradient(to top, #000e, 75%, #0000);
-    justify-self: stretch;
-    text-align: center;
-    padding-block: var(--size-9) var(--size-3);
-    padding-inline: var(--size-3);
-
-    & > a {
-      color: white;
-      text-shadow: 0 1px 1px #000e;
-    }
-  }
-
-  & > img {
-    object-fit: cover;
-    background-color: var(--surface-3);
-    box-shadow: var(--inner-shadow-1);
   }
 
   @media (--motionOK) {
@@ -160,7 +133,6 @@ NICE TO HAVE:
 
     @nest .gui-carousel--snap:not(.--in-view) > & {
       transform: scale(.9);
-      box-shadow: var(--shadow-3);
     }
   }
 }

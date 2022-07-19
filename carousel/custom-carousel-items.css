@@ -1,0 +1,33 @@
+.captioned-image {
+  box-shadow: var(--shadow-4);
+  border-radius: var(--radius-4);
+  overflow: hidden;
+
+  & > * {
+    grid-area: stack;
+  }
+
+  & > figcaption {
+    max-inline-size: 100%;
+    background: linear-gradient(to top, #000e, 75%, #0000);
+    justify-self: stretch;
+    text-align: center;
+    padding-block: var(--size-9) var(--size-3);
+    padding-inline: var(--size-3);
+
+    & > a {
+      color: white;
+      text-shadow: 0 1px 1px #000e;
+    }
+  }
+
+  & > img {
+    object-fit: cover;
+    background-color: var(--surface-3);
+    box-shadow: var(--inner-shadow-1);
+  }
+}
+
+.testimonial {
+
+}

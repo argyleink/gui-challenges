@@ -1,4 +1,5 @@
 @import "carousel.css";
+@import "custom-carousel-items.css";
 
 body {
   display: grid;
