@@ -69,8 +69,7 @@ NICE TO HAVE:
   &[carousel-scrollbar="none"] {
     --_carousel-map-size: var(--size-5);
 
-    & > .gui-carousel--scroller,
-    & > .gui-carousel--map {
+    & > .gui-carousel--scroller {
       scrollbar-width: none;
 
       &::-webkit-scrollbar {
@@ -270,8 +269,13 @@ NICE TO HAVE:
   max-inline-size: 100%;
   overflow-x: auto;
   overscroll-behavior-x: contain;
-  padding-block: var(--size-2) var(--_carousel-scrollbar-gutter);
-  padding-inline: var(--size-2);
+  padding: var(--size-2);
+
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   @media (--motionOK) {
     scroll-behavior: smooth;
