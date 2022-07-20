@@ -30,6 +30,23 @@ export default class Carousel {
       threshold: .9,
     })
 
+    this.mutation_observer = new MutationObserver((mutationList, observer) => {
+      mutationList
+        .filter(x => x.removedNodes.length > 0)
+        .forEach(mutation => {
+          [...mutation.removedNodes]
+            .filter(x => x.querySelector('.gui-carousel') === this.elements.root)
+            .forEach(removedEl => {
+              this.#unlisten()
+            })
+        })
+    })
+
+    this.mutation_observer.observe(document, {
+      childList: true,
+      subtree: true,
+    }) 
+
     this.#createPagination()
     this.#createControls()
 
@@ -51,7 +68,6 @@ export default class Carousel {
     })
 
     this.#listen()
-    // todo: observe this element being removed from DOM and #unlisten
     this.synchronize({scrollPaginationIn: false})
   }
 
@@ -151,6 +167,8 @@ export default class Carousel {
   #unlisten() {
     for (let item of this.elements.snaps)
       this.carousel_observer.unobserve(item)
+
+    this.mutation_observer.disconnect()
 
     this.elements.scroller.removeEventListener('scrollend', this.synchronize)
     this.elements.next.removeEventListener('click', this.goNext)
