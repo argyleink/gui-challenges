@@ -75,3 +75,11 @@
     border-inline-start: none;
   }
 }
+
+.paged-collections {
+  & .gui-carousel--snap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--size-5);
+  }
+}
