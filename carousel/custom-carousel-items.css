@@ -18,6 +18,12 @@
   justify-self: center;
 }
 
+.scrollhint {
+  & .gui-carousel--scroller {
+    column-gap: var(--size-2);
+  }
+}
+
 .captioned-image {
   display: grid;
   grid: [stack] 100% / [stack] 100%;
