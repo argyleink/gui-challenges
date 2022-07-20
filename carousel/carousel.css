@@ -178,10 +178,18 @@ NICE TO HAVE:
 
   &.--previous {
     grid-column: 1;
+
+    @nest [dir="rtl"] & {
+      grid-column: 3;
+    }
   }
 
   &.--next {
     grid-column: 3;
+
+    @nest [dir="rtl"] & {
+      grid-column: 1;
+    }
   }
 
   &[disabled] {
@@ -234,7 +242,7 @@ NICE TO HAVE:
   overflow-x: auto;
   overscroll-behavior-x: contain;
   touch-action: pan-x;
-  
+
   padding-block: var(--size-2);
   padding-inline: var(--size-4);
 
