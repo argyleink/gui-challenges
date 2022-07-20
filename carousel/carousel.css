@@ -231,7 +231,7 @@ NICE TO HAVE:
 }
 
 .gui-carousel--map {
-  grid-column: 2;
+  grid-column: 1/-1;
   place-self: center;
   
   display: grid;
@@ -241,7 +241,8 @@ NICE TO HAVE:
   max-inline-size: 100%;
   overflow-x: auto;
   overscroll-behavior-x: contain;
-  padding: var(--size-2);
+  padding-block: var(--size-2);
+  padding-inline: var(--size-4);
 
   scrollbar-width: none;
 
