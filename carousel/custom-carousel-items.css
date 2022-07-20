@@ -1,3 +1,8 @@
+.constrained {
+  max-inline-size: 500px;
+  justify-self: center;
+}
+
 .captioned-image {
   display: grid;
   grid: [stack] 100% / [stack] 100%;

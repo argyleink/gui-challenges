@@ -20,11 +20,6 @@ section {
   display: grid;
   gap: 2vh;
 
-  &.constrained {
-    max-inline-size: 500px;
-    justify-self: center;
-  }
-
   & > h2 {
     max-inline-size: 100%;
     text-align: center;
