@@ -1,7 +1,11 @@
 const postcssPresetEnv  = require('postcss-preset-env')
+const postcssCustomMedia = require('postcss-custom-media')
 
 module.exports = {
   plugins: [
+    postcssCustomMedia({
+      importFrom: './node_modules/open-props/media.min.css'
+    }),
     postcssPresetEnv({
       stage: 0,
       features: {

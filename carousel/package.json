@@ -14,7 +14,9 @@
   },
   "devDependencies": {
     "open-props": "^1.4.3",
-    "postcss-preset-env": "7.4.3",
-    "vite": "2.9.5"
+    "postcss": "^8.4.14",
+    "postcss-custom-media": "^8.0.2",
+    "postcss-preset-env": "7.7.2",
+    "vite": "3.0.2"
   }
 }
