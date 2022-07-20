@@ -1,5 +1,5 @@
-@import "carousel.css";
-@import "custom-carousel-items.css";
+@import "carousel.css" layer(library);
+@import "custom-carousel-items.css" layer(custom);
 
 body {
   display: grid;
