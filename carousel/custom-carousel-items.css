@@ -79,7 +79,14 @@
 .paged-collections {
   & .gui-carousel--snap {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
     gap: var(--size-5);
+
+    @media (--sm-n-above) {
+      grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+    }
+
+    @media (--md-n-above) {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 }
