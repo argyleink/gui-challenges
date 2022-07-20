@@ -75,7 +75,7 @@ export default class Carousel {
       if (observation.isIntersecting) {
         this.current = observation.target
         if (scrollPaginationIn)
-          dot.scrollIntoView({inline: 'center', block: 'nearest'})
+          dot.scrollIntoViewIfNeeded({inline: 'center', block: 'nearest'})
       }
     }
     
