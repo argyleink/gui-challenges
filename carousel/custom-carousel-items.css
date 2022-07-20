@@ -10,6 +10,11 @@
   & .gui-carousel--scroll-item {
     border-radius: 0;
     box-shadow: none;
+    max-inline-size: 100%;
+
+    & > img {
+      inline-size: 100%;
+    }
   }
 }
 
