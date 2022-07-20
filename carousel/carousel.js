@@ -74,8 +74,12 @@ export default class Carousel {
       // stash the intersecting snap element
       if (observation.isIntersecting) {
         this.current = observation.target
-        if (scrollPaginationIn)
-          dot.scrollIntoViewIfNeeded({inline: 'center', block: 'nearest'})
+        if (scrollPaginationIn) {
+          if (dot.scrollIntoViewIfNeeded)
+            dot.scrollIntoViewIfNeeded({inline: 'center', block: 'nearest'})
+          else
+            dot.scrollIntoView({inline: 'center', block: 'nearest'})
+        }
       }
     }
     
