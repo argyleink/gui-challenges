@@ -23,7 +23,7 @@ NICE TO HAVE:
 - js api
 */
 
-.gui-carousel {
+:where(.gui-carousel) {
   --_carousel-item-size: 80%;
   --_carousel-gutters: max(4rem, calc((100% - var(--_carousel-item-size)) / 2));
   --_carousel-scrollbar-gutter: var(--size-6);
@@ -83,7 +83,7 @@ NICE TO HAVE:
   }
 }
 
-.gui-carousel--scroller {
+:where(.gui-carousel--scroller) {
   grid-row: 1;
   grid-column: 1/-1;
   
@@ -106,11 +106,11 @@ NICE TO HAVE:
   }
 }
 
-.gui-carousel--snap {
+:where(.gui-carousel--snap) {
   scroll-snap-align: center;
 }
 
-.gui-carousel--scroll-item {
+:where(.gui-carousel--scroll-item) {
   max-inline-size: max-content;
   margin-inline: auto;
 
@@ -130,7 +130,7 @@ NICE TO HAVE:
   }
 }
 
-.gui-carousel--controls {
+:where(.gui-carousel--controls) {
   display: flex;
   justify-content: space-between;
   padding-inline: var(--_carousel-gutters);
@@ -145,7 +145,7 @@ NICE TO HAVE:
   }
 }
 
-.gui-carousel--control {
+:where(.gui-carousel--control) {
   --_shadow-size: 0;
   --_shadow-highlight-light: hsl(0 0% 50% / 10%);
   --_shadow-highlight-dark: hsl(0 0% 100% / 20%);
@@ -228,7 +228,7 @@ NICE TO HAVE:
   50% { outline-offset: 0; }
 }
 
-.gui-carousel--map {
+:where(.gui-carousel--map) {
   grid-column: 1/-1;
   place-self: center;
   
