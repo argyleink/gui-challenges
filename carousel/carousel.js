@@ -23,10 +23,11 @@ export default class Carousel {
     this.elements.scroller.setAttribute('aria-live', 'Polite')
 
     this.carousel_observer = new IntersectionObserver(observations => {
-      for (let node of observations)
-        this.hasIntersected.add(node)
+      for (let observation of observations)
+        this.hasIntersected.add(observation)
     }, { 
-      root: this.elements.scroller
+      root: this.elements.scroller,
+      threshold: .9,
     })
 
     this.#createPagination()

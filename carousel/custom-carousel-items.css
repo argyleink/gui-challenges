@@ -1,3 +1,18 @@
+.fullwidth {
+  & > .gui-carousel {
+    --_carousel-item-size: 100%;
+  }
+
+  & .gui-carousel--scroller {
+    padding-inline: 0;
+  }
+
+  & .gui-carousel--scroll-item {
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
 .constrained {
   max-inline-size: 500px;
   justify-self: center;

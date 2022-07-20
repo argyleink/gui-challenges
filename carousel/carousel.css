@@ -5,8 +5,6 @@
 /* 
 TODO: 
 - option for cyclical cycling
-- improve xs screen layout
-- container queries for when arrows are cramped?
 
 NICE TO HAVE:
 - custom layouts
@@ -27,7 +25,7 @@ NICE TO HAVE:
 
 .gui-carousel {
   --_carousel-item-size: 80%;
-  --_carousel-gutters: calc((100% - var(--_carousel-item-size)) / 2);
+  --_carousel-gutters: max(4rem, calc((100% - var(--_carousel-item-size)) / 2));
   --_carousel-scrollbar-gutter: var(--size-6);
   --_carousel-map-size: var(--size-8);
   
@@ -93,7 +91,7 @@ NICE TO HAVE:
   grid-auto-columns: 100%;
   grid-auto-flow: column;
   align-items: center;
-  gap: calc((100% - var(--_carousel-item-size)) / 1.5);
+  gap: var(--_carousel-gutters);
   
   padding-block: var(--size-2) var(--_carousel-scrollbar-gutter);
   overflow-x: auto;
