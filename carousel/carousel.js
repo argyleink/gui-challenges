@@ -211,12 +211,8 @@ export default class Carousel {
             .minimap.children[idx + next_offset]
             ?.focus()
         else {
-          if (document.activeElement === this.elements.next) {
-            this.elements.next.style.animation = 'gui-carousel--control-keypress 145ms var(--ease-2)'
-            this.elements.next.addEventListener('animationend', e => {
-              this.elements.next.style.animation = null
-            }, {once: true})
-          }
+          if (document.activeElement === this.elements.next)
+            this.#keypressAnimation(this.elements.next)
           this.elements.next.focus()  
         }
         this.goNext()
@@ -230,12 +226,8 @@ export default class Carousel {
             .minimap.children[idx + previous_offset]
             ?.focus()
         else {
-          if (document.activeElement === this.elements.previous) {
-            this.elements.previous.style.animation = 'gui-carousel--control-keypress 145ms var(--ease-2)'
-            this.elements.previous.addEventListener('animationend', e => {
-              this.elements.previous.style.animation = null
-            }, {once: true})
-          }
+          if (document.activeElement === this.elements.previous)
+            this.#keypressAnimation(this.elements.previous)
           this.elements.previous.focus()
         }
         this.goPrev()
@@ -342,6 +334,13 @@ export default class Carousel {
     control.appendChild(svg)
 
     return control
+  }
+
+  #keypressAnimation(element) {
+    element.style.animation = 'gui-carousel--control-keypress 145ms var(--ease-2)'
+    element.addEventListener('animationend', e => {
+      element.style.animation = null
+    }, {once: true})
   }
 
   #documentDirection() {
