@@ -28,10 +28,10 @@ export default class Carousel {
     this.#initializeState()
     this.#handleScrollStart()
     this.#listen()
-    this.synchronize({scrollPaginationIn: false})
+    this.#synchronize({scrollPaginationIn: false})
   }
 
-  synchronize({scrollPaginationIn = true}) {
+  #synchronize({scrollPaginationIn = true}) {
     for (let observation of this.hasIntersected) {
       // toggle class based on if it's currently intersecting
       observation.target.classList
@@ -60,7 +60,7 @@ export default class Carousel {
       }
     }
     
-    this.toggleControlsDisability()
+    this.#toggleControlsDisability()
     this.hasIntersected.clear()
   }
 
@@ -96,7 +96,7 @@ export default class Carousel {
     }
   }
 
-  toggleControlsDisability() {
+  #toggleControlsDisability() {
     const {lastElementChild:last, firstElementChild:first} = this.elements.scroller
     const dir = this.#documentDirection()
 
@@ -134,7 +134,7 @@ export default class Carousel {
     }) 
 
     // scrollend listener for sync
-    this.elements.scroller.addEventListener('scrollend', this.synchronize.bind(this))
+    this.elements.scroller.addEventListener('scrollend', this.#synchronize.bind(this))
     this.elements.next.addEventListener('click', this.goNext.bind(this))
     this.elements.previous.addEventListener('click', this.goPrev.bind(this))
     this.elements.minimap.addEventListener('click', this.#handlePaginate.bind(this))
@@ -147,7 +147,7 @@ export default class Carousel {
 
     this.mutation_observer.disconnect()
 
-    this.elements.scroller.removeEventListener('scrollend', this.synchronize)
+    this.elements.scroller.removeEventListener('scrollend', this.#synchronize)
     this.elements.next.removeEventListener('click', this.goNext)
     this.elements.previous.removeEventListener('click', this.goPrev)
     this.elements.minimap.removeEventListener('click', this.#handlePaginate)
