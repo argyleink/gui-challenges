@@ -6,7 +6,6 @@ TODO:
 - option for cyclical cycling
 
 NICE TO HAVE:
-- scroll-start / default item != 0
 - variable sized items demo
 - arrow placement options
 - dynamic add/remove slide handling
@@ -225,11 +224,6 @@ NICE TO HAVE:
   }
 }
 
-@keyframes gui-carousel--control-keypress {
-  0%  { outline-offset: 5px }
-  50% { outline-offset: 0; }
-}
-
 :where(.gui-carousel--map) {
   grid-column: 1/-1;
   place-self: center;
@@ -281,4 +275,14 @@ NICE TO HAVE:
       background-size: cover;
     }
   }
+}
+
+@keyframes gui-carousel--control-keypress {
+  0%  { outline-offset: 5px }
+  50% { outline-offset: 0; }
+}
+
+@keyframes carousel-scrollstart {
+  from { scroll-snap-align: center }
+  to   { scroll-snap-align: unset }
 }

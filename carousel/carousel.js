@@ -67,6 +67,23 @@ export default class Carousel {
         this.current = snapChild
     })
 
+    if (this.elements.root.hasAttribute('carousel-start')) {
+      const itemIndex = this.elements.root.getAttribute('carousel-start')
+      const startElement = this.elements.snaps[itemIndex - 1]
+
+      this.elements.snaps.forEach(snap =>
+        snap.style.scrollSnapAlign = 'unset')
+
+      startElement.style.scrollSnapAlign = null
+      startElement.animation = 'carousel-scrollstart 2ms'
+
+      startElement.addEventListener('animationend', e => {
+        startElement.animation = null
+        this.elements.snaps.forEach(snap =>
+          snap.style.scrollSnapAlign = null)
+      }, {once: true})
+    }
+
     this.#listen()
     this.synchronize({scrollPaginationIn: false})
   }
