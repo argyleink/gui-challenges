@@ -177,6 +177,10 @@ export default class Carousel {
   }
 
   #initializeState() {
+    this.current = this.elements.root.hasAttribute('carousel-start')
+      ? this.elements.snaps[this.elements.root.getAttribute('carousel-start') - 1]
+      : this.elements.snaps[0]
+
     this.elements.snaps.forEach((snapChild, index) => {
       this.hasIntersected.add({
         isIntersecting: index === 0,
@@ -189,9 +193,6 @@ export default class Carousel {
       let item = snapChild.querySelector('.gui-carousel--scroll-item')
       item.setAttribute('aria-label', `${index+1} of ${this.elements.items.length}`)
       item.setAttribute('aria-roledescription', 'item')
-      
-      if (index === 0)
-        this.current = snapChild
     })
   }
 
