@@ -89,7 +89,6 @@ NICE TO HAVE:
   padding-block: var(--size-2) var(--_carousel-scrollbar-gutter);
   overflow-x: auto;
   overscroll-behavior-x: contain;
-  touch-action: pan-x;
   scroll-snap-type: x mandatory;
   scroll-padding-inline: var(--_carousel-gutters);
   padding-inline: var(--_carousel-gutters);
