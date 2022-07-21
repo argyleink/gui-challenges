@@ -151,6 +151,7 @@ NICE TO HAVE:
   aspect-ratio: var(--ratio-square);
   border-radius: var(--radius-round);
   box-shadow: 0 0 0 var(--_shadow-size) var(--_shadow-highlight);
+  border: var(--border-size-1) solid transparent;
   text-indent: 10ch;
   padding: 0;
   overflow: hidden;
@@ -264,12 +265,12 @@ NICE TO HAVE:
   & > button {
     inline-size: var(--size-3);
     background-color: var(--surface-4);
-    border: var(--border-size-1) solid var(--surface-4);
+    border: var(--border-size-1) solid transparent;
 
     &.--gallery {
       inline-size: var(--size-fluid-5);
       border-radius: var(--radius-2);
-      border-color: transparent;
+      border: none;
       background-origin: border-box;
       background-size: cover;
     }
