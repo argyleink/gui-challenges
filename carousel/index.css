@@ -22,7 +22,7 @@ section {
 
   & h2,
   & > header {
-    max-inline-size: 100%;
+    margin-inline: auto;
     text-align: center;
   }
 }
