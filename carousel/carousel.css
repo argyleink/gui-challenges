@@ -194,7 +194,6 @@ NICE TO HAVE:
   &[disabled] {
     cursor: not-allowed;
     transition-delay: 0s;
-    box-shadow: var(--shadow-1);
 
     & > svg {
       opacity: .25;
