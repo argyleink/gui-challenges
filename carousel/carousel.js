@@ -22,68 +22,11 @@ export default class Carousel {
     this.elements.scroller.setAttribute('aria-label', 'Items Scroller')
     this.elements.scroller.setAttribute('aria-live', 'Polite')
 
-    this.carousel_observer = new IntersectionObserver(observations => {
-      for (let observation of observations)
-        this.hasIntersected.add(observation)
-    }, { 
-      root: this.elements.scroller,
-      threshold: .9,
-    })
-
-    this.mutation_observer = new MutationObserver((mutationList, observer) => {
-      mutationList
-        .filter(x => x.removedNodes.length > 0)
-        .forEach(mutation => {
-          [...mutation.removedNodes]
-            .filter(x => x.querySelector('.gui-carousel') === this.elements.root)
-            .forEach(removedEl => {
-              this.#unlisten()
-            })
-        })
-    })
-
-    this.mutation_observer.observe(document, {
-      childList: true,
-      subtree: true,
-    }) 
-
+    this.#createObservers()
     this.#createPagination()
     this.#createControls()
-
-    this.elements.snaps.forEach((snapChild, index) => {
-      this.hasIntersected.add({
-        isIntersecting: index === 0,
-        target: snapChild,
-      })
-      
-      this.elements.minimap
-        .appendChild(this.#createMarker(snapChild, index))
-
-      let item = snapChild.querySelector('.gui-carousel--scroll-item')
-      item.setAttribute('aria-label', `${index+1} of ${this.elements.items.length}`)
-      item.setAttribute('aria-roledescription', 'item')
-      
-      if (index === 0)
-        this.current = snapChild
-    })
-
-    if (this.elements.root.hasAttribute('carousel-start')) {
-      const itemIndex = this.elements.root.getAttribute('carousel-start')
-      const startElement = this.elements.snaps[itemIndex - 1]
-
-      this.elements.snaps.forEach(snap =>
-        snap.style.scrollSnapAlign = 'unset')
-
-      startElement.style.scrollSnapAlign = null
-      startElement.style.animation = 'carousel-scrollstart 2ms'
-
-      startElement.addEventListener('animationend', e => {
-        startElement.animation = null
-        this.elements.snaps.forEach(snap =>
-          snap.style.scrollSnapAlign = null)
-      }, {once: true})
-    }
-
+    this.#initializeState()
+    this.#handleScrollStart()
     this.#listen()
     this.synchronize({scrollPaginationIn: false})
   }
@@ -184,6 +127,12 @@ export default class Carousel {
     for (let item of this.elements.snaps)
       this.carousel_observer.observe(item)
 
+    // watch document for removal of this carousel node
+    this.mutation_observer.observe(document, {
+      childList: true,
+      subtree: true,
+    }) 
+
     // scrollend listener for sync
     this.elements.scroller.addEventListener('scrollend', this.synchronize.bind(this))
     this.elements.next.addEventListener('click', this.goNext.bind(this))
@@ -203,6 +152,66 @@ export default class Carousel {
     this.elements.previous.removeEventListener('click', this.goPrev)
     this.elements.minimap.removeEventListener('click', this.#handlePaginate)
     this.elements.root.removeEventListener('keydown', this.#handleKeydown)
+  }
+
+  #createObservers() {
+    this.carousel_observer = new IntersectionObserver(observations => {
+      for (let observation of observations)
+        this.hasIntersected.add(observation)
+    }, { 
+      root: this.elements.scroller,
+      threshold: .9,
+    })
+
+    this.mutation_observer = new MutationObserver((mutationList, observer) => {
+      mutationList
+        .filter(x => x.removedNodes.length > 0)
+        .forEach(mutation => {
+          [...mutation.removedNodes]
+            .filter(x => x.querySelector('.gui-carousel') === this.elements.root)
+            .forEach(removedEl => {
+              this.#unlisten()
+            })
+        })
+    })
+  }
+
+  #initializeState() {
+    this.elements.snaps.forEach((snapChild, index) => {
+      this.hasIntersected.add({
+        isIntersecting: index === 0,
+        target: snapChild,
+      })
+      
+      this.elements.minimap
+        .appendChild(this.#createMarker(snapChild, index))
+
+      let item = snapChild.querySelector('.gui-carousel--scroll-item')
+      item.setAttribute('aria-label', `${index+1} of ${this.elements.items.length}`)
+      item.setAttribute('aria-roledescription', 'item')
+      
+      if (index === 0)
+        this.current = snapChild
+    })
+  }
+
+  #handleScrollStart() {
+    if (this.elements.root.hasAttribute('carousel-start')) {
+      const itemIndex = this.elements.root.getAttribute('carousel-start')
+      const startElement = this.elements.snaps[itemIndex - 1]
+
+      this.elements.snaps.forEach(snap =>
+        snap.style.scrollSnapAlign = 'unset')
+
+      startElement.style.scrollSnapAlign = null
+      startElement.style.animation = 'carousel-scrollstart 2ms'
+
+      startElement.addEventListener('animationend', e => {
+        startElement.animation = null
+        this.elements.snaps.forEach(snap =>
+          snap.style.scrollSnapAlign = null)
+      }, {once: true})
+    }
   }
 
   #handlePaginate(e) {
