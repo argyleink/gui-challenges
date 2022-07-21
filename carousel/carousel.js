@@ -105,7 +105,8 @@ export default class Carousel {
   }
 
   goNext() {
-    const next = this.current?.nextElementSibling
+    const dir = this.#documentDirection()
+    const next = this.current[dir === 'ltr' ? 'nextElementSibling' : 'previousElementSibling']
 
     if (this.current === next)
       return
@@ -120,7 +121,8 @@ export default class Carousel {
   }
 
   goPrev() {
-    const previous = this.current?.previousElementSibling
+    const dir = this.#documentDirection()
+    const previous = this.current[dir === 'ltr' ? 'previousElementSibling' : 'nextElementSibling']
 
     if (this.current === previous)
       return
@@ -135,14 +137,23 @@ export default class Carousel {
   }
 
   toggleControlsDisability() {
-    let {lastElementChild:last, firstElementChild:first} = this.elements.scroller
-    
-    let isAtEnd =   this.current === last
-    let isAtStart = this.current === first
+    const {lastElementChild:last, firstElementChild:first} = this.elements.scroller
+    const dir = this.#documentDirection()
+
+    let isAtEnd, isAtStart
+
+    if (dir === 'rtl') {
+      isAtEnd =   this.current === first
+      isAtStart = this.current === last
+    }
+    else {
+      isAtEnd =   this.current === last
+      isAtStart = this.current === first
+    }
 
     // before we possibly disable a button
     // shift the focus to the complimentary button
-    if (document.activeElement === this.elements.next && isAtEnd)
+    if (document.activeElement === this.elements.next && isAtEnd) 
       this.elements.previous.focus()
     else if (document.activeElement === this.elements.previous && isAtStart)
       this.elements.next.focus()
@@ -188,11 +199,16 @@ export default class Carousel {
   }
 
   #handleKeydown(e) {
+    const dir = this.#documentDirection()
+    const idx = this.#getElementIndex(e.target)
+
     switch (e.key) {
       case 'ArrowRight':
+        let next_offset = dir === 'rtl' ? -1 : 1
+
         if (e.target.closest('.gui-carousel--map'))
           this.elements
-            .minimap.children[this.#getElementIndex(e.target) + 1]
+            .minimap.children[idx + next_offset]
             ?.focus()
         else {
           if (document.activeElement === this.elements.next) {
@@ -207,9 +223,11 @@ export default class Carousel {
         e.preventDefault()
         break
       case 'ArrowLeft':
+        const previous_offset = dir === 'rtl' ? 1 : -1
+
         if (e.target.closest('.gui-carousel--map'))
           this.elements
-            .minimap.children[this.#getElementIndex(e.target) - 1]
+            .minimap.children[idx + previous_offset]
             ?.focus()
         else {
           if (document.activeElement === this.elements.previous) {
@@ -324,6 +342,10 @@ export default class Carousel {
     control.appendChild(svg)
 
     return control
+  }
+
+  #documentDirection() {
+    return document.firstElementChild.getAttribute('dir') || 'ltr'
   }
 }
 
