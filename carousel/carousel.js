@@ -180,7 +180,7 @@ export default class Carousel {
       }
     }, { 
       root: this.elements.scroller,
-      threshold: .9,
+      threshold: .6,
     })
 
     this.mutation_observer = new MutationObserver((mutationList, observer) => {
