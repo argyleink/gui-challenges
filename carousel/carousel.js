@@ -75,7 +75,7 @@ export default class Carousel {
         snap.style.scrollSnapAlign = 'unset')
 
       startElement.style.scrollSnapAlign = null
-      startElement.animation = 'carousel-scrollstart 2ms'
+      startElement.style.animation = 'carousel-scrollstart 2ms'
 
       startElement.addEventListener('animationend', e => {
         startElement.animation = null
