@@ -52,10 +52,10 @@ export default class Carousel {
       if (observation.isIntersecting) {
         this.current = observation.target
         if (scrollPaginationIn) {
-          if (dot.scrollIntoViewIfNeeded)
-            dot.scrollIntoViewIfNeeded({inline: 'center', block: 'nearest'})
-          else
-            dot.scrollIntoView({inline: 'center', block: 'nearest'})
+          this.goToElement({
+            scrollport: this.elements.minimap,
+            element: dot,
+          })
         }
       }
     }
@@ -72,7 +72,10 @@ export default class Carousel {
       return
 
     if (next) {
-      next.scrollIntoView({block: 'nearest', inline: 'center'})
+      this.goToElement({
+        scrollport: this.elements.scroller,
+        element: next,
+      })
       this.current = next
     }
     else {
@@ -88,12 +91,26 @@ export default class Carousel {
       return
 
     if (previous) {
-      previous.scrollIntoView({block: 'nearest', inline: 'center'})
+      this.goToElement({
+        scrollport: this.elements.scroller,
+        element: previous,
+      })
       this.current = previous
     }
     else {
       console.log('at the beginning')
     }
+  }
+
+  goToElement({scrollport, element}) {
+    const delta = Math.abs(scrollport.offsetLeft - element.offsetLeft)
+    const scrollerPadding = parseInt(getComputedStyle(scrollport)['padding-left'])
+
+    const pos = scrollport.clientWidth / 2 > delta
+      ? delta - scrollerPadding
+      : delta + scrollerPadding
+
+    scrollport.scrollTo(pos, 0)
   }
 
   #toggleControlsDisability() {
@@ -205,7 +222,7 @@ export default class Carousel {
         snap.style.scrollSnapAlign = 'unset')
 
       startElement.style.scrollSnapAlign = null
-      startElement.style.animation = 'carousel-scrollstart 2ms'
+      startElement.style.animation = 'carousel-scrollstart 1ms'
 
       startElement.addEventListener('animationend', e => {
         startElement.animation = null
@@ -220,9 +237,12 @@ export default class Carousel {
       return
 
     e.target.setAttribute('aria-selected', true)
-    this.elements
-      .items[this.#getElementIndex(e.target)]
-      .scrollIntoView({block: 'nearest', inline: 'center'})
+    const item = this.elements.snaps[this.#getElementIndex(e.target)]
+
+    this.goToElement({
+      scrollport: this.elements.scroller,
+      element: item,
+    })
   }
 
   #handleKeydown(e) {
