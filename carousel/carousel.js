@@ -33,10 +33,6 @@ export default class Carousel {
 
   #synchronize({scrollPaginationIn = true}) {
     for (let observation of this.hasIntersected) {
-      // toggle class based on if it's currently intersecting
-      // observation.target.classList
-      //   .toggle('--in-view', observation.isIntersecting)
-      
       // toggle inert when it's not intersecting
       observation.target
         .toggleAttribute('inert', !observation.isIntersecting)
@@ -175,6 +171,8 @@ export default class Carousel {
     this.carousel_observer = new IntersectionObserver(observations => {
       for (let observation of observations) {
         this.hasIntersected.add(observation)
+
+        // toggle --in-view class if intersecting or not
         observation.target.classList
           .toggle('--in-view', observation.isIntersecting)
       }
