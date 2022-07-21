@@ -20,7 +20,8 @@ section {
   display: grid;
   gap: 2vh;
 
-  & > h2 {
+  & h2,
+  & > header {
     max-inline-size: 100%;
     text-align: center;
   }
