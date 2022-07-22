@@ -80,6 +80,7 @@
 }
 
 .product-image {
+  place-content: start;
   place-items: start;
 
   & sup {
