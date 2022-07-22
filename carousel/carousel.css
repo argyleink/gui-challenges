@@ -102,11 +102,6 @@ NICE TO HAVE:
 
 :where(.gui-carousel--snap) {
   scroll-snap-align: center;
-
-  &:not(:first-of-type) {
-    contain-intrinsic-inline-size: var(--_carousel-item-size);
-    content-visibility: auto;
-  }
 }
 
 :where(.gui-carousel--controls) {
