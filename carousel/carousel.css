@@ -163,7 +163,7 @@ NICE TO HAVE:
   @media (--motionOK) {
     transition: 
       opacity .5s var(--ease-2) .5s, 
-      transform .2s var(--ease-elastic-4),
+      transform .2s var(--ease-4),
       box-shadow .2s var(--ease-4),
       outline-offset 145ms var(--ease-2)
     ;
