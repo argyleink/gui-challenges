@@ -3,17 +3,17 @@ import {scrollend} from 'https://cdn.jsdelivr.net/gh/argyleink/scrollyfills@late
 export default class Carousel {
   constructor(element) {
     this.elements = { 
-      root:     element,
-      scroller: element.querySelector('.gui-carousel--scroller'),
-      items:    element.querySelectorAll('.gui-carousel--scroll-item'),
-      snaps:    element.querySelectorAll('.gui-carousel--snap'),
-      previous: null,
-      next:     null,
-      minimap:  null,
+      root:       element,
+      scroller:   element.querySelector('.gui-carousel--scroller'),
+      items:      element.querySelectorAll('.gui-carousel--scroll-item'),
+      snaps:      element.querySelectorAll('.gui-carousel--snap'),
+      previous:   null, // generated in #createControl
+      next:       null, // generated in #createControl
+      pagination: null, // generated in #createPagination
     }
 
-    this.current = undefined
-    this.hasIntersected = new Set()
+    this.current = undefined        // set in #initializeState
+    this.hasIntersected = new Set() // holds intersection results used on scrollend
 
     this.elements.root.setAttribute('tabindex', -1)
     this.elements.root.setAttribute('aria-roledescription', 'carousel')
@@ -38,7 +38,7 @@ export default class Carousel {
         .toggleAttribute('inert', !observation.isIntersecting)
       
       // toggle aria-selected on pagination dots
-      const dot = this.elements.minimap
+      const dot = this.elements.pagination
         .children[this.#getElementIndex(observation.target)]
       
       dot.setAttribute('aria-selected', observation.isIntersecting)
@@ -49,14 +49,14 @@ export default class Carousel {
         this.current = observation.target
         if (scrollPaginationIn) {
           this.goToElement({
-            scrollport: this.elements.minimap,
+            scrollport: this.elements.pagination,
             element: dot,
           })
         }
       }
     }
     
-    this.#toggleControlsDisability()
+    this.#updateControls()
     this.hasIntersected.clear()
   }
 
@@ -109,7 +109,7 @@ export default class Carousel {
     scrollport.scrollTo(pos, 0)
   }
 
-  #toggleControlsDisability() {
+  #updateControls() {
     const {lastElementChild:last, firstElementChild:first} = this.elements.scroller
     const dir = this.#documentDirection()
 
@@ -150,7 +150,7 @@ export default class Carousel {
     this.elements.scroller.addEventListener('scrollend', this.#synchronize.bind(this))
     this.elements.next.addEventListener('click', this.goNext.bind(this))
     this.elements.previous.addEventListener('click', this.goPrev.bind(this))
-    this.elements.minimap.addEventListener('click', this.#handlePaginate.bind(this))
+    this.elements.pagination.addEventListener('click', this.#handlePaginate.bind(this))
     this.elements.root.addEventListener('keydown', this.#handleKeydown.bind(this))
   }
 
@@ -163,7 +163,7 @@ export default class Carousel {
     this.elements.scroller.removeEventListener('scrollend', this.#synchronize)
     this.elements.next.removeEventListener('click', this.goNext)
     this.elements.previous.removeEventListener('click', this.goPrev)
-    this.elements.minimap.removeEventListener('click', this.#handlePaginate)
+    this.elements.pagination.removeEventListener('click', this.#handlePaginate)
     this.elements.root.removeEventListener('keydown', this.#handleKeydown)
   }
 
@@ -205,7 +205,7 @@ export default class Carousel {
         target: snapChild,
       })
       
-      this.elements.minimap
+      this.elements.pagination
         .appendChild(this.#createMarker(snapChild, index))
 
       let item = snapChild.querySelector('.gui-carousel--scroll-item')
@@ -234,7 +234,7 @@ export default class Carousel {
   }
 
   #handlePaginate(e) {
-    if (e.target.classList.contains('gui-carousel--map'))
+    if (e.target.classList.contains('gui-carousel--pagination'))
       return
 
     e.target.setAttribute('aria-selected', true)
@@ -254,9 +254,9 @@ export default class Carousel {
       case 'ArrowRight':
         let next_offset = dir === 'rtl' ? -1 : 1
 
-        if (e.target.closest('.gui-carousel--map'))
+        if (e.target.closest('.gui-carousel--pagination'))
           this.elements
-            .minimap.children[idx + next_offset]
+            .pagination.children[idx + next_offset]
             ?.focus()
         else {
           if (document.activeElement === this.elements.next)
@@ -269,9 +269,9 @@ export default class Carousel {
       case 'ArrowLeft':
         const previous_offset = dir === 'rtl' ? 1 : -1
 
-        if (e.target.closest('.gui-carousel--map'))
+        if (e.target.closest('.gui-carousel--pagination'))
           this.elements
-            .minimap.children[idx + previous_offset]
+            .pagination.children[idx + previous_offset]
             ?.focus()
         else {
           if (document.activeElement === this.elements.previous)
@@ -293,10 +293,10 @@ export default class Carousel {
 
   #createPagination() {
     let nav = document.createElement('nav')
-    nav.className = 'gui-carousel--map'
+    nav.className = 'gui-carousel--pagination'
     this.elements.root.appendChild(nav)
     
-    this.elements.minimap = nav
+    this.elements.pagination = nav
   }
 
   #createMarker(item, index) {

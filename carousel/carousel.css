@@ -20,11 +20,13 @@ NICE TO HAVE:
   --_carousel-item-size: 80%;
   --_carousel-gutters: max(4rem, calc((100% - var(--_carousel-item-size)) / 2));
   --_carousel-scrollbar-gutter: var(--size-6);
-  --_carousel-map-size: var(--size-8);
+  --_carousel-pagination-size: var(--size-8);
   
   display: grid;
   grid-template-columns: [carousel-gutter] var(--_carousel-gutters) 1fr [carousel-gutter] var(--_carousel-gutters);
-  grid-template-rows: [carousel-scroller] 1fr [carousel-pagination] var(--_carousel-map-size);
+  grid-template-rows: 
+    [carousel-scroller] 1fr 
+    [carousel-pagination] var(--_carousel-pagination-size);
 
   &:focus-visible {
     outline-offset: -5px;
@@ -32,9 +34,9 @@ NICE TO HAVE:
 
   /* configuration handlers */
   &[carousel-pagination="gallery"] {
-    --_carousel-map-size: var(--size-10);
+    --_carousel-pagination-size: var(--size-10);
 
-    & > .gui-carousel--map {
+    & > .gui-carousel--pagination {
       -webkit-mask-image: linear-gradient(to right, #0000 0%, #000 5%, 95%, #000, #0000);
     }
   }
@@ -42,7 +44,7 @@ NICE TO HAVE:
   &[carousel-pagination="none"] {
     grid-template-rows: [carousel-scroller] 1fr;
 
-    & > .gui-carousel--map {
+    & > .gui-carousel--pagination {
       display: none;
     }
   }
@@ -56,7 +58,7 @@ NICE TO HAVE:
   }
 
   &[carousel-scrollbar="none"] {
-    --_carousel-map-size: var(--size-5);
+    --_carousel-pagination-size: var(--size-5);
 
     & > .gui-carousel--scroller {
       scrollbar-width: none;
@@ -66,7 +68,7 @@ NICE TO HAVE:
       }
     }
 
-    & > .gui-carousel--map {
+    & > .gui-carousel--pagination {
       place-self: start center;
     }
   }
@@ -223,7 +225,7 @@ NICE TO HAVE:
   }
 }
 
-:where(.gui-carousel--map) {
+:where(.gui-carousel--pagination) {
   grid-column: 1/-1;
   place-self: center;
   
@@ -234,7 +236,6 @@ NICE TO HAVE:
   max-inline-size: 100%;
   overflow-x: auto;
   overscroll-behavior-x: contain;
-  touch-action: pan-x;
 
   padding-block: var(--size-2);
   padding-inline: var(--size-4);
