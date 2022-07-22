@@ -2,6 +2,7 @@
   @media (--motionOK) {
     & {
       transition: transform .3s var(--ease-3);
+      will-change: transform;
     }
 
     @nest .gui-carousel--snap:not(.--in-view) & {
