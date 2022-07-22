@@ -95,6 +95,8 @@ export default class Carousel {
   }
 
   goToElement({scrollport, element}) {
+    const dir = this.#documentDirection()
+
     const delta = Math.abs(scrollport.offsetLeft - element.offsetLeft)
     const scrollerPadding = parseInt(getComputedStyle(scrollport)['padding-left'])
 
@@ -102,7 +104,7 @@ export default class Carousel {
       ? delta - scrollerPadding
       : delta + scrollerPadding
 
-    scrollport.scrollTo(pos, 0)
+    scrollport.scrollTo(dir === 'ltr' ? pos : pos*-1, 0)
   }
 
   #updateControls() {
