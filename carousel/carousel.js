@@ -5,7 +5,6 @@ export default class Carousel {
     this.elements = { 
       root:       element,
       scroller:   element.querySelector('.gui-carousel--scroller'),
-      items:      element.querySelectorAll('.gui-carousel--scroll-item'),
       snaps:      element.querySelectorAll('.gui-carousel--snap'),
       previous:   null, // generated in #createControl
       next:       null, // generated in #createControl
@@ -26,7 +25,6 @@ export default class Carousel {
     this.#createPagination()
     this.#createControls()
     this.#initializeState()
-    this.#handleScrollStart()
     this.#listen()
     this.#synchronize({scrollPaginationIn: false})
   }
@@ -195,10 +193,15 @@ export default class Carousel {
   }
 
   #initializeState() {
-    this.current = this.elements.root.hasAttribute('carousel-start')
-      ? this.elements.snaps[this.elements.root.getAttribute('carousel-start') - 1]
-      : this.elements.snaps[0]
+    const startIndex = this.elements.root.hasAttribute('carousel-start')
+      ? this.elements.root.getAttribute('carousel-start') - 1
+      : 0
 
+    this.current = this.elements.snaps[startIndex]
+    this.#handleScrollStart()
+
+    // each snap target needs a marker for pagination
+    // each snap needs some a11y love
     this.elements.snaps.forEach((snapChild, index) => {
       this.hasIntersected.add({
         isIntersecting: index === 0,
@@ -208,9 +211,8 @@ export default class Carousel {
       this.elements.pagination
         .appendChild(this.#createMarker(snapChild, index))
 
-      let item = snapChild.querySelector('.gui-carousel--scroll-item')
-      item.setAttribute('aria-label', `${index+1} of ${this.elements.items.length}`)
-      item.setAttribute('aria-roledescription', 'item')
+      snapChild.setAttribute('aria-label', `${index+1} of ${this.elements.snaps.length}`)
+      snapChild.setAttribute('aria-roledescription', 'item')
     })
   }
 
@@ -318,7 +320,7 @@ export default class Carousel {
     marker.role = 'tab'
     marker.title = `Item ${index}: ${img?.alt || caption?.innerText}`
     marker.setAttribute('aria-label', img?.alt || caption?.innerText)
-    marker.setAttribute('aria-setsize', this.elements.items.length)
+    marker.setAttribute('aria-setsize', this.elements.snaps.length)
     marker.setAttribute('aria-posinset', index)
     marker.setAttribute('aria-controls', `carousel-item-${index}`)
     return marker
@@ -333,7 +335,7 @@ export default class Carousel {
     marker.role = 'tab'
     marker.title = `Item ${index}: ${img.alt}`
     marker.setAttribute('aria-label', img.alt)
-    marker.setAttribute('aria-setsize', this.elements.items.length)
+    marker.setAttribute('aria-setsize', this.elements.snaps.length)
     marker.setAttribute('aria-posinset', index)
     marker.setAttribute('aria-controls', `carousel-item-${index}`)
     return marker
