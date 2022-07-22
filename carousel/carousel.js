@@ -26,10 +26,10 @@ export default class Carousel {
     this.#createControls()
     this.#initializeState()
     this.#listen()
-    this.#synchronize({scrollPaginationIn: false})
+    this.#synchronize()
   }
 
-  #synchronize({scrollPaginationIn = true}) {
+  #synchronize() {
     for (let observation of this.hasIntersected) {
       // toggle inert when it's not intersecting
       observation.target
@@ -45,12 +45,10 @@ export default class Carousel {
       // stash the intersecting snap element
       if (observation.isIntersecting) {
         this.current = observation.target
-        if (scrollPaginationIn) {
-          this.goToElement({
-            scrollport: this.elements.pagination,
-            element: dot,
-          })
-        }
+        this.goToElement({
+          scrollport: this.elements.pagination,
+          element: dot,
+        })
       }
     }
     
