@@ -13,7 +13,7 @@
     "serve": "vite preview"
   },
   "devDependencies": {
-    "open-props": "^1.4.3",
+    "open-props": "^1.4.4",
     "postcss": "^8.4.14",
     "postcss-custom-media": "^8.0.2",
     "postcss-preset-env": "7.7.2",
