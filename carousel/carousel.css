@@ -159,18 +159,14 @@ NICE TO HAVE:
 
   &.--previous {
     grid-column: 1;
-
-    @nest [dir="rtl"] & {
-      grid-column: 3;
-    }
   }
 
   &.--next {
     grid-column: 3;
+  }
 
-    @nest [dir="rtl"] & {
-      grid-column: 1;
-    }
+  @nest [dir="rtl"] & > svg {
+    transform: rotateY(180deg);
   }
 
   &[disabled] {

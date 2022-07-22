@@ -57,8 +57,7 @@ export default class Carousel {
   }
 
   goNext() {
-    const dir = this.#documentDirection()
-    const next = this.current[dir === 'ltr' ? 'nextElementSibling' : 'previousElementSibling']
+    const next = this.current.nextElementSibling
 
     if (this.current === next)
       return
@@ -75,9 +74,8 @@ export default class Carousel {
     }
   }
 
-  goPrev() {
-    const dir = this.#documentDirection()
-    const previous = this.current[dir === 'ltr' ? 'previousElementSibling' : 'nextElementSibling']
+  goPrevious() {
+    const previous = this.current.previousElementSibling
 
     if (this.current === previous)
       return
@@ -109,18 +107,9 @@ export default class Carousel {
 
   #updateControls() {
     const {lastElementChild:last, firstElementChild:first} = this.elements.scroller
-    const dir = this.#documentDirection()
 
-    let isAtEnd, isAtStart
-
-    if (dir === 'rtl') {
-      isAtEnd =   this.current === first
-      isAtStart = this.current === last
-    }
-    else {
-      isAtEnd =   this.current === last
-      isAtStart = this.current === first
-    }
+    const isAtEnd   = this.current === last
+    const isAtStart = this.current === first
 
     // before we possibly disable a button
     // shift the focus to the complimentary button
@@ -147,7 +136,7 @@ export default class Carousel {
     // scrollend listener for sync
     this.elements.scroller.addEventListener('scrollend', this.#synchronize.bind(this))
     this.elements.next.addEventListener('click', this.goNext.bind(this))
-    this.elements.previous.addEventListener('click', this.goPrev.bind(this))
+    this.elements.previous.addEventListener('click', this.goPrevious.bind(this))
     this.elements.pagination.addEventListener('click', this.#handlePaginate.bind(this))
     this.elements.root.addEventListener('keydown', this.#handleKeydown.bind(this))
   }
@@ -160,7 +149,7 @@ export default class Carousel {
 
     this.elements.scroller.removeEventListener('scrollend', this.#synchronize)
     this.elements.next.removeEventListener('click', this.goNext)
-    this.elements.previous.removeEventListener('click', this.goPrev)
+    this.elements.previous.removeEventListener('click', this.goPrevious)
     this.elements.pagination.removeEventListener('click', this.#handlePaginate)
     this.elements.root.removeEventListener('keydown', this.#handleKeydown)
   }
@@ -254,34 +243,40 @@ export default class Carousel {
 
     switch (e.key) {
       case 'ArrowRight':
-        let next_offset = dir === 'rtl' ? -1 : 1
+        e.preventDefault()
+
+        const next_offset = dir === 'ltr' ? 1 : -1
+        const next_control = dir === 'ltr' ? this.elements.next : this.elements.previous
 
         if (e.target.closest('.gui-carousel--pagination'))
           this.elements
             .pagination.children[idx + next_offset]
             ?.focus()
         else {
-          if (document.activeElement === this.elements.next)
-            this.#keypressAnimation(this.elements.next)
-          this.elements.next.focus()  
+          if (document.activeElement === next_control)
+            this.#keypressAnimation(next_control)
+          next_control.focus()  
         }
-        this.goNext()
-        e.preventDefault()
+        
+        dir === 'ltr' ? this.goNext() : this.goPrevious()
         break
       case 'ArrowLeft':
-        const previous_offset = dir === 'rtl' ? 1 : -1
+        e.preventDefault()
+
+        const previous_offset = dir === 'ltr' ? -1 : 1
+        const previous_control = dir === 'ltr' ? this.elements.previous : this.elements.next
 
         if (e.target.closest('.gui-carousel--pagination'))
           this.elements
             .pagination.children[idx + previous_offset]
             ?.focus()
         else {
-          if (document.activeElement === this.elements.previous)
-            this.#keypressAnimation(this.elements.previous)
-          this.elements.previous.focus()
+          if (document.activeElement === previous_control)
+            this.#keypressAnimation(previous_control)
+          previous_control.focus()
         }
-        this.goPrev()
-        e.preventDefault()
+
+        dir === 'ltr' ? this.goPrevious() : this.goNext()
         break
     }
   }
