@@ -163,8 +163,9 @@
   }
 
   & > div {
-    background: var(--surface-2);
+    background: var(--indigo-4);
     box-shadow: var(--shadow-3);
+    border: 1px solid transparent;
     aspect-ratio: var(--ratio-square);
     opacity: 0;
 
