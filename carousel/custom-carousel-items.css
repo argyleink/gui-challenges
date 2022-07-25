@@ -125,3 +125,65 @@
     }
   }
 }
+
+.hubs {
+  & .gui-carousel--pagination > button {
+    aspect-ratio: var(--ratio-ultrawide);
+    border-radius: 0;
+    inline-size: var(--size-5);
+  }
+}
+
+.win-8-example {
+  display: grid;
+  gap: var(--size-5);
+  grid-template-columns: repeat(4, 1fr);
+  max-inline-size: 70vw;
+  margin-inline: auto;
+
+  &.v2 {
+    grid-template-columns: repeat(3, 1fr);
+
+    & > div {
+      aspect-ratio: var(--ratio-landscape);
+      
+      &:first-of-type {
+        align-self: stretch;
+      }
+    }
+  }
+
+  &.v3 {
+    grid-template-columns: repeat(4, 1fr);
+
+    & > div:first-of-type {
+      grid-column: initial;
+      grid-row: initial;
+    }
+  }
+
+  & > div {
+    background: var(--surface-2);
+    box-shadow: var(--shadow-3);
+    aspect-ratio: var(--ratio-square);
+    opacity: 0;
+
+    @nest .--in-view & {
+      animation: var(--animation-fade-in) forwards;
+      animation-duration: 2s;
+    }
+
+    &:first-of-type {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    &:nth-of-type(2) { animation-delay: .2s }
+    &:nth-of-type(3) { animation-delay: .3s }
+    &:nth-of-type(4) { animation-delay: .4s }
+    &:nth-of-type(5) { animation-delay: .5s }
+    &:nth-of-type(6) { animation-delay: .6s }
+    &:nth-of-type(7) { animation-delay: .7s }
+    &:nth-of-type(8) { animation-delay: .8s }
+  }
+}
