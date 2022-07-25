@@ -1,0 +1,22 @@
+{
+  "name": "vite-preset-env",
+  "author": "Adam Argyle",
+  "license": "ISC",
+  "version": "0.0.0",
+  "browserslist": [
+    "defaults"
+  ],
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build --base=./",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "open-props": "^1.4.4",
+    "postcss": "^8.4.14",
+    "postcss-custom-media": "^8.0.2",
+    "postcss-preset-env": "7.7.2",
+    "vite": "3.0.2"
+  }
+}

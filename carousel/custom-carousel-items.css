@@ -1,0 +1,190 @@
+.animate-visibility {
+  @media (--motionOK) {
+    & {
+      transition: transform .3s var(--ease-3);
+      will-change: transform;
+    }
+
+    @nest .gui-carousel--snap:not(.--in-view) & {
+      transform: scale(.9);
+    }
+  }
+}
+
+.fullwidth {
+  & > .gui-carousel {
+    --_carousel-item-size: 100%;
+  }
+
+  & .gui-carousel--scroller {
+    padding-inline: 0;
+  }
+
+  & .captioned-image {
+    border-radius: 0;
+    box-shadow: none;
+    max-inline-size: 100%;
+
+    & > img {
+      inline-size: 100%;
+    }
+  }
+}
+
+.constrained {
+  max-inline-size: 500px;
+  justify-self: center;
+}
+
+.scrollhint {
+  & .gui-carousel--scroller {
+    column-gap: var(--size-2);
+  }
+}
+
+.captioned-image {
+  display: grid;
+  grid: [stack] 100% / [stack] 100%;
+  align-items: end;
+
+  box-shadow: var(--shadow-4);
+  border-radius: var(--radius-4);
+  overflow: hidden;
+
+  max-inline-size: max-content;
+  margin-inline: auto;
+
+  & > * {
+    grid-area: stack;
+  }
+
+  & > figcaption {
+    max-inline-size: 100%;
+    background: linear-gradient(to top, #000e, 75%, #0000);
+    justify-self: stretch;
+    text-align: center;
+    padding-block: var(--size-9) var(--size-3);
+    padding-inline: var(--size-3);
+
+    & > a {
+      color: white;
+      text-shadow: 0 1px 1px #000e;
+    }
+  }
+
+  & > img {
+    object-fit: cover;
+    background-color: var(--surface-3);
+    box-shadow: var(--inner-shadow-1);
+  }
+}
+
+.product-image {
+  place-content: start;
+  place-items: start;
+
+  & sup {
+    font-size: .5em;
+  }
+
+  & h4 {
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-4);
+  }
+}
+
+.testimonial {
+
+  & > blockquote {
+    border-inline-start: none;
+
+    & > p {
+      font-size: var(--font-size-5);
+      font-weight: var(--font-weight-2);
+      line-height: var(--font-lineheight-0);
+      text-align: center;
+    }
+  }
+
+  & cite {
+    border-inline-start: none;
+  }
+}
+
+.paged-collections {
+  & .gui-carousel--snap {
+    display: grid;
+    gap: var(--size-5);
+
+    @media (--sm-n-above) {
+      grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+    }
+
+    @media (--md-n-above) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+.hubs {
+  & .gui-carousel--pagination > button {
+    aspect-ratio: var(--ratio-ultrawide);
+    border-radius: 0;
+    inline-size: var(--size-5);
+  }
+}
+
+.win-8-example {
+  display: grid;
+  gap: var(--size-5);
+  grid-template-columns: repeat(4, 1fr);
+  max-inline-size: 70vw;
+  margin-inline: auto;
+
+  &.v2 {
+    grid-template-columns: repeat(3, 1fr);
+
+    & > div {
+      aspect-ratio: var(--ratio-landscape);
+      
+      &:first-of-type {
+        align-self: stretch;
+      }
+    }
+  }
+
+  &.v3 {
+    grid-template-columns: repeat(4, 1fr);
+
+    & > div:first-of-type {
+      grid-column: initial;
+      grid-row: initial;
+    }
+  }
+
+  & > div {
+    background: var(--indigo-4);
+    box-shadow: var(--shadow-3);
+    border: 1px solid transparent;
+    aspect-ratio: var(--ratio-square);
+    opacity: 0;
+
+    @nest .--in-view & {
+      animation: var(--animation-fade-in) forwards;
+      animation-duration: 2s;
+    }
+
+    &:first-of-type {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    &:nth-of-type(2) { animation-delay: .2s }
+    &:nth-of-type(3) { animation-delay: .3s }
+    &:nth-of-type(4) { animation-delay: .4s }
+    &:nth-of-type(5) { animation-delay: .5s }
+    &:nth-of-type(6) { animation-delay: .6s }
+    &:nth-of-type(7) { animation-delay: .7s }
+    &:nth-of-type(8) { animation-delay: .8s }
+  }
+}

@@ -86,3 +86,6 @@ and expand the diversity of our skills.**
 19. FABs
   [`Demo`](https://gui-challenges.web.app/FAB/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=RXopH5t2Kww&list=PLNYkxOF6rcIAaV1wwI9540OC_3XoIzMjQ) 
+19. Carousels
+  [`Demo`](https://gui-challenges.web.app/carousel/dist/) 
+  [`YouTube`](#)(coming soon) 

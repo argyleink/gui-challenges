@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Carousel | GUI Challenges</title>
+    <meta name="description" content="🤓">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="Canvas">
+    <meta name="color-scheme" content="light dark">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <link rel="stylesheet" href="./index.css">
+  </head>
+  <body>
+
+    <!-- 
+      <div class="gui-carousel" aria-label="meaningful carousel title" >
+        <div class="gui-carousel--scroller">
+          <div class="gui-carousel--snap">
+            {your content}
+          </div>
+          <div class="gui-carousel--snap">
+            {your content}
+          </div>
+          ...
+        </div>
+      </div>
+    -->
+    
+    <section>
+      <h2>Default</h2>
+      <div 
+        class="gui-carousel" 
+
+        carousel-pagination="dots" 
+        carousel-controls="auto" 
+        carousel-scrollbar="auto"
+        carousel-snapstop="auto"
+
+        aria-label="Featured Items Carousel" 
+      >
+        <div class="gui-carousel--scroller">
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/this/1280/720.webp" alt="Blue ocean with a large wave">
+              <figcaption>
+                <a href="#">Learn more about large ocean waves</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/is/1280/720.webp" alt="Frosty orange desert sunset">
+              <figcaption>
+                <a href="#">Learn more about warm deserts</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/a/1280/720.webp" alt="African sahara with a giraffe">
+              <figcaption>
+                <a href="#">Learn more about giraffe's</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Thumbnails</h2>
+      <div 
+        class="gui-carousel" 
+
+        carousel-pagination="gallery" 
+        carousel-controls="auto" 
+        carousel-scrollbar="auto"
+        carousel-snapstop="auto"
+
+        aria-label="Featured Items Carousel" 
+      >
+        <div class="gui-carousel--scroller">
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/this/1280/720.webp" alt="Blue ocean with a large wave">
+              <figcaption>
+                <a href="#">Learn more about large ocean waves</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/is/1280/720.webp" alt="Frosty orange desert sunset">
+              <figcaption>
+                <a href="#">Learn more about warm deserts</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/a/1280/720.webp" alt="African sahara with a giraffe">
+              <figcaption>
+                <a href="#">Learn more about giraffe's</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>No pagination</h2>
+      <div 
+        class="gui-carousel" 
+
+        carousel-pagination="none" 
+        carousel-controls="auto" 
+        carousel-scrollbar="auto"
+        carousel-snapstop="auto"
+
+        aria-label="Featured Items Carousel" 
+      >
+        
+        <div class="gui-carousel--scroller">
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/this/1280/720.webp" alt="Blue ocean with a large wave">
+              <figcaption>
+                <a href="#">Learn more about large ocean waves</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/is/1280/720.webp" alt="Frosty orange desert sunset">
+              <figcaption>
+                <a href="#">Learn more about warm deserts</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/a/1280/720.webp" alt="African sahara with a giraffe">
+              <figcaption>
+                <a href="#">Learn more about giraffe's</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>No arrows</h2>
+      <div 
+        class="gui-carousel" 
+
+        carousel-pagination="dots" 
+        carousel-controls="none" 
+        carousel-scrollbar="auto"
+        carousel-snapstop="auto"
+
+        aria-label="Featured Items Carousel" 
+      >
+        
+        <div class="gui-carousel--scroller">
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/this/1280/720.webp" alt="Blue ocean with a large wave">
+              <figcaption>
+                <a href="#">Learn more about large ocean waves</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/is/1280/720.webp" alt="Frosty orange desert sunset">
+              <figcaption>
+                <a href="#">Learn more about warm deserts</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/a/1280/720.webp" alt="African sahara with a giraffe">
+              <figcaption>
+                <a href="#">Learn more about giraffe's</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>No scrollbar</h2>
+      <div 
+        class="gui-carousel" 
+
+        carousel-pagination="dots" 
+        carousel-controls="auto" 
+        carousel-scrollbar="none"
+        carousel-snapstop="auto"
+
+        aria-label="Featured Items Carousel" 
+      >
+        
+        <div class="gui-carousel--scroller">
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/this/1280/720.webp" alt="Blue ocean with a large wave">
+              <figcaption>
+                <a href="#">Learn more about large ocean waves</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/is/1280/720.webp" alt="Frosty orange desert sunset">
+              <figcaption>
+                <a href="#">Learn more about warm deserts</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/a/1280/720.webp" alt="African sahara with a giraffe">
+              <figcaption>
+                <a href="#">Learn more about giraffe's</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>1 at a time</h2>
+      <div 
+        class="gui-carousel" 
+
+        carousel-pagination="dots" 
+        carousel-controls="auto" 
+        carousel-scrollbar="auto"
+        carousel-snapstop="always"
+
+        aria-label="Featured Items Carousel" 
+      >
+        
+        <div class="gui-carousel--scroller">
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/this/1280/720.webp" alt="Blue ocean with a large wave">
+              <figcaption>
+                <a href="#">Learn more about large ocean waves</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/is/1280/720.webp" alt="Frosty orange desert sunset">
+              <figcaption>
+                <a href="#">Learn more about warm deserts</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/a/1280/720.webp" alt="African sahara with a giraffe">
+              <figcaption>
+                <a href="#">Learn more about giraffe's</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <section class="scrollhint">
+      <header>
+        <h2>Scroll Hint</h2>
+        <p>custom CSS</p>
+      </header>
+      <div 
+        class="gui-carousel" 
+
+        carousel-pagination="dots" 
+        carousel-controls="auto" 
+        carousel-scrollbar="none"
+        carousel-snapstop="auto"
+
+        aria-label="Featured Items Carousel" 
+      >
+        
+        <div class="gui-carousel--scroller">
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/this/1280/720.webp" alt="Blue ocean with a large wave">
+              <figcaption>
+                <a href="#">Learn more about large ocean waves</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/is/1280/720.webp" alt="Frosty orange desert sunset">
+              <figcaption>
+                <a href="#">Learn more about warm deserts</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/a/1280/720.webp" alt="African sahara with a giraffe">
+              <figcaption>
+                <a href="#">Learn more about giraffe's</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <section class="scrollhint">
+      <header>
+        <h2>Scroll Start</h2>
+        <p>plus scroll hint style</p>
+      </header>
+      <div 
+        class="gui-carousel" 
+
+        carousel-pagination="dots" 
+        carousel-controls="auto" 
+        carousel-scrollbar="auto"
+        carousel-snapstop="auto"
+        carousel-start="2"
+
+        aria-label="Featured Items Carousel" 
+      >
+        
+        <div class="gui-carousel--scroller">
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/this/1280/720.webp" alt="Blue ocean with a large wave">
+              <figcaption>
+                <a href="#">Learn more about large ocean waves</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/is/1280/720.webp" alt="Frosty orange desert sunset">
+              <figcaption>
+                <a href="#">Learn more about warm deserts</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/a/1280/720.webp" alt="African sahara with a giraffe">
+              <figcaption>
+                <a href="#">Learn more about giraffe's</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <section class="fullwidth">
+      <h2>Fullwidth</h2>
+      <div 
+        class="gui-carousel" 
+
+        carousel-pagination="dots" 
+        carousel-controls="auto" 
+        carousel-scrollbar="auto"
+        carousel-snapstop="auto"
+
+        aria-label="Featured Items Carousel" 
+      >
+        
+        <div class="gui-carousel--scroller">
+          
+          <div class="gui-carousel--snap">
+            <figure class="captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/this/1280/720.webp" alt="Blue ocean with a large wave">
+              <figcaption>
+                <a href="#">Learn more about large ocean waves</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/is/1280/720.webp" alt="Frosty orange desert sunset">
+              <figcaption>
+                <a href="#">Learn more about warm deserts</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="captioned-image">
+              <img loading="lazy" width="1280" height="720" src="https://picsum.photos/seed/a/1280/720.webp" alt="African sahara with a giraffe">
+              <figcaption>
+                <a href="#">Learn more about giraffe's</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <section class="constrained">
+      <h2>Constrained width</h2>
+      <div 
+        class="gui-carousel" 
+
+        carousel-pagination="gallery" 
+        carousel-controls="auto" 
+        carousel-scrollbar="auto"
+
+        aria-label="Featured Items Carousel" 
+      >
+        
+        <div class="gui-carousel--scroller">
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1200" height="1200" src="./images/1.jpg" alt="black shirt with a magical archer">
+              <figcaption>
+                <a href="#">"Archer Tee" by TenHun</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1200" height="1200" src="./images/2.jpg" alt="black shirt with a masked warrior riding a cat pig">
+              <figcaption>
+                <a href="#">"Warrior Tee" by TenHun</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1500" height="1500" src="./images/3.jpg" alt="black shirt with a hooded skateboarder and the words Shred Seattle">
+              <figcaption>
+                <a href="#">"Shred Seattle Tee" by TenHun</a>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1500" height="1500" src="./images/4.jpg" alt="black shirt with a black and white graphic of a space astronaught">
+              <figcaption>
+                <a href="#">"Astronaught Tee" by TenHun</a>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1500" height="1500" src="./images/5.jpg" alt="black shirt with a hooded and paint covered person kneeling in front of the woods">
+              <figcaption>
+                <a href="#">"In Nature Tee" by TenHun</a>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1200" height="1200" src="./images/6.jpg" alt="dark gray tank top with of a person with a dog">
+              <figcaption>
+                <a href="#">"Best Friend Tee" by TenHun</a>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility captioned-image">
+              <img loading="lazy" width="1200" height="1200" src="./images/7.jpg" alt="black shirt with a gameboy avatar character mid jump">
+              <figcaption>
+                <a href="#">"Retro Kid Tee" by TenHun</a>
+              </figcaption>
+            </figure>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <section class="paged-collections">
+      <h2>Paged Collections</h2>
+      <div 
+        class="gui-carousel" 
+
+        carousel-pagination="dots" 
+        carousel-controls="auto" 
+        carousel-scrollbar="auto"
+        carousel-snapstop="always"
+
+        aria-label="Featured Items Carousel" 
+      >
+        
+        <div class="gui-carousel--scroller">
+          
+          <div class="gui-carousel--snap">
+            <figure class="product-image">
+              <img loading="lazy" width="1200" height="1200" src="./images/1.jpg" alt="black shirt with a magical archer">
+              <figcaption>
+                <h4>The Archer</h4>
+                <div>by <a href="#">TenHun</a></div>
+                <small>Cotton Tee</small>
+                <div>$29<sup>99</sup></div>
+              </figcaption>
+            </figure>
+            <figure class="product-image">
+              <img loading="lazy" width="1200" height="1200" src="./images/2.jpg" alt="black shirt with a masked warrior riding a cat pig">
+              <figcaption>
+                <h4>Warrior</h4>
+                <div>by <a href="#">TenHun</a></div>
+                <small>Cotton Tee</small>
+                <div>$29<sup>99</sup></div>
+              </figcaption>
+            </figure>
+            <figure class="product-image">
+              <img loading="lazy" width="1500" height="1500" src="./images/3.jpg" alt="black shirt with a hooded skateboarder and the words Shred Seattle">
+              <figcaption>
+                <h4>Shred Seattle</h4>
+                <div>by <a href="#">TenHun</a></div>
+                <small>Cotton Tee</small>
+                <div>$29<sup>99</sup></div>
+              </figcaption>
+            </figure>
+            <figure class="product-image">
+              <img loading="lazy" width="1500" height="1500" src="./images/4.jpg" alt="black shirt with a black and white graphic of a space astronaught">
+              <figcaption>
+                <h4>Astronaught</h4>
+                <div>by <a href="#">TenHun</a></div>
+                <small>Cotton Tee</small>
+                <div>$29<sup>99</sup></div>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="product-image">
+              <img loading="lazy" width="1500" height="1500" src="./images/5.jpg" alt="black shirt with a hooded and paint covered person kneeling in front of the woods">
+              <figcaption>
+                <h4>In Nature</h4>
+                <div>by <a href="#">TenHun</a></div>
+                <small>Cotton Tee</small>
+                <div>$29<sup>99</sup></div>
+              </figcaption>
+            </figure>
+            <figure class="product-image">
+              <img loading="lazy" width="1200" height="1200" src="./images/6.jpg" alt="dark gray tank top with of a person with a dog">
+              <figcaption>
+                <h4>Best Friend</h4>
+                <div>by <a href="#">TenHun</a></div>
+                <small>Cotton Tank</small>
+                <div>$29<sup>99</sup></div>
+              </figcaption>
+            </figure>
+            <figure class="product-image">
+              <img loading="lazy" width="1200" height="1200" src="./images/7.jpg" alt="black shirt with a gameboy avatar character mid jump">
+              <figcaption>
+                <h4>Statix Boy</h4>
+                <div>by <a href="#">TenHun</a></div>
+                <small>Cotton Tee</small>
+                <div>$29<sup>99</sup></div>
+              </figcaption>
+            </figure>
+            <figure class="product-image">
+              <img loading="lazy" width="1200" height="1200" src="./images/8.jpg" alt="black shirt with a character on a bike and the text Ride Or Die">
+              <figcaption>
+                <h4>Ride or Die</h4>
+                <div>by <a href="#">TenHun</a></div>
+                <small>Cotton Tee</small>
+                <div>$29<sup>99</sup></div>
+              </figcaption>
+            </figure>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Testimonials</h2>
+      <div 
+        class="gui-carousel" 
+
+        carousel-pagination="dots" 
+        carousel-controls="auto" 
+        carousel-scrollbar="none"
+        carousel-snapstop="auto"
+
+        aria-label="Featured Items Carousel" 
+      >
+        
+        <div class="gui-carousel--scroller">
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility testimonial">
+              <blockquote cite="https://www.huxley.net/bnw/four.html">
+                <p>Words can be like X-rays, if you use them properly—they’ll go through anything. You read and you’re pierced.</p>
+              </blockquote>
+              <figcaption>
+                —Aldous Huxley, <cite>Brave New World</cite>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility testimonial">
+              <blockquote cite="https://www.huxley.net/bnw/four.html">
+                <p>Words can be like X-rays, if you use them properly—they’ll go through anything. You read and you’re pierced.</p>
+              </blockquote>
+              <figcaption>
+                —Aldous Huxley, <cite>Brave New World</cite>
+              </figcaption>
+            </figure>
+          </div>
+          
+          <div class="gui-carousel--snap">
+            <figure class="animate-visibility testimonial">
+              <blockquote cite="https://www.huxley.net/bnw/four.html">
+                <p>Words can be like X-rays, if you use them properly—they’ll go through anything. You read and you’re pierced.</p>
+              </blockquote>
+              <figcaption>
+                —Aldous Huxley, <cite>Brave New World</cite>
+              </figcaption>
+            </figure>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <section class="hubs">
+      <header>
+        <h2>Hubs Example</h2>
+        <small>custom pagination and animation</small>
+      </header>
+      <div class="gui-carousel" carousel-pagination="dots" carousel-controls="auto" carousel-scrollbar="auto"
+        carousel-snapstop="always" aria-label="Featured Items Carousel">
+    
+        <div class="gui-carousel--scroller">
+    
+          <div class="gui-carousel--snap">
+            <div class="win-8-example">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+    
+          <div class="gui-carousel--snap">
+            <div class="win-8-example v2">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+    
+          <div class="gui-carousel--snap">
+            <div class="win-8-example v3">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    </section>
+
+    <a href="https://github.com/argyleink/gui-challenges" class="github-corner" aria-label="View source on GitHub">
+      <svg width="80" height="80" viewBox="0 0 250 250" style="position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+
+    <script src="./index.js" type="module"></script>
+
+  </body>
+</html>

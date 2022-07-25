@@ -70,6 +70,9 @@ jobs:
 
     - name: Build FAB
       run: cd FAB && npm install && npm run build
+
+    - name: Build Carousel
+      run: cd carousel && npm install && npm run build
       
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
