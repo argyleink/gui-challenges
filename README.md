@@ -88,4 +88,4 @@ and expand the diversity of our skills.**
   [`YouTube`](https://www.youtube.com/watch?v=RXopH5t2Kww&list=PLNYkxOF6rcIAaV1wwI9540OC_3XoIzMjQ) 
 19. Carousels
   [`Demo`](https://gui-challenges.web.app/carousel/dist/) 
-  [`YouTube`](#)(coming soon) 
+  [`YouTube`](https://www.youtube.com/watch?v=CXJv6zM003M)
