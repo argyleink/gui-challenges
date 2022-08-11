@@ -1,0 +1,21 @@
+.row {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 4px;
+  background: white;
+
+  &:nth-child(even) {
+    justify-content: center;
+  }
+  
+  &:nth-child(3n) {
+    justify-content: end;
+  }
+}
+
+.square {
+  width: 9vw;
+  margin-inline: 4vw;
+  border-inline: 4px solid gray;
+  background: black;
+}

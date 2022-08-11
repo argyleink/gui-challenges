@@ -1,0 +1,46 @@
+@layer support, demo;
+
+@import "crooked.css" layer(demo);
+
+@layer support {
+  body {
+    display: grid;
+    grid-auto-rows: calc(20vh - 4px);
+    gap: 4px;
+    background: gray;
+    margin: 0;
+  } 
+}
+
+.github-corner {
+  position: absolute;
+  right: 4px;
+  width: 80px;
+  height: 80px;
+  fill: var(--surface-4);
+  color: var(--surface-1);
+  
+  &:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+  }
+
+  & > svg {
+    fill: inherit;
+    stroke: inherit;
+    position: absolute; 
+    top: 0; 
+    right: 0;
+  }
+}
+
+@keyframes octocat-wave{
+  0%,100% {
+    transform: rotate(0)
+  }
+  20%,60% {
+    transform: rotate(-25deg)
+  }
+  40%,80% {
+    transform: rotate(10deg)
+  }
+}
