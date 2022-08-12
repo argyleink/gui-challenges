@@ -1,16 +1,4 @@
-@layer support, demo;
-
 @import "crooked.css" layer(demo);
-
-@layer support {
-  body {
-    display: grid;
-    grid-auto-rows: calc(20vh - 4px);
-    gap: 4px;
-    background: gray;
-    margin: 0;
-  } 
-}
 
 .github-corner {
   position: absolute;
