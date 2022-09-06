@@ -1,0 +1,34 @@
+@import "crooked.css" layer(demo);
+
+.github-corner {
+  position: absolute;
+  right: 4px;
+  width: 80px;
+  height: 80px;
+  fill: var(--surface-4);
+  color: var(--surface-1);
+  
+  &:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+  }
+
+  & > svg {
+    fill: inherit;
+    stroke: inherit;
+    position: absolute; 
+    top: 0; 
+    right: 0;
+  }
+}
+
+@keyframes octocat-wave{
+  0%,100% {
+    transform: rotate(0)
+  }
+  20%,60% {
+    transform: rotate(-25deg)
+  }
+  40%,80% {
+    transform: rotate(10deg)
+  }
+}
