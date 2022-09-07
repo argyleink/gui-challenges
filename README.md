@@ -91,5 +91,5 @@ and expand the diversity of our skills.**
   [`YouTube`](https://www.youtube.com/watch?v=CXJv6zM003M)
 22. Crooked Grid Illusion
   [`Demo`](https://gui-challenges.web.app/crooked-illusion/dist/) 
-  [`YouTube`](#)(coming soon) 
-  [`Article`](https://web.dev/building-a-crooked-grid-illusion/)(coming soon)
+  [`YouTube`](https://www.youtube.com/watch?v=71jpjr7syc4) 
+  [`Article`](https://web.dev/building-a-crooked-grid-illusion/)
