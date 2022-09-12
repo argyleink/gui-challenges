@@ -1,0 +1,94 @@
+@import "tool-tip.css" layer(demo);
+
+@layer demosupport {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    outline-offset: 5px;
+  }
+
+  html {
+    block-size: 100%;
+    color-scheme: dark light;
+  }
+
+  body {
+    min-block-size: 100%;
+    font-family: system-ui, sans-serif;
+
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 7vh;
+    padding-block: 10vh;
+  }
+  
+  a {
+    font-size: max(2rem);
+  }
+  
+  menu {
+    display: inline-flex;
+    gap: 2ch;
+    padding: 0;
+  }
+  
+  .icon-button {
+    display: inline-flex;
+    align-items: center;
+    place-content: center;
+    aspect-ratio: 1;
+    padding: 2ch;
+    border-radius: 50%;
+    border: 1px solid currentColor;
+    background: none;
+  }
+  
+  fieldset {
+    display: flex;
+    align-items: center;
+    gap: 1ch;
+    border: none;
+  }
+  
+  .wave {
+    text-decoration: 1px wavy underline;
+    text-decoration-color: hotpink;
+  }
+}
+
+@layer {
+  .github-corner {
+    position: absolute;
+    top: 0;
+    right: 4px;
+    width: 80px;
+    height: 80px;
+    fill: var(--surface-4);
+    color: var(--surface-1);
+    
+    &:hover .octo-arm {
+      animation: octocat-wave 560ms ease-in-out
+    }
+
+    & > svg {
+      fill: inherit;
+      stroke: inherit;
+      position: absolute; 
+      top: 0; 
+      right: 0;
+    }
+  }
+
+  @keyframes octocat-wave{
+    0%,100% {
+      transform: rotate(0)
+    }
+    20%,60% {
+      transform: rotate(-25deg)
+    }
+    40%,80% {
+      transform: rotate(10deg)
+    }
+  }
+}

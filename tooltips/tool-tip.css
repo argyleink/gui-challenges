@@ -1,0 +1,133 @@
+tool-tip {
+  --_radius: 5px;
+  --_bg: hsl(0 0% 20%);
+  /* --_bg: linear-gradient(to top, hsl(0 0% 10%), hsl(0 0% 20%)); */
+  --_shadow-alpha: 50%;
+
+  pointer-events: none;
+  user-select: none;
+
+  opacity: 0;
+  transition: opacity .2s ease, transform .2s ease;
+  transition-delay: .5s;
+
+  position: absolute;
+  z-index: 1;
+  inline-size: max-content;
+  max-inline-size: 25ch;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: initial;
+  padding: .75ch 1.5ch;
+  margin: 0;
+  border-radius: var(--_radius);
+  background: var(--_bg);
+  color: CanvasText;
+  filter: 
+    drop-shadow(0 3px 3px hsl(0 0% 0% / var(--_shadow-alpha))) 
+    drop-shadow(0 12px 12px hsl(0 0% 0% / var(--_shadow-alpha)));
+
+  /* light theme style adjustments */
+  @media (prefers-color-scheme: light) {
+    --_bg: white;
+    --_shadow-alpha: 15%;
+  }
+
+  /* create a stacking context for elements with > tool-tips */
+  @nest :has(> &) {
+    contain: layout;
+
+    /* when those parent elements have focus, hover, etc */
+    &:is(:hover, :focus-visible, :active) tool-tip {
+      opacity: 1;
+      transition-delay: 0s;
+    }
+  }
+
+  /* abbr element needs relative cuz of it's display type */
+  @nest abbr:has(> &) {
+    position: relative;
+  }
+
+  /* prepend some prose for screen readers only */
+  &::before {
+    content: "; Has tooltip: ";
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+  }
+
+  /* tooltip shape is a speudo element so we can cast a shadow */
+  &[tip-position]::after {
+    --_tip: conic-gradient(from -30deg at bottom, #0000, #000 1deg 60deg, #0000 61deg) bottom / 100% 50% no-repeat;
+
+    content: "";
+    background: var(--_bg);
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    mask: var(--_tip);
+  }
+
+  /* top tooltip styles */
+  &[tip-position="top"],
+  &[tip-position="bottom"] {
+    text-align: center;
+  }
+
+  /* TOP */
+  &[tip-position="top"] {
+    inset-inline-start: 50%;
+    inset-block-end: calc(100% + var(--_radius) * 2);
+    transform: translateX(-50%);
+
+    &::after {
+      inset-block-end: calc(var(--_radius) * -1);
+      border-block-end: var(--_radius) solid transparent;
+    }
+  }
+
+  /* RIGHT */
+  &[tip-position="right"] {
+    inset-inline-start: calc(100% + var(--_radius) * 2);
+    inset-block-end: 50%;
+    transform: translateY(50%);
+
+    &::after {
+      --_tip: conic-gradient(from 60deg at left, #0000, #000 1deg 60deg, #0000 61deg) left / 50% 100% no-repeat;
+      inset-inline-start: calc(var(--_radius) * -1);
+      border-inline-start: var(--_radius) solid transparent;
+    }
+  }
+
+  /* BOTTOM */
+  &[tip-position="bottom"] {
+    inset-inline-start: 50%;
+    inset-block-start: calc(100% + var(--_radius) * 2);
+    transform: translateX(-50%);
+
+    &::after {
+      --_tip: conic-gradient(from 150deg at top, #0000, #000 1deg 60deg, #0000 61deg) top / 100% 50% no-repeat;
+      inset-block-start: calc(var(--_radius) * -1);
+      border-block-start: var(--_radius) solid transparent;
+    }
+  }
+
+  /* LEFT */
+  &[tip-position="left"] {
+    inset-inline-end: calc(100% + var(--_radius) * 2);
+    inset-block-end: 50%;
+    transform: translateY(50%);
+
+    &::after {
+      --_tip: conic-gradient(from -120deg at right, #0000, #000 1deg 60deg, #0000 61deg) right / 50% 100% no-repeat;
+      inset-inline-end: calc(var(--_radius) * -1);
+      border-inline-end: var(--_radius) solid transparent;
+    }
+  }
+}
