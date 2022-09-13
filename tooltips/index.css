@@ -1,5 +1,17 @@
 @import "tool-tip.css" layer(demo);
 
+@layer customizing {
+  .custom-tip {
+    --_bg: linear-gradient(to top, hsl(200 50% 50%), hsl(180 50% 50%));
+    color: white;
+  }
+
+  .error-tip {
+    --_bg: red;
+    color: white;
+  }
+}
+
 @layer demosupport {
   * {
     box-sizing: border-box;
@@ -54,6 +66,11 @@
   .wave {
     text-decoration: 1px wavy underline;
     text-decoration-color: hotpink;
+  }
+
+  .side-by-side {
+    display: inline-flex;
+    gap: 2ch;
   }
 }
 
