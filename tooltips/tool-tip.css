@@ -17,6 +17,7 @@ tool-tip {
   z-index: 1;
   inline-size: max-content;
   max-inline-size: 25ch;
+  text-align: start;
   font-size: 1rem;
   font-weight: normal;
   line-height: initial;
@@ -72,8 +73,12 @@ tool-tip {
   }
 
   /* top tooltip styles */
-  &[tip-position="top"],
-  &[tip-position="bottom"] {
+  &:is(
+    [tip-position="top"],
+    [tip-position="block-start"],
+    [tip-position="bottom"],
+    [tip-position="block-end"]
+  ) {
     text-align: center;
   }
 
