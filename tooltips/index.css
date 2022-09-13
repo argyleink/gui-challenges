@@ -38,11 +38,16 @@
   a {
     font-size: max(2rem);
   }
+
+  abbr {
+    text-decoration-color: Highlight;
+  }
   
   menu {
-    display: inline-flex;
-    gap: 3ch;
+    display: grid;
+    gap: 2ch;
     padding: 0;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .labelled-button {
@@ -58,7 +63,7 @@
     aspect-ratio: 1;
     padding: 2ch;
     border-radius: 50%;
-    border: 1px solid currentColor;
+    border: 1px solid Highlight;
     background: none;
   }
   
