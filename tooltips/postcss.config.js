@@ -14,6 +14,9 @@ module.exports = {
         'focus-within-pseudo-class': false,
         'focus-visible-pseudo-class': false,
         'color-functional-notation': false,
+        'cascade-layers': false,
+        'double-position-gradients': false,
+        'has-pseudo-class': false,
       }
     }),
   ]
