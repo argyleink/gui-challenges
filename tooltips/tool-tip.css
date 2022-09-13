@@ -1,9 +1,19 @@
-tool-tip {
+/* more :where? */
+
+:where(tool-tip) {
   --_p-inline: 1.5ch;
   --_p-block: .75ch;
   --_triangle-size: 7px;
   --_bg: hsl(0 0% 20%);
   --_shadow-alpha: 50%;
+
+  --isLTR: 1;
+  --isRTL: -1;
+
+  --_bottom-tip: conic-gradient(from -30deg at bottom, #0000, #000 1deg 60deg, #0000 61deg) bottom / 100% 50% no-repeat;
+  --_top-tip: conic-gradient(from 150deg at top, #0000, #000 1deg 60deg, #0000 61deg) top / 100% 50% no-repeat;
+  --_right-tip: conic-gradient(from -120deg at right, #0000, #000 1deg 60deg, #0000 61deg) right / 50% 100% no-repeat;
+  --_left-tip: conic-gradient(from 60deg at left, #0000, #000 1deg 60deg, #0000 61deg) left / 50% 100% no-repeat;
 
   pointer-events: none;
   user-select: none;
@@ -11,7 +21,6 @@ tool-tip {
   opacity: 0;
   transform: translateX(var(--_x, 0)) translateY(var(--_y, 0));
   transition: opacity .2s ease, transform .2s ease;
-  transition-delay: .5s;
 
   position: absolute;
   z-index: 1;
@@ -34,6 +43,11 @@ tool-tip {
   @media (prefers-color-scheme: light) {
     --_bg: white;
     --_shadow-alpha: 15%;
+  }
+
+  &:dir(rtl) {
+    --isLTR: -1;
+    --isRTL: 1;
   }
 
   /* create a stacking context for elements with > tool-tips */
@@ -62,8 +76,6 @@ tool-tip {
 
   /* tooltip shape is a speudo element so we can cast a shadow */
   &[tip-position]::after {
-    --_tip: conic-gradient(from -30deg at bottom, #0000, #000 1deg 60deg, #0000 61deg) bottom / 100% 50% no-repeat;
-
     content: "";
     background: var(--_bg);
     position: absolute;
@@ -86,7 +98,7 @@ tool-tip {
   &:is([tip-position="top"], [tip-position="block-start"]) {
     inset-inline-start: 50%;
     inset-block-end: calc(100% + var(--_p-block) + var(--_triangle-size));
-    --_x: -50%;
+    --_x: calc(50% * var(--isRTL));
 
     @media (prefers-reduced-motion: no-preference) {
       @nest :has(> &):not(:hover, :focus-visible, :active) tool-tip {
@@ -95,6 +107,7 @@ tool-tip {
     }
 
     &::after {
+      --_tip: var(--_bottom-tip);
       inset-block-end: calc(var(--_triangle-size) * -1);
       border-block-end: var(--_triangle-size) solid transparent;
     }
@@ -113,9 +126,13 @@ tool-tip {
     }
 
     &::after {
-      --_tip: conic-gradient(from 60deg at left, #0000, #000 1deg 60deg, #0000 61deg) left / 50% 100% no-repeat;
+      --_tip: var(--_left-tip);
       inset-inline-start: calc(var(--_triangle-size) * -1);
       border-inline-start: var(--_triangle-size) solid transparent;
+    }
+
+    &:dir(rtl)::after {
+      --_tip: var(--_right-tip);
     }
   }
 
@@ -123,7 +140,7 @@ tool-tip {
   &:is([tip-position="bottom"], [tip-position="block-end"]) {
     inset-inline-start: 50%;
     inset-block-start: calc(100% + var(--_p-block) + var(--_triangle-size));
-    --_x: -50%;
+    --_x: calc(50% * var(--isRTL));
 
     @media (prefers-reduced-motion: no-preference) {
       @nest :has(> &):not(:hover, :focus-visible, :active) tool-tip {
@@ -132,7 +149,7 @@ tool-tip {
     }
 
     &::after {
-      --_tip: conic-gradient(from 150deg at top, #0000, #000 1deg 60deg, #0000 61deg) top / 100% 50% no-repeat;
+      --_tip: var(--_top-tip);
       inset-block-start: calc(var(--_triangle-size) * -1);
       border-block-start: var(--_triangle-size) solid transparent;
     }
@@ -151,9 +168,13 @@ tool-tip {
     }
 
     &::after {
-      --_tip: conic-gradient(from -120deg at right, #0000, #000 1deg 60deg, #0000 61deg) right / 50% 100% no-repeat;
+      --_tip: var(--_right-tip);
       inset-inline-end: calc(var(--_triangle-size) * -1);
       border-inline-end: var(--_triangle-size) solid transparent;
+    }
+
+    &:dir(rtl)::after {
+      --_tip: var(--_left-tip);
     }
   }
 }
