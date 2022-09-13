@@ -80,15 +80,15 @@
   }
 }
 
-@layer {
+@layer github-promo {
   .github-corner {
     position: absolute;
     top: 0;
     right: 4px;
     width: 80px;
     height: 80px;
-    fill: var(--surface-4);
-    color: var(--surface-1);
+    fill: Highlight;
+    color: Canvas;
     
     &:hover .octo-arm {
       animation: octocat-wave 560ms ease-in-out
