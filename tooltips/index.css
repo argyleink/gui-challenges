@@ -41,8 +41,14 @@
   
   menu {
     display: inline-flex;
-    gap: 2ch;
+    gap: 3ch;
     padding: 0;
+  }
+
+  .labelled-button {
+    display: grid;
+    gap: 1ch;
+    justify-items: center;
   }
   
   .icon-button {
