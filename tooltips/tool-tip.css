@@ -1,6 +1,6 @@
 /* more :where? */
 
-:where(tool-tip) {
+tool-tip {
   --_p-inline: 1.5ch;
   --_p-block: .75ch;
   --_triangle-size: 7px;
@@ -55,7 +55,7 @@
     position: relative;
 
     /* when those parent elements have focus, hover, etc */
-    &:is(:hover, :focus-visible, :active) tool-tip {
+    &:is(:hover, :focus-visible, :active) > tool-tip {
       opacity: 1;
       transition-delay: 200ms;
     }
