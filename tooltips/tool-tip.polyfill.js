@@ -1,4 +1,4 @@
-if (!CSS.supports('selector(:has())')) {
+if (!CSS.supports('selector(:has(*))')) {
   document.querySelectorAll('tool-tip').forEach(tooltip =>
     tooltip.parentNode.classList.add('has_tool-tip'))
 
