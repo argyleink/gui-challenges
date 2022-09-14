@@ -35,6 +35,7 @@ tool-tip {
   border-radius: 5px;
   background: var(--_bg);
   color: CanvasText;
+  will-change: filter;
   filter: 
     drop-shadow(0 3px 3px hsl(0 0% 0% / var(--_shadow-alpha))) 
     drop-shadow(0 12px 12px hsl(0 0% 0% / var(--_shadow-alpha)));
