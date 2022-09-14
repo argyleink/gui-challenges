@@ -36,7 +36,7 @@
   }
   
   a {
-    font-size: max(2rem);
+    font-size: 1.25rem;
   }
 
   abbr {
@@ -66,12 +66,18 @@
     border: 1px solid Highlight;
     background: none;
   }
-  
+
   fieldset {
+    display: grid;
+    gap: .5ch;
+    border: none;
+  }
+  
+  fieldset > div {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 1ch;
-    border: none;
   }
   
   .wave {
