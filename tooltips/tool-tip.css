@@ -75,7 +75,7 @@ tool-tip {
     position: absolute;
   }
 
-  /* tooltip shape is a speudo element so we can cast a shadow */
+  /* tooltip shape is a pseudo element so we can cast a shadow */
   &::after {
     content: "";
     background: var(--_bg);
