@@ -76,7 +76,7 @@ tool-tip {
   }
 
   /* tooltip shape is a speudo element so we can cast a shadow */
-  &[tip-position]::after {
+  &::after {
     content: "";
     background: var(--_bg);
     position: absolute;
@@ -89,6 +89,7 @@ tool-tip {
   &:is(
     [tip-position="top"],
     [tip-position="block-start"],
+    :not([tip-position]),
     [tip-position="bottom"],
     [tip-position="block-end"]
   ) {
@@ -96,7 +97,7 @@ tool-tip {
   }
 
   /* TOP || BLOCK START */
-  &:is([tip-position="top"], [tip-position="block-start"]) {
+  &:is([tip-position="top"], [tip-position="block-start"], :not([tip-position])) {
     inset-inline-start: 50%;
     inset-block-end: calc(100% + var(--_p-block) + var(--_triangle-size));
     --_x: calc(50% * var(--isRTL));
