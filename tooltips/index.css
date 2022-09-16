@@ -21,7 +21,7 @@
     place-content: center;
     justify-items: center;
     gap: 7vh;
-    padding-block: 10vh;
+    padding-block: 20vh;
   }
   
   a {
@@ -60,6 +60,11 @@
     display: grid;
     gap: .5ch;
     border: none;
+  }
+
+  fieldset > p {
+    font-size: .8rem;
+    margin-block-end: 1ch;
   }
   
   fieldset > div {
