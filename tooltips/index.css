@@ -61,11 +61,6 @@
     gap: .5ch;
     border: none;
   }
-
-  fieldset > p {
-    font-size: .8rem;
-    margin-block-end: 1ch;
-  }
   
   fieldset > div {
     display: flex;
@@ -89,6 +84,22 @@
     gap: 2ch;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .chip {
+    display: inline-flex;
+    border: 1px solid hsl(0 0% 100% / 15%);
+    justify-self: start;
+    align-items: center;
+    padding-inline: 1ch;
+    padding-block: .25ch;
+    border-radius: 1e3px;
+    font-size: .8rem;
+    margin-block-end: 1ch;
+
+    @media (prefers-color-scheme: light) {
+      border: 1px solid hsl(0 0% 0% / 10%);
+    }
   }
 }
 
