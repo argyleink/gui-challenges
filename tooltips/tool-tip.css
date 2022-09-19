@@ -7,7 +7,6 @@ tool-tip {
   --_bg: hsl(0 0% 20%);
   --_shadow-alpha: 50%;
 
-  --isLTR: 1;
   --isRTL: -1;
 
   --_bottom-tip: conic-gradient(from -30deg at bottom, #0000, #000 1deg 60deg, #0000 61deg) bottom / 100% 50% no-repeat;
@@ -47,7 +46,6 @@ tool-tip {
   }
 
   &:dir(rtl) {
-    --isLTR: -1;
     --isRTL: 1;
   }
 
@@ -123,7 +121,7 @@ tool-tip {
 
     @media (prefers-reduced-motion: no-preference) {
       @nest :has(> &):not(:hover, :focus-visible, :active) tool-tip {
-        --_x: -3px;
+        --_x: calc(var(--isRTL) * -3px * -1);
       }
     }
 
@@ -165,7 +163,7 @@ tool-tip {
 
     @media (prefers-reduced-motion: no-preference) {
       @nest :has(> &):not(:hover, :focus-visible, :active) tool-tip {
-        --_x: 3px;
+        --_x: calc(var(--isRTL) * 3px * -1);
       }
     }
 
