@@ -101,7 +101,7 @@ tool-tip {
     --_x: calc(50% * var(--isRTL));
 
     @media (prefers-reduced-motion: no-preference) {
-      @nest :has(> &):not(:hover, :focus-visible, :active) tool-tip {
+      @nest :has(> &):not(:hover, :active) tool-tip {
         --_y: 3px;
       }
     }
@@ -120,7 +120,7 @@ tool-tip {
     --_y: 50%;
 
     @media (prefers-reduced-motion: no-preference) {
-      @nest :has(> &):not(:hover, :focus-visible, :active) tool-tip {
+      @nest :has(> &):not(:hover, :active) tool-tip {
         --_x: calc(var(--isRTL) * -3px * -1);
       }
     }
@@ -143,7 +143,7 @@ tool-tip {
     --_x: calc(50% * var(--isRTL));
 
     @media (prefers-reduced-motion: no-preference) {
-      @nest :has(> &):not(:hover, :focus-visible, :active) tool-tip {
+      @nest :has(> &):not(:hover, :active) tool-tip {
         --_y: -3px;
       }
     }
@@ -162,7 +162,7 @@ tool-tip {
     --_y: 50%;
 
     @media (prefers-reduced-motion: no-preference) {
-      @nest :has(> &):not(:hover, :focus-visible, :active) tool-tip {
+      @nest :has(> &):not(:hover, :active) tool-tip {
         --_x: calc(var(--isRTL) * 3px * -1);
       }
     }
