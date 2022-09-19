@@ -83,6 +83,13 @@
     display: inline-flex;
     gap: 2ch;
   }
+
+  .side-by-side-or-wrap {
+    display: inline-flex;
+    gap: 2ch;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 @layer github-promo {
