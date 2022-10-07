@@ -1,0 +1,178 @@
+tool-tip {
+  --_p-inline: 1.5ch;
+  --_p-block: .75ch;
+  --_triangle-size: 7px;
+  --_bg: hsl(0 0% 20%);
+  --_shadow-alpha: 50%;
+
+  --isRTL: -1;
+
+  --_bottom-tip: conic-gradient(from -30deg at bottom, #0000, #000 1deg 60deg, #0000 61deg) bottom / 100% 50% no-repeat;
+  --_top-tip: conic-gradient(from 150deg at top, #0000, #000 1deg 60deg, #0000 61deg) top / 100% 50% no-repeat;
+  --_right-tip: conic-gradient(from -120deg at right, #0000, #000 1deg 60deg, #0000 61deg) right / 50% 100% no-repeat;
+  --_left-tip: conic-gradient(from 60deg at left, #0000, #000 1deg 60deg, #0000 61deg) left / 50% 100% no-repeat;
+
+  pointer-events: none;
+  user-select: none;
+
+  opacity: 0;
+  transform: translateX(var(--_x, 0)) translateY(var(--_y, 0));
+  transition: opacity .2s ease, transform .2s ease;
+
+  position: absolute;
+  z-index: 1;
+  inline-size: max-content;
+  max-inline-size: 25ch;
+  text-align: start;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: initial;
+  padding: var(--_p-block) var(--_p-inline);
+  margin: 0;
+  border-radius: 5px;
+  background: var(--_bg);
+  color: CanvasText;
+  will-change: filter;
+  filter: 
+    drop-shadow(0 3px 3px hsl(0 0% 0% / var(--_shadow-alpha))) 
+    drop-shadow(0 12px 12px hsl(0 0% 0% / var(--_shadow-alpha)));
+
+  /* light theme style adjustments */
+  @media (prefers-color-scheme: light) {
+    --_bg: white;
+    --_shadow-alpha: 15%;
+  }
+
+  &:dir(rtl) {
+    --isRTL: 1;
+  }
+
+  /* create a stacking context for elements with > tool-tips */
+  @nest :has(> &) {
+    position: relative;
+
+    /* when those parent elements have focus, hover, etc */
+    &:is(:hover, :focus-visible, :active) > tool-tip {
+      opacity: 1;
+      transition-delay: 200ms;
+    }
+  }
+
+  /* prepend some prose for screen readers only */
+  &::before {
+    content: "; Has tooltip: ";
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+  }
+
+  /* tooltip shape is a pseudo element so we can cast a shadow */
+  &::after {
+    content: "";
+    background: var(--_bg);
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    mask: var(--_tip);
+  }
+
+  /* top tooltip styles */
+  &:is(
+    [tip-position="top"],
+    [tip-position="block-start"],
+    :not([tip-position]),
+    [tip-position="bottom"],
+    [tip-position="block-end"]
+  ) {
+    text-align: center;
+  }
+
+  /* TOP || BLOCK START */
+  &:is([tip-position="top"], [tip-position="block-start"], :not([tip-position])) {
+    inset-inline-start: 50%;
+    inset-block-end: calc(100% + var(--_p-block) + var(--_triangle-size));
+    --_x: calc(50% * var(--isRTL));
+
+    @media (prefers-reduced-motion: no-preference) {
+      @nest :has(> &):not(:hover, :active) tool-tip {
+        --_y: 3px;
+      }
+    }
+
+    &::after {
+      --_tip: var(--_bottom-tip);
+      inset-block-end: calc(var(--_triangle-size) * -1);
+      border-block-end: var(--_triangle-size) solid transparent;
+    }
+  }
+
+  /* RIGHT || INLINE END */
+  &:is([tip-position="right"], [tip-position="inline-end"]) {
+    inset-inline-start: calc(100% + var(--_p-inline) + var(--_triangle-size));
+    inset-block-end: 50%;
+    --_y: 50%;
+
+    @media (prefers-reduced-motion: no-preference) {
+      @nest :has(> &):not(:hover, :active) tool-tip {
+        --_x: calc(var(--isRTL) * -3px * -1);
+      }
+    }
+
+    &::after {
+      --_tip: var(--_left-tip);
+      inset-inline-start: calc(var(--_triangle-size) * -1);
+      border-inline-start: var(--_triangle-size) solid transparent;
+    }
+
+    &:dir(rtl)::after {
+      --_tip: var(--_right-tip);
+    }
+  }
+
+  /* BOTTOM || BLOCK END */
+  &:is([tip-position="bottom"], [tip-position="block-end"]) {
+    inset-inline-start: 50%;
+    inset-block-start: calc(100% + var(--_p-block) + var(--_triangle-size));
+    --_x: calc(50% * var(--isRTL));
+
+    @media (prefers-reduced-motion: no-preference) {
+      @nest :has(> &):not(:hover, :active) tool-tip {
+        --_y: -3px;
+      }
+    }
+
+    &::after {
+      --_tip: var(--_top-tip);
+      inset-block-start: calc(var(--_triangle-size) * -1);
+      border-block-start: var(--_triangle-size) solid transparent;
+    }
+  }
+
+  /* LEFT || INLINE START */
+  &:is([tip-position="left"], [tip-position="inline-start"]) {
+    inset-inline-end: calc(100% + var(--_p-inline) + var(--_triangle-size));
+    inset-block-end: 50%;
+    --_y: 50%;
+
+    @media (prefers-reduced-motion: no-preference) {
+      @nest :has(> &):not(:hover, :active) tool-tip {
+        --_x: calc(var(--isRTL) * 3px * -1);
+      }
+    }
+
+    &::after {
+      --_tip: var(--_right-tip);
+      inset-inline-end: calc(var(--_triangle-size) * -1);
+      border-inline-end: var(--_triangle-size) solid transparent;
+    }
+
+    &:dir(rtl)::after {
+      --_tip: var(--_left-tip);
+    }
+  }
+}

@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Tooltips | GUI Challenges</title>
+    <meta name="description" content="🤓">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="Canvas">
+    <meta name="color-scheme" content="light dark">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <link rel="stylesheet" href="./index.css">
+  </head>
+  <body>
+
+    <div class="side-by-side">
+      <a href="#">
+        top
+        <tool-tip inert role="tooltip">
+          Hey, a tooltip!
+        </tool-tip>
+      </a>
+      <a href="#">
+        block start
+        <tool-tip inert role="tooltip" tip-position="block-start">
+          Use logical sides too 👍🏻
+        </tool-tip>
+      </a>
+    </div>
+
+    <div class="side-by-side">
+      <a href="#">
+        right
+        <tool-tip inert role="tooltip" tip-position="right">
+          Can animate them
+        </tool-tip>
+      </a> 
+      <a href="#">
+        inline end
+        <tool-tip inert role="tooltip" tip-position="inline-end">
+          The logical sides are more closely tied to the implementation
+        </tool-tip>
+      </a> 
+    </div>
+
+    <div class="side-by-side">
+      <a href="#">
+        bottom
+        <tool-tip inert role="tooltip" tip-position="bottom" class="custom-tip">
+          Can only hold text but can be filled with a gradient
+        </tool-tip>
+      </a> 
+      <a href="#">
+        block-end
+        <tool-tip inert role="tooltip" tip-position="block-end">
+          Warning: no interactive content
+        </tool-tip>
+      </a> 
+    </div>
+
+    <div class="side-by-side">
+      <a href="#">
+        left
+        <tool-tip inert role="tooltip" tip-position="left">
+          Uses a custom element, inert and :has()
+        </tool-tip>
+      </a>
+      <a href="#">
+        inline start
+        <tool-tip inert role="tooltip" tip-position="inline-start">
+          Hope you find this useful!
+        </tool-tip>
+      </a>
+    </div>
+
+    <div class="side-by-side">
+      <button>
+        Try me
+        <tool-tip inert role="tooltip" tip-position="top">
+          Hi!
+        </tool-tip>
+      </button>
+      <button>
+        Customize me
+        <tool-tip inert role="tooltip" tip-position="block-end" class="custom-tip">
+          Hi!
+        </tool-tip>
+      </button>
+      <button>
+        Error style
+        <tool-tip inert role="tooltip" tip-position="inline-end" class="error-tip">
+          Don't rely on this tooltip entirely for errors
+        </tool-tip>
+      </button>
+    </div>
+
+    <div class="side-by-side-or-wrap">
+      <fieldset>
+        <span class="chip">DO ✅</span>
+        <div>
+          <label for="a">Name</label>
+          <a href="#" style="display: flex;">
+            <svg height="24px" viewBox="0 0 24 24" width="24px" fill="CanvasText" aria-hidden="true">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z" />
+            </svg>
+            <tool-tip inert role="tooltip" tip-position="top">
+              Space saving extra information
+            </tool-tip>
+          </a>
+        </div>
+        <input id="a" type="text" placeholder="GUI Challenges">
+      </fieldset>
+      <fieldset style="align-content: space-between">
+        <span class="chip">DON'T ❌</span>
+        <div>
+          <input id="a" type="text" placeholder="GUI Challenges">
+          <a href="#" style="display: flex;">
+            <svg height="24px" viewBox="0 0 24 24" width="24px" fill="CanvasText" aria-hidden="true">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z" />
+            </svg>
+            <tool-tip inert role="tooltip" tip-position="top">
+              Name
+            </tool-tip>
+          </a>
+        </div>
+      </fieldset>
+    </div>
+
+    <menu>
+      <div class="labelled-button">
+        <button class="icon-button" id="notifications-btn">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" stroke-width="1.5" stroke="currentColor">
+            <path fill="none" stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+          </svg>
+          <tool-tip inert role="tooltip" tip-position="left">
+            Provide non-critical information about a button
+          </tool-tip>
+        </button>
+        <label for="notifications-btn">Notifications</label>
+      </div>
+      <div class="labelled-button">
+        <button class="icon-button" id="education-btn">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" stroke-width="1.5" stroke="currentColor" fill="none">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+          </svg>
+          <tool-tip inert role="tooltip" tip-position="top">
+            Minor details about this button are ...
+          </tool-tip>
+        </button>
+        <label for="education-btn">Education</label>
+      </div>
+      <div class="labelled-button">
+        <button class="icon-button" id="download-btn">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" stroke-width="1.5" stroke="currentColor" fill="none">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <tool-tip inert role="tooltip" tip-position="right">
+            Example: This will start a download in your browser
+          </tool-tip>
+        </button>
+        <label for="download-btn">Download</label>
+      </div>  
+    </menu>
+
+    <p>The <abbr title>HTML<tool-tip inert role="tooltip" tip-position="top">Hyper Text Markup Language</tool-tip></abbr> abbr element.</p>
+
+    <picture>
+      <img alt="The GUI Challenges skull logo" width="100" src="https://gui-challenges.web.app/dialog/dist/assets/favicon.cb17c595.svg">
+      <tool-tip inert role="tooltip" tip-position="bottom">
+        The GUI Challenges skull logo
+      </tool-tip>
+    </picture>
+  
+    <a href="https://github.com/argyleink/gui-challenges" class="github-corner" aria-label="View source on GitHub">
+      <svg width="80" height="80" viewBox="0 0 250 250" style="position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+
+  <script type="module" src="./tool-tip.polyfill.js"></script>
+  </body>
+</html>

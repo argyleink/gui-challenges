@@ -1,0 +1,140 @@
+@import "tool-tip.css" layer(demo);
+@import "tool-tip.custom.css" layer(customizing);
+
+@layer demosupport {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    outline-offset: 5px;
+  }
+
+  html {
+    block-size: 100%;
+    color-scheme: dark light;
+  }
+
+  body {
+    min-block-size: 100%;
+    font-family: system-ui, sans-serif;
+
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 7vh;
+    padding-block: 20vh;
+  }
+  
+  a {
+    font-size: 1.25rem;
+  }
+
+  abbr {
+    text-decoration-color: Highlight;
+  }
+  
+  menu {
+    display: grid;
+    gap: 2ch;
+    padding: 0;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .labelled-button {
+    display: grid;
+    gap: 1ch;
+    justify-items: center;
+  }
+  
+  .icon-button {
+    display: inline-flex;
+    align-items: center;
+    place-content: center;
+    aspect-ratio: 1;
+    padding: 2ch;
+    border-radius: 50%;
+    border: 1px solid Highlight;
+    background: none;
+  }
+
+  fieldset {
+    display: grid;
+    gap: .5ch;
+    border: none;
+  }
+  
+  fieldset > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1ch;
+  }
+  
+  .wave {
+    text-decoration: 1px wavy underline;
+    text-decoration-color: hotpink;
+  }
+
+  .side-by-side {
+    display: inline-flex;
+    gap: 2ch;
+  }
+
+  .side-by-side-or-wrap {
+    display: inline-flex;
+    gap: 2ch;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .chip {
+    display: inline-flex;
+    border: 1px solid hsl(0 0% 100% / 15%);
+    justify-self: start;
+    align-items: center;
+    padding-inline: 1ch;
+    padding-block: .25ch;
+    border-radius: 1e3px;
+    font-size: .8rem;
+    margin-block-end: 1ch;
+
+    @media (prefers-color-scheme: light) {
+      border: 1px solid hsl(0 0% 0% / 10%);
+    }
+  }
+}
+
+@layer github-promo {
+  .github-corner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    fill: Highlight;
+    color: Canvas;
+    
+    &:hover .octo-arm {
+      animation: octocat-wave 560ms ease-in-out
+    }
+
+    & > svg {
+      fill: inherit;
+      stroke: inherit;
+      position: absolute; 
+      top: 0; 
+      right: 0;
+    }
+  }
+
+  @keyframes octocat-wave{
+    0%,100% {
+      transform: rotate(0)
+    }
+    20%,60% {
+      transform: rotate(-25deg)
+    }
+    40%,80% {
+      transform: rotate(10deg)
+    }
+  }
+}

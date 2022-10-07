@@ -1,0 +1,9 @@
+.custom-tip {
+  --_bg: linear-gradient(to top, hsl(200 50% 50%), hsl(180 50% 50%));
+  color: white;
+}
+
+.error-tip {
+  --_bg: red;
+  color: white;
+}

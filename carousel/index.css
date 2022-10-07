@@ -1,10 +1,7 @@
 @layer base, library, carousel, carousel-custom;
 
-@import "op.min.css";
-@import "op.norm.min.css";
-/* bug in Vite with cascade layers.. */
-/* @import "open-props/style"; */
-/* @import "open-props/normalize"; */
+@import "open-props/style" layer(base);
+@import "open-props/normalize" layer(library);
 
 @import "carousel.css" layer(carousel);
 @import "custom-carousel-items.css" layer(carousel-custom);

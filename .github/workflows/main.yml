@@ -73,6 +73,12 @@ jobs:
 
     - name: Build Carousel
       run: cd carousel && npm install && npm run build
+
+    - name: Build Crooked Grid
+      run: cd crooked-illusion && npm install && npm run build
+
+    - name: Build Tooltips
+      run: cd tooltips && npm install && npm run build
       
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master

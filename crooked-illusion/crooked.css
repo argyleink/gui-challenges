@@ -1,0 +1,29 @@
+body {
+  display: grid;
+  grid-auto-rows: calc(20vh - 4px);
+  gap: 4px;
+  background: gray;
+  margin: 0;
+} 
+
+.row {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 9vw;
+  padding-inline: 4vw;
+  gap: 10vw;
+  background: white;
+
+  &:nth-child(even) {
+    justify-content: center;
+  }
+  
+  &:nth-child(3n) {
+    justify-content: end;
+  }
+}
+
+.square {
+  border-inline: 4px solid gray;
+  background: black;
+}
