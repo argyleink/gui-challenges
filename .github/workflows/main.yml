@@ -79,6 +79,9 @@ jobs:
 
     - name: Build Tooltips
       run: cd tooltips && npm install && npm run build
+
+    - name: Build Transitions
+      run: cd transitions && npm install && npm run build
       
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master

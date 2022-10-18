@@ -1,0 +1,35 @@
+:root {
+  --circle-center-center-out: circle(0%);
+  --circle-center-center-in:  circle(125%);
+}
+
+.circle-in-center > span {
+  clip-path: var(--circle-center-center-out);
+  transition: clip-path 1s ease;
+}
+
+.circle-in-center:hover > span {
+  clip-path: var(--circle-center-center-in);
+}
+
+.circle-out-center > span {
+  clip-path: var(--circle-center-center-in);
+  transition: clip-path 1s ease;
+}
+
+@keyframes circle-out-in-center {
+  0%, 100% {
+    clip-path: var(--circle-center-center-in);
+  }
+  40%, 60% {
+    clip-path: var(--circle-center-center-out);
+  }
+}
+
+.circle-out-center:hover > span {
+  clip-path: var(--circle-center-center-out);
+}
+
+.circle-out-in-center:hover > span {
+  animation: circle-out-in-center 4s ease;
+}
