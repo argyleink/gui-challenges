@@ -95,5 +95,5 @@ and expand the diversity of our skills.**
   [`Article`](https://web.dev/building-a-crooked-grid-illusion/)
 23. Tooltips
   [`Demo`](https://gui-challenges.web.app/tooltips/dist/) 
-  [`YouTube`](#)(coming soon) 
+  [`YouTube`](https://www.youtube.com/watch?v=Y5EIC_UyPME) 
   [`Article`](#)(coming soon)
