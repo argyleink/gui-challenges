@@ -85,7 +85,8 @@ and expand the diversity of our skills.**
   [`Article`](https://web.dev/building-a-button-component/)
 20. FABs
   [`Demo`](https://gui-challenges.web.app/FAB/dist/) 
-  [`YouTube`](https://www.youtube.com/watch?v=RXopH5t2Kww&list=PLNYkxOF6rcIAaV1wwI9540OC_3XoIzMjQ) 
+  [`YouTube`](https://www.youtube.com/watch?v=RXopH5t2Kww) 
+  [`Article`](https://web.dev/building-a-fab-component/)
 21. Carousels
   [`Demo`](https://gui-challenges.web.app/carousel/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=CXJv6zM003M)
