@@ -8,7 +8,7 @@
   transition: clip-path 1s ease;
 }
 
-.circle-in-center:hover > span {
+.circle-in-center:is(:hover,:focus,:active) > span {
   clip-path: var(--circle-center-center-in);
 }
 
@@ -26,10 +26,10 @@
   }
 }
 
-.circle-out-center:hover > span {
+.circle-out-center:is(:hover,:focus,:active) > span {
   clip-path: var(--circle-center-center-out);
 }
 
-.circle-out-in-center:hover > span {
+.circle-out-in-center:is(:hover,:focus,:active) > span {
   animation: circle-out-in-center 4s ease;
 }
