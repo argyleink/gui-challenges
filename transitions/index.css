@@ -11,6 +11,7 @@
     justify-content: center;
     text-align: center;
     background: indigo;
+    color: white;
     aspect-ratio: 1;
     inline-size: 20vw;
   }
