@@ -1,0 +1,56 @@
+:root {
+  --wipe-in:     inset(0 0 0 0);
+  --wipe-bottom: inset(100% 0 0 0);
+  --wipe-left:   inset(0 100% 0 0);
+  --wipe-top:    inset(0 0 100% 0);
+  --wipe-right:  inset(0 0 0 100%);
+}
+
+.wipe-in {
+  & > .box {
+    clip-path: var(--wipe-right);
+    transition: clip-path 1s ease;
+  }
+
+  &:is(:hover,:focus,:active) > .box {
+    clip-path: var(--wipe-in);
+  }
+}
+
+.wipe-out {
+  & > .box {
+    clip-path: var(--wipe-in);
+    transition: clip-path 1s ease;
+  }
+
+  &:is(:hover,:focus,:active) > .box {
+    clip-path: var(--wipe-top);
+  }
+}
+
+.wipe-suprise {
+  display: grid;
+  grid: auto-flow 1fr / 1fr;
+
+  & > .box {
+    grid-area: 1 / 1;
+    transition: clip-path .5s ease;
+    clip-path: var(--wipe-in);
+
+    &:nth-child(2) {
+      clip-path: var(--wipe-left);
+      background: deeppink;
+    }
+  }
+
+  &:is(:hover,:focus,:active) {
+    & > .box {
+      &:nth-child(1) {
+        clip-path: var(--wipe-right);
+      }
+      &:nth-child(2) {
+        clip-path: var(--wipe-in);
+      }
+    }
+  }
+}

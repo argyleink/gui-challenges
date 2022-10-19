@@ -25,50 +25,34 @@
   }
 }
 
-@keyframes circle-suprise {
-  0%, 100% {
-    clip-path: var(--circle-in);
-  }
-  40%, 60% {
-    clip-path: var(--circle-out);
-  }
-}
-
-@keyframes swap-in {
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes swap-out {
-  to {
-    opacity: 0;
-  }
-}
-
 .circle-suprise {
+  display: grid;
+  grid: auto-flow 1fr / 1fr;
+
   & > .box {
-    display: grid;
-    grid: auto-flow 1fr / 1fr;
+    grid-area: 1 / 1;
+    transition: clip-path 1s ease;
+    clip-path: var(--circle-in);
 
-    & > span {
-      grid-area: 1 / 1;
+    &:nth-child(1) {
+      transition-delay: .2s;
     }
-  }
 
-  & > .box > span:nth-child(2) {
-    opacity: 0;
+    &:nth-child(2) {
+      clip-path: var(--circle-out);
+      background: deeppink;
+    }
   }
 
   &:is(:hover,:focus,:active) {
     & > .box {
-      animation: circle-suprise 4s ease;
-
-      & > span:nth-child(1) {
-        animation: swap-out 4s ease forwards;
+      &:nth-child(1) {
+        transition-delay: 0s;
+        clip-path: var(--circle-out);
       }
-      & > span:nth-child(2) {
-        animation: swap-in 4s ease forwards;
+      &:nth-child(2) {
+        transition-delay: .2s;
+        clip-path: var(--circle-in);
       }
     }
   }

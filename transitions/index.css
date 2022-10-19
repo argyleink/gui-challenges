@@ -2,6 +2,7 @@
 
 @import "transitions.css" layer(transitions);
 @import "circle.transitions.css" layer(transitions);
+@import "wipes.transitions.css" layer(transitions);
 
 @layer demo {
   .box {
