@@ -46,7 +46,7 @@
   &:is(:hover,:focus,:active) {
     & > .box {
       &:nth-child(1) {
-        clip-path: var(--wipe-right);
+        clip-path: var(--wipe-left);
       }
       &:nth-child(2) {
         clip-path: var(--wipe-in);
