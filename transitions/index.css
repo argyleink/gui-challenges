@@ -38,14 +38,14 @@
     padding-block: 20vh;
   }
 
-  main {
+  article {
     display: grid;
     grid-auto-flow: column;
     gap: 5vmin;
   }
 }
 
-@layer github-promo {
+@layer demo.support {
   .github-corner {
     position: absolute;
     top: 0;

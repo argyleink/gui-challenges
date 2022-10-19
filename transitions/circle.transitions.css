@@ -1,35 +1,75 @@
 :root {
-  --circle-center-center-out: circle(0%);
-  --circle-center-center-in:  circle(125%);
+  --circle-in:  circle(125%);
+  --circle-out: circle(0%);
 }
 
-.circle-in-center > span {
-  clip-path: var(--circle-center-center-out);
-  transition: clip-path 1s ease;
+.circle-in {
+  & > .box {
+    clip-path: var(--circle-out);
+    transition: clip-path 1s ease;
+  }
+
+  &:is(:hover,:focus,:active) > .box {
+    clip-path: var(--circle-in);
+  }
 }
 
-.circle-in-center:is(:hover,:focus,:active) > span {
-  clip-path: var(--circle-center-center-in);
+.circle-out {
+  & > .box {
+    clip-path: var(--circle-in);
+    transition: clip-path 1s ease;
+  }
+
+  &:is(:hover,:focus,:active) > .box {
+    clip-path: var(--circle-out);
+  }
 }
 
-.circle-out-center > span {
-  clip-path: var(--circle-center-center-in);
-  transition: clip-path 1s ease;
-}
-
-@keyframes circle-out-in-center {
+@keyframes circle-suprise {
   0%, 100% {
-    clip-path: var(--circle-center-center-in);
+    clip-path: var(--circle-in);
   }
   40%, 60% {
-    clip-path: var(--circle-center-center-out);
+    clip-path: var(--circle-out);
   }
 }
 
-.circle-out-center:is(:hover,:focus,:active) > span {
-  clip-path: var(--circle-center-center-out);
+@keyframes swap-in {
+  to {
+    opacity: 1;
+  }
 }
 
-.circle-out-in-center:is(:hover,:focus,:active) > span {
-  animation: circle-out-in-center 4s ease;
+@keyframes swap-out {
+  to {
+    opacity: 0;
+  }
+}
+
+.circle-suprise {
+  & > .box {
+    display: grid;
+    grid: auto-flow 1fr / 1fr;
+
+    & > span {
+      grid-area: 1 / 1;
+    }
+  }
+
+  & > .box > span:nth-child(2) {
+    opacity: 0;
+  }
+
+  &:is(:hover,:focus,:active) {
+    & > .box {
+      animation: circle-suprise 4s ease;
+
+      & > span:nth-child(1) {
+        animation: swap-out 4s ease forwards;
+      }
+      & > span:nth-child(2) {
+        animation: swap-in 4s ease forwards;
+      }
+    }
+  }
 }
