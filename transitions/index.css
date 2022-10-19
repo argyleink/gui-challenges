@@ -1,9 +1,14 @@
+@layer demo.support, transitions;
+
 @import "transitions.css" layer(transitions);
 @import "circle.transitions.css" layer(transitions);
 
 @layer demo {
   .box {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     background: indigo;
     aspect-ratio: 1;
     inline-size: 20vw;
