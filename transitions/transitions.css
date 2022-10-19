@@ -1,0 +1,47 @@
+:root {
+
+}
+
+.circle-in {
+  & > .box {
+    
+  }
+
+  &:is(:hover,:focus,:active) > .box {
+    
+  }
+}
+
+.circle-out {
+  & > .box {
+    
+  }
+
+  &:is(:hover,:focus,:active) > .box {
+    
+  }
+}
+
+.square-suprise {
+  display: grid;
+  grid: auto-flow 1fr / 1fr;
+
+  & > .box {
+    grid-area: 1 / 1;
+
+    &:nth-child(2) {
+      background: deeppink;
+    }
+  }
+
+  &:is(:hover,:focus,:active) {
+    & > .box {
+      &:nth-child(1) {
+        
+      }
+      &:nth-child(2) {
+        
+      }
+    }
+  }
+}
