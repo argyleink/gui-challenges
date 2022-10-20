@@ -13,7 +13,15 @@
     background: indigo;
     color: white;
     aspect-ratio: 1;
-    inline-size: 20vw;
+    font-size: 3vw;
+    font-size: 12cqi;
+    font-weight: lighter;
+    letter-spacing: .2em;
+  }
+
+  .emoji {
+    font-size: 6vw;
+    font-size: 25cqi;
   }
 }
 
@@ -42,8 +50,12 @@
 
   article {
     display: grid;
-    grid-auto-flow: column;
+    grid-template-columns: repeat(3, min(25vw, 30ch));
     gap: 5vmin;
+  }
+
+  article > div {
+    container-type: inline-size;
   }
 }
 
