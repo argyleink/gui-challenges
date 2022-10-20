@@ -9,8 +9,11 @@
 .wipe-in {
   & > .box {
     clip-path: var(--wipe-bottom);
-    transition: clip-path 1s ease;
     background: no-repeat center / auto 75% url(https://web.dev/third_party/chrometober-2022/assets/chrometober_cover--dark.7266b69c.svg) #222;
+
+    @media (--motionOK) {
+      transition: clip-path 1s ease;
+    }
   }
 
   &:is(:hover,:focus,:active) > .box {
@@ -23,7 +26,10 @@
 
   & > .box {
     clip-path: var(--wipe-in);
-    transition: clip-path 1s ease;
+
+    @media (--motionOK) {
+      transition: clip-path 1s ease;
+    }
   }
 
   &:is(:hover,:focus,:active) > .box {
@@ -37,8 +43,11 @@
 
   & > .box {
     grid-area: 1 / 1;
-    transition: clip-path .5s ease;
     clip-path: var(--wipe-in);
+
+    @media (--motionOK) {
+      transition: clip-path .5s ease;
+    }
 
     &:nth-child(2) {
       clip-path: var(--wipe-left);

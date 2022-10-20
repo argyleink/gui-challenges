@@ -4,6 +4,8 @@
 @import "circle.transitions.css" layer(transitions);
 @import "wipes.transitions.css" layer(transitions);
 
+@custom-media --motionOK (prefers-reduced-motion: no-preference);
+
 @layer demo {
   .box {
     display: flex;
@@ -52,10 +54,10 @@
     display: grid;
     grid-template-columns: repeat(3, min(25vw, 30ch));
     gap: 5vmin;
-  }
 
-  article > div {
-    container-type: inline-size;
+    & > div {
+      container-type: inline-size;
+    }
   }
 }
 
