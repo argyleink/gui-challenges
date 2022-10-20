@@ -10,6 +10,7 @@
   & > .box {
     clip-path: var(--wipe-bottom);
     transition: clip-path 1s ease;
+    background: no-repeat center / contain url(https://web.dev/third_party/chrometober-2022/assets/chrometober_cover--dark.7266b69c.svg);
   }
 
   &:is(:hover,:focus,:active) > .box {
@@ -18,6 +19,8 @@
 }
 
 .wipe-out {
+  background: no-repeat center / 75% auto url(https://gui-challenges.web.app/svg-favicon/dist/assets/favicon.cb17c595.svg);
+
   & > .box {
     clip-path: var(--wipe-in);
     transition: clip-path 1s ease;
