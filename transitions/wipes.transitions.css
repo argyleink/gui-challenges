@@ -10,7 +10,7 @@
   & > .box {
     clip-path: var(--wipe-bottom);
     transition: clip-path 1s ease;
-    background: no-repeat center / contain url(https://web.dev/third_party/chrometober-2022/assets/chrometober_cover--dark.7266b69c.svg);
+    background: no-repeat center / auto 75% url(https://web.dev/third_party/chrometober-2022/assets/chrometober_cover--dark.7266b69c.svg) #222;
   }
 
   &:is(:hover,:focus,:active) > .box {
