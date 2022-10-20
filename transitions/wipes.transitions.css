@@ -8,7 +8,7 @@
 
 .wipe-in {
   & > .box {
-    clip-path: var(--wipe-right);
+    clip-path: var(--wipe-bottom);
     transition: clip-path 1s ease;
   }
 
