@@ -1,0 +1,98 @@
+@layer demo.support, transitions;
+
+@import "transitions.css" layer(transitions);
+@import "circle.transitions.css" layer(transitions);
+@import "wipes.transitions.css" layer(transitions);
+
+@custom-media --motionOK (prefers-reduced-motion: no-preference);
+
+@layer demo {
+  .box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: indigo;
+    color: white;
+    aspect-ratio: 1;
+    font-size: 3vw;
+    font-size: 12cqi;
+    font-weight: lighter;
+    letter-spacing: .2em;
+  }
+
+  .emoji {
+    font-size: 6vw;
+    font-size: 25cqi;
+  }
+}
+
+@layer demo.support {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    outline-offset: 5px;
+  }
+
+  html {
+    block-size: 100%;
+    color-scheme: dark light;
+  }
+
+  body {
+    min-block-size: 100%;
+    font-family: system-ui, sans-serif;
+
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 7vh;
+    padding-block: 20vh;
+  }
+
+  article {
+    display: grid;
+    grid-template-columns: repeat(3, min(25vw, 30ch));
+    gap: 5vmin;
+
+    & > div {
+      container-type: inline-size;
+    }
+  }
+}
+
+@layer demo.support {
+  .github-corner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    fill: Highlight;
+    color: Canvas;
+    
+    &:hover .octo-arm {
+      animation: octocat-wave 560ms ease-in-out
+    }
+
+    & > svg {
+      fill: inherit;
+      stroke: inherit;
+      position: absolute; 
+      top: 0; 
+      right: 0;
+    }
+  }
+
+  @keyframes octocat-wave{
+    0%,100% {
+      transform: rotate(0)
+    }
+    20%,60% {
+      transform: rotate(-25deg)
+    }
+    40%,80% {
+      transform: rotate(10deg)
+    }
+  }
+}

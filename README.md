@@ -98,3 +98,7 @@ and expand the diversity of our skills.**
   [`Demo`](https://gui-challenges.web.app/tooltips/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=Y5EIC_UyPME) 
   [`Article`](#)(coming soon)
+24. Transitions
+  [`Demo`](https://gui-challenges.web.app/transitions/dist/) 
+  [`YouTube`](#)(coming soon) 
+  [`Article`](#)(coming soon)

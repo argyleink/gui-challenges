@@ -1,0 +1,68 @@
+:root {
+  --circle-in:  circle(75%);
+  --circle-out: circle(0%);
+}
+
+.circle-in {
+  & > .box {
+    clip-path: var(--circle-out);
+
+    @media (--motionOK) {
+      transition: clip-path 1s ease;
+    }
+  }
+
+  &:is(:hover,:focus,:active) > .box {
+    clip-path: var(--circle-in);
+  }
+}
+
+.circle-out {
+  & > .box {
+    clip-path: var(--circle-in);
+
+    @media (--motionOK) {
+      transition: clip-path 1s ease;
+    }
+  }
+
+  &:is(:hover,:focus,:active) > .box {
+    clip-path: var(--circle-out);
+  }
+}
+
+.circle-suprise {
+  display: grid;
+  grid: auto-flow 1fr / 1fr;
+
+  & > .box {
+    grid-area: 1 / 1;
+    clip-path: var(--circle-in);
+
+    @media (--motionOK) {
+      transition: clip-path 1s ease;
+    }
+
+    &:nth-child(1) {
+      transition-delay: .2s;
+    }
+
+    &:nth-child(2) {
+      clip-path: var(--circle-out);
+      background: deeppink;
+    }
+  }
+
+  &:is(:hover,:focus,:active) {
+    & > .box {
+      &:nth-child(1) {
+        transition-delay: 0s;
+        clip-path: var(--circle-out);
+      }
+      &:nth-child(2) {
+        transition-delay: .2s;
+        clip-path: var(--circle-in);
+      }
+    }
+  }
+}

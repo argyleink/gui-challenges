@@ -1,0 +1,68 @@
+:root {
+  --wipe-in:     inset(0 0 0 0);
+  --wipe-bottom: inset(100% 0 0 0);
+  --wipe-left:   inset(0 100% 0 0);
+  --wipe-top:    inset(0 0 100% 0);
+  --wipe-right:  inset(0 0 0 100%);
+}
+
+.wipe-in {
+  & > .box {
+    clip-path: var(--wipe-bottom);
+    background: no-repeat center / auto 75% url(https://web.dev/third_party/chrometober-2022/assets/chrometober_cover--dark.7266b69c.svg) #222;
+
+    @media (--motionOK) {
+      transition: clip-path 1s ease;
+    }
+  }
+
+  &:is(:hover,:focus,:active) > .box {
+    clip-path: var(--wipe-in);
+  }
+}
+
+.wipe-out {
+  background: no-repeat center / 75% auto url(https://gui-challenges.web.app/svg-favicon/dist/assets/favicon.cb17c595.svg);
+
+  & > .box {
+    clip-path: var(--wipe-in);
+
+    @media (--motionOK) {
+      transition: clip-path 1s ease;
+    }
+  }
+
+  &:is(:hover,:focus,:active) > .box {
+    clip-path: var(--wipe-top);
+  }
+}
+
+.wipe-suprise {
+  display: grid;
+  grid: auto-flow 1fr / 1fr;
+
+  & > .box {
+    grid-area: 1 / 1;
+    clip-path: var(--wipe-in);
+
+    @media (--motionOK) {
+      transition: clip-path .5s ease;
+    }
+
+    &:nth-child(2) {
+      clip-path: var(--wipe-left);
+      background: deeppink;
+    }
+  }
+
+  &:is(:hover,:focus,:active) {
+    & > .box {
+      &:nth-child(1) {
+        clip-path: var(--wipe-left);
+      }
+      &:nth-child(2) {
+        clip-path: var(--wipe-in);
+      }
+    }
+  }
+}
