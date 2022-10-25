@@ -97,7 +97,7 @@ and expand the diversity of our skills.**
 23. Tooltips
   [`Demo`](https://gui-challenges.web.app/tooltips/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=Y5EIC_UyPME) 
-  [`Article`](#)(coming soon)
+  [`Article`](https://web.dev/building-a-tooltip-component/)
 24. Transitions
   [`Demo`](https://gui-challenges.web.app/transitions/dist/) 
   [`YouTube`](#)(coming soon) 
