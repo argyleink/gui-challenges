@@ -100,5 +100,5 @@ and expand the diversity of our skills.**
   [`Article`](https://web.dev/building-a-tooltip-component/)
 24. Transitions
   [`Demo`](https://gui-challenges.web.app/transitions/dist/) 
-  [`YouTube`](#)(coming soon) 
+  [`YouTube`](https://www.youtube.com/watch?v=jjtiIIjEsTw) 
   [`Article`](#)(coming soon)
