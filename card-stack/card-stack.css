@@ -1,0 +1,45 @@
+.card-stack {
+  display: grid;
+  gap: 25vmin;
+  grid: [stack] 1fr / [controls] max-content [stack] min(50vmin, 40ch);
+}
+
+.card {
+  grid-area: stack;
+  transition: all .5s var(--ease-squish-3);
+}
+
+.card:hover {
+  translate: 0 -50px;
+}
+
+.card:nth-of-type(5) { rotate: 0deg }
+.card:nth-of-type(4) { rotate: calc(var(--scalar, 5) * 1deg) }
+.card:nth-of-type(3) { rotate: calc(var(--scalar, 5) * 1deg * -1) }
+.card:nth-of-type(2) { rotate: calc(var(--scalar, 5) * 2 * 1deg) }
+.card:nth-of-type(1) { rotate: calc(var(--scalar, 5) * 2 * 1deg * -1) }
+
+/*  radio states  */
+.card-stack:has(#mode-1:checked) > .card {
+  transform-origin: bottom left;
+}
+
+.card-stack:has(#mode-2:checked) > .card {
+  transform-origin: top right;
+}
+
+.card-stack:has(#mode-3:checked) > .card {
+  transform-origin: bottom center;
+}
+
+.card-stack:has(#mode-4:checked) > .card {
+  transform-origin: 50% 250%;
+}
+
+.card-stack:has(#mode-5:checked) > .card {
+  transform-origin: -20% -150%;
+}
+
+.card-stack:has(#mode-6:checked) > .card {
+  transform-origin: center;
+}

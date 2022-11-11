@@ -1,0 +1,60 @@
+@import "open-props/style" layer(design.system);
+@import "open-props/normalize" layer(demo.support);
+@import "card-stack.css" layer(demo);
+
+@layer design.system, demo.support;
+
+@layer demo.support {
+  body {
+    display: grid;
+    place-content: center;
+    padding: var(--size-5);
+    gap: var(--size-5);
+    overflow: hidden;
+  }
+  
+  .card {
+    aspect-ratio: 3/4;
+    background: var(--surface-2);
+    border-radius: var(--radius-4);
+    box-shadow: var(--shadow-3);
+  }
+  
+  .card:nth-of-type(5) { background: var(--indigo-5) }
+  .card:nth-of-type(4) { background: var(--grape-5) }
+  .card:nth-of-type(3) { background: var(--violet-5) }
+  .card:nth-of-type(2) { background: var(--blue-5) }
+  .card:nth-of-type(1) { background: var(--teal-5) }
+
+  fieldset {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+    gap: var(--size-3);
+    place-self: center start;
+  }
+  
+  fieldset > input[type="radio"] {
+    grid-column: 1;
+  }
+  
+  fieldset > input[type="range"] {
+    grid-column: -1 / 1;
+  }
+  
+  fieldset > label {
+    grid-column: 2;
+  }
+}
+
+@keyframes octocat-wave{
+  0%,100% {
+    transform: rotate(0)
+  }
+  20%,60% {
+    transform: rotate(-25deg)
+  }
+  40%,80% {
+    transform: rotate(10deg)
+  }
+}
