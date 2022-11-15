@@ -7,14 +7,15 @@
 @layer demo.support {
   body {
     display: grid;
-    place-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
     padding: var(--size-5);
     gap: var(--size-5);
     overflow: hidden;
   }
   
   .card {
-    aspect-ratio: 3/4;
+    aspect-ratio: var(--ratio-portrait);
     background: var(--surface-2);
     border-radius: var(--radius-4);
     box-shadow: var(--shadow-3);
@@ -28,22 +29,18 @@
 
   fieldset {
     display: grid;
-    grid-template-columns: max-content 1fr;
     align-items: center;
     gap: var(--size-3);
-    place-self: center start;
-  }
-  
-  fieldset > input[type="radio"] {
-    grid-column: 1;
-  }
-  
-  fieldset > input[type="range"] {
-    grid-column: -1 / 1;
   }
   
   fieldset > label {
     grid-column: 2;
+  }
+
+  form {
+    display: grid;
+    gap: var(--size-3);
+    justify-items: start;
   }
 }
 
