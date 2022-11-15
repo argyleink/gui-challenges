@@ -42,6 +42,11 @@
     gap: var(--size-3);
     justify-items: start;
   }
+
+  input[type="radio"] {
+    inline-size: auto;
+    block-size: auto;
+  }
 }
 
 @keyframes octocat-wave{
