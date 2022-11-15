@@ -29,7 +29,6 @@
 
   fieldset {
     display: grid;
-    align-items: center;
     gap: var(--size-3);
   }
   
