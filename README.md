@@ -102,3 +102,7 @@ and expand the diversity of our skills.**
   [`Demo`](https://gui-challenges.web.app/transitions/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=jjtiIIjEsTw) 
   [`Article`](#)(coming soon)
+25. Card Stack
+  [`Demo`](https://gui-challenges.web.app/card-stack/dist/) 
+  [`YouTube`](#)(coming soon) 
+  [`Article`](#)(coming soon)
