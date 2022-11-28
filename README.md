@@ -104,5 +104,5 @@ and expand the diversity of our skills.**
   [`Article`](#)(coming soon)
 25. Card Stack
   [`Demo`](https://gui-challenges.web.app/card-stack/dist/) 
-  [`YouTube`](#)(coming soon) 
+  [`YouTube`](https://www.youtube.com/watch?v=m4DKhRJeYx4) 
   [`Article`](#)(coming soon)
