@@ -1,0 +1,31 @@
+@layer demo {
+  .emoji {
+    font-size: 10vmin;
+    will-change: transform;
+    scale: var(--physics);
+  }
+}
+
+@layer demo.support {
+  :root {
+    display: grid;
+    place-content: center;
+    min-block-size: 100%;
+  }
+
+  body {
+    margin: 0;
+  }
+}
+
+@keyframes octocat-wave{
+  0%,100% {
+    transform: rotate(0)
+  }
+  20%,60% {
+    transform: rotate(-25deg)
+  }
+  40%,80% {
+    transform: rotate(10deg)
+  }
+}
