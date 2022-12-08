@@ -2,7 +2,18 @@
   .emoji {
     font-size: 10vmin;
     will-change: transform;
-    scale: var(--physics);
+    scale: var(--scale);
+  }
+
+  .gradient {
+    block-size: 15vmin;
+    aspect-ratio: 16/9;
+    border-radius: var(--radius, 25px);
+    background: linear-gradient(
+      to right, 
+      hsl(var(--hue, 200) 100% 50%), 
+      hsl(calc(var(--hue, 200) + 25) 100% 54%)
+    );
   }
 }
 
@@ -15,6 +26,8 @@
 
   body {
     margin: 0;
+    display: grid;
+    place-items: center;
   }
 }
 

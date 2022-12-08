@@ -1,15 +1,16 @@
 export const DEFAULTS = {
+  namespace:      '--physics',
   mass:           1, 
-  stiffness:      100,
-  damping:        10,
-  start_velocity: 0
+  tension:        100,
+  friction:       10,
+  start_velocity: 0,
 }
 
 export class SpringPhysics {
-  constructor(initialValue, options, callback) {
+  constructor({startAt, options, update}) {
+    this.start = startAt
     this.options = Object.assign({}, DEFAULTS, options)
-    this.start = initialValue
-    this.cb = callback
+    this.cb = update
   }
 
   to(targetValue) {
@@ -30,7 +31,10 @@ export class SpringPhysics {
     const change = this.solver(elapsed)
     
     this.tickValue = this.start + (this.target - this.start) * change
-    this.cb(this.tickValue)
+    this.cb({
+      namespace: this.options.namespace,
+      value: this.tickValue,
+    })
 
     if (elapsed < 5 || change !== 1) {
       window.requestAnimationFrame(this.#tick.bind(this))
@@ -43,10 +47,10 @@ export class SpringPhysics {
 
   // https://webkit.org/demos/spring/spring.js
   #solver() {
-    const {mass, stiffness, damping, start_velocity} = this.options
+    const {mass, tension, friction, start_velocity} = this.options
 
-    this.m_w0 = Math.sqrt(stiffness / mass)
-    this.m_zeta = damping / (2 * Math.sqrt(stiffness * mass))
+    this.m_w0 = Math.sqrt(tension / mass)
+    this.m_zeta = friction / (2 * Math.sqrt(tension * mass))
 
     if (this.m_zeta < 1) {
       this.m_wd = this.m_w0 * Math.sqrt(1 - this.m_zeta * this.m_zeta)
