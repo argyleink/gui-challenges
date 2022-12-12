@@ -14,9 +14,15 @@ chars.forEach(char => {
     }
   })
 
-  char.addEventListener('mouseover', e =>
-    char.physics.to(100))
+  char.addEventListener('mouseover', e => {
+    char.physics.to(100)
+    char?.nextElementSibling?.physics.to(70)
+    char?.previousElementSibling?.physics.to(70)
+  })
 
-  char.addEventListener('mouseout', e =>
-    char.physics.to(48))
+  char.addEventListener('mouseout', e => {
+    char.physics.to(48)
+    char?.nextElementSibling?.physics.to(48)
+    char?.previousElementSibling?.physics.to(48)
+  })
 })
