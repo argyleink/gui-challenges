@@ -1,8 +1,8 @@
-import {SpringPhysics} from '../spring-physics.js'
+import {SpringPhysics} from '/spring-physics.js'
 
 const gradient = document.querySelector('.gradient')
 
-const rotationPhysics = new SpringPhysics({
+gradient.physics = new SpringPhysics({
   startAt: 200, 
   options: {
     namespace: '--hue',
@@ -14,7 +14,7 @@ const rotationPhysics = new SpringPhysics({
 })
 
 gradient.addEventListener('pointerup', e =>
-  rotationPhysics.to(200))
+  gradient.physics.to(200))
 
 gradient.addEventListener('pointerdown', e =>
-  rotationPhysics.to(250))
+  gradient.physics.to(250))

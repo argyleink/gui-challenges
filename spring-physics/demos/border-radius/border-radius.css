@@ -1,0 +1,6 @@
+.radius {
+  block-size: 25vmin;
+  aspect-ratio: 1;
+  border-radius: var(--radius, 25%);
+  background: blue;
+}

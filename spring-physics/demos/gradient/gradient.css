@@ -1,0 +1,9 @@
+.gradient {
+  block-size: 25vmin;
+  aspect-ratio: 16/9;
+  background: linear-gradient(
+    to right, 
+    hsl(var(--hue, 200) 75% 50%), 
+    hsl(calc(var(--hue, 200) + 25) 75% 54%)
+  );
+}

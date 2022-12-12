@@ -1,11 +1,11 @@
-import {SpringPhysics} from '../spring-physics.js'
+import {SpringPhysics} from '/spring-physics.js'
 
-const size = document.querySelector('.size')
+const size = document.querySelector('.width')
 
-const sizePhysics = new SpringPhysics({
+size.physics = new SpringPhysics({
   startAt: 300, 
   options: {
-    namespace: '--size',
+    namespace: '--width',
     friction: .5,
   }, 
   update: ({namespace, value}) => {
@@ -14,7 +14,7 @@ const sizePhysics = new SpringPhysics({
 })
 
 size.addEventListener('pointerup', e =>
-  sizePhysics.to(300))
+  size.physics.to(300))
 
 size.addEventListener('pointerdown', e =>
-  sizePhysics.to(450))
+  size.physics.to(450))

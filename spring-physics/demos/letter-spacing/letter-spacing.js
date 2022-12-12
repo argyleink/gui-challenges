@@ -1,8 +1,8 @@
-import {SpringPhysics} from '../spring-physics.js'
+import {SpringPhysics} from '/spring-physics.js'
 
-const title = document.querySelector('.title')
+const title = document.querySelector('.letter-spacing')
 
-const titlePhysics = new SpringPhysics({
+title.physics = new SpringPhysics({
   startAt: 3, 
   options: {
     namespace: '--fontSize',
@@ -15,7 +15,7 @@ const titlePhysics = new SpringPhysics({
 })
 
 title.addEventListener('pointerup', e =>
-  titlePhysics.to(3))
+  title.physics.to(3))
 
 title.addEventListener('pointerdown', e =>
-  titlePhysics.to(5))
+  title.physics.to(5))

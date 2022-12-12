@@ -1,0 +1,12 @@
+.dots {
+  display: grid;
+  grid: 5vmin / auto-flow 5vmin;
+  gap: 2.5vmin;
+}
+
+.dots > * {
+  aspect-ratio: 1;
+  background: indigo;
+  border-radius: 50%;
+  translate: 0 var(--y);
+}

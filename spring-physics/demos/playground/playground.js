@@ -1,4 +1,4 @@
-import {SpringPhysics} from '../spring-physics.js'
+import {SpringPhysics} from '/spring-physics.js'
 
 const track = document.querySelector('.track')
 const ball = document.querySelector('.ball')

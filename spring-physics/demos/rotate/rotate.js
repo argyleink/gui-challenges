@@ -1,8 +1,8 @@
-import {SpringPhysics} from '../spring-physics.js'
+import {SpringPhysics} from '/spring-physics.js'
 
 const rotate = document.querySelector('.rotate')
 
-const rotationPhysics = new SpringPhysics({
+rotate.physics = new SpringPhysics({
   startAt: 0, 
   options: {
     namespace: '--rotate',
@@ -13,5 +13,5 @@ const rotationPhysics = new SpringPhysics({
   }
 })
 
-rotate.addEventListener('pointerdown', e => rotationPhysics.to(.5))
-rotate.addEventListener('pointerup', e => rotationPhysics.to(0))
+rotate.addEventListener('pointerdown', e => rotate.physics.to(.5))
+rotate.addEventListener('pointerup', e => rotate.physics.to(0))

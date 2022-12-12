@@ -1,0 +1,5 @@
+.width {
+  inline-size: var(--width, 300px);
+  block-size: 150px;
+  background: rebeccapurple;
+}

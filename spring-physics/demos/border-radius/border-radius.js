@@ -1,8 +1,8 @@
-import {SpringPhysics} from '../spring-physics.js'
+import {SpringPhysics} from '/spring-physics.js'
 
 const radius = document.querySelector('.radius')
 
-const radiusPhysics = new SpringPhysics({
+radius.physics = new SpringPhysics({
   startAt: 25, 
   options: {
     namespace: '--radius',
@@ -14,7 +14,7 @@ const radiusPhysics = new SpringPhysics({
 })
 
 radius.addEventListener('pointerup', e =>
-  radiusPhysics.to(25))
+  radius.physics.to(25))
 
 radius.addEventListener('pointerdown', e =>
-  radiusPhysics.to(45))
+  radius.physics.to(45))

@@ -1,8 +1,8 @@
-import {SpringPhysics} from '../spring-physics.js'
+import {SpringPhysics} from '/spring-physics.js'
 
 const emoji = document.querySelector('.emoji')
 
-const scalePhysics = new SpringPhysics({
+emoji.physics = new SpringPhysics({
   startAt: 1,
   options: {
     namespace: '--scale',
@@ -13,7 +13,7 @@ const scalePhysics = new SpringPhysics({
 })
 
 emoji.addEventListener('pointerup', e =>
-  scalePhysics.to(1))
+  emoji.physics.to(1))
 
 emoji.addEventListener('pointerdown', e =>
-  scalePhysics.to(.75))
+  emoji.physics.to(.75))

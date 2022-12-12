@@ -1,12 +1,12 @@
-import {SpringPhysics} from '../spring-physics.js'
+import {SpringPhysics} from '/spring-physics.js'
 
-const chars = document.querySelectorAll('.boldness > span')
+const chars = document.querySelectorAll('.font-size > span')
 
 chars.forEach(char => {
   char.physics = new SpringPhysics({
     startAt: 48, 
     options: {
-      namespace: '--boldness',
+      namespace: '--fontsize',
       friction: 5,
     }, 
     update: ({namespace, value}) => {
