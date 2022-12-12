@@ -9,7 +9,6 @@ title.physics = new SpringPhysics({
     friction: .2,
   }, 
   update: ({namespace, value}) => {
-    // title.style.setProperty(namespace, value+'rem')
     title.style.setProperty('--letterspacing', (value*6)+'px')
   }
 })
