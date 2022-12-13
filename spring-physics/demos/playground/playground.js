@@ -1,7 +1,9 @@
 import {SpringPhysics} from '/spring-physics.js'
+import $ from 'blingblingjs'
 
-const track = document.querySelector('.track')
-const ball = document.querySelector('.ball')
+const [track] = $('.track')
+const [ball] = $('.ball')
+
 const distance = track.clientWidth - ball.clientWidth - 40
 const state = {pos: 0}
 
@@ -23,15 +25,15 @@ const init = () => {
 
 init()
 
-document.querySelector('fieldset').onchange = () => {
+$('fieldset').on('change', () => {
   mass_value.textContent = mass.value
   tension_value.textContent = tension.value
   friction_value.textContent = friction.value
   start_velocity_value.textContent = start_velocity.value
   init()
-}
+})
 
-track.addEventListener('click', e => {
+track.on('click keydown', e => {
   state.pos = distance === state.pos
     ? 0
     : distance

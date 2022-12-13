@@ -1,6 +1,7 @@
 import {SpringPhysics} from '/spring-physics.js'
+import $ from 'blingblingjs'
 
-const radius = document.querySelector('.radius')
+const [radius] = $('.radius')
 
 radius.physics = new SpringPhysics({
   startAt: 25, 
@@ -13,8 +14,8 @@ radius.physics = new SpringPhysics({
   }
 })
 
-radius.addEventListener('pointerup', e =>
+radius.on('pointerup keyup', e =>
   radius.physics.to(25))
 
-radius.addEventListener('pointerdown', e =>
+radius.on('pointerdown keydown', e =>
   radius.physics.to(45))

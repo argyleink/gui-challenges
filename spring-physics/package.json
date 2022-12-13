@@ -17,6 +17,7 @@
     "vite": "3.x"
   },
   "dependencies": {
+    "blingblingjs": "^2.3.0",
     "open-props": "^1.4.24"
   }
 }

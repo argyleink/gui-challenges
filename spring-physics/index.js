@@ -1,3 +1,4 @@
+import './demos/how-it-works/how-it-works.js'
 import './demos/emoji-scale/emoji-scale.js'
 import './demos/gradient/gradient.js'
 import './demos/font-size/font-size.js'

@@ -1,3 +1,4 @@
+@import "demos/how-it-works/how-it-works.css" layer(demo.example);
 @import "demos/emoji-scale/emoji-scale.css" layer(demo.example);
 @import "demos/gradient/gradient.css" layer(demo.example);
 @import "demos/letter-spacing/letter-spacing.css" layer(demo.example);
@@ -24,6 +25,14 @@
     font-family: sans-serif;
     padding-block: 5vmin;
     gap: 5vmin;
+  }
+
+  :focus-visible {
+    outline-offset: 5px;
+  }
+
+  .interactive {
+    cursor: pointer;
   }
 }
 

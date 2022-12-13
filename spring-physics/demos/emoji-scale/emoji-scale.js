@@ -1,6 +1,7 @@
 import {SpringPhysics} from '/spring-physics.js'
+import $ from 'blingblingjs'
 
-const emoji = document.querySelector('.emoji')
+const [emoji] = $('.emoji')
 
 emoji.physics = new SpringPhysics({
   startAt: 1,
@@ -12,8 +13,8 @@ emoji.physics = new SpringPhysics({
   },
 })
 
-emoji.addEventListener('pointerup', e =>
+emoji.on('pointerup keyup', e =>
   emoji.physics.to(1))
 
-emoji.addEventListener('pointerdown', e =>
+emoji.on('pointerdown keydown', e =>
   emoji.physics.to(.75))

@@ -1,6 +1,7 @@
 import {SpringPhysics} from '/spring-physics.js'
+import $ from 'blingblingjs'
 
-const list = document.querySelectorAll('.shuffle-stack > *')
+const list = $('.shuffle-stack > *')
 
 list.forEach((item, i) => {
   item.physics = new SpringPhysics({
@@ -15,13 +16,13 @@ list.forEach((item, i) => {
   })
 })
 
-document.querySelector('.shuffle-stack').onclick = e => {
-  const shuffled = shuffle(Array.from(list))
+$('.shuffle-stack').on('click keydown', e => {
+  const shuffled = shuffle(list)
   
   shuffled.forEach((item, i) => {
     item.physics.to(i * 25)
   })
-}
+})
 
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {

@@ -1,6 +1,7 @@
 import {SpringPhysics} from '/spring-physics.js'
+import $ from 'blingblingjs'
 
-const size = document.querySelector('.width')
+const [size] = $('.width')
 
 size.physics = new SpringPhysics({
   startAt: 300, 
@@ -13,8 +14,8 @@ size.physics = new SpringPhysics({
   }
 })
 
-size.addEventListener('pointerup', e =>
+size.on('pointerup keyup', e =>
   size.physics.to(300))
 
-size.addEventListener('pointerdown', e =>
+size.on('pointerdown keydown', e =>
   size.physics.to(450))

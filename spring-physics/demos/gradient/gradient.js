@@ -1,6 +1,7 @@
 import {SpringPhysics} from '/spring-physics.js'
+import $ from 'blingblingjs'
 
-const gradient = document.querySelector('.gradient')
+const [gradient] = $('.gradient')
 
 gradient.physics = new SpringPhysics({
   startAt: 200, 
@@ -13,8 +14,8 @@ gradient.physics = new SpringPhysics({
   }
 })
 
-gradient.addEventListener('pointerup', e =>
+gradient.on('pointerup keyup', e =>
   gradient.physics.to(200))
 
-gradient.addEventListener('pointerdown', e =>
+gradient.on('pointerdown keydown', e =>
   gradient.physics.to(250))

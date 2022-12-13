@@ -1,6 +1,7 @@
 import {SpringPhysics} from '/spring-physics.js'
+import $ from 'blingblingjs'
 
-const title = document.querySelector('.letter-spacing')
+const [title] = $('.letter-spacing')
 
 title.physics = new SpringPhysics({
   startAt: 3, 
@@ -13,8 +14,8 @@ title.physics = new SpringPhysics({
   }
 })
 
-title.addEventListener('pointerup', e =>
+title.on('pointerup keyup', e =>
   title.physics.to(3))
 
-title.addEventListener('pointerdown', e =>
+title.on('pointerdown keydown', e =>
   title.physics.to(5))

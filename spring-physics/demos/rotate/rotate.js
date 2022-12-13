@@ -1,6 +1,7 @@
 import {SpringPhysics} from '/spring-physics.js'
+import $ from 'blingblingjs'
 
-const rotate = document.querySelector('.rotate')
+const [rotate] = $('.rotate')
 
 rotate.physics = new SpringPhysics({
   startAt: 0, 
@@ -13,5 +14,5 @@ rotate.physics = new SpringPhysics({
   }
 })
 
-rotate.addEventListener('pointerdown', e => rotate.physics.to(.5))
-rotate.addEventListener('pointerup', e => rotate.physics.to(0))
+rotate.on('pointerdown keydown', e => rotate.physics.to(.5))
+rotate.on('pointerup keyup', e => rotate.physics.to(0))

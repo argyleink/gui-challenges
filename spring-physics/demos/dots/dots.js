@@ -1,6 +1,7 @@
 import {SpringPhysics} from '/spring-physics.js'
+import $ from 'blingblingjs'
 
-const dots = document.querySelectorAll('.dots > *')
+const dots = $('.dots > *')
 
 dots.forEach(dot => {
   dot.physics = new SpringPhysics({
@@ -14,9 +15,9 @@ dots.forEach(dot => {
     }
   })
 
-  dot.addEventListener('mouseover', e =>
+  dot.on('mouseover focus', e =>
     dot.physics.to(50))
 
-  dot.addEventListener('mouseout', e =>
+  dot.on('mouseout blur', e =>
     dot.physics.to(0))
 })
