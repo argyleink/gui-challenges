@@ -7,7 +7,7 @@
     "defaults"
   ],
   "scripts": {
-    "start": "vite",
+    "start": "vite --host",
     "dev": "vite",
     "build": "vite build --base=./",
     "serve": "vite preview"
