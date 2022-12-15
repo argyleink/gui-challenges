@@ -1,6 +1,11 @@
 .playground {
   margin-block: 25vh;
-  font-size: 2rem;
+}
+
+@media (min-width: 720px) {
+  .playground {
+    font-size: 2rem;
+  }
 }
 
 fieldset {
@@ -29,6 +34,7 @@ fieldset > div > span {
 .track {
   display: grid;
   inline-size: 80vh;
+  max-inline-size: 90vw;
   padding: 20px;
   background: hsl(0 0% 50% / 15%);
   border-radius: 1e5px;
