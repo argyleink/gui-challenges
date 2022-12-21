@@ -1,0 +1,7 @@
+.font-size {
+  display: flex;
+}
+
+.font-size > span {
+  font-size: var(--fontsize, 48px);
+}

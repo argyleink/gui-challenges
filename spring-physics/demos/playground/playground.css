@@ -1,0 +1,54 @@
+.playground {
+  margin-block: 25vh;
+}
+
+@media (min-width: 720px) {
+  .playground {
+    font-size: 2rem;
+  }
+}
+
+fieldset {
+  border: none;
+  display: grid;
+  max-inline-size: max-content;
+  margin-inline: auto;
+  margin-block-end: 20px;
+}
+
+fieldset > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1ch;
+}
+
+fieldset > div > label {
+  min-inline-size: 12ch;
+}
+
+fieldset > div > span {
+  min-inline-size: 4ch;
+}
+
+.track {
+  display: grid;
+  inline-size: 80vh;
+  max-inline-size: 90vw;
+  padding: 20px;
+  background: hsl(0 0% 50% / 15%);
+  border-radius: 1e5px;
+}
+
+.ball {
+  aspect-ratio: 1;
+  inline-size: 15vh;
+  background: deeppink;
+  border-radius: 50%;
+  transform: translateX(var(--x));
+}
+
+#mass { accent-color: hotpink }
+#friction { accent-color: cyan }
+#tension { accent-color: lime }
+#start_velocity { accent-color: violet }

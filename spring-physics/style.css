@@ -1,0 +1,50 @@
+@import "demos/how-it-works/how-it-works.css" layer(demo.example);
+@import "demos/emoji-scale/emoji-scale.css" layer(demo.example);
+@import "demos/gradient/gradient.css" layer(demo.example);
+@import "demos/letter-spacing/letter-spacing.css" layer(demo.example);
+@import "demos/font-size/font-size.css" layer(demo.example);
+@import "demos/border-radius/border-radius.css" layer(demo.example);
+@import "demos/width/width.css" layer(demo.example);
+@import "demos/rotate/rotate.css" layer(demo.example);
+@import "demos/dots/dots.css" layer(demo.example);
+@import "demos/shuffle-stack/shuffle-stack.css" layer(demo.example);
+@import "demos/playground/playground.css" layer(demo.example);
+
+@layer demo.support {
+  :root {
+    display: grid;
+    place-content: center;
+    min-block-size: 100%;
+    color-scheme: dark light;
+  }
+
+  body {
+    margin: 0;
+    display: grid;
+    place-items: center;
+    font-family: sans-serif;
+    padding-block: 5vmin;
+    gap: 5vmin;
+  }
+
+  :focus-visible {
+    outline-offset: 5px;
+  }
+
+  .interactive {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@keyframes octocat-wave{
+  0%,100% {
+    transform: rotate(0)
+  }
+  20%,60% {
+    transform: rotate(-25deg)
+  }
+  40%,80% {
+    transform: rotate(10deg)
+  }
+}

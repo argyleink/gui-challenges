@@ -1,0 +1,6 @@
+.rotate {
+  inline-size: 25vmin;
+  aspect-ratio: 1;
+  background: hotpink;
+  rotate: var(--rotate);
+}

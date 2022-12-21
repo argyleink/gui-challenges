@@ -1,0 +1,4 @@
+.letter-spacing {
+  font-size: 3rem;
+  letter-spacing: var(--letterspacing, 18px);
+}

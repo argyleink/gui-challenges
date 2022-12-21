@@ -1,0 +1,19 @@
+.shuffle-stack {
+  display: grid;
+  grid-template-rows: 25px;
+  grid-template-columns: 40ch;
+  block-size: 150px;
+}
+
+.shuffle-stack > * {
+  grid-column: 1;
+  grid-row: 1;
+  border-radius: 5px;
+}
+
+.shuffle-stack > *:nth-child(1) { background: hotpink; transform: translateY(var(--top, 0px)) }
+.shuffle-stack > *:nth-child(2) { background: indigo; transform: translateY(var(--top, 25px)) }
+.shuffle-stack > *:nth-child(3) { background: rebeccapurple; transform: translateY(var(--top, 50px)) }
+.shuffle-stack > *:nth-child(4) { background: deeppink; transform: translateY(var(--top, 75px)) }
+.shuffle-stack > *:nth-child(5) { background: blue; transform: translateY(var(--top, 100px)) }
+.shuffle-stack > *:nth-child(6) { background: lime; transform: translateY(var(--top, 125px)) }

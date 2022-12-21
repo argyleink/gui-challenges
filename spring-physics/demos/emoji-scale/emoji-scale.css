@@ -1,0 +1,5 @@
+.emoji {
+  font-size: 10vmin;
+  will-change: transform;
+  scale: var(--scale);
+}
