@@ -35,12 +35,12 @@
     "postcss-easings": "^2.0.0",
     "postcss-import": "^12.0.1",
     "postcss-import-url": "^5.1.0",
-    "postcss-loader": "^3.0.0",
+    "postcss-loader": "^7.0.2",
     "postcss-preset-env": "6.7.0",
     "rimraf": "^3.0.2",
     "rollup": "2.7.2",
     "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-postcss": "^3.1.0",
+    "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^5.3.0"
   },
   "dependencies": {}
