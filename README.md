@@ -109,5 +109,5 @@ and expand the diversity of our skills.**
   [`Article`](#)(coming soon)
 26. Spring Physics
   [`Demo`](https://gui-challenges.web.app/spring-physics/dist/) 
-  [`YouTube`](#)(coming soon)
+  [`YouTube`](https://youtu.be/eamAHF71ZN4)
   [`Article`](#)(coming soon)
