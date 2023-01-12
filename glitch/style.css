@@ -6,14 +6,17 @@
 
 @font-face {
   font-family: "Cyberpunk";
-  src: url(https://assets.codepen.io/2585/Cyberpunk-Regular.ttf) format(truetype);
+  src: 
+    url(https://assets.codepen.io/2585/Cyberpunk-Regular.svg#Cyberpunk) format('svg'),
+    url(https://assets.codepen.io/2585/Cyberpunk-Regular.ttf) format('truetype');
+  font-weight: normal; 
+  font-style: normal;
 }
 
 @layer demo.support {
   h1 {
     font-family: Cyberpunk;
     font-synthesis: none;
-    font-weight: bolder;
     font-size: 13vw;
     letter-spacing: -.3em;
     color: deeppink;
