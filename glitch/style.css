@@ -12,6 +12,7 @@
 @layer demo.support {
   h1 {
     font-family: Cyberpunk;
+    font-synthesis: none;
     font-weight: bolder;
     font-size: 13vw;
     letter-spacing: -.3em;
