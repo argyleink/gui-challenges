@@ -1,10 +1,8 @@
-@layer glitch {
-  @media (prefers-reduced-motion: no-preference) {
-    h1 {
-      animation: 
-        cyberpunk-glitch 7s step-end infinite,
-        skew-glitch 7s step-end infinite;
-    }
+@media (prefers-reduced-motion: no-preference) {
+  h1 {
+    animation: 
+      cyberpunk-glitch 7s step-end infinite,
+      skew-glitch 7s step-end infinite;
   }
 }
 
