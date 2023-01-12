@@ -28,6 +28,12 @@
     } 
   }
 
+  @media (prefers-color-scheme: dark) {
+    html {
+      --surface-1: var(--gray-11);
+    }
+  }
+
   body {
     display: grid;
     place-content: center;
