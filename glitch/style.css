@@ -1,0 +1,63 @@
+@import "https://unpkg.com/open-props" layer(design.system);
+@import "https://unpkg.com/open-props/normalize.min.css" layer(design.system);
+@import "https://unpkg.com/open-props/buttons.min.css" layer(design.system);
+
+@import "glitch.css" layer(demo);
+
+@font-face {
+  font-family: "Cyberpunk";
+  src: 
+    url(https://assets.codepen.io/2585/Cyberpunk-Regular.svg#Cyberpunk) format('svg'),
+    url(https://assets.codepen.io/2585/Cyberpunk-Regular.ttf) format('truetype');
+  font-weight: normal; 
+  font-style: normal;
+}
+
+@layer demo.support {
+  h1 {
+    font-family: Cyberpunk;
+    font-synthesis: none;
+    font-size: 13vw;
+    letter-spacing: -.3em;
+    color: deeppink;
+  }
+  
+  @media (dynamic-range: high) {
+    @supports (color: color(display-p3 0 0 0)) {
+      color: color(display-p3 1 0 1);
+    } 
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html {
+      --surface-1: var(--gray-11);
+    }
+  }
+
+  body {
+    display: grid;
+    place-content: center;
+    place-items: center;
+    gap: var(--size-5);
+  }
+  
+  pre {
+    max-inline-size: 80vw;
+    overflow-x: auto;
+    background: var(--surface-2);
+    padding: var(--size-3);
+    border-radius: var(--radius-3);
+  }
+}
+
+@keyframes octocat-wave{
+  0%,100% {
+    transform: rotate(0)
+  }
+  20%,60% {
+    transform: rotate(-25deg)
+  }
+  40%,80% {
+    transform: rotate(10deg)
+  }
+}

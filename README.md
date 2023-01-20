@@ -90,7 +90,6 @@ and expand the diversity of our skills.**
 21. Carousels
   [`Demo`](https://gui-challenges.web.app/carousel/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=CXJv6zM003M) 
-  [`Article`](#)(coming soon)
 22. Crooked Grid Illusion
   [`Demo`](https://gui-challenges.web.app/crooked-illusion/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=71jpjr7syc4) 
@@ -102,12 +101,12 @@ and expand the diversity of our skills.**
 24. Transitions
   [`Demo`](https://gui-challenges.web.app/transitions/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=jjtiIIjEsTw) 
-  [`Article`](#)(coming soon)
 25. Card Stack
   [`Demo`](https://gui-challenges.web.app/card-stack/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=m4DKhRJeYx4) 
-  [`Article`](#)(coming soon)
 26. Spring Physics
   [`Demo`](https://gui-challenges.web.app/spring-physics/dist/) 
   [`YouTube`](https://youtu.be/eamAHF71ZN4)
-  [`Article`](#)(coming soon)
+27. Glitch
+  [`Demo`](https://gui-challenges.web.app/glitch/dist/) 
+  [`YouTube`](#)(coming soon!)
