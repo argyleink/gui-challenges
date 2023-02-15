@@ -3,9 +3,12 @@
   display: flex;
   gap: var(--size-1);
 
+  /* defensive against flex/grid stretching */
+  max-inline-size: max-content;
+
   /* card surface should sit above background */
   background: var(--surface-1);
-  padding: var(--size-2);
+  padding: var(--size-1);
   border-radius: var(--radius-2);
   box-shadow: var(--shadow-2);
 
@@ -13,10 +16,10 @@
   border: none;
 
   /* animate box-shadow as it changes */
-  transition: box-shadow .3s ease;
+  transition: box-shadow .5s var(--ease-squish-3);
 
   /* change box-shadow when focus is inside */
-  &:focus-within {
+  &:is(:focus-within, :hover) {
     box-shadow: var(--shadow-4);
   }
 
@@ -31,12 +34,15 @@
   /* single cell grid, prepare for the pile */
   display: grid;
   place-items: center;
+  padding: var(--size-1);
 
   /* sets width */
-  max-inline-size: var(--size-10);
+  inline-size: var(--size-7);
 
   /* soft corner */
-  border-radius: var(--radius-2);
+  /* is considerate of being a nested radius */
+  /* https://codepen.io/BrianCross/pen/KKmgmXb */
+  border-radius: calc(var(--radius-2) * .5);
 
   @media (--motionOK) {
     transition: 
@@ -48,7 +54,7 @@
   /* has the side effect of creating an animation */
   /* because :active will be 0 offset */
   &:not(:has(:active)) {
-    outline-offset: 4px;
+    outline-offset: 2px;
   }
 
   /* if focus is showing and there's focus within */
@@ -70,7 +76,7 @@
   }
 
   /* all direct children pile into the single grid cell */
-  & > * {
+  & > :is(input, label, svg) {
     grid-area: 1/1;
     inline-size: 100%;
     block-size: 100%;
@@ -79,10 +85,10 @@
   /* and dont just grow to fit, but max the size to fit */
   /* if not the SVG icon */
   /* content is there and interactive, just not visible */
-  & > :not(svg) {
+  & > :is(input, label) {
     opacity: 0;
-    max-inline-size: 100%;
-    max-block-size: 100%;
+    overflow: hidden;
+    white-space: nowrap;
   }
 
   /* icon color to follow the text color set on the switch parent */
