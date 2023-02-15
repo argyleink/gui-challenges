@@ -1,0 +1,92 @@
+.switch-group {
+  /* inline layout with minor space between */
+  display: flex;
+  gap: var(--size-1);
+
+  /* card surface should sit above background */
+  background: var(--surface-1);
+  padding: var(--size-2);
+  border-radius: var(--radius-2);
+  box-shadow: var(--shadow-2);
+
+  /* remove fieldset border */
+  border: none;
+
+  /* animate box-shadow as it changes */
+  transition: box-shadow .3s ease;
+
+  /* change box-shadow when focus is inside */
+  &:focus-within {
+    box-shadow: var(--shadow-4);
+  }
+
+  /* legend is useful to AT's but not our visible UI */
+  & > legend {
+    visibility: hidden;
+    block-size: 0;
+  }
+}
+
+.group-switch {
+  /* single cell grid, prepare for the pile */
+  display: grid;
+  place-items: center;
+
+  /* sets width */
+  max-inline-size: var(--size-10);
+
+  /* soft corner */
+  border-radius: var(--radius-2);
+
+  @media (--motionOK) {
+    transition: 
+      outline-offset .3s ease,
+      background-color .3s ease;
+  }
+
+  /* when not pressed via keyboard */
+  /* has the side effect of creating an animation */
+  /* because :active will be 0 offset */
+  &:not(:has(:active)) {
+    outline-offset: 4px;
+  }
+
+  /* if focus is showing and there's focus within */
+  /* provide a nice outline style */
+  &:has(:focus-visible):focus-within {
+    outline: 1px solid var(--link);
+  }
+
+  /* if the radio inside is checked */
+  /* this switch is selected */
+  &:has(:checked) {
+    color: var(--link);
+  }
+
+  /* stylish hover/selected background */
+  &:has(:checked),
+  &:hover {
+    background: var(--surface-2);
+  }
+
+  /* all direct children pile into the single grid cell */
+  & > * {
+    grid-area: 1/1;
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  /* and dont just grow to fit, but max the size to fit */
+  /* if not the SVG icon */
+  /* content is there and interactive, just not visible */
+  & > :not(svg) {
+    opacity: 0;
+    max-inline-size: 100%;
+    max-block-size: 100%;
+  }
+
+  /* icon color to follow the text color set on the switch parent */
+  & > svg {
+    fill: currentColor;
+  }
+}
