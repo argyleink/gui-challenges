@@ -109,4 +109,7 @@ and expand the diversity of our skills.**
   [`YouTube`](https://youtu.be/eamAHF71ZN4)
 27. Glitch
   [`Demo`](https://gui-challenges.web.app/glitch/dist/) 
+  [`YouTube`](https://www.youtube.com/watch?v=MR7dClW6iBg)
+27. Switch Group
+  [`Demo`](https://gui-challenges.web.app/switch-group/dist/) 
   [`YouTube`](#)(coming soon!)
