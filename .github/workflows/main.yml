@@ -91,6 +91,9 @@ jobs:
 
     - name: Build Glitch
       run: cd glitch && npm install && npm run build
+
+    - name: Build Switch Group
+      run: cd switch-group && npm install && npm run build
       
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master

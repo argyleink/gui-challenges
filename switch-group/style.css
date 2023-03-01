@@ -1,0 +1,39 @@
+@import "https://unpkg.com/open-props" layer(design.system);
+@import "https://unpkg.com/open-props/normalize.min.css" layer(design.system);
+
+@import "./switch-group.css" layer(components.switch);
+@import "../tooltips/tool-tip.css" layer(components.tooltip);
+
+@layer components.tooltip {
+  tool-tip {
+    --_bg: var(--surface-1);
+    --_shadow-alpha: 15%;
+  }
+}
+
+@layer demo.support {
+  body {
+    --_surface-document: var(--surface-4);
+    display: grid;
+    place-content: center;
+    padding: var(--size-5);
+    gap: var(--size-5);
+    background: var(--_surface-document);
+
+    @media (--OSdark) {
+      --_surface-document: var(--surface-2);
+    }
+  }
+}
+
+@keyframes octocat-wave{
+  0%,100% {
+    transform: rotate(0)
+  }
+  20%,60% {
+    transform: rotate(-25deg)
+  }
+  40%,80% {
+    transform: rotate(10deg)
+  }
+}

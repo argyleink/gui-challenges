@@ -1,0 +1,98 @@
+.switch-group {
+  /* inline layout with minor space between */
+  display: flex;
+  gap: var(--size-1);
+
+  /* defensive against flex/grid stretching */
+  max-inline-size: max-content;
+
+  /* card surface should sit above background */
+  background: var(--surface-1);
+  padding: var(--size-1);
+  border-radius: var(--radius-2);
+  box-shadow: var(--shadow-2);
+
+  /* remove fieldset border */
+  border: none;
+
+  /* animate box-shadow as it changes */
+  transition: box-shadow .5s var(--ease-squish-3);
+
+  /* change box-shadow when focus is inside */
+  &:is(:focus-within, :hover) {
+    box-shadow: var(--shadow-4);
+  }
+
+  /* legend is useful to AT's but not our visible UI */
+  & > legend {
+    visibility: hidden;
+    block-size: 0;
+  }
+}
+
+.group-switch {
+  /* single cell grid, prepare for the pile */
+  display: grid;
+  place-items: center;
+  padding: var(--size-1);
+
+  /* sets width */
+  inline-size: var(--size-7);
+
+  /* soft corner */
+  /* is considerate of being a nested radius */
+  /* https://codepen.io/BrianCross/pen/KKmgmXb */
+  border-radius: calc(var(--radius-2) * .5);
+
+  @media (--motionOK) {
+    transition: 
+      outline-offset .3s ease,
+      background-color .3s ease;
+  }
+
+  /* when not pressed via keyboard */
+  /* has the side effect of creating an animation */
+  /* because :active will be 0 offset */
+  &:not(:has(:active)) {
+    outline-offset: 2px;
+  }
+
+  /* if focus is showing and there's focus within */
+  /* provide a nice outline style */
+  &:has(:focus-visible):focus-within {
+    outline: 1px solid var(--link);
+  }
+
+  /* if the radio inside is checked */
+  /* this switch is selected */
+  &:has(:checked) {
+    color: var(--link);
+  }
+
+  /* stylish hover/selected background */
+  &:has(:checked),
+  &:hover {
+    background: var(--surface-2);
+  }
+
+  /* all direct children pile into the single grid cell */
+  & > :is(input, label, svg) {
+    grid-area: 1/1;
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  /* and dont just grow to fit, but max the size to fit */
+  /* if not the SVG icon */
+  /* content is there and interactive, just not visible */
+  & > :is(input, label) {
+    opacity: 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  /* icon color to follow the text color set on the switch parent */
+  & > svg {
+    fill: currentColor;
+  }
+}
