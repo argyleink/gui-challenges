@@ -69,6 +69,10 @@
     color: var(--link);
   }
 
+  & :checked ~ svg {
+    color: var(--link);
+  }
+
   /* stylish hover/selected background */
   &:has(:checked),
   &:hover {
