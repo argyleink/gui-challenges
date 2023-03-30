@@ -16,17 +16,19 @@ body {
   place-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .cover-viewport {
-    position: fixed;
-    inset: 0;
-    overflow: clip; 
-    perspective: 50vh;
-  }
+@supports (animation-timeline: scroll(root)) {
+  @media (prefers-reduced-motion: no-preference) {
+    .cover-viewport {
+      position: fixed;
+      inset: 0;
+      overflow: clip; 
+      perspective: 50vh;
+    }
 
-  article {
-    block-size: 75%;
-    animation: 1s linear sci-fi forwards;
-    animation-timeline: scroll(root);
+    article {
+      block-size: 75%;
+      animation: 1s linear sci-fi forwards;
+      animation-timeline: scroll(root);
+    }
   }
 }
