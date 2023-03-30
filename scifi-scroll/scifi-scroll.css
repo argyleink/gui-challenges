@@ -1,0 +1,33 @@
+@keyframes sci-fi {
+  from {
+    transform: rotateX(45deg) translateY(100vh);
+  }
+  to {
+    transform: rotateX(45deg) translateY(-500vh);
+  }
+}
+
+body {
+  min-block-size: 300vh;
+}
+
+.cover-viewport {
+  display: grid;
+  place-content: center;
+}
+
+@supports (animation-timeline: scroll(root)) {
+  @media (prefers-reduced-motion: no-preference) {
+    .cover-viewport {
+      position: fixed;
+      inset: 0;
+      perspective: 50vh;
+    }
+
+    article {
+      block-size: 75%;
+      animation: 1s linear sci-fi;
+      animation-timeline: scroll(root);
+    }
+  }
+}

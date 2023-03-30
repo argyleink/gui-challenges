@@ -112,4 +112,7 @@ and expand the diversity of our skills.**
   [`YouTube`](https://www.youtube.com/watch?v=MR7dClW6iBg)
 27. Switch Group
   [`Demo`](https://gui-challenges.web.app/switch-group/dist/) 
+  [`YouTube`](https://www.youtube.com/watch?v=l7kmBCRqfLw)
+27. SciFi Scroll Text
+  [`Demo`](https://gui-challenges.web.app/scifi-scroll/dist/) 
   [`YouTube`](#)(coming soon!)
