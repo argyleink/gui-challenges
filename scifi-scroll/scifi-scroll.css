@@ -3,7 +3,7 @@
     transform: rotateX(45deg) translateY(100vh);
   }
   to {
-    transform: rotateX(45deg) translateY(-1000vh);
+    transform: rotateX(45deg) translateY(-500vh);
   }
 }
 
@@ -21,13 +21,12 @@ body {
     .cover-viewport {
       position: fixed;
       inset: 0;
-      overflow: clip; 
       perspective: 50vh;
     }
 
     article {
       block-size: 75%;
-      animation: 1s linear sci-fi forwards;
+      animation: 1s linear sci-fi;
       animation-timeline: scroll(root);
     }
   }
