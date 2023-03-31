@@ -291,6 +291,7 @@ export default class Carousel {
   #createPagination() {
     let nav = document.createElement('nav')
     nav.className = 'gui-carousel--pagination'
+    nav.setAttribute('role', 'tablist')
     this.elements.root.appendChild(nav)
     
     this.elements.pagination = nav
@@ -317,7 +318,6 @@ export default class Carousel {
     marker.setAttribute('aria-label', img?.alt || caption?.innerText)
     marker.setAttribute('aria-setsize', this.elements.snaps.length)
     marker.setAttribute('aria-posinset', index)
-    marker.setAttribute('aria-controls', `carousel-item-${index}`)
     return marker
   }
 
@@ -332,7 +332,6 @@ export default class Carousel {
     marker.setAttribute('aria-label', img.alt)
     marker.setAttribute('aria-setsize', this.elements.snaps.length)
     marker.setAttribute('aria-posinset', index)
-    marker.setAttribute('aria-controls', `carousel-item-${index}`)
     return marker
   }
 
@@ -358,7 +357,6 @@ export default class Carousel {
     control.type = 'button'
     control.title = userFacingText
     control.className = `gui-carousel--control --${btnType}`
-    control.setAttribute('aria-controls', 'gui-carousel--controls')
     control.setAttribute('aria-label', userFacingText)
 
     let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
