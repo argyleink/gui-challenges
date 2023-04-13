@@ -115,4 +115,4 @@ and expand the diversity of our skills.**
   [`YouTube`](https://www.youtube.com/watch?v=l7kmBCRqfLw)
 27. SciFi Scroll Text
   [`Demo`](https://gui-challenges.web.app/scifi-scroll/dist/) 
-  [`YouTube`](#)(coming soon!)
+  [`YouTube`](https://www.youtube.com/watch?v=JeI_TsADXQA)
