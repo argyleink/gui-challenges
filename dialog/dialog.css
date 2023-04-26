@@ -4,11 +4,10 @@ html:has(dialog[open][modal-mode="mega"]) {
 
 dialog {
   display: grid;
+  align-content: start;
   background: var(--surface-2);
   color: var(--text-1);
   max-inline-size: min(90vw, var(--size-content-3));
-  max-block-size: min(80vh, 100%);
-  max-block-size: min(80dvb, 100%);
   margin: auto;
   padding: 0;
   position: fixed;
