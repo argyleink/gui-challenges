@@ -110,9 +110,12 @@ and expand the diversity of our skills.**
 27. Glitch
   [`Demo`](https://gui-challenges.web.app/glitch/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=MR7dClW6iBg)
-27. Switch Group
+28. Switch Group
   [`Demo`](https://gui-challenges.web.app/switch-group/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=l7kmBCRqfLw)
-27. SciFi Scroll Text
+29. SciFi Scroll Text
   [`Demo`](https://gui-challenges.web.app/scifi-scroll/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=JeI_TsADXQA)
+30. okLCH Color Palettes
+  [`Demo`](https://gui-challenges.web.app/color-palettes/dist/) 
+  [`YouTube`](https://www.youtube.com/watch?v=6aCsAMgwnjE)
