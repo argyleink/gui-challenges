@@ -4,11 +4,6 @@ const postcssGlobalData = require('@csstools/postcss-global-data')
 
 module.exports = {
   plugins: [
-    postcssGlobalData({
-      files: [
-        './node_modules/open-props/media.min.css'
-      ]
-    }),
     postcssCustomMedia(),
     postcssPresetEnv({
       stage: 0,
