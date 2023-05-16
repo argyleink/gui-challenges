@@ -1,0 +1,30 @@
+html {
+  --hue: 320;
+  
+  --swatch-1: oklch(99% .05 var(--hue));
+  --swatch-2: oklch(90% .1 var(--hue));
+  --swatch-3: oklch(80% .2 var(--hue));
+  --swatch-4: oklch(72% .25 var(--hue));
+  --swatch-5: oklch(67% .31 var(--hue));
+  --swatch-6: oklch(50% .27 var(--hue));
+  --swatch-7: oklch(35% .25 var(--hue));
+  --swatch-8: oklch(25% .2 var(--hue));
+  --swatch-9: oklch(13% .2 var(--hue));
+  --swatch-10: oklch(5% .1 var(--hue));
+  
+  --text-1: var(--swatch-1);
+  --text-2: var(--swatch-2);
+  --surface-1: var(--swatch-10);
+  --surface-2: var(--swatch-9);
+  --surface-3: var(--swatch-8);
+}
+
+@media (prefers-color-scheme: light) {
+  html {
+    --text-1: var(--swatch-10);
+    --text-2: var(--swatch-9);
+    --surface-1: var(--swatch-1);
+    --surface-2: var(--swatch-2);
+    --surface-3: var(--swatch-3);
+  }
+}

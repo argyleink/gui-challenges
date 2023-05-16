@@ -97,6 +97,9 @@ jobs:
 
     - name: Build Sci-Fi Scroll
       run: cd scifi-scroll && npm install && npm run build
+
+    - name: Build okLCH Palettes
+      run: cd color-palettes && npm install && npm run build
       
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
