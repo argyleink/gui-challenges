@@ -2,7 +2,7 @@
 
 }
 
-.circle-in {
+.circle-in, .square-in {
   & > .box {
     
   }
@@ -12,7 +12,7 @@
   }
 }
 
-.circle-out {
+.circle-out, .square-out {
   & > .box {
     
   }
