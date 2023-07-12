@@ -1,0 +1,13 @@
+@import "https://unpkg.com/open-props" layer(design.system);
+@import "https://unpkg.com/open-props/normalize.min.css" layer(demo.support);
+@import "https://unpkg.com/open-props/buttons.min.css" layer(demo.support);
+
+@import "morphing-button.css" layer(demo);
+
+@layer demo.support {
+  body {
+    display: grid;
+    place-content: center;
+    padding: var(--size-5);
+  }
+}
