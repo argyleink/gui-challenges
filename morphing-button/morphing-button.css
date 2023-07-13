@@ -1,0 +1,13 @@
+@layer demo {
+  @media (prefers-reduced-motion: no-preference) {
+    button {
+      view-transition-name: buy-btn;
+    }
+    
+    ::view-transition-old(buy-btn),
+    ::view-transition-new(buy-btn) {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
