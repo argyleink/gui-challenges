@@ -1,0 +1,28 @@
+@font-face {
+  font-family: "Roboto Flex";
+  src: url('https://assets.codepen.io/2585/RobotoFlex') format('truetype');
+}
+
+body {
+  font-family: Roboto Flex;
+  
+  --base-weight: 400;
+  --base-grade: 0;
+
+  font-variation-settings: 
+    "wght" var(--base-weight), 
+    "GRAD" var(--base-grade)
+  ;
+
+  @media (prefers-contrast: more) {
+    --base-weight: 700;
+  }
+
+  @media (prefers-contrast: less) {
+    --base-weight: 200;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    --base-grade: -50;
+  }
+}

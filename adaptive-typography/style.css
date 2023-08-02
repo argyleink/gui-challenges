@@ -1,20 +1,5 @@
-@layer demo {
-  body {
-    font-weight: normal;
-  }
-  
-  @media (prefers-contrast: more) {
-    body {
-      font-weight: bold;
-    }
-  }
-  
-  @media (prefers-contrast: less) {
-    body {
-      font-weight: lighter;
-    }
-  }
-}
+/* @import "basic.css" layer(demo); */
+@import "variable.css" layer(demo);
 
 @layer demo.support {
   * {
@@ -44,6 +29,7 @@
   }
   
   p {
+    text-wrap: pretty;
     max-inline-size: 45ch;
     line-height: 1.5;
   }
