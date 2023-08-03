@@ -122,3 +122,6 @@ and expand the diversity of our skills.**
 30. Morphing Button
   [`Demo`](https://gui-challenges.web.app/morphing-button/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=N2BKAKwGP6M)
+30. Adaptive Typography
+  [`Demo`](https://gui-challenges.web.app/adaptive-typography/dist/) 
+  [`YouTube`](#)(coming soon)
