@@ -1,0 +1,36 @@
+/* @import "basic.css" layer(demo); */
+@import "variable.css" layer(demo);
+
+@layer demo.support {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  html {
+    block-size: 100%;
+    color-scheme: dark light;
+  }
+
+  body {
+    min-block-size: 100%;
+    font-family: system-ui, sans-serif;
+
+    display: grid;
+    place-content: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  h1 {
+    text-wrap: balance;
+    max-inline-size: 25ch;
+    font-weight: inherit;
+  }
+  
+  p {
+    text-wrap: pretty;
+    max-inline-size: 45ch;
+    line-height: 1.5;
+  }
+}

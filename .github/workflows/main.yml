@@ -103,6 +103,9 @@ jobs:
 
     - name: Morphing Button
       run: cd morphing-button && npm install && npm run build
+
+    - name: Adaptive Typography
+      run: cd adaptive-typography && npm install && npm run build
       
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master

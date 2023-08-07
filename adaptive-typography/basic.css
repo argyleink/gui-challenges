@@ -1,0 +1,11 @@
+body {
+  font-weight: normal;
+
+  @media (prefers-contrast: more) {
+    font-weight: bold;
+  }
+
+  @media (prefers-contrast: less) {
+    font-weight: lighter;
+  }
+}
