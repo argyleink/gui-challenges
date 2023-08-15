@@ -124,4 +124,5 @@ and expand the diversity of our skills.**
   [`YouTube`](https://www.youtube.com/watch?v=N2BKAKwGP6M)
 30. Adaptive Typography
   [`Demo`](https://gui-challenges.web.app/adaptive-typography/dist/) 
-  [`YouTube`](#)(coming soon)
+  [`YouTube`](#)(coming soon) 
+  [`Article`](https://web.dev/adapting-typography-to-user-preferences-with-css/)
