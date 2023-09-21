@@ -1,3 +1,5 @@
+@import "focus-zoom.css" layer(demo.support);
+
 @layer demo {
   .swatch {
     background: var(--_c);
