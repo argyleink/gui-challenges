@@ -162,7 +162,7 @@
   }
   
   img {
-    inline-size: clamp(20ch, 55vw, 100vw);
+    inline-size: clamp(20ch, min(55vw, 720px), 100vw);
     block-size: auto;
     border-radius: 20px;
   }
