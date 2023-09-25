@@ -1,0 +1,47 @@
+@property --top {
+  syntax: '<length>';
+  initial-value: 0;
+  inherits: false;
+}
+
+@property --right {
+  syntax: '<length>';
+  initial-value: 0;
+  inherits: false;
+}
+
+@property --bottom {
+  syntax: '<length>';
+  initial-value: 0;
+  inherits: false;
+}
+
+@property --left {
+  syntax: '<length>';
+  initial-value: 0;
+  inherits: false;
+}
+
+focus-zoom {
+  --backdrop-color: hsl(0 0% 0% / 30%); /* can't be opaque */
+  --backdrop-blur-strength: 10px;
+  
+  position: fixed;
+  touch-action: none;
+  pointer-events: none;
+  inset: 0;
+  background-color: var(--backdrop-color);
+  backdrop-filter: blur(var(--backdrop-blur-strength));
+  
+  mask-image: 
+    linear-gradient(to bottom, black var(--top), black 0%, transparent 0%),
+    linear-gradient(to right, black var(--left), black 0%, transparent 0%),
+    linear-gradient(to top, black var(--bottom), black 0%, transparent 0%),
+    linear-gradient(to left, black var(--right), black 0%, transparent 0%);
+  
+  transition: 
+    --top .3s ease,
+    --right .3s ease,
+    --bottom .3s ease,
+    --left .3s ease;
+}

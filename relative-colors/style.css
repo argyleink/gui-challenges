@@ -1,0 +1,203 @@
+@import "focus-zoom.css" layer(demo.support);
+
+@layer demo {
+  .swatch {
+    background: var(--_c);
+  }
+}
+
+@layer scroll-animation {
+  @keyframes slide-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+  }
+  
+  body * {
+    @media (prefers-reduced-motion: no-preference) {
+      view-timeline-name: --item-timeline;
+      animation-name: slide-fade-in;
+      animation-fill-mode: both;
+      animation-timeline: --item-timeline;
+      animation-range: cover 2% cover 15%;
+    }
+  }
+}
+
+@layer demo.support {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  html {
+    --base: indigo;
+    block-size: 100%;
+    color-scheme: dark;
+  }
+
+  body {
+    min-block-size: 100%;
+    font-family: system-ui, sans-serif;
+
+    display: grid;
+    gap: 10vh;
+    padding: 5vh;
+  }
+  
+  header {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 5vh;
+    
+    @media (width >= 1180px) {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+    
+    & > section {
+      display: flex;
+      flex-flow: column;
+      gap: 1ch;
+      
+      & > menu {
+        flex: 1;
+      }
+    }
+  }
+  
+  fieldset {
+    display: flex;
+    align-items: center;
+    gap: 2ch;
+  }
+  
+  article {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(55ch, 1fr));
+    gap: 2ch;
+  }
+  
+  details p {
+    margin-block: 1ch;
+
+    &:first-of-type {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+
+    &:not(:first-of-type) {
+      line-height: 3ex;
+    }
+
+    &:last-child {
+      padding-block-end: 5ch;
+    }
+  }
+  
+  details > *:not(summary) {
+    margin-inline-start: 13px
+  }
+  
+  details {
+    inline-size: max-content;
+    text-wrap: balance;
+  }
+  
+  p {
+    inline-size: min(40ch, 100vw);
+  }
+  
+  small {
+    inline-size: min(40ch, 100vw);
+  }
+  
+  code {
+    display: inline-flex;
+    align-items: center;
+    gap: .75ch;
+    margin-block-start: 1px; /* more optically center */
+  }
+  
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 1ch;
+    border: 1px solid var(--_c);
+    padding: 1ch 1.5ch;
+  }
+  
+  summary {
+    cursor: pointer;
+    
+    & > .chip {
+      position: relative;
+      top: .5ex;
+    }
+  }
+  
+  .swatch {
+    display: inline-block;
+    aspect-ratio: 1;
+    inline-size: 2ch;
+  }
+  
+  code > .swatch {
+    border-radius: 50%;
+    margin-inline-start: .5ch;
+  }
+  
+  menu {
+    display: flex;
+    align-items: end;
+    gap: 1ch;
+    padding: 0;
+    
+    & > li {
+      display: inline-flex;
+    }
+  }
+  
+  a[href="#"] {
+    text-decoration: none;
+  }
+  
+  img {
+    inline-size: clamp(20ch, min(55vw, 720px), 100vw);
+    block-size: auto;
+    border-radius: 20px;
+  }
+}
+
+.github-corner {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  
+  &:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+  }
+
+  & > svg {
+    fill: inherit;
+    stroke: inherit;
+    position: absolute; 
+    top: 0; 
+    right: 0;
+  }
+}
+
+@keyframes octocat-wave{
+  0%,100% {
+    transform: rotate(0)
+  }
+  20%,60% {
+    transform: rotate(-25deg)
+  }
+  40%,80% {
+    transform: rotate(10deg)
+  }
+}
