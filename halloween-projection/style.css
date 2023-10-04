@@ -7,29 +7,39 @@
   }
   
   .skull-teeth {
-    animation: flash 5s ease 20ms infinite;
+    @media (prefers-reduced-motion: no-preference) {
+      animation: flash 5s ease 20ms infinite;
+    }
   }
   
   .skull-scream {
     --_rotation: 25deg;
     place-self: start;
-    animation: 
-      across-the-screen 5s var(--ease-in-out-5) infinite,
-      cross-fade 5s var(--ease-in-out-5) infinite
-    ;
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: 
+        across-the-screen 5s var(--ease-in-out-5) infinite,
+        cross-fade 5s var(--ease-in-out-5) infinite
+      ;
+    }
   }
   
   .skull-sad {
     --_rotation: -10deg;
     place-self: start end;
-    animation: 
-      across-the-screen 7s var(--ease-in-out-5) -6.5s infinite reverse,
-      cross-fade 7s var(--ease-in-out-5) -6.5s infinite
-    ;
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: 
+        across-the-screen 7s var(--ease-in-out-5) -6.5s infinite reverse,
+        cross-fade 7s var(--ease-in-out-5) -6.5s infinite
+      ;
+    }
   }
   
   .skull-stare {
-    animation: flash 5s ease infinite;
+    @media (prefers-reduced-motion: no-preference) {
+      animation: flash 5s ease infinite;
+    }
   }
 }
 
@@ -75,6 +85,7 @@
 
   body {
     min-block-size: 100%;
+    overflow: hidden;
     font-family: system-ui, sans-serif;
 
     display: grid;
