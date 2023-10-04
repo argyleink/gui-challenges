@@ -1,0 +1,119 @@
+@import "https://unpkg.com/open-props/easings.min.css";
+
+@layer demo {
+  svg {
+    min-inline-size: 50vmin;
+    fill: #0f0a;
+  }
+  
+  .skull-teeth {
+    animation: flash 5s ease 20ms infinite;
+  }
+  
+  .skull-scream {
+    --_rotation: 25deg;
+    place-self: start;
+    animation: 
+      across-the-screen 5s var(--ease-in-out-5) infinite,
+      cross-fade 5s var(--ease-in-out-5) infinite
+    ;
+  }
+  
+  .skull-sad {
+    --_rotation: -10deg;
+    place-self: start end;
+    animation: 
+      across-the-screen 7s var(--ease-in-out-5) -6.5s infinite reverse,
+      cross-fade 7s var(--ease-in-out-5) -6.5s infinite
+    ;
+  }
+  
+  .skull-stare {
+    animation: flash 5s ease infinite;
+  }
+}
+
+@keyframes across-the-screen {
+  from {
+    transform: rotate(var(--_rotation)) translateX(-110vw);
+  }
+  to {
+    transform: rotate(var(--_rotation)) translateX(110vw);
+  }
+}
+
+@keyframes cross-fade {
+  10%, 90% { opacity: 0 } 
+  20%, 30% { opacity: 1 }
+}
+
+@keyframes flash {
+  0% { opacity: 0 }
+  2% { opacity: 1 }
+  3% { opacity: 0 }
+  5% { opacity: 0 }
+  7% { opacity: 1 }
+  8% { opacity: 0 }
+  37% { opacity: 0 }
+  39% { opacity: 1 }
+  41% { opacity: 0 }
+  65% { opacity: 0 }
+  67% { opacity: 1 }
+  68% { opacity: 0 }
+}
+
+@layer demo.support {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  html {
+    block-size: 100%;
+    color-scheme: dark;
+  }
+
+  body {
+    min-block-size: 100%;
+    font-family: system-ui, sans-serif;
+
+    display: grid;
+    place-items: center;
+    
+    & > * {
+      grid-area: 1 / 1;
+    }
+  }
+}
+
+.github-corner {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  
+  &:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+  }
+
+  & > svg {
+    fill: inherit;
+    stroke: inherit;
+    position: absolute; 
+    top: 0; 
+    right: 0;
+  }
+}
+
+@keyframes octocat-wave{
+  0%,100% {
+    transform: rotate(0)
+  }
+  20%,60% {
+    transform: rotate(-25deg)
+  }
+  40%,80% {
+    transform: rotate(10deg)
+  }
+}
