@@ -1,0 +1,40 @@
+svg {
+  min-inline-size: 50vmin;
+  fill: #0f0a;
+}
+
+.skull-teeth {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: flash 5s ease 20ms infinite;
+  }
+}
+
+.skull-scream {
+  --_rotation: 25deg;
+  place-self: start;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: 
+      across-the-screen 5s var(--ease-in-out-5) infinite,
+      cross-fade 5s var(--ease-in-out-5) infinite
+    ;
+  }
+}
+
+.skull-sad {
+  --_rotation: -10deg;
+  place-self: start end;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: 
+      across-the-screen 7s var(--ease-in-out-5) -6.5s infinite reverse,
+      cross-fade 7s var(--ease-in-out-5) -6.5s infinite
+    ;
+  }
+}
+
+.skull-stare {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: flash 5s ease infinite;
+  }
+}
