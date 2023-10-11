@@ -125,7 +125,7 @@ and expand the diversity of our skills.**
 32. Adaptive Typography
   [`Demo`](https://gui-challenges.web.app/adaptive-typography/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=8B7xOgp5Aow) 
-  [`Article`](https://web.dev/adapting-typography-to-user-preferences-with-css/)
+  [`Article`](https://web.dev/articles/adapting-typography-to-user-preferences-with-css)
 33. Relative Colors
   [`Demo`](https://gui-challenges.web.app/relative-colors/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=1z_ViBjdnSw)
