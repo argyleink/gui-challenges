@@ -128,4 +128,5 @@ and expand the diversity of our skills.**
   [`Article`](https://web.dev/adapting-typography-to-user-preferences-with-css/)
 33. Relative Colors
   [`Demo`](https://gui-challenges.web.app/relative-colors/dist/) 
-  [`YouTube`]([#](https://www.youtube.com/watch?v=1z_ViBjdnSw)https://www.youtube.com/watch?v=1z_ViBjdnSw)
+  [`YouTube`](https://www.youtube.com/watch?v=1z_ViBjdnSw)
+  [`Article`](https://developer.chrome.com/blog/css-relative-color-syntax/)
