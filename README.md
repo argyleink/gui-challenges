@@ -130,3 +130,6 @@ and expand the diversity of our skills.**
   [`Demo`](https://gui-challenges.web.app/relative-colors/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=1z_ViBjdnSw)
   [`Article`](https://developer.chrome.com/blog/css-relative-color-syntax/)
+34. Halloween Projection
+  [`Demo`](https://gui-challenges.web.app/halloween-projection/dist/) 
+  [`YouTube`](https://www.youtube.com/watch?v=3OlHDnPvKKg)
