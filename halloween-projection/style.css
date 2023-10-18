@@ -1,0 +1,60 @@
+@import "https://unpkg.com/open-props/easings.min.css";
+@import "animations.css";
+@import "halloween-projection.css" layer(demo);
+
+@layer demo.support {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  html {
+    block-size: 100%;
+    color-scheme: dark;
+  }
+
+  body {
+    min-block-size: 100%;
+    overflow: hidden;
+    font-family: system-ui, sans-serif;
+
+    display: grid;
+    place-items: center;
+    
+    & > * {
+      grid-area: 1 / 1;
+    }
+  }
+}
+
+.github-corner {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  
+  &:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+  }
+
+  & > svg {
+    fill: inherit;
+    stroke: inherit;
+    position: absolute; 
+    top: 0; 
+    right: 0;
+  }
+}
+
+@keyframes octocat-wave{
+  0%,100% {
+    transform: rotate(0)
+  }
+  20%,60% {
+    transform: rotate(-25deg)
+  }
+  40%,80% {
+    transform: rotate(10deg)
+  }
+}
