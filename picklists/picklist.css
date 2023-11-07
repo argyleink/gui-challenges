@@ -2,7 +2,7 @@
   padding: 0;
   border: none;
   display: grid;
-  align-items: start;
+  align-items: flex-start;
   gap: 1px;
   max-inline-size: var(--size-content-2);
   
@@ -23,6 +23,7 @@
     background: white;
     padding: var(--space);
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
     accent-color: var(--link);
     
     .dark & {

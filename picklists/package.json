@@ -13,13 +13,12 @@
     "serve": "vite preview"
   },
   "devDependencies": {
-    "postcss-preset-env": "^7.8.3",
-    "vite": "4.x"
+    "postcss-preset-env": "^9.3.0",
+    "vite": "4.5.0"
   },
   "dependencies": {
-    "@csstools/postcss-global-data": "^1.0.2",
     "open-props": "^1.6.10",
-    "postcss": "^8.4.21",
-    "postcss-custom-media": "^9.1.2"
+    "postcss": "^8.4.31",
+    "postcss-custom-media": "^10.0.2"
   }
 }

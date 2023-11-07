@@ -3,7 +3,7 @@
   border: none;
   display: flex;
   flex-wrap: wrap;
-  align-items: start;
+  align-items: flex-start;
   gap: var(--size-2);
   max-inline-size: var(--size-content-2);
   
@@ -21,6 +21,7 @@
     background: white;
     border-radius: var(--radius-2);
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
     
     .dark & {
       background: var(--surface-2);

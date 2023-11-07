@@ -19,6 +19,11 @@
       place-content: center;
     }
   } 
+
+  input[type="radio"], input[type="checkbox"] {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+  }
   
   .dark, .light {
     color: var(--text-1);
@@ -37,11 +42,6 @@
 }
 
 .github-corner {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 80px;
-  height: 80px;
   
   &:hover .octo-arm {
     animation: octocat-wave 560ms ease-in-out

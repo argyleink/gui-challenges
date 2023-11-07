@@ -1,6 +1,5 @@
 const postcssPresetEnv  = require('postcss-preset-env')
 const postcssCustomMedia = require('postcss-custom-media')
-const postcssGlobalData = require('@csstools/postcss-global-data')
 
 module.exports = {
   plugins: [
