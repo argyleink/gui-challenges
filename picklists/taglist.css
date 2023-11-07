@@ -1,0 +1,55 @@
+.taglist {
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  gap: var(--size-2);
+  max-inline-size: var(--size-content-2);
+  
+  > legend {
+    height:0;
+    width:0;
+    overflow:clip;
+  }
+  
+  > label {
+    display: grid;
+    align-items: center;
+    grid-auto-flow: column;
+    grid-template-columns: auto 1fr;
+    background: white;
+    border-radius: var(--radius-2);
+    cursor: pointer;
+    
+    .dark & {
+      background: var(--surface-2);
+    }
+    
+    &:not(:has(:checked)):is(:focus-within, :hover) p {
+      color: var(--link);
+    }
+    
+    &:has(:checked) {
+      background-color: var(--link);
+      color: var(--surface-1);
+    }
+    
+    > * {
+      grid-area: 1/1;
+    }
+    
+    > input {
+      appearance: none;
+      background: none;
+      border: none;
+      inline-size: 100%;
+      block-size: 100%;
+    }
+    
+    > p {
+      padding-inline: var(--size-3);
+      padding-block: var(--size-1);
+    }
+  }
+}

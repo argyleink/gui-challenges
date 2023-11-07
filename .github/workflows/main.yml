@@ -112,6 +112,9 @@ jobs:
 
     - name: Halloween Projection
       run: cd halloween-projection && npm install && npm run build
+
+    - name: Picklists
+      run: cd picklists && npm install && npm run build
       
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
