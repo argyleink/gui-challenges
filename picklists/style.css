@@ -11,12 +11,13 @@
     display: grid;
     
     @media (width > 720px) {
-      grid: 1fr / 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
     }
     
     & > * {
       display: grid;
       place-content: center;
+      padding-block: var(--size-10) var(--size-10);
     }
   } 
 
@@ -29,7 +30,6 @@
     color: var(--text-1);
     gap: var(--size-10);
     padding-inline: var(--size-3);
-    padding-block: var(--size-10);
   }
 
   .dark {
@@ -42,6 +42,10 @@
 }
 
 .github-corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  inline-size: var(--size-10);
   
   &:hover .octo-arm {
     animation: octocat-wave 560ms ease-in-out
