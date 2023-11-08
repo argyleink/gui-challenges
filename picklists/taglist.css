@@ -6,38 +6,29 @@
   align-items: flex-start;
   gap: var(--size-2);
   max-inline-size: var(--size-content-2);
-  
-  > legend {
-    height:0;
-    width:0;
-    overflow:clip;
+
+  & > legend {
+    margin-block-end: var(--size-2);
   }
   
-  > label {
+  > .tag-toggle {
     display: grid;
-    align-items: center;
-    grid-auto-flow: column;
-    grid-template-columns: auto 1fr;
-    background: white;
-    border-radius: var(--radius-2);
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-    
-    .dark & {
-      background: var(--surface-2);
-    }
-    
-    &:not(:has(:checked)):is(:focus-within, :hover) p {
-      color: var(--link);
-    }
-    
-    &:has(:checked) {
-      background-color: var(--link);
-      color: var(--surface-1);
-    }
+    box-shadow: var(--shadow-1);
     
     > * {
       grid-area: 1/1;
+    }
+    
+    > label {
+      padding-inline: var(--size-3);
+      padding-block: var(--size-1);
+      background: white;
+      border-radius: var(--radius-2);
+      cursor: pointer;
+    
+      .dark & {
+        background: var(--surface-2);
+      }
     }
     
     > input {
@@ -46,11 +37,15 @@
       border: none;
       inline-size: 100%;
       block-size: 100%;
-    }
     
-    > p {
-      padding-inline: var(--size-3);
-      padding-block: var(--size-1);
+      &:checked ~ label {
+        background-color: var(--link);
+        color: var(--surface-1);
+      }
+    
+      &:not(:checked):is(:focus-within, :hover) ~ label {
+        color: var(--link);
+      }
     }
   }
 }

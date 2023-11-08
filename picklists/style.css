@@ -9,6 +9,10 @@
 @layer demo.support {
   body {
     display: grid;
+  }
+
+  form {
+    display: grid;
     
     @media (width > 720px) {
       grid-template-columns: 1fr 1fr;
@@ -19,7 +23,7 @@
       place-content: center;
       padding-block: var(--size-10) var(--size-10);
     }
-  } 
+  }
 
   input[type="radio"], input[type="checkbox"] {
     inline-size: 1.25rem;
@@ -30,6 +34,7 @@
     color: var(--text-1);
     gap: var(--size-10);
     padding-inline: var(--size-3);
+    padding-inline: max(var(--size-3), env(safe-area-inset-left));
   }
 
   .dark {
@@ -42,6 +47,7 @@
 }
 
 .github-corner {
+  display: none;
   position: absolute;
   top: 0;
   right: 0;

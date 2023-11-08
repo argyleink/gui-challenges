@@ -30,7 +30,7 @@
       background: var(--surface-2);
     }
     
-    &:is(:focus-within, :hover) .checklist-title {
+    &:is(:focus-within, :hover) .rich-label--title {
       color: var(--link);
     }
     
@@ -48,15 +48,16 @@
       margin-inline: calc(var(--space) * 1.5);
     }
     
-    > div {
+    > .rich-label {
+      display: grid;
       padding-inline-end: calc(var(--space) * 2);
       
-      > .checklist-title {
+      > .rich-label--title {
         font-weight: var(--font-weight-6);
+        font-size: var(--font-size-2);
       }
       
-      > p:not(.checklist-title) {
-        font-size: var(--font-size-1);
+      > .rich-label--desc {
         color: var(--text-2);
       }
     }
