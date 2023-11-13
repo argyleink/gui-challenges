@@ -1,0 +1,51 @@
+.taglist {
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--size-2);
+  max-inline-size: var(--size-content-2);
+
+  & > legend {
+    margin-block-end: var(--size-2);
+  }
+  
+  > .tag-toggle {
+    display: grid;
+    box-shadow: var(--shadow-1);
+    
+    > * {
+      grid-area: 1/1;
+    }
+    
+    > label {
+      padding-inline: var(--size-3);
+      padding-block: var(--size-1);
+      background: white;
+      border-radius: var(--radius-2);
+      cursor: pointer;
+    
+      .dark & {
+        background: var(--surface-2);
+      }
+    }
+    
+    > input {
+      appearance: none;
+      background: none;
+      border: none;
+      inline-size: 100%;
+      block-size: 100%;
+    
+      &:checked ~ label {
+        background-color: var(--link);
+        color: var(--surface-1);
+      }
+    
+      &:not(:checked):is(:focus-within, :hover) ~ label {
+        color: var(--link);
+      }
+    }
+  }
+}

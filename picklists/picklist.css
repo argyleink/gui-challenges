@@ -1,0 +1,65 @@
+.picklist {
+  padding: 0;
+  border: none;
+  display: grid;
+  align-items: flex-start;
+  gap: 1px;
+  max-inline-size: var(--size-content-2);
+  
+  > legend {
+    height:0;
+    width:0;
+    overflow:clip;
+  }
+  
+  > label {
+    --space: var(--size-3);
+    
+    display: grid;
+    align-items: center;
+    gap: var(--space);
+    grid-auto-flow: column;
+    grid-template-columns: auto 1fr;
+    background: white;
+    padding: var(--space);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    accent-color: var(--link);
+    
+    .dark & {
+      background: var(--surface-2);
+    }
+    
+    &:is(:focus-within, :hover) .rich-label--title {
+      color: var(--link);
+    }
+    
+    &:first-of-type {
+      border-start-start-radius: var(--radius-3);
+      border-start-end-radius: var(--radius-3);
+    }
+    
+    &:last-of-type {
+      border-end-start-radius: var(--radius-3);
+      border-end-end-radius: var(--radius-3);
+    }
+    
+    > input {
+      margin-inline: calc(var(--space) * 1.5);
+    }
+    
+    > .rich-label {
+      display: grid;
+      padding-inline-end: calc(var(--space) * 2);
+      
+      > .rich-label--title {
+        font-weight: var(--font-weight-6);
+        font-size: var(--font-size-2);
+      }
+      
+      > .rich-label--desc {
+        color: var(--text-2);
+      }
+    }
+  }
+}

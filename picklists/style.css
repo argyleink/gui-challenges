@@ -1,0 +1,78 @@
+@import "open-props/style" layer(design.system);
+@import "open-props/normalize" layer(demo.support);
+@import "open-props/switch/light" layer(demo.theme);
+@import "open-props/switch/dark" layer(demo.theme);
+
+@import "picklist.css" layer(demo.component);
+@import "taglist.css" layer(demo.component);
+
+@layer demo.support {
+  body {
+    display: grid;
+  }
+
+  form {
+    display: grid;
+    
+    @media (width > 720px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    & > * {
+      display: grid;
+      place-content: center;
+      padding-block: var(--size-10) var(--size-10);
+    }
+  }
+
+  input[type="radio"], input[type="checkbox"] {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+  }
+  
+  .dark, .light {
+    color: var(--text-1);
+    gap: var(--size-10);
+    padding-inline: var(--size-3);
+    padding-inline: max(var(--size-3), env(safe-area-inset-left));
+  }
+
+  .dark {
+    background: var(--surface-1);
+  }
+
+  .light {
+    background: var(--surface-3);
+  }
+}
+
+.github-corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  inline-size: var(--size-10);
+  
+  &:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+  }
+
+  & > svg {
+    fill: inherit;
+    stroke: inherit;
+    position: absolute; 
+    top: 0; 
+    right: 0;
+  }
+}
+
+@keyframes octocat-wave{
+  0%,100% {
+    transform: rotate(0)
+  }
+  20%,60% {
+    transform: rotate(-25deg)
+  }
+  40%,80% {
+    transform: rotate(10deg)
+  }
+}

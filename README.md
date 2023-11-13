@@ -133,3 +133,6 @@ and expand the diversity of our skills.**
 34. Halloween Projection
   [`Demo`](https://gui-challenges.web.app/halloween-projection/dist/) 
   [`YouTube`](https://www.youtube.com/watch?v=3OlHDnPvKKg)
+34. Picklists
+  [`Demo`](https://gui-challenges.web.app/picklists/dist/) 
+  [`YouTube`](#)(coming soon!)
