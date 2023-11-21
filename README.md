@@ -135,4 +135,4 @@ and expand the diversity of our skills.**
   [`YouTube`](https://www.youtube.com/watch?v=3OlHDnPvKKg)
 34. Picklists
   [`Demo`](https://gui-challenges.web.app/picklists/dist/) 
-  [`YouTube`](#)(coming soon!)
+  [`YouTube`](https://www.youtube.com/watch?v=d2O-8n-UnrI)
