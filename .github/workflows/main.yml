@@ -115,6 +115,9 @@ jobs:
 
     - name: Picklists
       run: cd picklists && npm install && npm run build
+
+    - name: Compare
+      run: cd compare && npm install && npm run build
       
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
