@@ -9,33 +9,34 @@
     display: grid;
     place-content: center;
   }
-}
 
-.before {
-  mask: linear-gradient(to right, #000 0, var(--pos, 50%), #0000 0);
-}
+  .before {
+    mask: linear-gradient(to right, #000 0, var(--pos, 50%), #0000 0);
+  }
 
-.after {
-  mask: linear-gradient(to right, #0000 0, var(--pos, 50%), #000 0);
-}
+  .after {
+    mask: linear-gradient(to right, #0000 0, var(--pos, 50%), #000 0);
+  }
 
-input[type="range"] {
-  z-index: 1;
-  appearance: none;
-  background: transparent;
-  cursor: pointer;
-  
-  &::-webkit-slider-thumb {
+  input[type="range"] {
+    z-index: 1;
     appearance: none;
-    width: 4px;
-    height: 100dvh;
-    background-color: CanvasText;
-  } 
-  
-  &::-moz-range-thumb {
-    appearance: none;
-    width: 4px;
-    height: 100dvh;
-    background-color: CanvasText;
+    background: transparent;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    
+    &::-webkit-slider-thumb {
+      appearance: none;
+      inline-size: 4px;
+      block-size: 100dvb;
+      background-color: CanvasText;
+    } 
+    
+    &::-moz-range-thumb {
+      appearance: none;
+      inline-size: 4px;
+      block-size: 100dvb;
+      background-color: CanvasText;
+    }
   }
 }
