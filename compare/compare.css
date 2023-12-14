@@ -1,0 +1,42 @@
+.compare {
+  display: grid;
+  
+  > * {
+    grid-area: 1 / 1;
+  }
+  
+  > section {
+    display: grid;
+    place-content: center;
+  }
+
+  .before {
+    mask: linear-gradient(to right, #000 0, var(--pos, 50%), #0000 0);
+  }
+
+  .after {
+    mask: linear-gradient(to right, #0000 0, var(--pos, 50%), #000 0);
+  }
+
+  input[type="range"] {
+    z-index: 1;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    
+    &::-webkit-slider-thumb {
+      appearance: none;
+      inline-size: 4px;
+      block-size: 100dvb;
+      background-color: CanvasText;
+    } 
+    
+    &::-moz-range-thumb {
+      appearance: none;
+      inline-size: 4px;
+      block-size: 100dvb;
+      background-color: CanvasText;
+    }
+  }
+}
