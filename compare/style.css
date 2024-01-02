@@ -27,10 +27,11 @@
   position: absolute;
   top: 0;
   right: 0;
-  inline-size: var(--size-10);
+  inline-size: 4px;
+  z-index: 1;
   
   &:hover .octo-arm {
-    animation: octocat-wave 560ms ease-in-out
+    animation: octocat-wave 560ms ease-in-out;
   }
 
   & > svg {
