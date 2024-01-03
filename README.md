@@ -138,4 +138,4 @@ and expand the diversity of our skills.**
   [`YouTube`](https://www.youtube.com/watch?v=d2O-8n-UnrI)
 35. Compare
   [`Demo`](https://gui-challenges.web.app/compare/dist/) 
-  [`YouTube`](#)(coming soon!)
+  [`YouTube`]([#](https://www.youtube.com/watch?v=hCbSRNE4WUI)
