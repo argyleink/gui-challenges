@@ -1,2 +1,8 @@
-range.oninput = () =>
-  document.body.style.setProperty('--pos', range.value + '%')
+const compares = document.querySelectorAll(".compare");
+for (const compare of compares) {
+  compare
+    .querySelector('input[type="range"]')
+    .addEventListener("input", function () {
+      compare.style.setProperty("--pos", this.value + "%");
+    });
+}
