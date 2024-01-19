@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "postcss-preset-env": "7.0.0",
-    "vite": "2.x  || >2.0.0-alpha"
+    "vite": "2.x"
   },
   "dependencies": {
     "blingblingjs": "^2.1.1"
