@@ -34,9 +34,9 @@
     & > .moon > circle {
       transform: translateX(-7px);
 
-      @supports (cx: 1) {
+      @supports (cx: 1px) {
         transform: translateX(0);
-        cx: 17;
+        cx: 17px;
       }
     }
   }
@@ -56,7 +56,7 @@
     & .moon > circle {
       transition: transform .25s var(--ease-out-5);
 
-      @supports (cx: 1) {
+      @supports (cx: 1px) {
         transition: cx .25s var(--ease-out-5);
       }
     }
