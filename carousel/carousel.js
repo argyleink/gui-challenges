@@ -210,10 +210,14 @@ export default class Carousel {
       const itemIndex = this.elements.root.getAttribute('carousel-start')
       const startElement = this.elements.snaps[itemIndex - 1]
 
-      this.elements.scroller.scrollTo({
-        left: startElement.offsetLeft,
-        behavior: "instant"
-      });
+      requestAnimationFrame(() => {
+        const scrollPos = startElement.offsetLeft
+
+        this.elements.scroller.scrollTo({
+          left: scrollPos,
+          behavior: 'instant',
+        })
+      })
     }
   }
 
