@@ -193,7 +193,7 @@ export default class Carousel {
     // each snap needs some a11y love
     this.elements.snaps.forEach((snapChild, index) => {
       this.hasIntersected.add({
-        isIntersecting: index === 0,
+        isIntersecting: index === startIndex,
         target: snapChild,
       })
       
@@ -210,17 +210,10 @@ export default class Carousel {
       const itemIndex = this.elements.root.getAttribute('carousel-start')
       const startElement = this.elements.snaps[itemIndex - 1]
 
-      this.elements.snaps.forEach(snap =>
-        snap.style.scrollSnapAlign = 'unset')
-
-      startElement.style.scrollSnapAlign = null
-      startElement.style.animation = 'carousel-scrollstart 1ms'
-
-      startElement.addEventListener('animationend', e => {
-        startElement.style.animation = null
-        this.elements.snaps.forEach(snap =>
-          snap.style.scrollSnapAlign = null)
-      }, {once: true})
+      this.elements.scroller.scrollTo({
+        left: startElement.offsetLeft,
+        behavior: "instant"
+      });
     }
   }
 
