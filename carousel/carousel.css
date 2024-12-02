@@ -18,11 +18,11 @@ NICE TO HAVE:
   --_carousel-gutters: max(4rem, calc((100% - var(--_carousel-item-size)) / 2));
   --_carousel-scrollbar-gutter: var(--size-6);
   --_carousel-pagination-size: var(--size-8);
-  
+
   display: grid;
   grid-template-columns: [carousel-gutter] var(--_carousel-gutters) 1fr [carousel-gutter] var(--_carousel-gutters);
-  grid-template-rows: 
-    [carousel-scroller] 1fr 
+  grid-template-rows:
+    [carousel-scroller] 1fr
     [carousel-pagination] var(--_carousel-pagination-size);
 
   &:focus-visible {
@@ -78,13 +78,13 @@ NICE TO HAVE:
 :where(.gui-carousel--scroller) {
   grid-row: 1;
   grid-column: 1/-1;
-  
+
   display: grid;
   grid-auto-columns: 100%;
   grid-auto-flow: column;
   align-items: center;
   gap: var(--_carousel-gutters);
-  
+
   padding-block: var(--size-2) var(--_carousel-scrollbar-gutter);
   overflow-x: auto;
   overscroll-behavior-x: contain;
@@ -201,7 +201,7 @@ NICE TO HAVE:
 :where(.gui-carousel--pagination) {
   grid-column: 1/-1;
   place-self: center;
-  
+
   display: grid;
   grid-auto-flow: column;
   gap: var(--size-2);
@@ -253,9 +253,4 @@ NICE TO HAVE:
 @keyframes gui-carousel--control-keypress {
   0%  { outline-offset: 5px }
   50% { outline-offset: 0; }
-}
-
-@keyframes carousel-scrollstart {
-  from { scroll-snap-align: center }
-  to   { scroll-snap-align: unset }
 }
