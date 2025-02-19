@@ -98,9 +98,7 @@ export default class Carousel {
     const delta = Math.abs(scrollport.offsetLeft - element.offsetLeft)
     const scrollerPadding = parseInt(getComputedStyle(scrollport)['padding-left'])
 
-    const pos = scrollport.clientWidth / 2 > delta
-      ? delta - scrollerPadding
-      : delta + scrollerPadding
+    const pos = delta - scrollerPadding
 
     scrollport.scrollTo(dir === 'ltr' ? pos : pos*-1, 0)
   }
