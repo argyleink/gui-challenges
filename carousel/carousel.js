@@ -224,6 +224,11 @@ export default class Carousel {
       return
 
     e.target.setAttribute('aria-selected', true)
+    // deselect any other pagination dots
+    Array.from(this.elements.pagination.children)
+      .filter(x => x !== e.target)
+      .forEach(dot => dot.setAttribute('aria-selected', false));
+    
     const item = this.elements.snaps[this.#getElementIndex(e.target)]
 
     this.goToElement({
